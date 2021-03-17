@@ -1,0 +1,572 @@
+<template>
+  <div class="post-page__content">
+     <!-- Text Editor -->
+    
+    <!-- Markdown Viewer -->
+    
+    <header class="post-page__header">
+      <textarea
+        v-if="preview == false"
+        rows="1"
+        tabindex="1"
+        placeholder="Enter Title"
+        maxlength="140"
+        v-model="tituloPost"
+        class="ember-text-area ember-auto-resize ember-view post-page__title-field"
+        style="height: 75.7422px; overflow: hidden"
+      ></textarea
+      ><!---->
+
+
+<div  class="dragSortList -draggingEnabled ember-view drag-sort-list--1"
+ v-if="imagenPost != '' && preview==false && tabSelected == 2">
+  <div  class="dragSortItem ember-view">    
+            <div class="drag-sort-list__image-wrapper">
+             
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" @click="eliminarImagen"
+               class="ember-view drag-sort-list__image-remover">
+               <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+<!----></path>
+</svg>
+<!---->              <img :src="imagenPost">
+            </div>
+          
+</div></div>
+
+
+
+      <h1 class="post-page__title" v-if="preview">{{ tituloPost }}</h1>
+      <a
+        href="/Nananonaweb"
+        v-if="preview"
+        id="ember901"
+        class="ember-view post-page__byline"
+      >
+        by <span>@{{ $store.state.username }}</span>
+      </a>
+
+      <div class="post-page__images post-page__images--1" v-if="imagenPost != '' && preview">
+              <img :src="imagenPost"  class="img-lazy img-lazy--loaded ember-view post-page__image">
+          </div>
+    </header>
+
+    <div
+      class="post-page__subheader post-page__subheader--editing"
+      v-if="preview == false"
+    >
+      <input style="display: none"
+       ref="fileInput" id="filePost"
+        type="file" @change="previewFiles"
+         enctype="multipart/form-data">
+     
+
+      <button
+        class="post-page__action post-page__action--images"
+        v-if="tabSelected == 2"
+        tabindex="2"
+        title="Add Images"
+        @click="addImagePost"
+      >
+        <div class="post-page__action-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="ember1180"
+            class="ember-view post-page__action-icon"
+          >
+            <path
+              d="M9 12c0-.552.448-1 1.001-1s.999.448.999 1-.446 1-.999 1-1.001-.448-1.001-1zm6.2 0l-1.7 2.6-1.3-1.6-3.2 4h10l-3.8-5zm5.8-7v-2h-21v15h2v-13h19zm3 2v14h-20v-14h20zm-2 2h-16v10h16v-10z"
+            >
+              <!---->
+            </path>
+          </svg>
+          <span class="post-page__action-label">Add Images</span>
+        </div>
+      </button>
+
+      <button
+        class="post-page__action post-page__action--poll"
+        tabindex="3"
+        title="Add Poll"
+      >
+        <div class="post-page__action-content">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="ember1124"
+            class="ember-view post-page__action-icon"
+          >
+            <path
+              d="M7 19h-6v-11h6v11zm8-18h-6v18h6v-18zm8 11h-6v7h6v-7zm1 9h-24v2h24v-2z"
+            >
+              <!---->
+            </path>
+          </svg>
+          <span class="post-page__action-label">Add Poll</span>
+        </div>
+      </button>
+
+      <!---->
+      <div
+        id="ember1125"
+        class="group-selector group-selector--collapsed ember-view post-page__group-selector"
+        tabindex="4"
+      >
+        <div class="group-selector__trigger">
+          <!---->
+          <div class="group-selector__label group-selector__label--empty">
+            Select Group
+          </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="ember1126"
+            class="ember-view group-selector__arrow"
+          >
+            <path
+              d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
+            >
+              <!---->
+            </path>
+          </svg>
+        </div>
+
+        <!---->
+      </div>
+
+      <!---->
+    </div>
+
+    <div class="post-page__main">
+      <div  v-if="preview && tabSelected == 1 && contentLink.length > 0"
+        class="attached-link attached-link--small-image attached-link--no-image attached-link--no-title attached-link--no-description ember-view post-page__attached-link"
+      >
+        <a
+          class="attached-link__link"
+          :href="contentLink"
+          target="_blank"
+          :title="'Link to '+contentLink"
+          rel="nofollow"
+        >
+          <!---->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="ember1080"
+            class="attached-link__icon ember-view"
+          >
+            <path
+              d="M6.188 8.719c.439-.439.926-.801 1.444-1.087 2.887-1.591 6.589-.745 8.445 2.069l-2.246 2.245c-.644-1.469-2.243-2.305-3.834-1.949-.599.134-1.168.433-1.633.898l-4.304 4.306c-1.307 1.307-1.307 3.433 0 4.74 1.307 1.307 3.433 1.307 4.74 0l1.327-1.327c1.207.479 2.501.67 3.779.575l-2.929 2.929c-2.511 2.511-6.582 2.511-9.093 0s-2.511-6.582 0-9.093l4.304-4.306zm6.836-6.836l-2.929 2.929c1.277-.096 2.572.096 3.779.574l1.326-1.326c1.307-1.307 3.433-1.307 4.74 0 1.307 1.307 1.307 3.433 0 4.74l-4.305 4.305c-1.311 1.311-3.44 1.3-4.74 0-.303-.303-.564-.68-.727-1.051l-2.246 2.245c.236.358.481.667.796.982.812.812 1.846 1.417 3.036 1.704 1.542.371 3.194.166 4.613-.617.518-.286 1.005-.648 1.444-1.087l4.304-4.305c2.512-2.511 2.512-6.582.001-9.093-2.511-2.51-6.581-2.51-9.092 0z"
+            >
+              <!---->
+            </path>
+          </svg>
+
+          <div class="attached-link__text">
+            <!---->
+            <!---->
+            <p class="attached-link__domain">
+              {{contentLink}}
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="post-page__body content ember-view" v-if="preview  && tabSelected == 2" v-html="content">
+      </div>
+
+      <div class="post-page__mode-tabs" v-if="preview == false">
+        <button
+          class="mode-tabs__tab"
+          :class="{ 'mode-tabs__tab--selected': tabSelected == 1 }"
+          tabindex="7"
+          @click="selectTab(1)"
+        >
+          <div class="mode-tabs__tab-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              id="ember1127"
+              class="ember-view mode-tabs__tab-icon"
+            >
+              <path
+                d="M6.188 8.719c.439-.439.926-.801 1.444-1.087 2.887-1.591 6.589-.745 8.445 2.069l-2.246 2.245c-.644-1.469-2.243-2.305-3.834-1.949-.599.134-1.168.433-1.633.898l-4.304 4.306c-1.307 1.307-1.307 3.433 0 4.74 1.307 1.307 3.433 1.307 4.74 0l1.327-1.327c1.207.479 2.501.67 3.779.575l-2.929 2.929c-2.511 2.511-6.582 2.511-9.093 0s-2.511-6.582 0-9.093l4.304-4.306zm6.836-6.836l-2.929 2.929c1.277-.096 2.572.096 3.779.574l1.326-1.326c1.307-1.307 3.433-1.307 4.74 0 1.307 1.307 1.307 3.433 0 4.74l-4.305 4.305c-1.311 1.311-3.44 1.3-4.74 0-.303-.303-.564-.68-.727-1.051l-2.246 2.245c.236.358.481.667.796.982.812.812 1.846 1.417 3.036 1.704 1.542.371 3.194.166 4.613-.617.518-.286 1.005-.648 1.444-1.087l4.304-4.305c2.512-2.511 2.512-6.582.001-9.093-2.511-2.51-6.581-2.51-9.092 0z"
+              >
+                <!---->
+              </path>
+            </svg>
+            <span class="mode-tabs__tab-label">Link</span>
+          </div>
+        </button>
+        <button
+          class="mode-tabs__tab"
+          :class="{ 'mode-tabs__tab--selected': tabSelected == 2 }"
+          tabindex="6"
+          @click="selectTab(2)"
+        >
+          <div class="mode-tabs__tab-content">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="ember-view mode-tabs__tab-icon"
+            >
+              <path
+                d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"
+              >
+                <!---->
+              </path>
+            </svg>
+            <span class="mode-tabs__tab-label">Text</span>
+          </div>
+        </button>
+      </div>
+       <no-ssr>
+  <no-ssr placeholder="Loading Your Editor...">
+      <vue-editor placeholder="Escriba Aquí" v-model="content"  v-if="tabSelected == 2 && preview == false"></vue-editor>
+    </no-ssr>
+</no-ssr>
+
+
+      <div
+        class="post-page__link-nudge"
+        v-if="tabSelected == 1 && preview == false"
+      >
+        <p>Share a link to discuss with other indie hackers.</p>
+      </div>
+      <textarea
+        rows="1"
+        tabindex="8"
+        placeholder="https://…"
+        v-if="tabSelected == 1 && preview == false"
+        class="ember-text-area ember-auto-resize ember-view edit-post__link-field"
+        style="height: 67.5px; overflow: hidden"
+        v-model="contentLink"
+      >
+      </textarea>
+
+      <div
+        class="post-page__inline-author edit-post__inline-author"
+        v-if="preview == false"
+      >
+        <div class="user-link ember-view">
+          <nuxt-link
+            :to="{
+              name: 'perfil-username',
+              params: { username: $store.state.username },
+            }"
+            class="user-link__link ember-view"
+          >
+            <span class="user-link__name"> {{ $store.state.username }} </span>
+
+            <!---->
+
+            <!----></nuxt-link
+          >
+          <!---->
+          <!---->
+        </div>
+      </div>
+
+      <div class="post-page__post-footer" v-if="preview">
+        <div class="post-page__inline-author">
+          <div id="ember1037" class="user-link ember-view">
+            <nuxt-link
+              :to="{
+                name: 'perfil-username',
+                params: { username: $store.state.username },
+              }"
+              class="user-link__link ember-view"
+            >
+              <span class="user-link__name"> {{ $store.state.username }} </span>
+
+              <!---->
+
+              <!----></nuxt-link
+            >
+            <!---->
+            <!---->
+          </div>
+        </div>
+
+        <!---->
+        <a
+          title="Monday, March 15th 2021 (3:35 pm)"
+          href="#"
+          id="ember1040"
+          class="loading ember-view post-page__date"
+        >
+          el <span>{{ fechaActual }}</span>
+        </a>
+      </div>
+
+      <!---->
+
+      <!---->
+
+      <!---->
+
+      <!---->
+
+      <div class="post-page__footer-actions">
+        <button
+          class="post-page__submit-button"
+          :disabled="botonDisable"
+          @click="enviarPost"
+        >
+          Submit Post
+        </button>
+
+        <button
+          class="post-page__preview-toggle"
+          @click="previewPost(true)"
+          v-if="preview == false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="ember-view post-page__button-icon"
+          >
+            <path
+              d="M15 12c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-.199.02-.393.057-.581 1.474.541 2.927-.882 2.405-2.371.174-.03.354-.048.538-.048 1.657 0 3 1.344 3 3zm-2.985-7c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 12c-2.761 0-5-2.238-5-5 0-2.761 2.239-5 5-5 2.762 0 5 2.239 5 5 0 2.762-2.238 5-5 5z"
+            >
+              <!---->
+            </path>
+          </svg>
+          Preview
+        </button>
+
+        <button
+          class="post-page__preview-toggle"
+          v-if="preview"
+          @click="previewPost(false)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="ember-view post-page__button-icon"
+          >
+            <path
+              d="M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z"
+            >
+              <!---->
+            </path>
+          </svg>
+          Edit
+        </button>
+
+        <!---->
+      </div>
+    </div>
+
+    <div class="edit-post__instructions" v-if="tabSelected == 2">
+      <a href="/post/b04454a57a" id="ember1185" class="ember-view">
+        👉 <span>Tips for Making Successful Posts on Indie Hackers</span>
+      </a>
+
+      <h3>Title</h3>
+      <ul>
+        <li>Make it easy to understand and enticing to click.</li>
+        <li>Asking a question? Put it right in the title.</li>
+      </ul>
+
+      <h3>Body</h3>
+      <ul>
+        <li>Keep it short and sweet.</li>
+        <li>Just sharing a link? Click the link icon and paste the URL.</li>
+        <li>
+          <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank"
+            >Markdown</a
+          >
+          is allowed, including inline images.
+        </li>
+        <li>To embed a tweet, paste the link on a line by itself.</li>
+        <li>FFS put blank lines in between your paragraphs.</li>
+        <li>Preview your post to make sure it looks good.</li>
+      </ul>
+
+      <h3>Sharing</h3>
+      <ul>
+        <li>Post in the relevant group to get more readers.</li>
+        <li>Share your posts on Twitter or with friends.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  layout: "post-nuevo",
+  name: "post-nuevo",
+  data() {
+    return {
+      tituloPost: "",
+      tabSelected: 2,
+      content: "",
+      contentLink: "",
+      botonDisable: true,
+      preview: false,
+      fechaActual: "",
+      imagenPost: '',
+      filePost: '',
+      contentSelected: '', 
+      meses: [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ],
+    };
+  },
+  watch: {
+    content: function (value) {
+      if (value.length > 0) {
+        this.botonDisable = false;
+      } else {
+        this.botonDisable = true;
+      }
+    },
+    contentLink: function (value) {
+      if (value.length > 0) {
+        this.botonDisable = false;
+      } else {
+        this.botonDisable = true;
+      }
+    },
+  },
+  methods: {
+    addImagePost(){
+      document.getElementById("filePost").click()
+    }, 
+      async   previewFiles(e) {
+        const file = e.target.files[0];
+        this.filePost = file
+        console.log(file)
+      this.imagenPost = URL.createObjectURL(file);
+
+      },
+    previewPost(val) {
+      console.log(val);
+      this.preview = val;
+    },
+
+    eliminarImagen(){
+        this.imagenPost = ''
+    },
+
+    selectTab(val) {
+      if(val == 1){
+        //voy pa la uno
+          if(this.contentLink.length == 0){
+                this.botonDisable = true
+          }else{
+              this.botonDisable = false
+          }
+      }
+
+       if(val == 2){
+          if(this.content.length == 0){
+                this.botonDisable = true
+          }else{
+              this.botonDisable = false
+          }
+      }
+      
+      
+      this.tabSelected = val;
+    },
+
+  async  enviarPost(){
+      if(this.tituloPost.length == 0){
+        alert("falta titul")
+        return false
+      }
+
+      if(this.tabSelected == 1){
+        this.contentSelected = this.contentLink
+      }
+  if(this.tabSelected == 2){
+        this.contentSelected = this.content
+      }
+
+
+    let formData = new FormData();
+            formData.append('file', this.filePost);
+            formData.append('token', this.$store.state.tokenUser);
+            formData.append('titulo', this.tituloPost);
+            formData.append('contenido', this.contentSelected);
+            formData.append('tab', this.tabSelected);
+  
+
+
+ const response = await this.$axios.$post('/post/usuario/',
+                formData,
+                {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+              }
+            )
+if(response.status == 1){
+   this.$router.push({ name: 'post-slug', params: {slug: response.slug} })
+}
+
+
+
+    }
+  },
+
+  mounted() {
+    var f = new Date();
+    this.fechaActual =
+      f.getDate() +
+      " de " +
+      this.meses[f.getMonth()] +
+      " de " +
+      f.getFullYear();
+  },
+};
+</script>
+
+<style >
+.ql-toolbar.ql-snow {
+    
+    background-color: #1f364d;
+}
+
+.ql-editor {
+
+    background-color: #1f364d;
+}
+
+.quillWrapper .ql-snow .ql-stroke {
+    stroke: #ffffff!important;
+    
+}
+
+.ql-snow .ql-picker-label::before {
+   
+    color: #9cb3c9!important;
+}
+
+.ql-editor.ql-blank::before {
+   color: #9cb3c9;
+}
+
+.ql-editor.ql-blank::before {
+    color: #9cb3c9!important;
+    
+}
+
+.quillWrapper .ql-editor ul[data-checked=false]>li::before, .quillWrapper .ql-editor ul[data-checked=true]>li::before {
+     color: #9cb3c9;
+}
+</style>
+

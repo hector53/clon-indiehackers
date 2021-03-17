@@ -1,0 +1,119 @@
+import cookieparser from "cookieparser";
+export const state = () => ({
+ cookieLogin: false, 
+ img_perfil: '/images/avatar.png',
+ tokenUser: '',
+ username: '',
+ dateUser: '', 
+ nombres: '', 
+ edad: '', 
+ fechaNac: '',
+ ciudad: '', 
+ twitter: '', 
+ email: '', 
+ bio: '',
+ Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
+'Octubre', 'Noviembre', 'Diciembre' ], 
+
+})
+
+export const getters = {
+  getCookieLogin: (state) => {
+    return state.cookieLogin
+  }, 
+
+}
+
+export const mutations = {
+  setCookieLogin(state, val){
+    state.cookieLogin = val;
+  }, 
+  setCookieImgPerfil(state, val){
+    state.img_perfil = val;
+  }, 
+  setCookieUsername(state, val){
+    state.username = val;
+  }, 
+  setCookieDateUser(state, val){
+    state.dateUser = val;
+  },
+  setCookieToken(state, val){
+    state.tokenUser = val;
+  }, 
+  setCookieEdad(state, val){
+    state.edad = val;
+  }, 
+  setCookieNombres(state, val){
+    state.nombres = val;
+  },
+  setCookieCiudad(state, val){
+    state.ciudad = val;
+  },
+  setCookieTwitter(state, val){
+    state.twitter = val;
+  },
+  setCookieEmail(state, val){
+    state.email = val;
+  },
+  setCookieBio(state, val){
+    state.bio = val;
+  },
+  setCookieFechaNac(state, val){
+    state.fechaNac = val;
+  }
+
+}
+
+
+
+export const actions = {
+    nuxtServerInit({ commit }, { req }) {
+      if (process.server && process.static) return;
+      if (!req.headers.cookie) return;
+  
+      const parsed = cookieparser.parse(req.headers.cookie);
+      const accessTokenCookie = parsed.access_token_;
+      const cookieDataUser = parsed.user_data_;  
+      var DataUser = JSON.parse(cookieDataUser)
+      console.log(DataUser.img)
+      if (!accessTokenCookie) return;
+  
+      commit("setCookieLogin", true );
+      commit("setCookieImgPerfil", DataUser.img );
+      commit("setCookieUsername", DataUser.username );
+      commit("setCookieDateUser", DataUser.date );
+      commit("setCookieToken", accessTokenCookie );
+      if(DataUser.edad){
+        commit("setCookieEdad", DataUser.edad );
+      }
+      if(DataUser.nombres){
+        commit("setCookieNombres", DataUser.nombres );
+      }
+      if(DataUser.fechaNac){
+        commit("setCookieFechaNac", DataUser.fechaNac );
+      }
+      if(DataUser.ciudad){
+        commit("setCookieCiudad", DataUser.ciudad );
+      }
+      if(DataUser.twitter){
+        commit("setCookieTwitter", DataUser.twitter );
+      }
+      if(DataUser.email){
+        commit("setCookieEmail", DataUser.email );
+      }
+      if(DataUser.bio){
+        commit("setCookieBio", DataUser.bio );
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+    }
+  };
+
