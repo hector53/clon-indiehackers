@@ -53,6 +53,7 @@
                 >Email</label
               >
               <input
+              :disabled="disableL"
                 placeholder="Enter email address"
                 maxlength="256"
                 id="ember85"
@@ -67,6 +68,7 @@
                 >Password</label
               >
               <input
+              :disabled="disableL"
                 placeholder="Choose password"
                 maxlength="128"
                 id="ember86"
@@ -82,7 +84,9 @@
 
             <!---->
             <div class="pw-sign-in__actions">
-              <button class="pw-sign-in__button" @click.prevent="SignUp">
+              <button class="pw-sign-in__button"
+              :disabled="disableL"
+               @click.prevent="SignUp">
                 Sign Up
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +123,9 @@
             El Usuario ya existe intente con otro
           </p>
           <!---->
-          <button class="username-form__button" @click.prevent="buscarUsuario">
+          <button class="username-form__button"
+          :disabled="disableB"
+           @click.prevent="buscarUsuario">
             Next
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +144,8 @@
 
         <p class="auth-wizard__back-to-sign-in">
           Already have an account?
-          <a href="/sign-in" id="ember47" class="ember-view">Sign in.</a>
+          <nuxt-link
+              :to="{ name: 'login'  }" class="ember-view">Sign in.</nuxt-link>
         </p>
       </div>
     </div>
@@ -152,6 +159,8 @@ export default {
   name: "registro",
   data() {
     return {
+      disableL: false,
+      disableB: false,
       username: "",
       showErrorRegistro: false,
       showErrorRegistroEmail: false,
@@ -174,6 +183,7 @@ export default {
   },
   methods: {
   async  SignUp(){
+    this.disableL = true
       await this.$axios
         .$get("/registrar/usuario/?username=" + this.username+"&email="+this.email+"&pass="+this.pass)
         .then((response) => {
@@ -201,6 +211,7 @@ export default {
       return true;
     },
     async buscarUsuario() {
+      this.disableB = true
       if (!this.validateUser()) {
         return false;
       }

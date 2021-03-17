@@ -7,13 +7,15 @@
     <header class="post-page__header">
       <textarea
         v-if="preview == false"
+        :disabled="disableAll"
         rows="1"
         tabindex="1"
+        id="tituloPost"
         placeholder="Enter Title"
         maxlength="140"
         v-model="tituloPost"
         class="ember-text-area ember-auto-resize ember-view post-page__title-field"
-        style="height: 75.7422px; overflow: hidden"
+        style="height: 75px; overflow: hidden"
       ></textarea
       ><!---->
 
@@ -220,11 +222,11 @@
           </div>
         </button>
       </div>
-       <no-ssr>
-  <no-ssr placeholder="Loading Your Editor...">
-      <vue-editor placeholder="Escriba Aquí" v-model="content"  v-if="tabSelected == 2 && preview == false"></vue-editor>
-    </no-ssr>
-</no-ssr>
+     
+  <client-only> 
+          <vue-editor placeholder="Escriba Aquí" :disabled="disableAll" v-model="content"  v-if="tabSelected == 2 && preview == false"></vue-editor>
+   </client-only>
+
 
 
       <div
@@ -234,6 +236,7 @@
         <p>Share a link to discuss with other indie hackers.</p>
       </div>
       <textarea
+      :disabled="disableAll"
         rows="1"
         tabindex="8"
         placeholder="https://…"
@@ -309,6 +312,7 @@
 
       <div class="post-page__footer-actions">
         <button
+        
           class="post-page__submit-button"
           :disabled="botonDisable"
           @click="enviarPost"
@@ -409,6 +413,7 @@ export default {
       imagenPost: '',
       filePost: '',
       contentSelected: '', 
+      disableAll: false,
       meses: [
         "Enero",
         "Febrero",
@@ -440,6 +445,24 @@ export default {
         this.botonDisable = true;
       }
     },
+
+     tituloPost: function (value) {
+       console.log(value.length)
+      if (value.length > 0 && value.length < 43) {
+        
+        document.getElementById("tituloPost").style.height = "75px";
+      }
+      if (value.length > 43 && value.length < 82) {
+        document.getElementById("tituloPost").style.height = "130px";
+      }
+
+      if (value.length > 118 && value.length < 140) {
+        document.getElementById("tituloPost").style.height = "200px";
+      }
+
+
+    },
+
   },
   methods: {
     addImagePost(){
@@ -484,6 +507,8 @@ export default {
     },
 
   async  enviarPost(){
+    this.disableAll = true
+    this.botonDisable = true
       if(this.tituloPost.length == 0){
         alert("falta titul")
         return false

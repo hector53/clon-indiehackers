@@ -29,7 +29,8 @@
 
         <p class="auth-wizard__back-to-sign-up">
           Don't have an account yet?
-          <a href="/sign-up" id="ember138" class="ember-view">Join the community!</a>
+          <nuxt-link
+              :to="{ name: 'registro'  }" class="ember-view">Join the community!</nuxt-link>
         </p>
       </div>
 

@@ -71,6 +71,7 @@
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Nombre Completo</label>
           <input
+            :disabled="disableAll"
             maxlength="60"
             v-model="nombres"
             class="edit-form__field ember-text-field ember-view"
@@ -90,7 +91,7 @@
                v-click-outside="opcionMesOut" >
                 <div class="es-input">
                   <!---->
-                  <input autocomplete="off" placeholder="Month" type="text" v-model="textMes"  />
+                  <input autocomplete="off" placeholder="Month" :disabled="disableAll" type="text" v-model="textMes"  />
                 </div>
 
                 <!---->
@@ -123,7 +124,7 @@
               >
                 <div class="es-input">
                   <!---->
-                  <input autocomplete="off" placeholder="Day" type="text" v-model="textDia" />
+                  <input autocomplete="off" :disabled="disableAll" placeholder="Day" type="text" v-model="textDia" />
                 </div>
 
                 <!---->
@@ -156,7 +157,7 @@
               >
                 <div class="es-input">
                   <!---->
-                  <input autocomplete="off" placeholder="Year" type="text" v-model="textAno" />
+                  <input autocomplete="off" :disabled="disableAll" placeholder="Year" type="text" v-model="textAno" />
                 </div>
 
                 <!---->
@@ -187,7 +188,7 @@
               class="algolia-places-nostyle"
               style="position: relative; display: inline-block; direction: ltr"
               ><input
-               
+               :disabled="disableAll"
                 class="edit-form__field ember-text-field ember-view ap-nostyle-input"
                 type="text"
                 autocomplete="off"
@@ -263,6 +264,7 @@
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Twitter User</label>
           <input
+          :disabled="disableAll"
             maxlength="20"
             v-model="twitterUser"
             class="edit-form__field ember-text-field ember-view"
@@ -277,6 +279,7 @@
           </p>
           <input
             maxlength="256"
+            :disabled="disableAll"
             v-model="emailPublic"
             class="edit-form__field ember-text-field ember-view"
             type="text"
@@ -290,6 +293,7 @@
            ¡Diga algunas palabras sobre quién es usted, en qué está trabajando o por qué está aquí!
           </p>
           <textarea
+          :disabled="disableAll"
             rows="3"
             maxlength="150"
             v-model="bio"
@@ -299,7 +303,7 @@
         </div>
 
         <div class="edit-form__fieldset edit-form__fieldset--buttons">
-          <button class="edit-form__button edit-form__button--save" @click.prevent="guardarPerfil">
+          <button :disabled="disableAll" class="edit-form__button edit-form__button--save" @click.prevent="guardarPerfil">
             <div class="edit-form__button-content">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -357,6 +361,7 @@ export default {
       imagenPerfil: '', 
        previewImage: null,
       image: null,
+      disableAll: false
     };
   },
   watch: {},
@@ -390,6 +395,7 @@ export default {
    
     },
   async  guardarPerfil(){
+    this.disableAll = true
 //console.log("llegue aqui ")
     var tokenUser = this.$store.state.tokenUser
     var fechaNac = this.textAno+"-"+this.MesNumber+"-"+this.textDia

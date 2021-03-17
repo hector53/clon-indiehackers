@@ -41,9 +41,9 @@
       <header>
         <nav>
           <span class="active">Top Historias</span>
-          <nuxt-link :to="{ name: 'post-nuevo' }" class="ember-view">
+          <a href=""  @click.prevent="postNuevo" class="ember-view">
             Post Nuevo
-          </nuxt-link>
+          </a>
         </nav>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -111,12 +111,13 @@
             <!---->
           </div>
         </nav>
-        <nuxt-link
-          :to="{ name: 'post-nuevo' }"
+        <a
+         href=""
+         @click.prevent="postNuevo"
           class="ember-view posts-section__create-button"
         >
           Post Nuevo
-        </nuxt-link>
+        </a>
       </header>
 
       <nav id="ember21802239" class="posts-section__sub-nav ember-view">
@@ -975,6 +976,13 @@ export default {
     }
   },
   methods: {
+    postNuevo(){
+        if(this.$store.state.tokenUser != ''){
+          this.$router.push({name: 'post-nuevo'})
+        }else{
+          this.$router.push({name: 'login'})
+        }
+    },
  async   getPostHoy(){
         await this.$axios
         .$get("/getpost/hoy/")
