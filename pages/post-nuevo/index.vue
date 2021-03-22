@@ -114,11 +114,14 @@
         class="group-selector group-selector--collapsed ember-view post-page__group-selector"
         tabindex="4"
       >
-        <div class="group-selector__trigger">
-          <!---->
+        <div class="group-selector__trigger" @click="selectGroup"  >
+          <picture id="ember644" class="group-icon ember-view group-selector__selected-icon" v-if="iconSelectGroup != ''">
+          <img :src="iconSelectGroup">
+          </picture>
           <div class="group-selector__label group-selector__label--empty">
-            Select Group
+            {{selectGroupLabel}}
           </div>
+
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -133,8 +136,39 @@
             </path>
           </svg>
         </div>
+        <div v-if="quitarGrupoSeleccionado" @click="quitarGrupoSelect" class="modal-closer ember-view group-selector__clear-button"><svg class="modal-closer__close-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
+        </svg>
+        </div>
+        <!--bsucador de grupos-->
+          <div class="group-selector__dropdown" style="left: 0px;" v-if="selectGrupo" v-click-outside="selectGroupOut" >
+          <input name="rand-d8d6ed5133" placeholder="Search groups…" 
+           class="ember-text-field ember-view group-selector__input" type="text">
 
-        <!---->
+          <div class="group-selector__groups">
+            
+          <div class="group-selector__results-section group-selector__results-section--memberships">
+          <div class="group-selector__results-heading">Mis Grupos</div>
+          <ul class="group-selector__group-list">
+            <li class="group-selector__group"
+             v-for="(item, index) in misGrupos" :key="index"
+             @click="seleccionarGrupo( item.id, item.titulo, item.icono, item.excerpt, item.slug)"
+             :title="item.titulo">
+              <picture class="group-icon ember-view group-selector__icon">
+              <img :src="item.icono">
+             </picture>
+              <span class="group-selector__name">{{item.titulo}}</span>
+              <span class="group-selector__num-members">
+               {{item.miembros}} Miembros
+              </span>
+            </li>
+          
+          </ul>
+          </div>
+
+          <!---->
+          <!---->    </div>
+          </div>
       </div>
 
       <!---->
@@ -291,7 +325,17 @@
           </div>
         </div>
 
-        <!---->
+            <nuxt-link v-if="selectGroupId > 0"
+              :to="{
+                name: 'grupo-slug',
+                params: { slug: groupSlug },
+              }"
+               class="ember-view post-page__group-link">
+               publico en 
+              <img :src="iconSelectGroup" 
+               class="img-lazy img-lazy--loaded ember-view post-page__group-icon">
+              <div class="post-page__group-name">{{selectGroupLabel}}</div>
+            </nuxt-link>
         <a
           title="Monday, March 15th 2021 (3:35 pm)"
           href="#"
@@ -302,13 +346,20 @@
         </a>
       </div>
 
-      <!---->
 
-      <!---->
+ 
+       <div class="edit-post__group-guidelines" v-if="selectGroupId > 0">
+        <header>
+        <picture id="ember725" class="group-icon ember-view">
+        <img :src="iconSelectGroup">
 
-      <!---->
+        </picture>
+        <p>{{selectGroupLabel}}</p>
+        <p>{{groupExcerpt}}</p>
+        </header>
+        </div>
 
-      <!---->
+     
 
       <div class="post-page__footer-actions">
         <button
@@ -398,11 +449,16 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
 export default {
   layout: "post-nuevo",
   name: "post-nuevo",
+     directives: {
+    ClickOutside
+  }, 
   data() {
     return {
+
       tituloPost: "",
       tabSelected: 2,
       content: "",
@@ -414,6 +470,15 @@ export default {
       filePost: '',
       contentSelected: '', 
       disableAll: false,
+      selectGrupo: false,
+      contadorOutsideGrupo: 0, 
+      misGrupos: [],
+      selectGroupLabel: 'Seleccionar Grupo', 
+      groupExcerpt: '', 
+      groupSlug: '',
+      iconSelectGroup: '',
+      selectGroupId: 0,
+      quitarGrupoSeleccionado: false,
       meses: [
         "Enero",
         "Febrero",
@@ -465,6 +530,24 @@ export default {
 
   },
   methods: {
+    seleccionarGrupo(id, titulo, icono, excerpt, slug){
+      this.groupExcerpt = excerpt
+      this.groupSlug = slug
+      this.selectGroupId = id 
+      this.selectGroupLabel = titulo 
+      this.iconSelectGroup = icono
+      this.selectGrupo = false
+        this.contadorOutsideGrupo = 0
+    },
+   async getMyGroups(){
+     console.log("/grupos/byuser/?token="+this.$store.state.tokenUser)
+      await this.$axios
+        .$get("/grupos/byuser/?token="+this.$store.state.tokenUser)
+        .then((response) => {
+            this.misGrupos = response.grupos
+        })
+
+    },
     addImagePost(){
       document.getElementById("filePost").click()
     }, 
@@ -528,6 +611,7 @@ export default {
             formData.append('titulo', this.tituloPost);
             formData.append('contenido', this.contentSelected);
             formData.append('tab', this.tabSelected);
+            formData.append('idGrupo', this.selectGroupId);
   
 
 
@@ -545,6 +629,42 @@ if(response.status == 1){
 
 
 
+    }, 
+
+    selectGroup(){
+      if(this.selectGrupo == true){
+       
+          this.selectGrupo = false
+           this.contadorOutsideGrupo = 0
+           this.quitarGrupoSeleccionado = false
+      }else{
+         if(this.iconSelectGroup != ''){
+          this.quitarGrupoSeleccionado = true
+        }else{
+          this.quitarGrupoSeleccionado = false
+        }
+        this.selectGrupo = true
+      }
+      
+    }, 
+    selectGroupOut(){
+     if(this.contadorOutsideGrupo > 0){
+        this.selectGrupo = false
+        this.contadorOutsideGrupo = 0
+        this.quitarGrupoSeleccionado = false
+     }else{
+       this.contadorOutsideGrupo++
+     }
+       
+    }, 
+    quitarGrupoSelect(){
+      this.selectGrupo = false
+        this.contadorOutsideGrupo = 0
+        this.quitarGrupoSeleccionado = false
+
+         this.selectGroupId = 0 
+      this.selectGroupLabel = 'Seleccionar Grupo' 
+      this.iconSelectGroup = ''
     }
   },
 
@@ -556,6 +676,20 @@ if(response.status == 1){
       this.meses[f.getMonth()] +
       " de " +
       f.getFullYear();
+
+      this.getMyGroups()
+     var cookieGroup = this.$cookies.get('group_cookie')
+     if(cookieGroup){
+          this.groupExcerpt = cookieGroup.excerptGrupo
+      this.groupSlug = cookieGroup.slug
+      this.selectGroupId = cookieGroup.id 
+      this.selectGroupLabel = cookieGroup.tituloGrupo 
+      this.iconSelectGroup = cookieGroup.imagenGrupo
+      this.selectGrupo = false
+        this.contadorOutsideGrupo = 0
+
+this.$cookies.remove('group_cookie')
+     }
   },
 };
 </script>

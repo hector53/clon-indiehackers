@@ -1,13 +1,11 @@
 <template>
-  <div class="post-page
-           post-page--post
-           post-page--browser ">
+  <div class="new-group">
 
   <nav-bar></nav-bar>
 
 <!---->
 
-  <Nuxt keep-alive />
+  <Nuxt />
 
   
 
@@ -22,7 +20,7 @@ import NavBar from '~/components/navbar/navBar.vue';
 import postSeccion from '~/components/postSeccion/postSeccion.vue';
 import footerSeccion from '~/components/footer/footerSeccion.vue';
 export default {
-    name: "postSlug", 
+    name: "layouGrupoNuevo", 
     components: {NavBar, postSeccion, footerSeccion},
     data() {
         return {

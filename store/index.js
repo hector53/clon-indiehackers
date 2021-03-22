@@ -1,8 +1,10 @@
 import cookieparser from "cookieparser";
 export const state = () => ({
  cookieLogin: false, 
+ urlApi: 'https://indiehackersapi.hectoracosta.site/api',
  img_perfil: '/images/avatar.png',
  tokenUser: '',
+ p: '',
  username: '',
  dateUser: '', 
  nombres: '', 
@@ -60,6 +62,9 @@ export const mutations = {
   },
   setCookieFechaNac(state, val){
     state.fechaNac = val;
+  },
+  setCookieP(state, val){
+    state.p = val;
   }
 
 }
@@ -73,6 +78,9 @@ export const actions = {
   
       const parsed = cookieparser.parse(req.headers.cookie);
       const accessTokenCookie = parsed.access_token_;
+      if(!accessTokenCookie){
+        return;
+      }
       const cookieDataUser = parsed.user_data_;  
       var DataUser = JSON.parse(cookieDataUser)
       console.log(DataUser.img)
@@ -82,7 +90,9 @@ export const actions = {
       commit("setCookieImgPerfil", DataUser.img );
       commit("setCookieUsername", DataUser.username );
       commit("setCookieDateUser", DataUser.date );
+      commit("setCookieP", DataUser.p );
       commit("setCookieToken", accessTokenCookie );
+      
       if(DataUser.edad){
         commit("setCookieEdad", DataUser.edad );
       }
@@ -104,6 +114,8 @@ export const actions = {
       if(DataUser.bio){
         commit("setCookieBio", DataUser.bio );
       }
+
+
       
       
       

@@ -193,7 +193,8 @@ export default {
                 path: '/',
                 maxAge: 60 * 60 * 24 * 7
                 })
-                 this.$cookies.set('user_data_', {img: response.avatar, username: response.username, date: response.fecha}, {
+                 this.$cookies.set('user_data_', {img: response.avatar,
+                  username: response.username, date: response.fecha, p: response.p}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })

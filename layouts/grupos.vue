@@ -1,7 +1,5 @@
 <template>
-  <div class="post-page
-           post-page--post
-           post-page--browser ">
+  <div class="community community--groups">
 
   <nav-bar></nav-bar>
 
@@ -22,7 +20,7 @@ import NavBar from '~/components/navbar/navBar.vue';
 import postSeccion from '~/components/postSeccion/postSeccion.vue';
 import footerSeccion from '~/components/footer/footerSeccion.vue';
 export default {
-    name: "postSlug", 
+    name: "grupos", 
     components: {NavBar, postSeccion, footerSeccion},
     data() {
         return {

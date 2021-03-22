@@ -1,7 +1,7 @@
 <template>
  
 <div class="post-page__content">
-    <div class="post-page__actions" v-if="p == 1 && tituloPost != ''">
+    <div class="post-page__actions" v-if="p == $store.state.p && tituloPost != ''">
       <div class="post-page__actions-content">
         <div class="post-page__upvotes">
           <div id="ember1206" class="post-liker post-liker--disabled post-liker--liked ember-view"><div class="post-liker__icon-wrapper">
@@ -70,7 +70,7 @@
 <!---->        </div>
       </div>
     </div>
-<div class="post-page__actions" v-if="p == 0 && tituloPost != ''">
+<div class="post-page__actions" v-if="p != $store.state.p && tituloPost != ''">
       <div class="post-page__actions-content">
         <div class="post-page__upvotes">
           <div id="ember58" class="post-liker ember-view"><div class="post-liker__icon-wrapper">
@@ -119,9 +119,17 @@
         <h1 class="post-page__title" balance-text=""
          style="max-width: 611px;">{{tituloPost}}</h1>
 
-      <a href="/Nananonaweb" id="ember1214" class="ember-view post-page__byline">
-        by <span>Hector Acosta22</span>
-      </a>
+      <nuxt-link
+              :to="{
+                name: 'perfil-username',
+                params: { username: $store.state.username },
+              }" class="ember-view post-page__byline">
+        by <span>{{username}}</span>
+      </nuxt-link>
+
+       <div class="post-page__images post-page__images--1" v-if="imagenPost != '' ">
+              <img :src="imagenPost"  class="img-lazy img-lazy--loaded ember-view post-page__image">
+          </div>
 
 <!---->    </header>
 
@@ -145,24 +153,35 @@
             >
               <span class="user-link__name"> {{ username }} </span>
 
-              <!---->
+              </nuxt-link    >
 
-              <!----></nuxt-link
-            >
-            <!---->
-            <!---->
+           
+          
           </div>
         </div>
 
+           <nuxt-link v-if="arrayGrupo.length > 0" 
+              :to="{
+                name: 'grupo-slug',
+                params: { slug: arrayGrupo[0].slug },
+              }"
+               class="ember-view post-page__group-link">
+               publico en 
+              <img :src="arrayGrupo[0].icono" 
+               class="img-lazy img-lazy--loaded ember-view post-page__group-icon">
+              <div class="post-page__group-name">{{arrayGrupo[0].titulo}}</div>
+            </nuxt-link>
+
         <!---->
-        <a
-          title="Monday, March 15th 2021 (3:35 pm)"
-          href="#"
-          id="ember1040"
+        <nuxt-link v-if="arrayGrupo.length > 0" 
+              :to="{
+                name: 'post-slug',
+                params: { slug: $route.params.slug },
+              }"
           class="loading ember-view post-page__date"
         >
           el <span>{{ fecha }}</span>
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="post-page__comments" id="comments">
@@ -330,6 +349,9 @@
 export default {
   layout: "postSlug",
   name: "postSlug",
+  head: {
+    
+  },
   data() {
     return {
         idP: 0,
@@ -338,6 +360,8 @@ export default {
       contenido: '', 
       fecha: '', 
       p: 0,
+      imagenPost: '',
+      arrayGrupo: [],
        meses: [
         "Enero",
         "Febrero",
@@ -355,13 +379,15 @@ export default {
     };
   },
   watch: {
+   
   },
-  methods: {
-    async  getPost(){
-        var tokenUser = this.$store.state.tokenUser
+  async fetch() {
+
+    
            await this.$axios
-        .$get("/getpost/usuario/?token="+tokenUser+"&slug="+this.$route.params.slug)
+        .$get("/getpost/usuario/?slug="+this.$route.params.slug)
         .then((response) => {
+          console.log(response)
           if(response.status == 0){
                 this.$router.push({ name: 'index' })
           }else{
@@ -371,6 +397,39 @@ export default {
               this.fecha = response.post[0].fecha
               this.p = response.post[0].p
               this.idP = response.post[0].id
+              this.imagenPost = response.post[0].imagen
+              this.arrayGrupo = response.post[0].grupo
+
+                    var f = new Date(this.fecha);
+                    this.fecha =
+                    f.getDate() +
+                    " de " +
+                    this.meses[f.getMonth()] +
+                    " de " +
+                    f.getFullYear();
+
+          }
+
+        });
+        
+    },
+  methods: {
+    async  getPost(){
+           await this.$axios
+        .$get("/getpost/usuario/?slug="+this.$route.params.slug)
+        .then((response) => {
+          console.log(response)
+          if(response.status == 0){
+                this.$router.push({ name: 'index' })
+          }else{
+              this.tituloPost = response.post[0].titulo
+              this.username = response.post[0].username
+              this.contenido = response.post[0].contenido
+              this.fecha = response.post[0].fecha
+              this.p = response.post[0].p
+              this.idP = response.post[0].id
+              this.imagenPost = response.post[0].imagen
+              this.arrayGrupo = response.post[0].grupo
 
                     var f = new Date(this.fecha);
                     this.fecha =
@@ -404,8 +463,9 @@ if(response.status == 1){
       }
   },
   mounted() {
-      this.getPost()
+     console.log("mounted")
 },
+
 };
 </script>
 

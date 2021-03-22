@@ -48,7 +48,8 @@ export default {
   ],
 
   axios: {
-    baseURL: 'https://indiehackersapi.hectoracosta.site/wp-json',
+  //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
+  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
     proxyHeaders: false,
     credentials: false
   },
