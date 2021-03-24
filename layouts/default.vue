@@ -5,7 +5,7 @@
 
 <!---->
 
-  <Nuxt keep-alive />
+  <Nuxt />
 
   
 

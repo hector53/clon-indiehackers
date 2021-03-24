@@ -274,7 +274,7 @@
 <script>
 import postSeccion from '~/components/postSeccion/postSeccion.vue';
 export default {
-  name: 'index', 
+  name: 'indexComp', 
   
   components: {postSeccion},
   data() {
@@ -299,6 +299,7 @@ export default {
     },
  
  async   getPostHoy(){
+   console.log("/getpost/hoy/?filtro="+this.filtroBusqueda)
        await this.$axios
         .$get("/getpost/hoy/?filtro="+this.filtroBusqueda)
         .then((response) => {
@@ -330,7 +331,7 @@ export default {
    async fetch() {
 
       
-     console.log("/getpost/hoy/?filtro="+this.filtroBusqueda)
+     
     
       
 
@@ -341,11 +342,16 @@ export default {
     if(this.$route.params.slug == 'top' || this.$route.params.slug == 'nuevos'){
 
             if(this.$route.params.slug == 'top'){
+              console.log("existe el top")
                 if(this.$route.params.sub == 'semanal' || this.$route.params.sub == 'mensual'
-                 || this.$route.params.sub == 'todos'  || this.$route.params.sub == 'hoy'  ){
+                 || this.$route.params.sub == 'todos'    ){
+                   console.log("existe semana mes o tods", this.$route.params.sub)
+
                    this.filtroTop = true
                    this.filtroBusqueda = this.$route.params.sub
+                   console.log(this.filtroBusqueda)
                 }else{
+                  console.log("filtro es hoy")
                     this.filtroBusqueda = 'hoy'
                 }
             }

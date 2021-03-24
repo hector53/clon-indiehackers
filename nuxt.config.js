@@ -44,14 +44,15 @@ export default {
   modules: [
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
+    'vue-scrollto/nuxt',
     
   ],
 
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
   baseURL: 'https://indiehackersapi.hectoracosta.site/api',
-    proxyHeaders: false,
-    credentials: false
+    proxyHeaders: true,
+    credentials: true
   },
 
  

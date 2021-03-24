@@ -4,21 +4,19 @@
         <nav id="ember21802235" class="posts-section__nav ember-view">
           <div class="posts-section__nav-content">
             <!---->
-            <a
-              href="/"
-              id="ember21802236"
-              class="active ember-view posts-section__nav-link"
-            >
-              Popular
-            </a>
-
-            <a
-              href="/newest"
-              id="ember21802237"
+            <nuxt-link   :to="{name: 'index' }" 
               class="ember-view posts-section__nav-link"
+              :class="{'active' : filtroTop}"
             >
-              Newest
-            </a>
+              Populares
+            </nuxt-link>
+
+           <nuxt-link   to="/nuevos" 
+              class="ember-view posts-section__nav-link"
+              :class="{'active' : filtroTop == false && filtroBusqueda == 'nuevos'}"
+            >
+              Nuevos
+            </nuxt-link>
 
             <!---->
             <!---->
@@ -36,37 +34,36 @@
         </a>
       </header>
 
-      <nav id="ember21802239" class="posts-section__sub-nav ember-view" v-if="subNav == 1">
-        <a
-          href="/"
-          id="ember21802240"
-          class="active ember-view sub-nav__link active"
+      <nav id="ember21802239" class="posts-section__sub-nav ember-view" v-if="filtroTop">
+        <nuxt-link   :to="{name: 'index' }" 
+          class="ember-view sub-nav__link"
+           :class="{'active' : filtroBusqueda == 'hoy' && filtroTop}"
         >
-          Today
+          Hoy
+        </nuxt-link >
+
+         <a  href="/top/semanal" 
+          class="ember-view sub-nav__link"
+          :class="{'active' : filtroBusqueda == 'semanal'  && filtroTop}"
+          @click.prevent="cambiarFiltroBusqueda('semanal')"
+        >
+          Semanal
+        </a >
+
+         <a  href="/top/mensual" 
+          class="ember-view sub-nav__link"
+          :class="{'active' : filtroBusqueda == 'mensual'  && filtroTop}"
+          @click.prevent="cambiarFiltroBusqueda('mensual')"
+        >
+          Mensual
         </a>
 
-        <a
-          href="/top/week-of-2021-03-08"
-          id="ember21802241"
+       <a  href="/top/todos" 
           class="ember-view sub-nav__link"
+          :class="{'active' : filtroBusqueda == 'todos'  && filtroTop}"
+           @click.prevent="cambiarFiltroBusqueda('todos')"
         >
-          Weekly
-        </a>
-
-        <a
-          href="/top/month-of-2021-03"
-          id="ember21802242"
-          class="ember-view sub-nav__link"
-        >
-          Monthly
-        </a>
-
-        <a
-          href="/top/all-time"
-          id="ember21802243"
-          class="ember-view sub-nav__link"
-        >
-          All-Time
+         Todo
         </a>
       </nav>
 
@@ -103,24 +100,7 @@
             <!---->
           </div>
           <!--votos-->
-          <a
-            title="Like"
-            href="/sign-up"
-            id="ember21802348"
-            class="ember-view feed-item__likes"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="ember21802349"
-              class="feed-item__likes-icon ember-view"
-            >
-              <path d="M0 15.878 l12-11.878 12 11.878-4 4.122-8-8-8 8-4-4.122z">
-                <!---->
-              </path>
-            </svg>
-            <span class="feed-item__likes-count"> 15 </span>
-          </a>
+        <like :p="item.id" :votos="item.votos"></like>
           <!--votos-->
           <div class="feed-item__content">
              <nuxt-link
@@ -157,32 +137,38 @@
               </div>
               <div class="feed-item__middot">·</div>
 
-              <a
-                href="/group/building-in-public"
-                id="ember21802354"
+              <nuxt-link
+              :to="{
+                name: 'post-slug',
+                params: { slug: item.slugGrupo },
+              }" 
                 class="feed-item__group-link ember-view"
               >
                 <picture
                   id="ember21802355"
                   class="group-icon ember-view group-link__icon"
+                  v-show="item.imagenGrupo != null"
                 >
-                  <source
-                    srcset="
-                      https://storage.googleapis.com/indie-hackers.appspot.com/group-icons/building-in-public/building-in-public
-                    "
-                    type="image/jpeg"
-                  />
-                  <img src="/nonexistent-image.png" />
+                 
+                  <img :src="item.imagenGrupo" />
                 </picture>
-                <span class="group-link__name">Building in Public</span>
-              </a>
+                <span class="group-link__name" v-show="item.tituloGrupo != null">{{item.tituloGrupo}}</span>
+              </nuxt-link>
+               <div class="feed-item__middot" v-show="item.imagenGrupo != null">·</div>
+            <nuxt-link
+              :to="{
+                name: 'post-slug',
+                params: { slug: item.slug },
+              }" 
+              class="ember-view feed-item__date"
+            >
+              {{item.fecha}}
+            </nuxt-link>
 
               <div class="feed-item__middot">·</div>
 
               <a
-                title="View Comments"
-                href="/post/thinking-of-adding-new-features-for-my-tool-need-your-suggestions-15de3cf0f9"
-                id="ember21802357"
+               
                 class="ember-view feed-item__reply-count"
               >
                 <svg
@@ -237,15 +223,22 @@
 </template>
 
 <script>
+import like from '~/components/likes/like.vue';
 export default {
+   loading: false,
     name: "postSeccion", 
-    props:['arrayPostHoy', 'subNav'],
+    props:['arrayPostHoy', 'subNav', 'filtroBusqueda', 'filtroTop'],
+    components: {like},
     data() {
         return {
             
         }
     },
     methods: {
+      cambiarFiltroBusqueda(filtro){
+       this.$router.push('/top/'+filtro)
+       this.$emit("changeFiltroBusqueda", filtro);
+      },
          postNuevo(){
         if(this.$store.state.tokenUser != ''){
           this.$router.push({name: 'post-nuevo'})
@@ -253,6 +246,10 @@ export default {
           this.$router.push({name: 'login'})
         }
     },
+    },
+    mounted() {
+    
+     
     },
 }
 </script>

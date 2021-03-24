@@ -1,9 +1,9 @@
 <template>
   <div class="post-page__content">
-     <!-- Text Editor -->
-    
+    <!-- Text Editor -->
+
     <!-- Markdown Viewer -->
-    
+
     <header class="post-page__header">
       <textarea
         v-if="preview == false"
@@ -19,23 +19,29 @@
       ></textarea
       ><!---->
 
-
-<div  class="dragSortList -draggingEnabled ember-view drag-sort-list--1"
- v-if="imagenPost != '' && preview==false && tabSelected == 2">
-  <div  class="dragSortItem ember-view">    
-            <div class="drag-sort-list__image-wrapper">
-             
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" @click="eliminarImagen"
-               class="ember-view drag-sort-list__image-remover">
-               <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
-<!----></path>
-</svg>
-<!---->              <img :src="imagenPost">
-            </div>
-          
-</div></div>
-
-
+      <div
+        class="dragSortList -draggingEnabled ember-view drag-sort-list--1"
+        v-if="imagenPost != '' && preview == false && tabSelected == 2"
+      >
+        <div class="dragSortItem ember-view">
+          <div class="drag-sort-list__image-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              @click="eliminarImagen"
+              class="ember-view drag-sort-list__image-remover"
+            >
+              <path
+                d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+              >
+                <!---->
+              </path>
+            </svg>
+            <!---->
+            <img :src="imagenPost" />
+          </div>
+        </div>
+      </div>
 
       <h1 class="post-page__title" v-if="preview">{{ tituloPost }}</h1>
       <a
@@ -47,20 +53,29 @@
         by <span>@{{ $store.state.username }}</span>
       </a>
 
-      <div class="post-page__images post-page__images--1" v-if="imagenPost != '' && preview">
-              <img :src="imagenPost"  class="img-lazy img-lazy--loaded ember-view post-page__image">
-          </div>
+      <div
+        class="post-page__images post-page__images--1"
+        v-if="imagenPost != '' && preview"
+      >
+        <img
+          :src="imagenPost"
+          class="img-lazy img-lazy--loaded ember-view post-page__image"
+        />
+      </div>
     </header>
 
     <div
       class="post-page__subheader post-page__subheader--editing"
       v-if="preview == false"
     >
-      <input style="display: none"
-       ref="fileInput" id="filePost"
-        type="file" @change="previewFiles"
-         enctype="multipart/form-data">
-     
+      <input
+        style="display: none"
+        ref="fileInput"
+        id="filePost"
+        type="file"
+        @change="previewFiles"
+        enctype="multipart/form-data"
+      />
 
       <button
         class="post-page__action post-page__action--images"
@@ -90,6 +105,8 @@
         class="post-page__action post-page__action--poll"
         tabindex="3"
         title="Add Poll"
+        @click="addEncuesta"
+        v-scroll-to="'#addEncuesta'"
       >
         <div class="post-page__action-content">
           <svg
@@ -114,14 +131,17 @@
         class="group-selector group-selector--collapsed ember-view post-page__group-selector"
         tabindex="4"
       >
-        <div class="group-selector__trigger" @click="selectGroup"  >
-          <picture id="ember644" class="group-icon ember-view group-selector__selected-icon" v-if="iconSelectGroup != ''">
-          <img :src="iconSelectGroup">
+        <div class="group-selector__trigger" @click="selectGroup">
+          <picture
+            id="ember644"
+            class="group-icon ember-view group-selector__selected-icon"
+            v-if="iconSelectGroup != ''"
+          >
+            <img :src="iconSelectGroup" />
           </picture>
           <div class="group-selector__label group-selector__label--empty">
-            {{selectGroupLabel}}
+            {{ selectGroupLabel }}
           </div>
-
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -136,53 +156,117 @@
             </path>
           </svg>
         </div>
-        <div v-if="quitarGrupoSeleccionado" @click="quitarGrupoSelect" class="modal-closer ember-view group-selector__clear-button"><svg class="modal-closer__close-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path>
-        </svg>
+        <div
+          v-if="quitarGrupoSeleccionado"
+          @click="quitarGrupoSelect"
+          class="modal-closer ember-view group-selector__clear-button"
+        >
+          <svg
+            class="modal-closer__close-icon"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+            ></path>
+          </svg>
         </div>
         <!--bsucador de grupos-->
-          <div class="group-selector__dropdown" style="left: 0px;" v-if="selectGrupo" v-click-outside="selectGroupOut" >
-          <input name="rand-d8d6ed5133" placeholder="Search groups…" 
-           class="ember-text-field ember-view group-selector__input" type="text">
+        <div
+          class="group-selector__dropdown"
+          style="left: 0px"
+          v-if="selectGrupo"
+          v-click-outside="selectGroupOut"
+        >
+          <input
+            name="rand-d8d6ed5133"
+            placeholder="Search groups…"
+            v-model="searchInput"
+            class="ember-text-field ember-view group-selector__input"
+            type="text"
+          />
 
           <div class="group-selector__groups">
-            
-          <div class="group-selector__results-section group-selector__results-section--memberships">
-          <div class="group-selector__results-heading">Mis Grupos</div>
-          <ul class="group-selector__group-list">
-            <li class="group-selector__group"
-             v-for="(item, index) in misGrupos" :key="index"
-             @click="seleccionarGrupo( item.id, item.titulo, item.icono, item.excerpt, item.slug)"
-             :title="item.titulo">
-              <picture class="group-icon ember-view group-selector__icon">
-              <img :src="item.icono">
-             </picture>
-              <span class="group-selector__name">{{item.titulo}}</span>
-              <span class="group-selector__num-members">
-               {{item.miembros}} Miembros
-              </span>
-            </li>
-          
-          </ul>
+            <div
+              class="group-selector__results-section group-selector__results-section--memberships"
+            >
+              <div class="group-selector__results-heading">Mis Grupos</div>
+              <ul class="group-selector__group-list">
+                <li
+                  class="group-selector__group"
+                  v-for="(item, index) in misGrupos"
+                  :key="index"
+                  @click="
+                    seleccionarGrupo(
+                      item.id,
+                      item.titulo,
+                      item.icono,
+                      item.excerpt,
+                      item.slug
+                    )
+                  "
+                  :title="item.titulo"
+                >
+                  <picture class="group-icon ember-view group-selector__icon">
+                    <img :src="item.icono" />
+                  </picture>
+                  <span class="group-selector__name">{{ item.titulo }}</span>
+                  <span class="group-selector__num-members">
+                    {{ item.miembros }} Miembros
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <!---->
-          <!---->    </div>
+          <div class="group-selector__groups" v-if="otrosSearch">
+            <div
+              class="group-selector__results-section group-selector__results-section--memberships"
+            >
+              <div class="group-selector__results-heading">Otros Grupos</div>
+              <ul class="group-selector__group-list">
+                <li
+                  class="group-selector__group"
+                  v-for="(item, index) in arraySearchOtros"
+                  :key="index"
+                  @click="
+                    seleccionarGrupo(
+                      item.id,
+                      item.titulo,
+                      item.icono,
+                      item.excerpt,
+                      item.slug
+                    )
+                  "
+                  :title="item.titulo"
+                >
+                  <picture class="group-icon ember-view group-selector__icon">
+                    <img :src="item.icono" />
+                  </picture>
+                  <span class="group-selector__name">{{ item.titulo }}</span>
+                  <span class="group-selector__num-members">
+                    {{ item.miembros }} Miembros
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
+        </div>
       </div>
 
       <!---->
     </div>
 
     <div class="post-page__main">
-      <div  v-if="preview && tabSelected == 1 && contentLink.length > 0"
+      <div
+        v-if="preview && tabSelected == 1 && contentLink.length > 0"
         class="attached-link attached-link--small-image attached-link--no-image attached-link--no-title attached-link--no-description ember-view post-page__attached-link"
       >
         <a
           class="attached-link__link"
           :href="contentLink"
           target="_blank"
-          :title="'Link to '+contentLink"
+          :title="'Link to ' + contentLink"
           rel="nofollow"
         >
           <!---->
@@ -203,13 +287,62 @@
             <!---->
             <!---->
             <p class="attached-link__domain">
-              {{contentLink}}
+              {{ contentLink }}
             </p>
           </div>
         </a>
       </div>
-      <div class="post-page__body content ember-view" v-if="preview  && tabSelected == 2" v-html="content">
+      <div
+        class="post-page__body content ember-view"
+        v-if="preview && tabSelected == 2"
+        v-html="content"
+      ></div>
+
+      <!--Preview encuesta-->
+
+      <div class="poll-viewer ember-view post-page__poll-viewer" v-if="encuesta && preview">
+        <header class="poll-viewer__header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            id="ember228"
+            class="ember-view post-page__action-icon"
+          >
+            <path
+              d="M7 19h-6v-11h6v11zm8-18h-6v18h6v-18zm8 11h-6v7h6v-7zm1 9h-24v2h24v-2z"
+            >
+              <!---->
+            </path>
+          </svg>
+          <span>{{preguntaEncuesta}}</span>
+        </header>
+
+        <div class="poll-viewer__vote-view">
+          
+
+<span>Eligió: {{ picked }}</span>
+          <ol class="poll-viewer__options">
+            <li class="poll-viewer__option" v-for="(item, index) in opcionEncuesta" :key="index">
+               <input class="radioOp" type="radio" :id="'op'+index" :value="item" v-model="picked">
+              <label :for="'op'+index">{{item}}</label>
+            </li>
+           
+          </ol>
+
+          <button class="poll-viewer__vote-button" disabled="">
+            <div>
+              <span>Vote</span>
+            </div>
+          </button>
+        </div>
+
+        <footer class="poll-viewer__footer">
+          <span class="poll-viewer__num-votes">0 votes</span>
+          <!---->
+        </footer>
       </div>
+
+      <!--Preview encuesta-->
 
       <div class="post-page__mode-tabs" v-if="preview == false">
         <button
@@ -256,12 +389,15 @@
           </div>
         </button>
       </div>
-     
-  <client-only> 
-          <vue-editor placeholder="Escriba Aquí" :disabled="disableAll" v-model="content"  v-if="tabSelected == 2 && preview == false"></vue-editor>
-   </client-only>
 
-
+      <client-only>
+        <vue-editor
+          placeholder="Escriba Aquí"
+          :disabled="disableAll"
+          v-model="content"
+          v-if="tabSelected == 2 && preview == false"
+        ></vue-editor>
+      </client-only>
 
       <div
         class="post-page__link-nudge"
@@ -270,7 +406,7 @@
         <p>Share a link to discuss with other indie hackers.</p>
       </div>
       <textarea
-      :disabled="disableAll"
+        :disabled="disableAll"
         rows="1"
         tabindex="8"
         placeholder="https://…"
@@ -282,6 +418,7 @@
       </textarea>
 
       <div
+        id="addEncuesta"
         class="post-page__inline-author edit-post__inline-author"
         v-if="preview == false"
       >
@@ -304,6 +441,105 @@
         </div>
       </div>
 
+      <!--Encuestas-->
+
+      <div class="post-page__options-header" v-if="encuesta && preview == false">
+        <div class="options-header__title-and-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="ember-view"
+          >
+            <path
+              d="M7 19h-6v-11h6v11zm8-18h-6v18h6v-18zm8 11h-6v7h6v-7zm1 9h-24v2h24v-2z"
+            >
+              <!---->
+            </path>
+          </svg>
+          <span>Attached Poll</span>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          id="ember636"
+          class="ember-view options-header__remove-icon"
+          @click="quitarEncuesta"
+        >
+          <path
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+          >
+            <!---->
+          </path>
+        </svg>
+      </div>
+
+      <div
+        v-if="encuesta && preview == false"
+        class="poll-editor ember-view post-page__poll-editor post-options post-options--poll"
+      >
+        <div class="post-options__fieldset">
+          <label class="post-options__label">Pregunta</label>
+          <textarea
+            tabindex="11"
+            placeholder="¿Sobre que debería votar la gente?"
+            maxlength="100"
+            v-model="preguntaEncuesta"
+            class="ember-text-area ember-auto-resize ember-view post-options__input"
+            style="height: 50.4844px; overflow: hidden"
+          ></textarea>
+        </div>
+
+        <div class="post-options__fieldset">
+          <label class="post-options__label">Opciones</label>
+
+          <div
+            class="poll-editor__choice-wrapper"
+            v-for="(item, index) in opcionEncuesta"
+            :key="index"
+          >
+            <textarea
+              :placeholder="'opcion ' + index"
+              maxlength="100"
+              v-model="opcionEncuesta[index]"
+              class="ember-text-area ember-auto-resize ember-view post-options__input"
+              style="height: 50.4844px; overflow: hidden"
+            ></textarea>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="opcionEncuesta.length > 2"
+              @click="reducirOpciones(index)"
+              viewBox="0 0 24 24"
+              id="ember116"
+              class="ember-view poll-editor__choice-remover"
+            >
+              <path
+                d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+              >
+                <!---->
+              </path>
+            </svg>
+          </div>
+
+          <button class="post-options__action" tabindex="14" @click="addOpcion">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                id="ember641"
+                class="ember-view"
+              >
+                <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z">
+                  <!---->
+                </path>
+              </svg>
+              <span>Add Choice</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!--fin Encuestas-->
+
       <div class="post-page__post-footer" v-if="preview">
         <div class="post-page__inline-author">
           <div id="ember1037" class="user-link ember-view">
@@ -325,17 +561,21 @@
           </div>
         </div>
 
-            <nuxt-link v-if="selectGroupId > 0"
-              :to="{
-                name: 'grupo-slug',
-                params: { slug: groupSlug },
-              }"
-               class="ember-view post-page__group-link">
-               publico en 
-              <img :src="iconSelectGroup" 
-               class="img-lazy img-lazy--loaded ember-view post-page__group-icon">
-              <div class="post-page__group-name">{{selectGroupLabel}}</div>
-            </nuxt-link>
+        <nuxt-link
+          v-if="selectGroupId > 0"
+          :to="{
+            name: 'grupo-slug',
+            params: { slug: groupSlug },
+          }"
+          class="ember-view post-page__group-link"
+        >
+          publico en
+          <img
+            :src="iconSelectGroup"
+            class="img-lazy img-lazy--loaded ember-view post-page__group-icon"
+          />
+          <div class="post-page__group-name">{{ selectGroupLabel }}</div>
+        </nuxt-link>
         <a
           title="Monday, March 15th 2021 (3:35 pm)"
           href="#"
@@ -346,24 +586,18 @@
         </a>
       </div>
 
-
- 
-       <div class="edit-post__group-guidelines" v-if="selectGroupId > 0">
+      <div class="edit-post__group-guidelines" v-if="selectGroupId > 0">
         <header>
-        <picture id="ember725" class="group-icon ember-view">
-        <img :src="iconSelectGroup">
-
-        </picture>
-        <p>{{selectGroupLabel}}</p>
-        <p>{{groupExcerpt}}</p>
+          <picture id="ember725" class="group-icon ember-view">
+            <img :src="iconSelectGroup" />
+          </picture>
+          <p>{{ selectGroupLabel }}</p>
+          <p>{{ groupExcerpt }}</p>
         </header>
-        </div>
-
-     
+      </div>
 
       <div class="post-page__footer-actions">
         <button
-        
           class="post-page__submit-button"
           :disabled="botonDisable"
           @click="enviarPost"
@@ -449,16 +683,16 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside'
+import ClickOutside from "vue-click-outside";
 export default {
   layout: "post-nuevo",
   name: "post-nuevo",
-     directives: {
-    ClickOutside
-  }, 
+  directives: {
+    ClickOutside,
+  },
   data() {
     return {
-
+      picked: '',
       tituloPost: "",
       tabSelected: 2,
       content: "",
@@ -466,19 +700,20 @@ export default {
       botonDisable: true,
       preview: false,
       fechaActual: "",
-      imagenPost: '',
-      filePost: '',
-      contentSelected: '', 
+      imagenPost: "",
+      filePost: "",
+      contentSelected: "",
       disableAll: false,
       selectGrupo: false,
-      contadorOutsideGrupo: 0, 
+      contadorOutsideGrupo: 0,
       misGrupos: [],
-      selectGroupLabel: 'Seleccionar Grupo', 
-      groupExcerpt: '', 
-      groupSlug: '',
-      iconSelectGroup: '',
+      selectGroupLabel: "Seleccionar Grupo",
+      groupExcerpt: "",
+      groupSlug: "",
+      iconSelectGroup: "",
       selectGroupId: 0,
       quitarGrupoSeleccionado: false,
+      otrosSearch: false,
       meses: [
         "Enero",
         "Febrero",
@@ -493,9 +728,25 @@ export default {
         "Noviembre",
         "Diciembre",
       ],
+      arraySearchOtros: [],
+      searchInput: "",
+      encuesta: false,
+      opcionEncuesta: ['', ''],
+      cantidadOpciones: 2,
+      preguntaEncuesta: "",
     };
   },
   watch: {
+    searchInput: function (value) {
+      if (value.length > 0) {
+        this.otrosSearch = true;
+        this.searchOtrosGrupos();
+      } else {
+        this.otrosSearch = false;
+        this.arraySearch = [];
+      }
+    },
+
     content: function (value) {
       if (value.length > 0) {
         this.botonDisable = false;
@@ -511,10 +762,9 @@ export default {
       }
     },
 
-     tituloPost: function (value) {
-       console.log(value.length)
+    tituloPost: function (value) {
+      console.log(value.length);
       if (value.length > 0 && value.length < 43) {
-        
         document.getElementById("tituloPost").style.height = "75px";
       }
       if (value.length > 43 && value.length < 82) {
@@ -524,148 +774,165 @@ export default {
       if (value.length > 118 && value.length < 140) {
         document.getElementById("tituloPost").style.height = "200px";
       }
-
-
     },
-
   },
   methods: {
-    seleccionarGrupo(id, titulo, icono, excerpt, slug){
-      this.groupExcerpt = excerpt
-      this.groupSlug = slug
-      this.selectGroupId = id 
-      this.selectGroupLabel = titulo 
-      this.iconSelectGroup = icono
-      this.selectGrupo = false
-        this.contadorOutsideGrupo = 0
+    reducirOpciones(index) {
+   
+
+      this. opcionEncuesta.splice(index, 1)
     },
-   async getMyGroups(){
-     console.log("/grupos/byuser/?token="+this.$store.state.tokenUser)
+    addOpcion() {
+      this.opcionEncuesta.push('')
+  
+    },
+    addEncuesta() {
+      this.encuesta = true;
+      this.opcionEncuesta = ['', '']
+      this.preguntaEncuesta = ''
+    },
+    quitarEncuesta() {
+      this.encuesta = false;
+    },
+    async searchOtrosGrupos() {
       await this.$axios
-        .$get("/grupos/byuser/?token="+this.$store.state.tokenUser)
+        .$get("/grupos/likegrupos?p=" + this.searchInput)
         .then((response) => {
-            this.misGrupos = response.grupos
-        })
-
+          console.log(response);
+          this.arraySearchOtros = response.grupos;
+        });
     },
-    addImagePost(){
-      document.getElementById("filePost").click()
-    }, 
-      async   previewFiles(e) {
-        const file = e.target.files[0];
-        this.filePost = file
-        console.log(file)
+    seleccionarGrupo(id, titulo, icono, excerpt, slug) {
+      this.groupExcerpt = excerpt;
+      this.groupSlug = slug;
+      this.selectGroupId = id;
+      this.selectGroupLabel = titulo;
+      this.iconSelectGroup = icono;
+      this.selectGrupo = false;
+      this.contadorOutsideGrupo = 0;
+    },
+    async getMyGroups() {
+      console.log("/grupos/byuser/?token=" + this.$store.state.tokenUser);
+      await this.$axios
+        .$get("/grupos/byuser/?token=" + this.$store.state.tokenUser)
+        .then((response) => {
+          this.misGrupos = response.grupos;
+        });
+    },
+    addImagePost() {
+      document.getElementById("filePost").click();
+    },
+    async previewFiles(e) {
+      const file = e.target.files[0];
+      this.filePost = file;
+      console.log(file);
       this.imagenPost = URL.createObjectURL(file);
-
-      },
+    },
     previewPost(val) {
       console.log(val);
       this.preview = val;
+     this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
+
     },
 
-    eliminarImagen(){
-        this.imagenPost = ''
+    eliminarImagen() {
+      this.imagenPost = "";
     },
 
     selectTab(val) {
-      if(val == 1){
+      if (val == 1) {
         //voy pa la uno
-          if(this.contentLink.length == 0){
-                this.botonDisable = true
-          }else{
-              this.botonDisable = false
-          }
+        if (this.contentLink.length == 0) {
+          this.botonDisable = true;
+        } else {
+          this.botonDisable = false;
+        }
       }
 
-       if(val == 2){
-          if(this.content.length == 0){
-                this.botonDisable = true
-          }else{
-              this.botonDisable = false
-          }
+      if (val == 2) {
+        if (this.content.length == 0) {
+          this.botonDisable = true;
+        } else {
+          this.botonDisable = false;
+        }
       }
-      
-      
+
       this.tabSelected = val;
     },
 
-  async  enviarPost(){
-    this.disableAll = true
-    this.botonDisable = true
-      if(this.tituloPost.length == 0){
-        alert("falta titul")
-        return false
+    async enviarPost() {
+      this.disableAll = true;
+      this.botonDisable = true;
+      if (this.tituloPost.length == 0) {
+        alert("falta titul");
+        return false;
       }
 
-      if(this.tabSelected == 1){
-        this.contentSelected = this.contentLink
+      if (this.tabSelected == 1) {
+        this.contentSelected = this.contentLink;
       }
-  if(this.tabSelected == 2){
-        this.contentSelected = this.content
+      if (this.tabSelected == 2) {
+        this.contentSelected = this.content;
       }
 
+      let formData = new FormData();
+      formData.append("file", this.filePost);
+      formData.append("token", this.$store.state.tokenUser);
+      formData.append("titulo", this.tituloPost);
+      formData.append("contenido", this.contentSelected);
+      formData.append("tab", this.tabSelected);
+      formData.append("idGrupo", this.selectGroupId);
+       formData.append("preguntaEncuesta", this.preguntaEncuesta);
+        this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
+        console.log(this.opcionEncuesta)
+        formData.append("opcionesEncuesta", JSON.stringify(this.opcionEncuesta));
 
-    let formData = new FormData();
-            formData.append('file', this.filePost);
-            formData.append('token', this.$store.state.tokenUser);
-            formData.append('titulo', this.tituloPost);
-            formData.append('contenido', this.contentSelected);
-            formData.append('tab', this.tabSelected);
-            formData.append('idGrupo', this.selectGroupId);
-  
+      const response = await this.$axios.$post("/post/usuario/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response)
+      if (response.status == 1) {
+        this.$router.push({
+          name: "post-slug",
+          params: { slug: response.slug },
+        });
+      }
+    },
 
-
- const response = await this.$axios.$post('/post/usuario/',
-                formData,
-                {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-              }
-            )
-if(response.status == 1){
-   this.$router.push({ name: 'post-slug', params: {slug: response.slug} })
-}
-
-
-
-    }, 
-
-    selectGroup(){
-      if(this.selectGrupo == true){
-       
-          this.selectGrupo = false
-           this.contadorOutsideGrupo = 0
-           this.quitarGrupoSeleccionado = false
-      }else{
-         if(this.iconSelectGroup != ''){
-          this.quitarGrupoSeleccionado = true
-        }else{
-          this.quitarGrupoSeleccionado = false
+    selectGroup() {
+      if (this.selectGrupo == true) {
+        this.selectGrupo = false;
+        this.contadorOutsideGrupo = 0;
+        this.quitarGrupoSeleccionado = false;
+      } else {
+        if (this.iconSelectGroup != "") {
+          this.quitarGrupoSeleccionado = true;
+        } else {
+          this.quitarGrupoSeleccionado = false;
         }
-        this.selectGrupo = true
+        this.selectGrupo = true;
       }
-      
-    }, 
-    selectGroupOut(){
-     if(this.contadorOutsideGrupo > 0){
-        this.selectGrupo = false
-        this.contadorOutsideGrupo = 0
-        this.quitarGrupoSeleccionado = false
-     }else{
-       this.contadorOutsideGrupo++
-     }
-       
-    }, 
-    quitarGrupoSelect(){
-      this.selectGrupo = false
-        this.contadorOutsideGrupo = 0
-        this.quitarGrupoSeleccionado = false
+    },
+    selectGroupOut() {
+      if (this.contadorOutsideGrupo > 0) {
+        this.selectGrupo = false;
+        this.contadorOutsideGrupo = 0;
+        this.quitarGrupoSeleccionado = false;
+      } else {
+        this.contadorOutsideGrupo++;
+      }
+    },
+    quitarGrupoSelect() {
+      this.selectGrupo = false;
+      this.contadorOutsideGrupo = 0;
+      this.quitarGrupoSeleccionado = false;
 
-         this.selectGroupId = 0 
-      this.selectGroupLabel = 'Seleccionar Grupo' 
-      this.iconSelectGroup = ''
-    }
+      this.selectGroupId = 0;
+      this.selectGroupLabel = "Seleccionar Grupo";
+      this.iconSelectGroup = "";
+    },
   },
 
   mounted() {
@@ -677,55 +944,59 @@ if(response.status == 1){
       " de " +
       f.getFullYear();
 
-      this.getMyGroups()
-     var cookieGroup = this.$cookies.get('group_cookie')
-     if(cookieGroup){
-          this.groupExcerpt = cookieGroup.excerptGrupo
-      this.groupSlug = cookieGroup.slug
-      this.selectGroupId = cookieGroup.id 
-      this.selectGroupLabel = cookieGroup.tituloGrupo 
-      this.iconSelectGroup = cookieGroup.imagenGrupo
-      this.selectGrupo = false
-        this.contadorOutsideGrupo = 0
+    this.getMyGroups();
+    var cookieGroup = this.$cookies.get("group_cookie");
+    if (cookieGroup) {
+      this.groupExcerpt = cookieGroup.excerptGrupo;
+      this.groupSlug = cookieGroup.slug;
+      this.selectGroupId = cookieGroup.id;
+      this.selectGroupLabel = cookieGroup.tituloGrupo;
+      this.iconSelectGroup = cookieGroup.imagenGrupo;
+      this.selectGrupo = false;
+      this.contadorOutsideGrupo = 0;
 
-this.$cookies.remove('group_cookie')
-     }
+      this.$cookies.remove("group_cookie");
+    }
   },
 };
 </script>
 
 <style >
 .ql-toolbar.ql-snow {
-    
-    background-color: #1f364d;
+  background-color: #1f364d;
 }
 
 .ql-editor {
-
-    background-color: #1f364d;
+  background-color: #1f364d;
 }
 
 .quillWrapper .ql-snow .ql-stroke {
-    stroke: #ffffff!important;
-    
+  stroke: #ffffff !important;
 }
 
 .ql-snow .ql-picker-label::before {
-   
-    color: #9cb3c9!important;
+  color: #9cb3c9 !important;
 }
 
 .ql-editor.ql-blank::before {
-   color: #9cb3c9;
+  color: #9cb3c9;
 }
 
 .ql-editor.ql-blank::before {
-    color: #9cb3c9!important;
-    
+  color: #9cb3c9 !important;
 }
 
-.quillWrapper .ql-editor ul[data-checked=false]>li::before, .quillWrapper .ql-editor ul[data-checked=true]>li::before {
-     color: #9cb3c9;
+.quillWrapper .ql-editor ul[data-checked="false"] > li::before,
+.quillWrapper .ql-editor ul[data-checked="true"] > li::before {
+  color: #9cb3c9;
+}
+.radioOp{
+      height: 18px;
+    width: 18px;
+    fill: inherit;
+    flex: 0 0 auto;
+    margin-right: .6em;
+    margin-top: .15em;
 }
 </style>
 

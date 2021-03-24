@@ -7278,7 +7278,7 @@ body>.ember-view {
 
 .community.community--homepage .feed-item__date,
 .community.community--homepage .feed-item__date+.feed-item__middot {
-  display: none
+ /* display: none*/
 }
 
 @media (max-width:499px) {
