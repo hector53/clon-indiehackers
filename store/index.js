@@ -83,7 +83,7 @@ export const actions = {
       }
       const cookieDataUser = parsed.user_data_;  
       var DataUser = JSON.parse(cookieDataUser)
-      console.log(DataUser.img)
+    //  console.log(DataUser.img)
       if (!accessTokenCookie) return;
   
       commit("setCookieLogin", true );

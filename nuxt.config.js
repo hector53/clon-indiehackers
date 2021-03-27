@@ -1,4 +1,7 @@
 export default {
+  server: {
+    port: 8000 // default: 3000
+  },
   target: 'server',
   loading: {
     color: 'blue',
@@ -30,7 +33,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/vue2-editor", ssr: false }
+    { src: "~/plugins/vue2-editor", ssr: false }, 
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -42,6 +42,10 @@ export default {
   methods: {
 
      async votoLike(){
+       if(this.$store.state.tokenUser == ''){
+          this.$router.push("/login")
+          return false
+       }
           
            let formData = new FormData();
         
@@ -61,21 +65,18 @@ export default {
           this.voto = response.votos
       }, 
    async   getsiVote(){
-             let formData = new FormData();
-        
-             formData.append('token', this.$store.state.tokenUser);
-            formData.append('p', this.p);
 
-         const response = await this.$axios.$post('/post/getsivote/',
-                formData,
-                {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-              }
-            )
-         //   console.log(response)
-            this.status = response.status
+
+
+ await this.$axios
+        .$get("/votos/getsivote/?token="+this.$store.state.tokenUser+"&p="+this.p)
+        .then((response) => {
+              this.status = response.status
+        })
+
+
+
+
       }
   
   },

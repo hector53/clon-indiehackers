@@ -494,7 +494,7 @@ export default {
  
   },
   mounted() {
-    console.log(this.$store.state.cookieLogin)
+  //  console.log(this.$store.state.cookieLogin)
   },
 };
 </script>
