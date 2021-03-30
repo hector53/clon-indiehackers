@@ -321,6 +321,9 @@ export default {
                 this.labelRecomendados = 'Sus Grupos'
             }
               this.gruposRecomendados =  response.grupos
+              
+                //     this.$store.commit('setLoader', false);
+              /// console.log("test loader", this.$store.state.loader)
           }
       
         });

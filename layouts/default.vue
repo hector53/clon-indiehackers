@@ -3,9 +3,8 @@
 
   <nav-bar></nav-bar>
 
-<!---->
 
-  <Nuxt />
+  <Nuxt  />
 
   
 

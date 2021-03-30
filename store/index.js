@@ -14,6 +14,7 @@ export const state = () => ({
  twitter: '', 
  email: '', 
  bio: '',
+ loader: true,
  Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
 'Octubre', 'Noviembre', 'Diciembre' ], 
 
@@ -27,6 +28,9 @@ export const getters = {
 }
 
 export const mutations = {
+  setLoader(state, val){
+    state.loader = val;
+  }, 
   setCookieLogin(state, val){
     state.cookieLogin = val;
   }, 

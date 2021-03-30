@@ -1,5 +1,8 @@
 <template>
-  <section id="ember410" class="user-feed ember-view">
+<div>
+  <loader v-show="loader"></loader>
+
+  <section  v-show="loader == false"  class="user-feed ember-view">
     <div class="user-feed__options">
       <div>
         <div>
@@ -96,6 +99,7 @@
       </div>
     </button>
   </section>
+  </div>
 </template>
 
 <script>
@@ -105,7 +109,8 @@ export default {
   data() {
     return {
       activePost: true, 
-      arrayPosts: []
+      arrayPosts: [],
+      loader: true
     };
   },
   methods: {
@@ -116,6 +121,7 @@ export default {
         .then((response) => {
             console.log(response)
           this.arrayPosts = response.post
+          this.loader = false
         });
     },
   },

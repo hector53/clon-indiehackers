@@ -7,7 +7,7 @@
 
 <!---->
 
-  <Nuxt keep-alive />
+  <Nuxt keep-alive  />
 
   
 
@@ -21,9 +21,10 @@
 import NavBar from '~/components/navbar/navBar.vue';
 import postSeccion from '~/components/postSeccion/postSeccion.vue';
 import footerSeccion from '~/components/footer/footerSeccion.vue';
+import Loader from '~/components/loader/loader.vue';
 export default {
     name: "postSlug", 
-    components: {NavBar, postSeccion, footerSeccion},
+    components: {NavBar, postSeccion, footerSeccion, Loader},
     data() {
         return {
 

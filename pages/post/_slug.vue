@@ -1,11 +1,16 @@
 <template>
-  <div class="post-page__content">
+<div>
+ <loader v-show="loader"></loader>
+  <div  v-show="loader==false" class="post-page__content">
+
+   
     <like-post :cantidadComentarios="cantidadComentarios"
       :votos="votos"
       :p="idP"
       v-if="p != $store.state.p && tituloPost != ''"
     ></like-post>
     <like-post-edit :cantidadComentarios="cantidadComentarios" :favPost="favPost"
+    :idE="idE"
       :votos="votos"
       :p="idP"
       v-if="p == $store.state.p && tituloPost != ''"
@@ -44,6 +49,17 @@
         v-html="contenido"
         v-if="esLink == 0"
       ></div>
+
+      
+
+
+
+    <encuesta-post :arrayEncuesta="arrayEncuesta" :idP="idP" v-if="arrayEncuesta != 0"></encuesta-post>
+
+
+
+
+
 
       <div
         v-if="esLink == 1 && previewUrl == false"
@@ -151,347 +167,9 @@
       :p="p"></comentarios-post>
     </div>
 
-    <div id="ember1225" class="post-page__recommendations ember-view">
-      <div class="post-page__recommendations-heading">
-        Trending on Indie Hackers
-      </div>
-
-      <div class="post-page__recommendations-list">
-        <a
-          href="/post/d057ae3f90"
-          id="ember1227"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://stanleycyang.com/how-to-drive-traffic-to-your-website.png"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              How I Went From 0 to 142,263 Users in 12 Months
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1228"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_482wajy4AMU1IlpuapByBn18LJ03.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/482wajy4AMU1IlpuapByBn18LJ03
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/482wajy4AMU1IlpuapByBn18LJ03
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              29 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1229"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-        <a
-          href="/post/1d8435da12"
-          id="ember1231"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/post-images/1d8435da12/DB3sUMTRBHcr8iC3Ob9XjUU3LH62/c88c68cb-6411-05f6-ce5e-051c6ca243df.png"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              From 10-hour Smoke Test to 4,500+ Emails: How I validated a SaaS
-              project.
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1232"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_DB3sUMTRBHcr8iC3Ob9XjUU3LH62.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/DB3sUMTRBHcr8iC3Ob9XjUU3LH62
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/DB3sUMTRBHcr8iC3Ob9XjUU3LH62
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              12 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1233"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-        <a
-          href="/post/e4db12b966"
-          id="ember1235"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://res.cloudinary.com/practicaldev/image/fetch/s--OrE4lP1p--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hkvir806a2jsyqtsqsoh.png"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              The Part Time Creator Manifesto
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1236"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_knB6tgB1DbNrfy58ruuat19mhO93.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/knB6tgB1DbNrfy58ruuat19mhO93
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/knB6tgB1DbNrfy58ruuat19mhO93
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              12 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1237"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-        <a
-          href="/post/0685355244"
-          id="ember1239"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/post-images/0685355244/bVimQk6FKHZdnQc30WtuVaMydpf1/36b68e3f-387c-7e4a-58f6-83a5e9f527ed.png"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              I tried out 6 different email subject lines and collected some
-              great data.
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1240"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_bVimQk6FKHZdnQc30WtuVaMydpf1.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/bVimQk6FKHZdnQc30WtuVaMydpf1
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/bVimQk6FKHZdnQc30WtuVaMydpf1
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              9 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1241"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-        <a
-          href="/post/5735411869"
-          id="ember1243"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/post-images/5735411869/CwjWXg3pv8N3WXmjsPZmoOhkA773/06e0b834-f33e-2ceb-8049-0273b3b530b3.jpg"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              How We Got 1,000 Users by Engaging Developers
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1244"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_CwjWXg3pv8N3WXmjsPZmoOhkA773.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/CwjWXg3pv8N3WXmjsPZmoOhkA773
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/CwjWXg3pv8N3WXmjsPZmoOhkA773
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              8 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1245"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-        <a
-          href="/post/7126a6ab41"
-          id="ember1247"
-          class="ember-view post-page__recommendation"
-        >
-          <img
-            class="post-page__recommendation-image"
-            src="https://moores.samaltman.com/images/social.png"
-          />
-          <span class="post-page__recommendation-text">
-            <span class="post-page__recommendation-title">
-              Moore's Law for Everything
-            </span>
-            <span class="post-page__recommendation-footer">
-              <picture
-                id="ember1248"
-                class="user-avatar ember-view post-page__recommendation-avatar"
-              >
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/52x52_PWairgiOpneHvkGJri7RVbtORKI2.webp
-                  "
-                  type="image/webp"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/PWairgiOpneHvkGJri7RVbtORKI2
-                  "
-                  type="image/png"
-                />
-                <source
-                  srcset="
-                    https://storage.googleapis.com/indie-hackers.appspot.com/avatars/PWairgiOpneHvkGJri7RVbtORKI2
-                  "
-                  type="image/jpeg"
-                />
-
-                <img src="/nonexistent-image.png" />
-              </picture>
-              6 comments
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                id="ember1249"
-                class="ember-view"
-              >
-                <path
-                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-                >
-                  <!---->
-                </path>
-              </svg>
-            </span>
-          </span>
-        </a>
-      </div>
-    </div>
+   <trendingPosts :trending="trending" v-if="trending.length > 0"></trendingPosts>
   </div>
+</div>
 </template>
 
 <script>
@@ -499,12 +177,15 @@ import ComentarioReply from '~/components/comentarios/comentarioReply.vue';
 import ComentariosPost from '~/components/comentarios/comentariosPost.vue';
 import LikePost from '~/components/likes/likePost.vue';
 import likePostEdit from "~/components/likes/likePostEdit.vue";
+import Loader from '~/components/loader/loader.vue';
+import encuestaPost from "~/components/postSeccion/encuestaPost.vue";
+import trendingPosts from '~/components/postSeccion/trendingPosts.vue';
 
 export default {
   layout: "postSlug",
   name: "postSlug",
   head: {},
-  components: { likePostEdit,  ComentarioReply, LikePost, ComentariosPost },
+  components: { likePostEdit,  ComentarioReply, LikePost, ComentariosPost, encuestaPost, trendingPosts, Loader },
   data() {
     return {
       idP: 0,
@@ -521,6 +202,7 @@ export default {
       votos: 0,
       comentarios: [],
       favPost: 0,
+      trending: [],
       meses: [
         "Enero",
         "Febrero",
@@ -536,13 +218,16 @@ export default {
         "Diciembre",
       ],
       commentText: '', 
-      cantidadComentarios: 0
+      cantidadComentarios: 0, 
+      idE: '', 
+      arrayEncuesta : [], 
+      loader: true
     };
   },
   watch: {},
   async fetch() {
     await this.$axios
-      .$get("/getpost/usuario/?slug=" + this.$route.params.slug)
+      .$get("/getpost/usuario/?slug=" + this.$route.params.slug+"&token="+this.$store.state.tokenUser)
       .then((response) => {
              console.log(response)
         if (response.status == 0) {
@@ -559,6 +244,9 @@ export default {
           this.esLink = response.post[0].esLink;
           this.votos = response.post[0].votos;
           this.favPost = response.post[0].fav
+          this.idE = response.post[0].idE
+          this.arrayEncuesta = response.post[0].encuesta
+          this.trending = response.trending
           if (response.post[0].esLink == 1) {
             if (response.previewUrl == 0) {
           //    console.log("es cero la pre")
@@ -578,6 +266,8 @@ export default {
             this.meses[f.getMonth()] +
             " de " +
             f.getFullYear();
+
+          this.loader = false
         }
       });
   },
@@ -625,7 +315,7 @@ export default {
   
   },
   mounted() {
-  //  console.log(this)
+   console.log(this.arrayEncuesta)
   /*  var queryCommentID = this.$route.query.commentId
     if(queryCommentID){
           VueScrollTo.scrollTo('#'+queryCommentID)

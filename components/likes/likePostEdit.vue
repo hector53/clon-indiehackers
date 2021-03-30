@@ -66,11 +66,9 @@
         </div>
 
         <div class="post-page__admin-actions">
-          <a
-            href="/edit-post/702b9fa3b3"
-       
-            class="ember-view post-page__admin-action post-page__admin-action--edit"
-          >
+           <nuxt-link :to="{name:'editar-post-id', params: {id: idE}}"
+         class="ember-view post-page__admin-action post-page__admin-action--edit"
+        >  
             <div class="admin-action__button-content">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +84,7 @@
               </svg>
               <p class="admin-action__button-label">Edit</p>
             </div>
-          </a>
+          </nuxt-link>
 
           <button
             class="post-page__admin-action post-page__admin-action--delete"
@@ -150,7 +148,7 @@
 <script>
 export default {
   name: 'likePostEdit', 
-  props:['p', 'votos', 'cantidadComentarios', 'favPost'],
+  props:['p', 'votos', 'cantidadComentarios', 'favPost', 'idE'],
   components: {},
   data() {
     return {

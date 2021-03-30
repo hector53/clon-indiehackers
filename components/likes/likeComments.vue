@@ -49,6 +49,7 @@ export default {
 
       formData.append("token", this.$store.state.tokenUser);
       formData.append("p", this.p);
+      formData.append("votoc", 1);
 
       const response = await this.$axios.$post("/post/votolike/", formData, {
         headers: {

@@ -305,6 +305,8 @@ export default {
         .then((response) => {
           console.log(response)
         this.arrayPostHoy =  response.posts
+
+        
         });
       },
 
@@ -322,6 +324,9 @@ export default {
                 this.labelRecomendados = 'Sus Grupos'
             }
               this.gruposRecomendados =  response.grupos
+
+                  
+              
           }
       
         });
