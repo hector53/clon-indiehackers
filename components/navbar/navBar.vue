@@ -400,6 +400,7 @@
 
       <div class="title-bar__user-link " v-if="$store.state.cookieLogin" 
        @mouseover="hoverDropAvatar = true"  >
+       <div class="title-bar__unread-count" v-show="$store.state.notifyCount != 0">{{$store.state.notifyCount}}</div>
       <!---->        <picture id="ember762" class="user-avatar ember-view"> 
        <source :srcset="$store.state.img_perfil" type="image/webp">
       <!---->
@@ -483,11 +484,19 @@ export default {
   data() {
     return {
       hoverNavDropDown: false, 
-      hoverDropAvatar: false
-      
+      hoverDropAvatar: false,
+      countNotify: 0
     };
   },
   methods: {
+
+  async  getCountNotify(){
+         await this.$axios
+        .$get("/perfil/getcountnotify?p=" + this.$store.state.p)
+        .then((response) => {
+              this.$store.commit("setnotifyCount", response );
+        });
+    },
     cerrarSesion(){
       this.$cookies.remove('access_token_')
         location.href = "/";
@@ -496,6 +505,7 @@ export default {
   },
   mounted() {
   //  console.log(this.$store.state.cookieLogin)
+  this.getCountNotify()
   },
 };
 </script>

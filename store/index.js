@@ -15,6 +15,7 @@ export const state = () => ({
  email: '', 
  bio: '',
  loader: true,
+ notifyCount: 0,
  Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
 'Octubre', 'Noviembre', 'Diciembre' ], 
 
@@ -31,6 +32,9 @@ export const mutations = {
   setLoader(state, val){
     state.loader = val;
   }, 
+  setnotifyCount(state, val){
+    state.notifyCount = val;
+  },
   setCookieLogin(state, val){
     state.cookieLogin = val;
   }, 

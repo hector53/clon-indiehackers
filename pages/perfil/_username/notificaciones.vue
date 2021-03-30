@@ -282,6 +282,7 @@ export default {
       console.log(response)
       if(response.status != 0){
           this.getnotify()
+          this.$store.commit("setnotifyCount", 0 );
       }
     }
      
@@ -300,6 +301,7 @@ this.arrayNotify.splice(index, 1);
       console.log(response)
       if(response.status != 0){
           this.getnotify()
+          this.$store.commit("setnotifyCount", this.$store.state.notifyCount - 1 );
       }
     },
     async getnotify() {
