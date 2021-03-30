@@ -30,8 +30,8 @@
 
   <div class="site-footer__column site-footer__info">
     <div class="site-footer__name-and-attribution">
-<a href="/" id="ember21802314" class="site-footer__logo active ember-view">        <img class="site-footer__logo-glyph" src="/images/logos/indie-hackers-logo__glyph--light.svg">
-        <img class="site-footer__logo-type" src="/images/logos/indie-hackers-logo__type--light.svg">
+<a href="/" id="ember21802314" class="site-footer__logo active ember-view">        <img class="site-footer__logo-glyph" src="https://www.indiehackers.com/images/logos/indie-hackers-logo__glyph--light.svg">
+        <img class="site-footer__logo-type" src="https://www.indiehackers.com/images/logos/indie-hackers-logo__type--light.svg">
 </a>
       <span class="site-footer__preposition">by</span>
 

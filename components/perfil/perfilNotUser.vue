@@ -71,27 +71,28 @@
         <div class="user-actions" data-scrollable-outer="">
           <div class="user-actions__wrapper" data-scrollable-middle="">
             <div class="user-actions__content" data-scrollable-inner="">
-              <a href="/Nananonaweb" 
-               class="ember-view user-actions__action"
-              @click.prevent="tab = 0"
-               :class="{'active' : tab == 0}"
+             <nuxt-link :to="{name:'perfil-username', params: {username: $route.params.username} }"
+              class="ember-view user-actions__action"
+               :class="{'active' : $route.name == 'perfil-username'}"
                >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1955" class="ember-view user-actions__action-icon"><path d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z">
 <!----></path>
 </svg>
                 <span class="user-actions__action-label">Posts</span>
-              </a>
+              </nuxt-link>
 
-              <a href="/Nananonaweb/history" 
+            <nuxt-link :to="{name:'perfil-username-historial', 
+            params: {username: $route.params.username} }"
+            
                class="ember-view user-actions__action"
                @click.prevent="tab = 1"
-               :class="{'active' : tab == 1}"
+               :class="{'active' :  $route.name == 'perfil-username-historial'}"
                >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1957" class="ember-view user-actions__action-icon"><path d="M3.732 13h1.504s2.32-8.403 2.799-10.263c.156-.605.646-.738.965-.737.319.001.826.224.947.74.581 2.466 3.11 13.908 3.11 13.908s1.597-6.441 1.943-7.891c.101-.425.536-.757 1-.757.464 0 .865.343 1 .707.312.841 1.675 4.287 1.677 4.293h1.591c.346-.598.992-1 1.732-1 1.104 0 2 .896 2 2s-.896 2-2 2c-.741 0-1.388-.404-1.734-1.003-.939-.001-1.856 0-2.266.003-.503.004-.774-.289-.928-.629l-.852-2.128s-1.828 7.367-2.25 8.999c-.153.595-.646.762-.97.758-.324-.004-.847-.198-.976-.783-.549-2.487-2.081-9.369-3.123-14.053 0 0-1.555 5.764-1.936 7.099-.13.454-.431.731-.965.737h-2.268c-.346.598-.992 1-1.732 1-1.104 0-2-.896-2-2s.896-2 2-2c.74 0 1.386.402 1.732 1z">
 <!----></path>
 </svg>
                 <span class="user-actions__action-label">History</span>
-              </a>
+              </nuxt-link>
 
            
 
@@ -99,8 +100,7 @@
           </div>
         </div>
 
-     <tab-posts v-if="tab == 0"></tab-posts>
-     <tab-history v-if="tab == 1"></tab-history>
+<Nuxt />
 
     </div>
 
@@ -128,10 +128,8 @@
 </template>
 
 <script>
-import TabHistory from '~/components/perfil/tabHistory.vue';
-import tabPosts from '~/components/perfil/tabPosts.vue';
+
 export default {
-  components: { tabPosts, TabHistory },
   layout: "perfil",
     props: ['arrayDataUser'],
   name: "perfilNotUser",

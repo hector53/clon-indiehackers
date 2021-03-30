@@ -110,7 +110,7 @@
                     <!---->
                   </path>
                 </svg>
-                <span class="reply-count__number-count">{{item.comentarios}}</span>
+            <span class="reply-count__number-count">{{item.comentarios}}</span>
                 <span class="reply-count__full-count">{{item.comentarios}} comments</span>
               </a>
 
@@ -125,7 +125,7 @@
 <script>
 import like from '~/components/likes/like.vue';
 export default {
-  name: 'index', 
+  name: 'todos', 
   layout: "home",
   components: {like},
   data() {
@@ -140,55 +140,19 @@ export default {
     }
   },
   methods: {
-    changeFiltroBusqueda(filtro){
-        this.filtroBusqueda = filtro
-        if(filtro == 'hoy'){
-          this.filtroTop = true
-        }
 
-        this.getPostHoy()
-    },
- 
  async   getPostHoy(){
        await this.$axios
-        .$get("/getpost/hoy/?filtro=hoy")
+        .$get("/getpost/hoy/?filtro=todos")
         .then((response) => {
           console.log(response)
         this.arrayPostHoy =  response.posts
         });
       },
 
-   async   getGrupos(){
-
-      await this.$axios
-        .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
-        .then((response) => {
-          console.log(response)
-          if(response.status > 0){
-            if(response.status == 2){
-                this.labelRecomendados = 'Recomendados'
-            }
-            if(response.status == 1){
-                this.labelRecomendados = 'Sus Grupos'
-            }
-              this.gruposRecomendados =  response.grupos
-              
-                //     this.$store.commit('setLoader', false);
-              /// console.log("test loader", this.$store.state.loader)
-          }
-      
-        });
-
-      }
+  
   },
-   async fetch() {
-
-      
-     
-      
-
-        
-   },
+ 
   mounted() {
 
 this.getPostHoy()

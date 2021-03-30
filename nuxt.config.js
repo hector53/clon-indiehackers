@@ -1,5 +1,7 @@
 export default {
- 
+  server: {
+    port: 8000 // default: 3000
+  },
   target: 'server',
   loading: {
     color: 'blue',

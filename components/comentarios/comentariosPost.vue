@@ -288,6 +288,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
+      console.log(response)
       if(response.status == 1){
            this.replyBox = ''
       this.commentText = ''

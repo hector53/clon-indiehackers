@@ -76,58 +76,55 @@
         <div class="user-actions" data-scrollable-outer="">
           <div class="user-actions__wrapper" data-scrollable-middle="">
             <div class="user-actions__content" data-scrollable-inner="">
-              <a href="/Nananonaweb" 
-               class="ember-view user-actions__action"
-              @click.prevent="tab = 0"
-               :class="{'active' : tab == 0}"
+             <nuxt-link :to="{name:'perfil-username', params: {username: $route.params.username} }"
+              class="ember-view user-actions__action"
+               :class="{'active' : $route.name == 'perfil-username'}"
                >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1955" class="ember-view user-actions__action-icon"><path d="M23 5v13.883l-1 .117v-16c-3.895.119-7.505.762-10.002 2.316-2.496-1.554-6.102-2.197-9.998-2.316v16l-1-.117v-13.883h-1v15h9.057c1.479 0 1.641 1 2.941 1 1.304 0 1.461-1 2.942-1h9.06v-15h-1zm-12 13.645c-1.946-.772-4.137-1.269-7-1.484v-12.051c2.352.197 4.996.675 7 1.922v11.613zm9-1.484c-2.863.215-5.054.712-7 1.484v-11.613c2.004-1.247 4.648-1.725 7-1.922v12.051z">
 <!----></path>
 </svg>
                 <span class="user-actions__action-label">Posts</span>
-              </a>
+              </nuxt-link>
 
-              <a href="/Nananonaweb/history" 
+            <nuxt-link :to="{name:'perfil-username-historial', 
+            params: {username: $route.params.username} }"
+            
                class="ember-view user-actions__action"
                @click.prevent="tab = 1"
-               :class="{'active' : tab == 1}"
+               :class="{'active' :  $route.name == 'perfil-username-historial'}"
                >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1957" class="ember-view user-actions__action-icon"><path d="M3.732 13h1.504s2.32-8.403 2.799-10.263c.156-.605.646-.738.965-.737.319.001.826.224.947.74.581 2.466 3.11 13.908 3.11 13.908s1.597-6.441 1.943-7.891c.101-.425.536-.757 1-.757.464 0 .865.343 1 .707.312.841 1.675 4.287 1.677 4.293h1.591c.346-.598.992-1 1.732-1 1.104 0 2 .896 2 2s-.896 2-2 2c-.741 0-1.388-.404-1.734-1.003-.939-.001-1.856 0-2.266.003-.503.004-.774-.289-.928-.629l-.852-2.128s-1.828 7.367-2.25 8.999c-.153.595-.646.762-.97.758-.324-.004-.847-.198-.976-.783-.549-2.487-2.081-9.369-3.123-14.053 0 0-1.555 5.764-1.936 7.099-.13.454-.431.731-.965.737h-2.268c-.346.598-.992 1-1.732 1-1.104 0-2-.896-2-2s.896-2 2-2c.74 0 1.386.402 1.732 1z">
 <!----></path>
 </svg>
                 <span class="user-actions__action-label">History</span>
-              </a>
+              </nuxt-link>
 
-                <a href="/Nananonaweb/notifications"
+              <nuxt-link :to="{name:'perfil-username-notificaciones', 
+            params: {username: $route.params.username} }"
                  
                  class="ember-view user-actions__action"
-                 @click.prevent="tab = 2"
-               :class="{'active' : tab == 2}"
+               :class="{'active' :  $route.name == 'perfil-username-notificaciones'}"
                  >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1959" class="ember-view user-actions__action-icon"><path d="M15.137 3.945c-.644-.374-1.041-1.07-1.04-1.82v-.003c0-1.172-.939-2.122-2.097-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-6.728 12.055h-1.882c1.245-2.741.879-9.012 3.873-10.655-1.761 2.067-.95 7.504-1.991 10.655zm3.591-13c-.552 0-1-.448-1-1 0-.551.448-1 1-1s1 .449 1 1c0 .552-.448 1-1 1zm-3 18h6c0 1.598-1.393 3-2.971 3-1.579 0-3.029-1.402-3.029-3z">
 <!----></path>
 </svg>
-                  <span class="user-actions__action-label">Notifications</span>
-                </a>
+                  <span class="user-actions__action-label">Notificaciones</span>
+                </nuxt-link>
 
-                <a href="/Nananonaweb/settings" 
+               <nuxt-link :to="{name:'perfil-username-configuracion', 
+            params: {username: $route.params.username} }"
                  class="ember-view user-actions__action"
-                 @click.prevent="tab = 3"
-               :class="{'active' : tab == 3}"
+              :class="{'active' :  $route.name == 'perfil-username-configuracion'}"
                  >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember1961" class="ember-view user-actions__action-icon"><path d="M24 13.616v-3.232l-2.869-1.02c-.198-.687-.472-1.342-.811-1.955l1.308-2.751-2.285-2.285-2.751 1.307c-.613-.339-1.269-.613-1.955-.811l-1.021-2.869h-3.232l-1.021 2.869c-.686.198-1.342.471-1.955.811l-2.751-1.308-2.285 2.285 1.308 2.752c-.339.613-.614 1.268-.811 1.955l-2.869 1.02v3.232l2.869 1.02c.197.687.472 1.342.811 1.955l-1.308 2.751 2.285 2.286 2.751-1.308c.613.339 1.269.613 1.955.811l1.021 2.869h3.232l1.021-2.869c.687-.198 1.342-.472 1.955-.811l2.751 1.308 2.285-2.286-1.308-2.751c.339-.613.613-1.268.811-1.955l2.869-1.02zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z">
 <!----></path>
 </svg>
-                  <span class="user-actions__action-label">Settings</span>
-                </a>
+                  <span class="user-actions__action-label">Configuración</span>
+                </nuxt-link>
             </div>
           </div>
         </div>
-
-     <tab-posts v-if="tab == 0"></tab-posts>
-     <tab-history v-if="tab == 1"></tab-history>
-     <tab-notify v-if="tab == 2"></tab-notify>
-     <tab-config v-if="tab == 3"></tab-config>
+<Nuxt />
 
     </div>
 
@@ -154,13 +151,9 @@
 </template>
 
 <script>
-import TabConfig from '~/components/perfil/tabConfig.vue';
-import TabHistory from '~/components/perfil/tabHistory.vue';
-import TabNotify from '~/components/perfil/tabNotify.vue';
-import tabPosts from '~/components/perfil/tabPosts.vue';
 import PerfilFollow from './perfilFollow.vue';
 export default {
-  components: { tabPosts, TabHistory, TabNotify, TabConfig, PerfilFollow },
+  components: { PerfilFollow },
   layout: "perfil",
   name: "perfilUser",
   props: ['arrayDataUser'],
@@ -173,9 +166,13 @@ export default {
     
   },
   methods: {
+   
       recargarDataUser(){
            this.$emit("recargarDataUser");
       }
+  },
+  mounted() {
+     console.log(this.$route)
   },
 };
 </script>

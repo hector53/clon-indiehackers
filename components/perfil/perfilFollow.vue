@@ -142,6 +142,7 @@ export default {
             this.$store.state.tokenUser
         )
         .then((response) => {
+          console.log(response)
           this.$emit("recargarDataUser");
         });
     },
