@@ -99,6 +99,7 @@ export default {
       await this.$axios
         .$get("/login/usuario/?email="+this.email+"&pass="+this.pass)
         .then((response) => {
+          console.log(response)
             if(response.status == 0){
                     //pass incorrecta
                    this.errorLogin = true

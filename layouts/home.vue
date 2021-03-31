@@ -144,6 +144,13 @@ export default {
         }
     },
   methods: {
+        postNuevo(){
+        if(this.$store.state.tokenUser != ''){
+          this.$router.push({name: 'post-nuevo'})
+        }else{
+          this.$router.push({name: 'login'})
+        }
+    },
       async   getGrupos(){
 
       await this.$axios
