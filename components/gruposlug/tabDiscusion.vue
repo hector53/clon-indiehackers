@@ -78,13 +78,13 @@
               >
                 <nuxt-link
                   :to="{
-                    name: 'perfil-username',
+                    name: 'u-username',
                     params: { username: item.username },
                   }"
                   class="user-link__link ember-view"
                 >
                   <picture
-                    id="ember73"
+                
                     class="user-avatar ember-view user-link__avatar"
                   >
                     <img src="/nonexistent-image.png" />

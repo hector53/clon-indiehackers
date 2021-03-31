@@ -33,8 +33,9 @@
 </template>
 
 <script>
+import "~/assets/css/canalizados.css"
 export default {
-  name: "slugPages",
+  name: "libros",
    layout: "paginas",
   components: {},
   data() {
@@ -46,20 +47,8 @@ export default {
   methods: {
      
    },
-  async fetch() {
-       await this.$axios
-        .$get("/wp/v2/pages?slug=" + this.$route.params.slug)
-        .then((response) => {
-       console.log(response)
-            this.contenido = response[0].content.rendered
-            this.titulo =  response[0].title.rendered
-        
-        });
-  },
+
   mounted() {
   },
 };
 </script>
-<style>
-    @import '~/assets/css/canalizados.css';
-    </style>

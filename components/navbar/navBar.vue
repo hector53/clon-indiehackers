@@ -411,7 +411,7 @@
 
       <div  class="user-menu ember-view" :class="{'showDrop' : hoverDropAvatar }"  @mouseover="hoverDropAvatar = true"
            @mouseleave="hoverDropAvatar = false">
-         <nuxt-link :to="{name:'perfil-username', params: {username: $store.state.username}}"  class="ember-view user-menu__action">
+         <nuxt-link :to="{name:'u-username', params: {username: $store.state.username}}"  class="ember-view user-menu__action">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember765" class="ember-view user-menu__action-icon"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z">
 <!----></path>
 </svg>
@@ -423,7 +423,7 @@
   </span>
 </nuxt-link>
 
-      <nuxt-link :to="{name:'perfil-username-notificaciones', 
+      <nuxt-link :to="{name:'u-username-notificaciones', 
             params: {username: $store.state.username} }" class="ember-view user-menu__action">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember768" class="ember-view user-menu__action-icon"><path d="M15.137 3.945c-.644-.374-1.041-1.07-1.04-1.82v-.003c0-1.172-.939-2.122-2.097-2.122s-2.097.95-2.097 2.122v.003c.001.751-.396 1.446-1.041 1.82-4.667 2.712-1.985 11.715-6.862 13.306v1.749h20v-1.749c-4.877-1.591-2.195-10.594-6.863-13.306zm-6.728 12.055h-1.882c1.245-2.741.879-9.012 3.873-10.655-1.761 2.067-.95 7.504-1.991 10.655zm3.591-13c-.552 0-1-.448-1-1 0-.551.448-1 1-1s1 .449 1 1c0 .552-.448 1-1 1zm-3 18h6c0 1.598-1.393 3-2.971 3-1.579 0-3.029-1.402-3.029-3z">
 <!----></path>

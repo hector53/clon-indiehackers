@@ -29,7 +29,7 @@
             <div class="groups__group" v-for="(item, index) in gruposRecomendados" :key="index">
             <nuxt-link  
               :to="{
-                name: 'grupo-slug',
+                name: 'g-slug',
                 params: { slug: item.slug },
               }"
                 class="ember-view groups__group-link"

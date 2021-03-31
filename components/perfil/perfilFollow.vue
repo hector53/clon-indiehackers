@@ -70,7 +70,7 @@
       <div  class="users-list ember-view">
         <div class="user-link users-list__user-link ember-view" 
         v-for="(item, index) in arrayDataUser.seguidores" :key="index">
-           <nuxt-link :to="{name:'perfil-username', params: {username: item.username}}" 
+           <nuxt-link :to="{name:'u-username', params: {username: item.username}}" 
             class="user-link__link ember-view"
           >
             <picture
@@ -99,7 +99,7 @@
       <div  class="users-list ember-view">
         <div  class="user-link users-list__user-link ember-view"
          v-for="(item, index) in arrayDataUser.seguidos" :key="index">
-           <nuxt-link :to="{name:'perfil-username', params: {username: item.username}}" 
+           <nuxt-link :to="{name:'u-username', params: {username: item.username}}" 
             class="user-link__link ember-view"
           >
             <picture

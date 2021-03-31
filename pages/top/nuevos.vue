@@ -7,7 +7,7 @@
           <div class="user-link feed-item__user-link--for-avatar ember-view">
            <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }" 
               class="user-link__link ember-view"
@@ -32,7 +32,7 @@
           <div class="feed-item__content">
              <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" 
               :title="item.titulo"
@@ -48,7 +48,7 @@
               >
                 <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }" 
                   class="user-link__link ember-view"
@@ -66,7 +66,7 @@
 
               <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'g-slug',
                 params: { slug: item.slugGrupo },
               }" 
                 class="feed-item__group-link ember-view"
@@ -84,7 +84,7 @@
                <div class="feed-item__middot" v-show="item.imagenGrupo != null">·</div>
             <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" 
               class="ember-view feed-item__date"

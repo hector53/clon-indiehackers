@@ -1,11 +1,9 @@
 <template>
   <div class="post-page__comments" id="comments">
         <div
-          id="ember1220"
           class="embedded-comments embedded-comments--no-comments embedded-comments--0-levels ember-view"
         >
           <div
-            id="ember1221"
             class="comment-box--top-level comment-box comment-box--empty comment-box--unfocused ember-view"
           >
             <div class="comment-box__field-wrapper">
@@ -23,7 +21,7 @@
                 <button class="comment-box__save-button" @click="addComment(0)" :disabled="ButtonReplyDisable">Post Comment</button>
 
                 <!---->
-                <div id="ember1223" class="comment-formatting-tips ember-view">
+                <div  class="comment-formatting-tips ember-view">
                   <div
                     class="comment-formatting-tips__icon-wrapper"
                     title="Formatting Tips"
@@ -70,7 +68,7 @@
                   <!---->
 
                   <div
-                    id="ember195"
+                
                     class="comment__content content ember-view"
                   >
                     <p>{{item.textoComment}}</p>
@@ -78,10 +76,10 @@
 
                   <div class="comment__footer">
                     <div
-                      id="ember149"
+                     
                       class="user-link footer__user-link ember-view"
                     >
-                        <nuxt-link :to="{name:'perfil-username', params: {username: item.username}}" 
+                        <nuxt-link :to="{name:'u-username', params: {username: item.username}}" 
                         class="user-link__link ember-view"
                       >
                         <picture
@@ -107,7 +105,7 @@
 
                     <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: $route.params.slug },
                 query: {commentId: item.comentarioId}
               }" 

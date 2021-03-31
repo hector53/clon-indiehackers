@@ -136,7 +136,7 @@
         <nuxt-link
           v-if="arrayGrupo.length > 0"
           :to="{
-            name: 'grupo-slug',
+            name: 'g-slug',
             params: { slug: arrayGrupo[0].slug },
           }"
           class="ember-view post-page__group-link"
@@ -153,7 +153,7 @@
         <nuxt-link
           v-if="arrayGrupo.length > 0"
           :to="{
-            name: 'post-slug',
+            name: 'c-slug',
             params: { slug: $route.params.slug },
           }"
           class="loading ember-view post-page__date"

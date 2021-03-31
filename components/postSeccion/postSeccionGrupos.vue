@@ -4,15 +4,13 @@
       <nav id="ember62" class="posts-section__nav ember-view">
         <div class="posts-section__nav-content">
           <a
-            href="/group/latin-america"
-            id="ember63"
+           
             class="active ember-view posts-section__nav-link"
           >
             Populares
           </a>
           <a
-            href="/group/latin-america/newest"
-            id="ember64"
+           
             class="ember-view posts-section__nav-link"
           >
             Nuevos
@@ -20,8 +18,7 @@
         </div>
       </nav>
       <a
-        href=""
-        id="ember65"
+      
         @click.prevent="postNuevo"
         class="ember-view discussions__create-button"
       >
@@ -38,7 +35,7 @@
         <div class="user-link feed-item__user-link--for-avatar ember-view">
            <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }"
             class="user-link__link ember-view"
@@ -69,7 +66,7 @@
         <div class="feed-item__content">
            <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" 
             class="ember-view feed-item__title-link"
@@ -83,7 +80,7 @@
             >
             <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }"
                 class="user-link__link ember-view"
@@ -102,7 +99,7 @@
             <div class="feed-item__middot">·</div>
             <nuxt-link  
               :to="{
-                name: 'grupo-slug',
+                name: 'g-slug',
                 params: { slug: item.slug },
               }"
               class="feed-item__group-link active ember-view"
@@ -118,7 +115,7 @@
             <div class="feed-item__middot">·</div>
             <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" 
               class="ember-view feed-item__date"

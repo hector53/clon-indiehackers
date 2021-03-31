@@ -3,8 +3,6 @@
 
         <a
             title="Like"
-            href="/sign-up"
-            id="ember21802348"
             class="ember-view feed-item__likes"
             :class="{'feed-item__likes--active' : status == 1}"
             @click.prevent="votoLike"

@@ -8,7 +8,7 @@
          :key="index">
          <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }"
             class="user-link__link ember-view"
@@ -39,7 +39,7 @@
         <div class="user-link user-list__user-link ember-view" v-for="(item, index) in moderadores" :key="index">
          <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: item.username },
               }"
             class="user-link__link ember-view"

@@ -15,7 +15,7 @@
   <li class="featured-posts__list-item" v-for="(item, index) in arrayDestacados" :key="index">
      <nuxt-link
                   :to="{
-                    name: 'post-slug',
+                    name: 'c-slug',
                     params: { slug: item.slug },
                   }" class="ember-view featured-posts__post-link">
         <header class="featured-posts__post-header">

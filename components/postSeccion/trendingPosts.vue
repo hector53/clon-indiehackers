@@ -7,7 +7,7 @@
       <div class="post-page__recommendations-list">
        <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" 
           class="ember-view post-page__recommendation"

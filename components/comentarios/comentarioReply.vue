@@ -19,7 +19,7 @@
                       <!---->
 
                       <div
-                        id="ember233"
+                    
                         class="comment__content content ember-view"
                       >
                         <p>{{item.textoComment}}</p>
@@ -27,13 +27,10 @@
 
                       <div class="comment__footer">
                         <div
-                          id="ember201"
+                         
                           class="user-link footer__user-link ember-view"
                         >
-                          <a
-                            target="_self"
-                            href="/nachobuey?id=R4mTxbOR2fP03WdXPIB5xClXH223"
-                            id="ember202"
+                      <nuxt-link :to="{name:'u-username', params: {username: item.username}}" 
                             class="user-link__link ember-view"
                           >
                             <picture
@@ -51,23 +48,25 @@
 
                             <!---->
 
-                            <!----></a
-                          >
+                            <!----></nuxt-link >
                           <!---->
                           <!---->
                         </div>
 
                         <div class="footer__separator">·</div>
 
-                        <a
+                        <nuxt-link
+              :to="{
+                name: 'c-slug',
+                params: { slug: $route.params.slug },
+                query: {commentId: item.comentarioId}
+              }" 
                           rel="nofollow"
-                          title="Thursday, March 25th 2021 (5:59 pm)"
-                          href="/post/failory-47b69839a0?commentId=-MWfOUIfrcEuIzoGBOjs"
-                          id="ember204"
+                         
                           class="footer__date ember-view"
                         >
                           {{item.fecha}}
-                        </a>
+                        </nuxt-link>
                       
 
                         <div class="footer__separator">·</div>

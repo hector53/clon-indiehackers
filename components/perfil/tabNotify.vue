@@ -39,7 +39,7 @@
                 <div class="user-link users-list__user-link ember-view">
                   <nuxt-link
                     :to="{
-                      name: 'perfil-username',
+                      name: 'u-username',
                       params: { username: item.username },
                     }"
                     class="user-link__link ember-view"
@@ -60,7 +60,7 @@
               <p>
                 <nuxt-link
                   :to="{
-                    name: 'perfil-username',
+                    name: 'u-username',
                     params: { username: item.username },
                   }"
                   class="ember-view"
@@ -70,7 +70,7 @@
                 le gusta
                 <nuxt-link
                   :to="{
-                    name: 'post-slug',
+                    name: 'c-slug',
                     params: { slug: item.slug },
                   }"
                   class="ember-view"
@@ -108,7 +108,7 @@
             <span class="user-notification__notification-summary">
               <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }"
                 class="ember-view"
@@ -117,7 +117,7 @@
 
               <nuxt-link
                 :to="{
-                  name: 'post-slug',
+                  name: 'c-slug',
                   params: { slug: item.slug },
                   query: { commentId: item.comentarioId },
                 }"
@@ -128,7 +128,7 @@
               tu post
               <nuxt-link
                 :to="{
-                  name: 'post-slug',
+                  name: 'c-slug',
                   params: { slug: item.slug },
                 }"
                 class="ember-view"
@@ -179,7 +179,7 @@
                 >
                   <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }"
                     class="user-link__link ember-view"
@@ -204,7 +204,7 @@
               <p>
              <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }" class="active ember-view"
                   >{{item.username}}</nuxt-link
