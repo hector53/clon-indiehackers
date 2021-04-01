@@ -70,11 +70,11 @@
           <header class="nav-dropdown__header">
             <a href="/" id="ember21802154" class="logo active ember-view"
               ><img
-                src="https://www.indiehackers.com/images/logos/indie-hackers-logo__glyph--light.svg"
+                src="/images/canalizadoslogo.jpg"
                 class="logo__glyph"
                 style="height: 24px; width: 24px" />
               <img
-                src="https://www.indiehackers.com/images/logos/indie-hackers-logo__type--light.svg"
+                src="/images/canalizadoslogo.jpg"
                 class="logo__type"
             /></a>
             <div id="ember21802155" class="modal-closer ember-view">
@@ -366,12 +366,9 @@
      
       </nav>
       <nuxt-link :to="{name:'index'}" id="ember21802179" class="active ember-view logo"
-        ><img
-          src="https://www.indiehackers.com/images/logos/indie-hackers-logo__glyph--light.svg"
-          class="logo__glyph"
-          style="height: 24px; width: 24px" />
+        >
         <img
-          src="https://www.indiehackers.com/images/logos/indie-hackers-logo__type--light.svg"
+          src="/images/canalizadoslogo.jpg"
           class="logo__type"
       /></nuxt-link>
 
