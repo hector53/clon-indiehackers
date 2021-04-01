@@ -6126,6 +6126,7 @@ body>.ember-view {
   background-image: linear-gradient(to right, #2f5cff, #0020d4);
   cursor: pointer;
   border-radius: 2px;
+  
   color: #ffffff;
   font-weight: 600;
   text-align: center;
