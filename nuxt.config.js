@@ -9,9 +9,9 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Indie Hackers - Clon by Héctor Acosta',
+    title: 'Canalizados',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'es'
     },
     meta: [
       { charset: 'utf-8' },
@@ -19,7 +19,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, 
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }, 
       { rel: 'stylesheet', href: '/css/css2.css',  },
       { rel: 'stylesheet', href: '/css/cssadmin.css' },
       
