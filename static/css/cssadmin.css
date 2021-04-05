@@ -49257,5 +49257,10 @@ body.series-form body {
 .userCre{
 color: #ed4567;
     font-weight: 600;
-    
+
+}
+.logo-text{
+  font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
 }

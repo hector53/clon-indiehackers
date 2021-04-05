@@ -6,13 +6,10 @@
           <a href="/" id="ember6" class="ember-view search-page__logo">
             <img
               class="logo__glyph"
-              src="/images/logos/indie-hackers-logo__glyph--light.svg"
+              src="/images/isotipo-canaliza2.svg"
               style="height: 24px; width: 24px"
             />
-            <img
-              class="logo__type"
-              src="/images/logos/indie-hackers-logo__type--light.svg"
-            />
+           <div class="logo-text">CANALIZADOS</div>
           </a>
           <div
             id="ember7"
@@ -32,10 +29,10 @@
       </header>
 
       <ul class="search-page__filters">
-        <li class="search-page__filter search-page__filter--selected">All</li>
-        <li class="search-page__filter">Discussions</li>
-        <li class="search-page__filter">Groups</li>
-        <li class="search-page__filter">Users</li>
+        <li class="search-page__filter search-page__filter--selected">Todos</li>
+        <li class="search-page__filter">Discusiones</li>
+        <li class="search-page__filter">Grupos</li>
+        <li class="search-page__filter">Usuarios</li>
       </ul>
 
       <div class="search-page__field-wrapper">
@@ -66,7 +63,7 @@
         v-if="q != '' && arrayBuscarPosts.length > 0"
       >
         <div class="search-page__results-header">
-          <h2 class="search-page__results-label">138.490 Discussions</h2>
+          <h2 class="search-page__results-label">{{totalDiscusiones}} Discusiones</h2>
 
           <div class="search-page__results-pagination">
             <span class="results-pagination__numbers"> 1 – 10 </span>
@@ -114,7 +111,7 @@
                     <!---->
                   </path>
                 </svg>
-                <span class="dropdown-menu__toggle-label">Best Match</span>
+                <span class="dropdown-menu__toggle-label">Filtro</span>
               </div>
 
               <!---->
@@ -178,7 +175,7 @@
           </div>
         </div>
         <div class="search-page__results-header">
-          <h2 class="search-page__results-label">230 Groups</h2>
+          <h2 class="search-page__results-label">{{totalGrupos}} Grupos</h2>
 
           <div class="search-page__results-pagination">
             <span class="results-pagination__numbers"> 1 – 12 </span>
@@ -254,7 +251,7 @@
           </div>
         </div>
         <div class="search-page__results-header">
-          <h2 class="search-page__results-label">36.245 Users</h2>
+          <h2 class="search-page__results-label">{{totalUsuarios}} Usuarios</h2>
 
           <div class="search-page__results-pagination">
             <span class="results-pagination__numbers"> 1 – 6 </span>
@@ -330,7 +327,10 @@ export default {
       q: "",
       arrayBuscarPosts: [],
       arrayGrupos: [],
-      arrayUsuarios: []
+      arrayUsuarios: [], 
+      totalDiscusiones: '', 
+      totalGrupos: '', 
+      totalUsuarios: ''
     };
   },
   watch: {
@@ -352,6 +352,9 @@ export default {
         this.arrayBuscarPosts = response.posts;
         this.arrayGrupos = response.grupos;
         this.arrayUsuarios = response.usuarios
+        this.totalDiscusiones = response.totalD
+        this.totalGrupos = response.totalG 
+        this.totalUsuarios = response.totalU
       });
     },
   },
