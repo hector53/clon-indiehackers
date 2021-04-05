@@ -40,7 +40,7 @@
       <header class="user-feed-item__header">
         <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }"
           class="user-feed-item__date ember-view"
@@ -50,7 +50,7 @@
         <span class="user-feed-item__summary">
        <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" class="ember-view"
             >Creaste un post</nuxt-link  >
@@ -61,7 +61,7 @@
         <p class="user-feed-item__post-title">
          <nuxt-link
               :to="{
-                name: 'post-slug',
+                name: 'c-slug',
                 params: { slug: item.slug },
               }" class="ember-view"
             >{{item.titulo}}</nuxt-link >
