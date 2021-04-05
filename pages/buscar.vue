@@ -178,7 +178,7 @@
           <h2 class="search-page__results-label">{{totalGrupos}} Grupos</h2>
 
           <div class="search-page__results-pagination">
-            <span class="results-pagination__numbers"> 1 – 12 </span>
+            <span class="results-pagination__numbers"> 1 – 5</span>
 
             <div class="results-pagination__buttons">
               <svg
