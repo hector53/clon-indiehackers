@@ -367,10 +367,15 @@
       </nav>
       <nuxt-link :to="{name:'index'}" id="ember21802179" class="active ember-view logo"
         >
-        <img
-          src="/images/canalizadoslogo.jpg"
-          class="logo__type"
-      /></nuxt-link>
+    <img
+              class="logo__glyph"
+              src="/images/isotipo-canaliza2.svg"
+              style="height: 24px; width: 24px"
+            />
+            <div class="logo-text">CANALIZADOS</div>
+      
+      
+      </nuxt-link>
 
 
       <div class="title-bar__right">
