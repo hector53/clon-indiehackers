@@ -20,8 +20,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }, 
-      { rel: 'stylesheet', href: '/css/css2.css',  },
-      { rel: 'stylesheet', href: '/css/cssadmin.css' },
+      { rel: 'stylesheet', href: '/css/canalizados.css',  },
       
     ]
   },
