@@ -9,10 +9,10 @@
               src="/images/isotipo-canaliza2.svg"
               style="height: 24px; width: 24px"
             />
-           <div class="logo-text">CANALIZADOS</div>
+            <div class="logo-text">CANALIZADOS</div>
           </a>
           <div
-            id="ember7"
+            @click="cerrarBusqueda"
             class="modal-closer ember-view search-page__close-button"
           >
             <svg
@@ -29,10 +29,34 @@
       </header>
 
       <ul class="search-page__filters">
-        <li class="search-page__filter search-page__filter--selected">Todos</li>
-        <li class="search-page__filter">Discusiones</li>
-        <li class="search-page__filter">Grupos</li>
-        <li class="search-page__filter">Usuarios</li>
+        <li
+          class="search-page__filter"
+          :class="{ 'search-page__filter--selected': tab == 0 }"
+          @click="cambiarTab(0)"
+        >
+          Todos
+        </li>
+        <li
+          class="search-page__filter"
+          :class="{ 'search-page__filter--selected': tab == 1 }"
+          @click="cambiarTab(1)"
+        >
+          Discusiones
+        </li>
+        <li
+          class="search-page__filter"
+          :class="{ 'search-page__filter--selected': tab == 2 }"
+          @click="cambiarTab(2)"
+        >
+          Grupos
+        </li>
+        <li
+          class="search-page__filter"
+          :class="{ 'search-page__filter--selected': tab == 3 }"
+          @click="cambiarTab(3)"
+        >
+          Usuarios
+        </li>
       </ul>
 
       <div class="search-page__field-wrapper">
@@ -62,18 +86,23 @@
         class="search-page__results"
         v-if="q != '' && arrayBuscarPosts.length > 0"
       >
-        <div class="search-page__results-header">
-          <h2 class="search-page__results-label">{{totalDiscusiones}} Discusiones</h2>
+        <div class="search-page__results-header" v-show="tab == 0 || tab == 1">
+          <h2 class="search-page__results-label">
+            {{ totalDiscusiones }} Discusiones
+          </h2>
 
           <div class="search-page__results-pagination">
-            <span class="results-pagination__numbers"> 1 – 10 </span>
+            <span class="results-pagination__numbers">
+              {{ ini }} – {{ end }}
+            </span>
 
             <div class="results-pagination__buttons">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember625"
-                class="ember-view results-pagination__button results-pagination__button--prev results-pagination__button--disabled"
+                @click="cambiarPage(1, 1)"
+                class="ember-view results-pagination__button results-pagination__button--prev"
+                :class="{ 'results-pagination__button--disabled': ini == 0 }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -84,8 +113,12 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember626"
+                @click="cambiarPage(1, 2)"
                 class="ember-view results-pagination__button results-pagination__button--next"
+                :class="{
+                  'results-pagination__button--disabled':
+                    arrayBuscarPosts.length < pp,
+                }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -98,28 +131,43 @@
 
           <div class="search-page__results-actions">
             <div
-              class="search-page__sort-dropdown dropdown-menu dropdown-menu--enabled dropdown-menu--collapsed dropdown-menu--blurred ember-view"
+              id="ember2148"
+              class="search-page__sort-dropdown dropdown-menu dropdown-menu--enabled dropdown-menu--expanded dropdown-menu--hovered ember-view"
             >
-              <div class="dropdown-menu__toggle">
+              <div class="dropdown-menu__toggle" @click="filtroDrop = true" >
+                  
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  id="ember628"
+                  id="ember2149"
                   class="dropdown-menu__toggle-icon ember-view"
                 >
                   <path d="M12 0l8 10h-16l8-10zm8 14h-16l8 10 8-10z">
                     <!---->
                   </path>
                 </svg>
-                <span class="dropdown-menu__toggle-label">Filtro</span>
+                <span class="dropdown-menu__toggle-label">{{filtroText}}</span>
               </div>
 
-              <!---->
+              <div
+              v-if="filtroDrop"
+                class="dropdown-menu__items"
+                style="inset: 0px auto auto 0px"
+                v-click-outside="filtroDropOut"
+                
+              >
+                
+                <div @click="filtrarby(1)">Mas votados</div>
+                <div @click="filtrarby(2)">Más comentados</div>
+                <div @click="filtrarby(3)">Recientes</div>
+                <div @click="filtrarby(4)">Últimos</div>
+              </div>
             </div>
           </div>
         </div>
 
         <div
+          v-show="tab == 0 || tab == 1"
           class="search-page__results-content search-page__results-content--discussions search-page__results-content--multi"
         >
           <div
@@ -174,18 +222,21 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="search-page__results-header">
-          <h2 class="search-page__results-label">{{totalGrupos}} Grupos</h2>
+        <div class="search-page__results-header" v-show="tab == 0 || tab == 2">
+          <h2 class="search-page__results-label">{{ totalGrupos }} Grupos</h2>
 
           <div class="search-page__results-pagination">
-            <span class="results-pagination__numbers"> 1 – 5</span>
+            <span class="results-pagination__numbers"
+              >{{ ini }} – {{ end }}</span
+            >
 
             <div class="results-pagination__buttons">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember749"
-                class="ember-view results-pagination__button results-pagination__button--prev results-pagination__button--disabled"
+                @click="cambiarPage(2, 1)"
+                class="ember-view results-pagination__button results-pagination__button--prev"
+                :class="{ 'results-pagination__button--disabled': ini == 0 }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -196,8 +247,12 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember750"
+                @click="cambiarPage(2, 2)"
                 class="ember-view results-pagination__button results-pagination__button--next"
+                :class="{
+                  'results-pagination__button--disabled':
+                    arrayGrupos.length < pp,
+                }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -212,6 +267,7 @@
         </div>
 
         <div
+          v-show="tab == 0 || tab == 2"
           class="search-page__results-content search-page__results-content--groups search-page__results-content--multi"
         >
           <div
@@ -250,18 +306,23 @@
             </nuxt-link>
           </div>
         </div>
-        <div class="search-page__results-header">
-          <h2 class="search-page__results-label">{{totalUsuarios}} Usuarios</h2>
+        <div class="search-page__results-header" v-show="tab == 0 || tab == 3">
+          <h2 class="search-page__results-label">
+            {{ totalUsuarios }} Usuarios
+          </h2>
 
           <div class="search-page__results-pagination">
-            <span class="results-pagination__numbers"> 1 – 6 </span>
+            <span class="results-pagination__numbers">
+              {{ ini }} – {{ end }}
+            </span>
 
             <div class="results-pagination__buttons">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember811"
-                class="ember-view results-pagination__button results-pagination__button--prev results-pagination__button--disabled"
+                @click="cambiarPage(3, 1)"
+                class="ember-view results-pagination__button results-pagination__button--prev"
+                :class="{ 'results-pagination__button--disabled': ini == 0 }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -272,8 +333,12 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                id="ember812"
+                @click="cambiarPage(3, 2)"
                 class="ember-view results-pagination__button results-pagination__button--next"
+                :class="{
+                  'results-pagination__button--disabled':
+                    arrayUsuarios.length < pp,
+                }"
               >
                 <path
                   d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
@@ -288,28 +353,28 @@
         </div>
 
         <div
+          v-show="tab == 0 || tab == 3"
           class="search-page__results-content search-page__results-content--users search-page__results-content--multi"
         >
           <div
-            v-for="(item, index) in arrayUsuarios" :key="index"
+            v-for="(item, index) in arrayUsuarios"
+            :key="index"
             class="search-page__result search-result search-result--user ember-view"
           >
             <div class="user-link ember-view result__user-link">
-            <nuxt-link
+              <nuxt-link
                 :to="{
                   name: 'u-username',
                   params: { username: item.slug },
                 }"
                 class="user-link__link ember-view"
               >
-                <picture
-                  class="user-avatar ember-view user-link__avatar"
-                >
-                   <img :src="item.avatar" />
+                <picture class="user-avatar ember-view user-link__avatar">
+                  <img :src="item.avatar" />
                 </picture>
 
                 <span class="user-link__name" v-html="item.username"></span>
-                </nuxt-link>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -319,52 +384,266 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
 export default {
   layout: "buscar",
   name: "buscar",
+   directives: {
+    ClickOutside
+  },
   data() {
     return {
       q: "",
       arrayBuscarPosts: [],
       arrayGrupos: [],
-      arrayUsuarios: [], 
-      totalDiscusiones: '', 
-      totalGrupos: '', 
-      totalUsuarios: ''
+      arrayUsuarios: [],
+      totalDiscusiones: "",
+      totalGrupos: "",
+      totalUsuarios: "",
+      f: "",
+      p: 0,
+      ini: 0,
+      pp: 0,
+      end: 0,
+      tab: 0,
+      filtroDrop: false, 
+      filtroText: 'Recientes', 
+      s: 'recientes', 
+      sActivo: false,
+      contadorFiltro: 0
     };
   },
   watch: {
     q: function (value) {
       if (value.length == 0) {
-        this.q = "";
         this.$router.push("/buscar");
+        this.arrayBuscarPosts = [];
+        this.arrayGrupos = [];
+        this.arrayUsuarios = [];
       } else {
-        this.$router.push({ query: { q: value } });
-        this.getBuscar();
+
+          if(this.$route.query.s){
+            this.s = this.$route.query.s
+              this.$router.push({ query: { q: value, s: this.s } });
+            if(this.s == 'masvotados'){
+            this.filtroText = 'Más votados'
+            }
+            if(this.s == 'mascomentados'){
+            this.filtroText = 'Más comentados'
+            }
+            if(this.s == 'recientes'){
+            this.filtroText = 'Recientes'
+            }
+            if(this.s == 'ultimos'){
+            this.filtroText = 'Últimos'
+            }
+
+               this.getBuscar();
+            return
+          }
+
+
+        if (this.$route.query.p && this.$route.query.f) {
+          this.p = this.$route.query.p;
+          this.f = this.$route.query.f;
+          this.$router.push({ query: { q: value, f: this.f, p: this.p } });
+
+          if (this.f == "discusiones") {
+            this.tab = 1;
+          }
+          if (this.f == "grupos") {
+            this.tab = 2;
+          }
+          if (this.f == "usuarios") {
+            this.tab = 3;
+          }
+
+           this.getBuscar();
+            return
+        } else {
+          this.$router.push({ query: { q: value } });
+           this.getBuscar();
+            return
+        }
+
+     
       }
     },
   },
   methods: {
+    cerrarBusqueda() {
+      this.$router.push("/");
+    },
+    cambiarPage(tipo, atrasalante) {
+      if (atrasalante == 1) {
+        //atras
+        this.p--;
+      } else {
+        this.p++;
+      }
+
+      if (tipo == 0) {
+        //discusiones
+        this.f = "";
+
+        this.tab = 0;
+    
+      }
+
+      if (tipo == 1) {
+        //discusiones
+        this.f = "discusiones";
+       
+        this.tab = 1;
+      }
+
+      if (tipo == 2) {
+        //grupos
+        this.f = "grupos";
+        this.tab = 2;
+      
+      }
+
+      if (tipo == 3) {
+        //usuarios
+        this.f = "usuarios";
+        this.tab = 3;
+       
+      }
+
+      if(this.$route.query.s){
+            this.$router.push({
+          query: { q: this.q, p: this.p, f: this.f, s: this.s },
+        });
+      }else{
+          this.$router.push({
+          query: { q: this.q, p: this.p, f: this.f },
+        });
+      }
+
+        this.getBuscar();
+
+    },
+    filtroDropOut(){
+      if(this.contadorFiltro > 0){
+        this.filtroDrop = false
+        this.contadorFiltro = 0
+      }else{
+        this.contadorFiltro++
+      }
+        
+    },
+    cambiarTab(tab) {
+      this.tab = tab;
+
+      if (tab == 0) {
+        //discusiones
+        this.f = "";
+        this.p = 0;
+        this.$router.push({ query: { q: this.q } });
+
+          if(this.sActivo){
+           this.$router.push({ query: { q: this.q, s:this.s } });
+        }else{
+         this.$router.push({ query: { q: this.q } });
+        }
+
+
+        this.tab = 0;
+      }
+
+      if (tab == 1) {
+        //discusiones
+        this.f = "discusiones";
+        this.p = 0;
+      
+       
+        if(this.sActivo){
+           this.$router.push({ query: { q: this.q, f: this.f, s:this.s } });
+        }else{
+           this.$router.push({ query: { q: this.q, f: this.f } });
+        }
+        this.tab = 1;
+      }
+
+      if (tab == 2) {
+        //discusiones
+        this.f = "grupos";
+        this.p = 0;
+        this.$router.push({ query: { q: this.q, f: this.f } });
+        this.tab = 2;
+      }
+
+      if (tab == 3) {
+        //discusiones
+        this.f = "usuarios";
+        this.p = 0;
+        this.$router.push({ query: { q: this.q, f: this.f } });
+        this.tab = 3;
+      }
+
+      if (this.$route.query.p != undefined) {
+        this.getBuscar();
+      }
+    },
+    filtrarby(filtro) {
+      this.filtroDrop = false
+       this.filtroS = filtro
+       this.contadorFiltro = 0
+       this.sActivo = true
+      if(filtro == 1){
+        this.filtroText = 'Más votados'
+        this.s = 'masvotados'
+      }
+
+      if(filtro == 2){
+        this.filtroText = 'Más comentados'
+        this.s = 'mascomentados'
+      }
+
+      if(filtro == 3){
+        this.filtroText = 'Recientes'
+        this.s = 'recientes'
+      }
+
+      if(filtro == 4){
+        this.filtroText = 'Últimos'
+        this.s = 'ultimos'
+      }
+       this.$router.push({ query: { q: this.q, s: this.s } });
+       this.getBuscar()
+        
+    },
     async getBuscar() {
+    
       this.arrayBuscarPosts = [];
-      await this.$axios.$get("/buscar/post/?q=" + this.q).then((response) => {
-        console.log(response);
-        this.arrayBuscarPosts = response.posts;
-        this.arrayGrupos = response.grupos;
-        this.arrayUsuarios = response.usuarios
-        this.totalDiscusiones = response.totalD
-        this.totalGrupos = response.totalG 
-        this.totalUsuarios = response.totalU
-      });
+      await this.$axios
+        .$get("/buscar/post/?q=" + this.q + "&f=" + this.f + "&p=" + this.p+"&s="+this.s)
+        .then((response) => {
+          console.log(response);
+          this.arrayBuscarPosts = response.posts;
+          this.arrayGrupos = response.grupos;
+          this.arrayUsuarios = response.usuarios;
+          this.totalDiscusiones = response.totalD;
+          this.totalGrupos = response.totalG;
+          this.totalUsuarios = response.totalU;
+          this.pp = response.pp;
+          this.ini = response.ini;
+          this.end = response.end;
+        });
     },
   },
   mounted() {
     if (this.$route.query.q == undefined) {
     } else {
       this.q = this.$route.query.q;
-      this.getBuscar();
     }
   },
 };
 </script>
 
+<style>
+.query-match {
+  color: red !important;
+}
+</style>

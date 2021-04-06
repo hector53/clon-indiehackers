@@ -9486,7 +9486,7 @@ body>.ember-view {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 2
+  z-index: 2;
 }
 
 .dropdown-menu__button {
@@ -36582,7 +36582,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .search-page .search-page__results-actions .dropdown-menu__items,
 .search-page .search-page__results-actions .dropdown-menu__toggle {
-  background-color: #e8eaecba;
+  background-color: #e8eaec;
   border-radius: 2px;
 }
 
