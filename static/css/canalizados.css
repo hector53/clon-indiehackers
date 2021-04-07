@@ -4001,10 +4001,10 @@ figcaption {
 
 .div-block-420.pic-hover {
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -4940,7 +4940,7 @@ figcaption {
 
 .html-embed-9 {
   width: 24px;
-  margin-right: 20px
+  margin-right: 10px
 }
 
 .body {
@@ -5355,10 +5355,10 @@ figcaption {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start
 }
 
 .list-11 {
@@ -5427,7 +5427,8 @@ figcaption {
 }
 
 .section-5 {
-  margin-bottom: 20px
+  margin-top: 40px;
+  margin-bottom: 40px
 }
 
 .image-17 {
@@ -5484,6 +5485,152 @@ figcaption {
 .text-block-34 {
   padding: 5px 10px;
   font-weight: 700
+}
+
+.div-block-462 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+}
+
+.list-14 {
+  padding-left: 0;
+  list-style-type: none
+}
+
+.list-item-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #1da1f2;
+  color: #fff;
+  font-weight: 700;
+  text-align: center
+}
+
+.list-item-16.linkedin {
+  background-color: #0c66c2
+}
+
+.list-item-16.google {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000
+}
+
+.html-embed-14 {
+  width: 24px;
+  margin-right: 10px;
+  margin-left: -24px
+}
+
+.text-block-35 {
+  display: inline-block;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #fff
+}
+
+.div-block-463 {
+  border-bottom: 3px solid rgba(0, 0, 0, .5);
+  text-align: center
+}
+
+.dropdown-3,
+.dropdown-toggle-4 {
+  display: block
+}
+
+.div-block-464 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #3e64db;
+  box-shadow: -1px 1px 5px 1px rgba(152, 163, 179, .5)
+}
+
+.column-11 {
+  padding: 0 0 0 10px;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
+  align-self: stretch
+}
+
+.column-12 {
+  padding-left: 0;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  -ms-grid-row-align: stretch;
+  align-self: stretch
+}
+
+.div-block-465 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #fff;
+  box-shadow: -1px 1px 5px 1px rgba(152, 163, 179, .5)
+}
+
+.columns-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch
+}
+
+.heading-5,
+.text-block-36 {
+  color: #fff
 }
 
 @media screen and (max-width:991px) {

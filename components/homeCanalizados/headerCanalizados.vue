@@ -155,7 +155,7 @@
                   >Notificaciones</a
                 ><a href="#" class="w-dropdown-link" tabindex="0"
                   >Configuracion</a
-                ><a href="#" class="w-dropdown-link" tabindex="0">Salir</a>
+                ><a href="#" class="w-dropdown-link" @click.prevent="cerrarSesion" tabindex="0">Salir</a>
               </nav>
             </div>
           </li>
@@ -180,6 +180,10 @@ export default {
     };
   },
   methods: {
+     cerrarSesion(){
+      this.$cookies.remove('access_token_')
+        location.href = "/";
+    },
       dropDownPerfilClic(){
           if(this.dropDownPerfil == false){
               this.dropDownPerfil = true
