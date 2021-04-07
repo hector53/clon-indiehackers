@@ -53,9 +53,8 @@
         </div>
       </div>
     </div>
-
-                  <div class="div-block-434">
-                    <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>
+     <div class="div-block-434">
+                    <div>Hay {{arrayPostHoy.length}} publicaciones hoy</div>
                     <div class="text-block-6">•</div>
                     <a href="#" class="link-18">Siguiente pagina</a>
                   </div>
@@ -67,7 +66,7 @@
 import likeCanalizados from '~/components/likes/likeCanalizados.vue';
 export default {
   components: { likeCanalizados },
-  name: "index",
+  name: "hoy",
   layout: "homeCanalizados",
   data() {
     return {
@@ -75,7 +74,7 @@ export default {
     };
   },
   async fetch() {
-    await this.$axios.$get("/getpost/hoy/?filtro=semanal").then((response) => {
+    await this.$axios.$get("/getpost/hoy/?filtro=hoy").then((response) => {
       console.log(response);
       this.arrayPostHoy = response.posts;
     });

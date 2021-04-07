@@ -31,5 +31,23 @@ export default {
 };
 </script>
 
+<style >
+.loading-spinner {
+    fill: #3e64db;
+    height: 24px;
+    margin: 0 auto;
+    width: 24px;
+}
+
+.loading-spinner__icon {
+    height: 100%;
+    width: 100%;
+}
+
+.loading-spinner__icon, .moderate-modal .moderate-modal__button--loading svg {
+    animation: spin 1s infinite;
+}
+</style>
+
 
 

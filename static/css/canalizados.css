@@ -235,7 +235,7 @@ th {
 body {
   margin: 0;
   min-height: 100%;
-  background-color: #f3f6fd;
+  background-color: #fff;
   font-family: Montserrat, sans-serif;
   color: #1a1b1f;
   font-size: 16px;
@@ -3980,7 +3980,6 @@ figcaption {
   display: -ms-flexbox;
   display: flex;
   height: 33px;
-  width: 33px;
   margin-right: 15px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -3997,15 +3996,15 @@ figcaption {
   align-items: center;
   -webkit-align-content: flex-start;
   -ms-flex-line-pack: start;
-  align-content: flex-start;
+  align-content: flex-start
 }
 
 .div-block-420.pic-hover {
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -4096,8 +4095,7 @@ figcaption {
 
 .image-10.first {
   margin-left: -1.3em;
-  cursor: pointer;
-  /* width: 33px; */
+  cursor: pointer
 }
 
 .image-10.user-active {
@@ -4942,12 +4940,12 @@ figcaption {
 
 .html-embed-9 {
   width: 24px;
-  margin-right: 10px
+  margin-right: 20px
 }
 
 .body {
-  background-color: #f3f6fd!important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f3f6fd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
 }
 
 .div-block-450 {
