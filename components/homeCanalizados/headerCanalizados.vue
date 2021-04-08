@@ -106,7 +106,7 @@
           </nuxt-link>
 
           <nuxt-link
-            :to="{ name: 'registrarse' }"
+            :to="{ name: 'registro' }"
             v-if="$store.state.cookieLogin == false"
           >
             <li class="list-item-3">Registrarse</li>
@@ -149,7 +149,8 @@
                 id="w-dropdown-list-1"
                 aria-labelledby="w-dropdown-toggle-1"
               >
-              <nuxt-link class="w-dropdown-link" :to="{name:'u-username', params: {username: $store.state.username}}"
+              <nuxt-link class="w-dropdown-link"
+               :to="{name:'u-username', params: {username: $store.state.username}}"
               >Perfil</nuxt-link >
               <nuxt-link
              class="w-dropdown-link" tabindex="0"
