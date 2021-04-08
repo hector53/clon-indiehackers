@@ -31,64 +31,39 @@
         </div>
         <div class="text-block-17">Más populares</div>
       </div>
-      <div class="div-block-445">
+      <div class="div-block-445" v-for="(item, index) in arrayPopulares" :key="index">
         <div class="div-block-446">
           <div class="text-block-19">
-            Report: The 11 best growth channels among 500 startups
+             <nuxt-link  
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug }
+              }"  class="link-inline-black"> {{item.titulo}} </nuxt-link>
+            
           </div>
-          <img
-            src="https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/5fc7d9f554b4a01cc7bd6c98_5dd1ca04edfe6a591970a2cd_face-chad.jpg"
+
+          <div class="text-block-imagenP">
+              <img
+            :src="item.avatar"
             loading="lazy"
             width="60"
             height="60"
             alt=""
             class="image-14"
           />
-        </div>
-        <div><div class="text-block-18">Marketing · Hace 3 horas</div></div>
-      </div>
-      <div class="div-block-445">
-        <div class="div-block-446">
-          <div class="text-block-19">
-            Which side project should I focus on first?
           </div>
-          <img
-            src="https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/5fc7d9f554b4a0d9b5bd6cd1_photo-1535162777965-1304efc8c6dc.jpeg"
-            loading="lazy"
-            width="60"
-            height="60"
-            srcset="
-              https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/5fc7d9f554b4a0d9b5bd6cd1_photo-1535162777965-1304efc8c6dc-p-500.jpeg 500w,
-              https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/5fc7d9f554b4a0d9b5bd6cd1_photo-1535162777965-1304efc8c6dc.jpeg       800w
-            "
-            sizes="60px"
-            alt=""
-            class="image-14"
-          />
+        
         </div>
-        <div><div class="text-block-18">Mi producto · Hace 6 horas</div></div>
+        <div><div class="text-block-18">
+          <nuxt-link  
+              :to="{
+                name: 'g-slug',
+                params: { slug: item.slugGrupo }
+              }"  class="link-inline">{{item.tituloGrupo}}</nuxt-link>
+           · {{item.fecha}}</div></div>
       </div>
-      <div class="div-block-445">
-        <div class="div-block-446">
-          <div class="text-block-19">
-            What are your business goals for 2021?
-          </div>
-          <img
-            src="https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/604e2e893fdf20f06428194a_1604436647142.jpeg"
-            loading="lazy"
-            width="60"
-            height="60"
-            srcset="
-              https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/604e2e893fdf20f06428194a_1604436647142-p-500.jpeg 500w,
-              https://uploads-ssl.webflow.com/5fc7827fd57bce892e4c852f/604e2e893fdf20f06428194a_1604436647142.jpeg       800w
-            "
-            sizes="60px"
-            alt=""
-            class="image-14"
-          />
-        </div>
-        <div><div class="text-block-18">Preguntas · Ayer</div></div>
-      </div>
+    
+      
     </div>
   </div>
 </template>
@@ -97,8 +72,11 @@
 <script>
 export default {
   name: "columnaDerechaDiscusion",
+  props: ['arrayPopulares'],
   data() {
-    return {};
+    return {
+      
+    };
   },
 };
 </script>

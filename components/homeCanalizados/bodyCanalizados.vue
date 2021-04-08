@@ -8,7 +8,7 @@
           <div class="section-2">
             <div class="columns-5 w-row">
               <seccion-discusion></seccion-discusion>
-             <columna-derecha-discusion></columna-derecha-discusion>
+             <columna-derecha-discusion :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
             </div>
           </div>
           <div class="section-3">
@@ -17,7 +17,8 @@
           <div class="section-4">
             <div class="columns-3 w-row">
               <historias-destacadas></historias-destacadas>
-              <sidebar-derecho></sidebar-derecho>
+              <sidebar-derecho :arrayPopulares="arrayPopulares" 
+              :labelRecomendados="labelRecomendados" :gruposRecomendados="gruposRecomendados"></sidebar-derecho>
             </div>
           </div>
         </div>
@@ -40,8 +41,45 @@ export default {
     
     data() {
         return {
-
+            arrayPopulares :  [], 
+              gruposRecomendados: [], 
+        labelRecomendados: 'Tus Grupos'
         }
+    },
+    methods: {
+        async   getGrupos(){
+
+      await this.$axios
+        .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
+        .then((response) => {
+          console.log(response)
+          if(response.status > 0){
+            if(response.status == 2){
+                this.labelRecomendados = 'Grupos Recomendados'
+            }
+            if(response.status == 1){
+                this.labelRecomendados = 'Tus Grupos'
+            }
+              this.gruposRecomendados =  response.grupos
+              
+                //     this.$store.commit('setLoader', false);
+              /// console.log("test loader", this.$store.state.loader)
+          }
+      
+        });
+
+      }
+    },
+     async fetch() {
+     await this.$axios
+          .$get("/getpost/populares/")
+          .then((response) => {
+          console.log(response)
+          this.arrayPopulares =  response
+          });
+  },
+    mounted() {
+      this.getGrupos()
     },
 }
 </script>

@@ -37,7 +37,7 @@
               <div>Continuar con Google</div>
             </li>
           </ul>
-          <div class="w-form">
+          <div class="w-form" v-if="formPass==false">
             <form
               id="email-form"
               name="email-form"
@@ -85,6 +85,8 @@
               />
             
             </form>
+            <h6 style="    margin-top: 30px;">
+              <a href="#" @click="formPass = true" v-if="formPass == false">¿Olvido su Contraseña?</a> </h6>
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
@@ -92,6 +94,69 @@
               <div>{{errorText}}</div>
             </div>
           </div>
+
+
+
+<!-- olvido contraseña Form -->
+
+ <div class="w-form" v-if="formPass">
+            <form
+              id="email-form"
+              name="email-form"
+              data-name="Email Form"
+              class="subscribe-form-flex"
+              style=" display: inline-block; width: 100%;"
+            >
+            <p>Introduzca el email del usuario </p>
+              <div class="subscribe-form-input-wrapper">
+                <input
+                style="    width: 100%;"
+                  type="email"
+                  maxlength="256"
+                  name="Subscriber-Email"
+                  data-name="Subscriber Email"
+                  placeholder="Ingresa tu Email"
+                  id="Subscriber-Email"
+                  required="required"
+                  class="subscribe-form-input w-input"
+                  v-model="email"
+                />
+              </div>
+
+             
+                <input
+                style="  margin-top: 10px;"
+                type="submit"
+                value="Recuperar"
+                data-wait="Por favor esperá..."
+                class="submit-button w-button"
+                 @click.prevent="recuperar" :disabled="loginDisable"
+              />
+
+               <input
+                style="  margin-top: 10px;"
+                type="submit"
+                value="Cancelar"
+                data-wait="Por favor esperá..."
+                class="submit-button w-button"
+                 @click.prevent="formPass = false" 
+              />
+            
+            </form>
+          
+          
+            <div class="w-form-failMio"  v-show="errorLogin">
+              <div>{{errorText}}</div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -111,7 +176,8 @@ export default {
       errorText: "Error",
       email: "", 
       pass: "", 
-      loginDisable: false
+      loginDisable: false, 
+      formPass: false
     };
   },
   async fetch() {},
@@ -139,12 +205,14 @@ export default {
                     //pass incorrecta
                    this.errorLogin = true
                   this.errorText = "Contraseña incorrecta "
+                  this.loginDisable = false
             }
 
              if(response.status == 1){
                     //existe el email 
                      this.errorLogin = true
                   this.errorText = "El email no se encuentra registrado "
+                   this.loginDisable = false
             }
 
              if(response.status == 2){
@@ -168,12 +236,14 @@ export default {
       if (this.email == "") {
            this.errorLogin = true
            this.errorText = "email vacio"
+            this.loginDisable = false
             return false;
       }
 
       if (this.pass == "") {
           this.errorLogin = true
            this.errorText = "password vacio"
+            this.loginDisable = false
         return false;
       }
       return true;
@@ -192,6 +262,31 @@ export default {
           }
         });
     },
+
+    async recuperar(){
+this.loginDisable = true
+        if (this.email == "") {
+           this.errorLogin = true
+           this.errorText = "email vacio"
+            this.loginDisable = false
+            return false;
+      }
+
+      
+       await this.$axios
+        .$get("/login/recuperarpass/?email="+this.email)
+        .then((response) => {
+            if(response.status == 0){
+                alert("algo anda mal con su email")
+                this.loginDisable = false
+            }else{
+                alert("se ha enviado un link para reestablecer su contraseña a su correo")
+                this.loginDisable = true
+                this.formPass = false
+
+            }
+        })
+    }
   },
 };
 </script>

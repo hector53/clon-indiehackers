@@ -45,11 +45,7 @@ export default {
 };
 </script>
 <style >
-a {
-    
-    color: #3e64db;
-    
-}
+
 .list-10 {
     
     display: inline-block!important;

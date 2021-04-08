@@ -13,3 +13,36 @@ body {
     line-height: 28px;
     font-weight: 400;
 }
+
+.list-10 {
+    
+    display: inline-block!important;
+  
+}
+.column-10 {
+    
+    display: grid!important;
+}
+.image-16 {
+   
+    margin: auto;
+}
+.text-block-19 {
+  
+    width: 100%;
+}
+.text-block-imagenP{
+    width: 30%;
+}
+.image-14 {
+    
+    float: right;
+}
+
+.link-inline{
+    display: inline-block;
+}
+.link-inline-black{
+    color: #1a1b1f;
+    display: inline-block;
+}

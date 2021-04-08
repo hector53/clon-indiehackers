@@ -68,22 +68,6 @@ export default {
 };
 </script>
 <style >
-a {
-    
-    color: #3e64db;
-    
-}
-.list-10 {
-    
-    display: inline-block!important;
-  
-}
-.column-10 {
-    
-    display: grid!important;
-}
-.image-16 {
-   
-    margin: auto;
-}
+
+
 </style>
