@@ -92,6 +92,7 @@ a{
 }
 .div-block-420{
     width: 33px;
+    display: -webkit-inline-box;
 }
 
 .text-block-9 {

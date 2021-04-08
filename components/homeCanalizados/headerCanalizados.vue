@@ -151,9 +151,14 @@
               >
               <nuxt-link class="w-dropdown-link" :to="{name:'u-username', params: {username: $store.state.username}}"
               >Perfil</nuxt-link >
-              <a href="#" class="w-dropdown-link" tabindex="0"
-                  >Notificaciones</a
-                ><a href="#" class="w-dropdown-link" tabindex="0"
+              <nuxt-link
+             class="w-dropdown-link" tabindex="0"
+             :to="{
+                    name: 'u-username-notificaciones',
+                    params: { username: $store.state.username },
+                  }"
+                  >Notificaciones</nuxt-link  
+                  ><a href="#" class="w-dropdown-link" tabindex="0"
                   >Configuracion</a
                 ><a href="#" class="w-dropdown-link" @click.prevent="cerrarSesion" tabindex="0">Salir</a>
               </nav>

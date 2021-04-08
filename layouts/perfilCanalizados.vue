@@ -2,8 +2,10 @@
   <div>
     <header-canalizados></header-canalizados>
 <body-perfil-canalizados v-if="$store.state.username == $route.params.username"
- :arrayDataUser="arrayDataUser" @recargarDataUser="recargarDataUser" ></body-perfil-canalizados>
-    <body-perfil-canalizados-2 v-else :arrayDataUser="arrayDataUser"  @recargarDataUser="recargarDataUser"></body-perfil-canalizados-2>
+ :arrayDataUser="arrayDataUser" @recargarDataUser="recargarDataUser" :gruposRecomendados="gruposRecomendados"
+  :labelRecomendados="labelRecomendados"></body-perfil-canalizados>
+    <body-perfil-canalizados-2 v-else :gruposRecomendados="gruposRecomendados"
+  :labelRecomendados="labelRecomendados" :arrayDataUser="arrayDataUser"  @recargarDataUser="recargarDataUser"></body-perfil-canalizados-2>
     <footer-canalizados></footer-canalizados>
   </div>
 </template>
@@ -19,7 +21,9 @@ export default {
   name: "perfilCanalizados",
     data() {
     return {
-         arrayDataUser: {}
+         arrayDataUser: {},
+          gruposRecomendados: [], 
+        labelRecomendados: 'Tus Grupos'
     };
   },
    async fetch() {
@@ -33,7 +37,33 @@ export default {
   methods: {
        recargarDataUser(){
         this.$fetch()
+      }, 
+
+        async   getGrupos(){
+
+      await this.$axios
+        .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
+        .then((response) => {
+          console.log(response)
+          if(response.status > 0){
+            if(response.status == 2){
+                this.labelRecomendados = 'Grupos Recomendados'
+            }
+            if(response.status == 1){
+                this.labelRecomendados = 'Tus Grupos'
+            }
+              this.gruposRecomendados =  response.grupos
+              
+                //     this.$store.commit('setLoader', false);
+              /// console.log("test loader", this.$store.state.loader)
+          }
+      
+        });
+
       }
+  },
+  mounted() {
+    this.getGrupos()
   },
 };
 </script>
@@ -42,5 +72,18 @@ a {
     
     color: #3e64db;
     
+}
+.list-10 {
+    
+    display: inline-block!important;
+  
+}
+.column-10 {
+    
+    display: grid!important;
+}
+.image-16 {
+   
+    margin: auto;
 }
 </style>

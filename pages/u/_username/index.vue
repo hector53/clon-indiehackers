@@ -1,7 +1,7 @@
 <template>
   <div>
 
- <p>Este es el lugar para mostrar tus mejores publicaciones: las historias, los consejos y las discusiones de las que estás más orgulloso. Simplemente cree una publicación o visite cualquiera de sus publicaciones existentes, luego haga clic en el menú de opciones para agregarlas en la siguiente lista.</p>
+ <p v-if="$store.state.username == $route.params.username">Este es el lugar para mostrar tus mejores publicaciones: las historias, los consejos y las discusiones de las que estás más orgulloso. Simplemente cree una publicación o visite cualquiera de sus publicaciones existentes, luego haga clic en el menú de opciones para agregarlas en la siguiente lista.</p>
    
     <loader v-show="loader"></loader>
 
