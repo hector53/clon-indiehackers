@@ -247,6 +247,7 @@ export default {
     };
   },
   methods: {
+
    async   followUser(){
 
         if(this.$store.state.cookieLogin == false){
@@ -266,7 +267,12 @@ export default {
         });
       }, 
 
+  
+
      
+  },
+  mounted() {
+ 
   },
 };
 </script>

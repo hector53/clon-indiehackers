@@ -46,3 +46,19 @@ body {
     color: #1a1b1f;
     display: inline-block;
 }
+
+.html-embed-4 {
+
+    cursor: pointer;
+}
+
+.imgPost{
+    display: initial;
+    width: 300px;
+}
+.link_post_titulo_preview{
+    color: #3e64db;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+}

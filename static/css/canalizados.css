@@ -4305,6 +4305,10 @@ figcaption {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #6f6f6f;
   font-weight: 700
 }
@@ -4463,7 +4467,8 @@ figcaption {
 }
 
 .html-embed-4 {
-  width: 18px
+  width: 18px;
+  margin-right: 10px
 }
 
 .button-2 {
@@ -5633,6 +5638,59 @@ figcaption {
   color: #fff
 }
 
+.image-18 {
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 20px
+}
+
+.text-block-37 {
+  font-size: 18px;
+  font-weight: 700
+}
+
+.list-15 {
+  margin-top: 0;
+  margin-bottom: 40px;
+  padding-left: 0;
+  list-style-type: none
+}
+
+.div-block-466 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.text-span-4 {
+  color: #3e64db;
+  font-weight: 700
+}
+
+.div-block-467 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px
+}
+
+.image-19 {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 20px
+}
+
+.list-item-17 {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #dbdbdb
+}
+
 @media screen and (max-width:991px) {
   .styleguide-block {
     text-align: center
@@ -6353,6 +6411,18 @@ figcaption {
     text-align: left
   }
 
+  .div-block-426 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center
+  }
+
   .columns,
   .columns-2 {
     -webkit-box-orient: vertical;
@@ -6511,6 +6581,13 @@ figcaption {
 
   .text-block-31 {
     text-align: left
+  }
+
+  .div-block-466 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
   }
 }
 
