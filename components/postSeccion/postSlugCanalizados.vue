@@ -129,17 +129,11 @@
                 </div>
               </div>
               <div class="div-block-425">
-                <div class="div-block-432">
-                  <h3>
-                    <a
-                      href="https://angel.co/re/story/39313"
-                      target="_blank"
-                      class="link-15"
-                      >Comentarios (22)</a
-                    >
-                  </h3>
-                </div>
-                <div></div>
+                <div class="div-block-432"><h3>
+                  <a href="#" target="_blank" class="link-15">Comentarios ({{cantidadComentarios}})</a></h3></div>
+                   <comentarios-post :idP="idP" v-if="idP"
+     @CantidadComentarios="CantidadComentarios"
+      :p="p"></comentarios-post>
               </div>
      
  </div>
@@ -147,10 +141,11 @@
 
 
 <script>
+import ComentariosPost from '../comentarios/comentariosPost.vue';
 import encuestaPost from './encuestaPost.vue';
 
 export default {
-  components: { encuestaPost },
+  components: { encuestaPost, ComentariosPost },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost', 'arrayTrend', 'previewUrl'],
   data() {
@@ -222,6 +217,7 @@ export default {
           this.favPost = this.arrayPost[0].fav
           this.idE = this.arrayPost[0].idE
           this.arrayEncuesta = this.arrayPost[0].encuesta
+          this.cantidadComentarios = this.arrayPost[0].cantCommentarios
          
           if (this.arrayPost[0].esLink == 1) {
             if (this.previewUrl == 0) {

@@ -9,7 +9,7 @@
             <div class="comment-box__field-wrapper">
               <textarea
                 rows="4"
-                placeholder="Say something nice to Nananonaweb…"
+                placeholder="Escribe tu comentario aqui…"
                 maxlength="12000"
                 v-model="commentText"
                 class="ember-text-area comment-box__textarea ember-auto-resize ember-view"
@@ -18,7 +18,8 @@
 
               <!---->
               <div class="comment-box__actions">
-                <button class="comment-box__save-button" @click="addComment(0)" :disabled="ButtonReplyDisable">Post Comment</button>
+                <button class="comment-box__save-button"
+                 @click="addComment(0)" :disabled="ButtonReplyDisable">Publicar</button>
 
                 <!---->
                 <div  class="comment-formatting-tips ember-view">
@@ -66,14 +67,6 @@
 
                 <div class="comment__main">
                   <!---->
-
-                  <div
-                
-                    class="comment__content content ember-view"
-                  >
-                    <p>{{item.textoComment}}</p>
-                  </div>
-
                   <div class="comment__footer">
                     <div
                      
@@ -87,7 +80,8 @@
                           class="user-avatar ember-view user-link__avatar"
                         >
                       
-                          <img :src="item.avatar" />
+                          <img :src="item.avatar" style="    display: initial;
+    width: 33px;" />
                         </picture>
 
                         <span class="user-link__name user-link__name--username"
@@ -139,12 +133,20 @@
                       Eliminar
                     </button>
                   </div>
+                  <div
+                
+                    class="comment__content content ember-view"
+                  >
+                    <p>{{item.textoComment}}</p>
+                  </div>
+
+                  
 
                   <!--reply box-->
 
 <div v-if="replyBox == item.comentarioId" :id="'reply_'+item.comentarioId" class="comment-box comment-box--empty comment-box--unfocused ember-view">
     <div class="comment-box__field-wrapper">
-    <textarea rows="4" placeholder="Say something nice to camelliayang…"
+    <textarea rows="4" placeholder="Escribe tu comentario aquí…"
      maxlength="12000" id="ember674" class="ember-text-area
       comment-box__textarea ember-auto-resize ember-view" 
       v-model="commentTextReply"
@@ -154,11 +156,11 @@
   <div class="comment-box__actions">
       <button class="comment-box__save-button" @click="addComment(item.comentarioId)"    
       :disabled="ButtonReplyDisable">
-        Post Comment
+        Publicar
       </button>
 
       <div class="comment-box__cancel-link" @click="replyBox = ''">
-        Cancel
+        Cancelar
       </div>
 
       <div id="ember675" class="comment-formatting-tips ember-view">
