@@ -38,7 +38,7 @@
       </div>
 
       <div class="auth-wizard__right-column">
-          <h2>Registrarse</h2>
+          
         <div v-if="showFormFull"
           class="pw-sign-in pw-sign-in--signing-up ember-view auth-wizard__pw-sign-in auth-wizard__pw-sign-in--signing-up"
         >

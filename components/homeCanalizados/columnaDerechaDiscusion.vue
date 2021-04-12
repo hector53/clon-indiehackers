@@ -7,7 +7,11 @@
       </div>
       <ul role="list" class="list-9">
         <li class="list-item-10">
-          <div class="text-block-27">👋 &nbsp;&nbsp;Completá tu perfil</div>
+            <div class="text-block-27">
+               <nuxt-link 
+               :to="{name:'u-username', 
+               params: {username: $store.state.username}}">👋 &nbsp;&nbsp;Completá tu perfil</nuxt-link>
+          </div>
         </li>
         <li class="list-item-10">
           <div class="text-block-27">
@@ -16,7 +20,7 @@
         </li>
         <li class="list-item-10">
           <div class="text-block-27">
-            ✍️ &nbsp;&nbsp;Escribí tu primer publicación
+             <nuxt-link to="/post-nuevo">✍️ &nbsp;&nbsp;Escribí tu primer publicación</nuxt-link>
           </div>
         </li>
       </ul>

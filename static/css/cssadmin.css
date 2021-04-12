@@ -6192,17 +6192,6 @@ padding-right: 10px;
   z-index: 1
 }
 
-.community .groups-section__create-button::before,
-.community .posts-section__create-button::before {
- /* background-image: linear-gradient(to left, #0e2439 2px, rgba(14, 36, 57, 0));
-  content: "";
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  width: 24px*/
-}
 
 .community .posts-section__sub-nav {
   display: flex;
@@ -6210,11 +6199,7 @@ padding-right: 10px;
   padding: 4px 8px
 }
 
-@media (min-width:500px) {
-  .community .posts-section__sub-nav {
-    /*border-bottom: 1px solid #1a1b1f*/
-  }
-}
+
 
 @media (min-width:390px) {
   .community .posts-section__sub-nav {
@@ -7301,10 +7286,7 @@ padding-right: 10px;
   margin-top: 40px
 }
 
-.community.community--homepage .feed-item__date,
-.community.community--homepage .feed-item__date+.feed-item__middot {
- /* display: none*/
-}
+
 
 @media (max-width:499px) {
   .community .community-sidebar .groups__list {
@@ -21588,8 +21570,6 @@ body.no-quote .loading-quote__modal {
   margin-top: 0
 }
 
-.news-section {
-}
 
 .news-section>header {
   align-items: center;
@@ -28759,8 +28739,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   color: #63809c
 }
 
-.post-page .post-page__comments .embedded-comments .comment .comment-voter {
-}
+
 
 .post-page .post-page__comments .embedded-comments .comment-box {
   width: 100%
@@ -44419,9 +44398,7 @@ body.series-form body {
  text-decoration: underline;
 }
 
-.title-bar .user-menu .user-menu__action:hover .user-menu__action-icon {
- /* background-color: #4799eb*/
-}
+
 
 .title-bar .user-menu .user-menu__action:hover .user-menu__action-label {
   color: #3e64db

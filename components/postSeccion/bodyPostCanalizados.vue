@@ -2,7 +2,7 @@
   <div class="container w-container">
     <div class="div-block-455">
       <div class="div-block-457">
-        <sidebar-left :p="p" :idP="idP" :votos="votos" 
+        <sidebar-left :idE="idE" :p="p" :idP="idP" :votos="votos" 
          :favPost="favPost" :cantidadComentarios="cantidadComentarios" ></sidebar-left>
          
       </div>
@@ -11,7 +11,7 @@
           <div class="columns-3 w-row">
             <div class="column-4 w-col w-col-8">
                     <post-slug-canalizados :arrayPost="arrayPost" 
-                    :arrayTrend="arrayTrend"
+                    :arrayTrend="arrayTrend" @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
 
             </div>
@@ -118,14 +118,17 @@ export default {
         cantidadComentarios: 0, 
         p:0, 
         favPost: 0, 
-        status: 2
+        status: 2, 
+        idE: ''
     };
   },
   watch: {},
   async fetch() {
   },
   methods: {
-
+CantidadComentarios(val){
+        this.cantidadComentarios = val
+    },
       async getpost(){
           
                 
@@ -146,7 +149,8 @@ export default {
            this.votos = response.post[0].votos;
              this.favPost = response.post[0].fav
              this.cantidadComentarios = response.post[0].cantCommentarios
-             console.log("votos", this.votos)
+              this.idE = response.post[0].idE
+             console.log("idE", this.idE)
         }
       });
 

@@ -316,10 +316,6 @@ export default {
   },
   mounted() {
    console.log(this.arrayEncuesta)
-  /*  var queryCommentID = this.$route.query.commentId
-    if(queryCommentID){
-          VueScrollTo.scrollTo('#'+queryCommentID)
-    }*/
   },
 };
 </script>

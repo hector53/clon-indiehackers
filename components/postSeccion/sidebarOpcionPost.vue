@@ -16,9 +16,12 @@
       <li><div>{{cantidadComentarios}} Comentarios</div></li>
 
 
-         <li  v-if="p == $store.state.p "><a href="#">Editar</a></li>
-          <li  v-if="p == $store.state.p "><a href="#">Borrar</a></li>
-           <li  v-if="p == $store.state.p "><a href="#">Destacar</a></li>
+         <li  v-if="p == $store.state.p ">
+<nuxt-link :to="{name:'editar-post-id', params: {id: idE}}">Editar</nuxt-link>
+
+
+         </li>
+          <li  v-if="p == $store.state.p "><a href="#"  @click.prevent="borrarPost">Borrar</a></li>
         
 
 
@@ -31,7 +34,7 @@
 
 export default {
   name: "sidebarOpcionPost",
-  props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios' ],
+  props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios', 'idE' ],
     data() {
     return {
             status: 0,
@@ -39,6 +42,20 @@ export default {
     };
   },
   methods: {
+     async borrarPost() {
+      let formData = new FormData();
+      formData.append("id", this.idP);
+      formData.append("token", this.$store.state.tokenUser);
+
+      const response = await this.$axios.$post("/post/delete/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      if (response.status == 1) {
+        this.$router.push({ name: "index" });
+      }
+    },
       
      async votoLike(){
        if(this.$store.state.tokenUser == ''){

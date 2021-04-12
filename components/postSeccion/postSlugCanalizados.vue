@@ -197,6 +197,10 @@ export default {
         //  console.log("preview", response)
       });
     },
+    CantidadComentarios(val){
+        this.cantidadComentarios = val
+          this.$emit("CantidadComentarios", val);
+    },
       },
   mounted() {
       console.log(this.previewUrl)

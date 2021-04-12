@@ -54,7 +54,7 @@
       </div>
     </div>
      <div class="div-block-434">
-                    <div>Hay {{arrayPostHoy.length}} publicaciones hoy</div>
+                    <div>Hay {{arrayPostHoy.length}} publicaciones desde que iniciamos</div>
                     <div class="text-block-6">•</div>
                     <a href="#" class="link-18">Siguiente pagina</a>
                   </div>

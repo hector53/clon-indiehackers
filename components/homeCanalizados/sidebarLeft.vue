@@ -1,7 +1,7 @@
 <template>
   <div class="div-block-449">
    <div class="div-block-467">
-    <sidebar-opcion-post 
+    <sidebar-opcion-post :idE="idE"
     :p="p" :idP="idP" :votos="votos"
          :favPost="favPost" :cantidadComentarios="cantidadComentarios"
      v-if="$route.name == 'c-slug'"></sidebar-opcion-post>
@@ -134,7 +134,7 @@
 import sidebarOpcionPost from '../postSeccion/sidebarOpcionPost.vue';
 export default {
   components: { sidebarOpcionPost },
-props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios', 'previewUrl'],
+props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios', 'previewUrl', 'idE'],
   name: "sidebarLeft",
   data() {
     return {};

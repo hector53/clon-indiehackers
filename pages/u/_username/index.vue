@@ -1,8 +1,10 @@
 <template>
   <div>
+<div class="cubreBtnMisPubli">
+  <button @click="misPublicaciones" class="btnCanalizado" :class="{'escalaGris' : misPubli == false}" >Mis Publicaciones</button>
+  <button @click="misPubliSeguidas" class="btnCanalizado" :class="{'escalaGris' : misPubli}">Publicaciones Seguidas</button>
+</div>
 
- <p v-if="$store.state.username == $route.params.username">Este es el lugar para mostrar tus mejores publicaciones: las historias, los consejos y las discusiones de las que estás más orgulloso. Simplemente cree una publicación o visite cualquiera de sus publicaciones existentes, luego haga clic en el menú de opciones para agregarlas en la siguiente lista.</p>
-   
     <loader v-show="loader"></loader>
 
     <div v-show="loader==false">
@@ -76,7 +78,8 @@ export default {
   data() {
     return {
           arrayDestacados: [], 
-          loader: true
+          loader: true, 
+          misPubli: true, 
     };
   },
 
@@ -84,6 +87,33 @@ export default {
     
   },
   methods: {
+    misPubliSeguidas(){
+        if(this.misPubli){
+                    //hago algo
+                    this.misPubli = false
+                    this.loader = true
+                    this.getPubliSeguidas()
+              }
+    },
+    misPublicaciones(){
+      if(this.misPubli==false){
+            //hago algo
+            this.misPubli = true
+             this.loader = true
+             this.getDestacados()
+      }
+    },
+     async getPubliSeguidas(){
+
+    
+      await this.$axios
+        .$get("/perfil/getpubliseguidas?username=" + this.$route.params.username)
+        .then((response) => {
+            console.log(response)
+          this.arrayDestacados = response
+          this.loader = false
+        });
+    },
 
     async getDestacados(){
 
@@ -103,4 +133,27 @@ export default {
   },
 };
 </script>
+<style >
+.btnCanalizado{
+      background: #3e64db;
+    color: white;
+    border-radius: 5px;
+    padding: 10px; 
+      outline: none!important;
+}
+.cubreBtnMisPubli{
+      margin-bottom: 20px;
+    display: inline-block;
+      outline: none!important;
+}
+.escalaGris{
+      filter: grayscale(.7);
+    cursor: pointer;
+    opacity: .5;
+}
+input[type="button"] {
+ 
+  outline: none!important;
+}
+</style>
 

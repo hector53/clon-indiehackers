@@ -6,7 +6,7 @@
   <div class="container w-container"  v-if="loader==false">
     <div class="div-block-455">
       <div class="div-block-457">
-        <sidebar-left :p="p" :idP="idP" :votos="votos" v-if="votos"
+        <sidebar-left :idE="idE" :p="p" :idP="idP" :votos="votos" v-if="votos"
          :favPost="favPost" :cantidadComentarios="cantidadComentarios" ></sidebar-left>
          
       </div>
@@ -75,7 +75,9 @@ export default {
         status: 2, 
         loader: true, 
         previewUrl: '', 
-        producto: false
+        producto: false, 
+        idE: ''
+
     };
   },
   watch: {},
@@ -101,6 +103,8 @@ export default {
              this.loader = false
              console.log(response.previewUrl)
              this.previewUrl = response.previewUrl
+               this.idE = response.post[0].idE
+             console.log("idE", this.idE)
         }
       });
   },

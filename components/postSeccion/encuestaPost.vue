@@ -162,7 +162,9 @@ export default {
 
   },
   async fetch() {},
-  mounted() {},
+  mounted() {
+    console.log(this.arrayEncuesta)
+  },
 };
 </script>
 
