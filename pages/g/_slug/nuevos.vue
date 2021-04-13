@@ -67,7 +67,7 @@
 import likeCanalizados from '~/components/likes/likeCanalizados.vue';
 export default {
   components: { likeCanalizados },
-  name: "grupo-slug-popular-index",
+  name: "grupo-slug-popular-nuevos",
   layout: "grupoCanalizados",
   data() {
     return {
@@ -75,7 +75,7 @@ export default {
     };
   },
   async fetch() {
-    await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares").then((response) => {
+    await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=nuevos").then((response) => {
       console.log(response);
       this.arrayPostHoy = response.posts;
     });
