@@ -237,7 +237,7 @@ export default {
             this.$store.state.tokenUser
         )
         .then((response) => {
-          console.log(response)
+     //     console.log(response)
           this.$emit("recargarDataUser");
         });
       }
@@ -247,13 +247,3 @@ export default {
   },
 };
 </script>
-<style >
-.activeTabPerfil {
-  background: #3e64db;
-  color: white;
-}
-
-.activeTabPerfil a {
-  color: white;
-}
-</style>

@@ -135,7 +135,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response)
+    //  console.log(response)
       if(response.status == 1){
           this.getEncuesta(response.p)
       }
@@ -151,7 +151,7 @@ export default {
      await this.$axios
       .$get("/get/encuestabyid/?p=" + id + "&token="+this.$store.state.tokenUser)
       .then((response) => {
-          console.log(response    )
+       //   console.log(response    )
             this.loadingResultados = false
           this.arrayMiEncuesta = response
           this.votos = response.VotosTotales
@@ -163,7 +163,7 @@ export default {
   },
   async fetch() {},
   mounted() {
-    console.log(this.arrayEncuesta)
+ //   console.log(this.arrayEncuesta)
   },
 };
 </script>

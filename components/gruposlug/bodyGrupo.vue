@@ -16,7 +16,7 @@
                 />
                 <div>
                   <ul role="list" class="list-13">
-                    <li class="list-item-14">
+                    <li class="list-item-14 marginAuto"  @click="joinGroup">
                       <a class="text-block-33" href="#" v-if="rolUser == 0">
                         <span>Unirse</span>
                       </a>
@@ -114,11 +114,11 @@
                   ><div>Miembros</div></nuxt-link
                 >
               </li>
-              <li>
+              <li v-if="rolUser == 1 || rolUser == 2">
                 <nuxt-link
                   class="list-item-13"
                   :class="{
-                    activeTabPerfil: $route.name == 'g-slug-configuracion',
+                    activeTabPerfil: $route.name == 'g-slug-configuracion' || $route.name == 'g-slug-configuracion-moderadores',
                   }"
                   :to="{
                     name: 'g-slug-configuracion',
@@ -179,6 +179,14 @@
                         Nuevos:
                       </div>
                     </nuxt-link>
+                  <a href="#" @click.prevent="postNuevo"> 
+
+                    <div
+                        class="botonCanalizados aliD"
+                      >
+                        
+                        Publicar
+                      </div> </a>
                   </div>
                 </div>
 
@@ -189,7 +197,7 @@
               <div class="div-block-448">
                 <!---->
                    <div
-                  v-if="$route.name == 'g-slug-configuracion'"
+                  v-if="$route.name == 'g-slug-configuracion' || $route.name == 'g-slug-configuracion-moderadores'"
                 >
                         <ul class="listaOrdenadaConfig">
 
@@ -214,7 +222,7 @@
 
                 <div
                   class="div-block-444"
-                  v-if="$route.name != 'g-slug-configuracion'"
+                  v-if="$route.name != 'g-slug-configuracion' && $route.name != 'g-slug-configuracion-moderadores'"
                 >
                   <div class="div-block-447">
                     <div class="html-embed-7 w-embed">
@@ -294,6 +302,41 @@ export default {
     return {};
   },
   methods: {
+     async  joinGroup(){
+       if(this.rolUser == 2 || this.rolUser == 1){
+          this.$router.push({ name: 'g-slug-configuracion-moderadores',  params: { slug: this.$route.params.slug }})
+       }else{
+
+      if(this.$store.state.cookieLogin){
+    console.log("hola join o leave")
+          let formData = new FormData();
+            
+            formData.append('token', this.$store.state.tokenUser);
+            formData.append('pGroup', this.pGroup);
+            const response = await this.$axios.$post('/grupos/join/',
+                formData,
+                {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+              }
+            )
+
+      
+            if(response.status == 0){
+                
+            }else{
+               this.$emit("getGrupoNow");
+              
+            }
+      }else{
+        this.$router.push({name: 'login'})
+      }
+
+       }
+       
+     
+    },
     async followUser() {
       if (this.$store.state.cookieLogin == false) {
         this.$router.push("/login");
@@ -311,77 +354,28 @@ export default {
           this.$emit("recargarDataUser");
         });
     },
+    postNuevo() {
+      if (this.$store.state.tokenUser != "") {
+        this.$cookies.set(
+          "group_cookie",
+          {
+            id: this.pGroup,
+            imagenGrupo: this.imagenGrupo,
+            tituloGrupo: this.tituloGrupo,
+            slug: this.$route.params.slug,
+            excerptGrupo: this.excerptGrupo,
+          },
+          {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+          }
+        );
+        this.$router.push({ name: "post-nuevo" });
+      } else {
+        this.$router.push({ name: "iniciar-sesion" });
+      }
+    }
   },
   mounted() {},
 };
 </script>
-<style >
-.activeTabPerfil {
-  background: #3e64db;
-  color: white;
-}
-
-.activeTabPerfil a {
-  color: white;
-}
-.user-header__header-button {
-  color: #fff;
-  cursor: pointer;
-  background: #3e64db;
-  border-radius: 8px;
-  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  white-space: nowrap;
-  height: 32px;
-  width: 32px;
-  flex: 0 0 auto;
-  margin-left: 14px;
-}
-.header-button__content {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.header-button__icon {
-  height: 16px;
-  width: 16px;
-  fill: white;
-}
-.header-button__content:hover {
-  background: #658af8;
-  border-radius: 8px;
-}
-.h1user {
-  display: flex;
-  min-width: 0;
-  width: 100%;
-  align-items: center;
-}
-.list-12 {
-  margin-left: 30px;
-}
-.activePopular {
-  border: 1px solid #3e64db;
-  color: #3e64db;
-}
-.list-item-menu-configuracion {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: block;
-    margin-bottom: 20px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-}
-.listaOrdenadaConfig{
-      display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>

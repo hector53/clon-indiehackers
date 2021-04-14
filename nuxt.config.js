@@ -49,6 +49,7 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
+    'bootstrap-vue/nuxt'
     
   ],
 

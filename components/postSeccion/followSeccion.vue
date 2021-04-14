@@ -90,7 +90,7 @@ export default {
         )
         .then((response) => {
             this.yalosigo = response.yalosigo
-          console.log(response)
+      //    console.log(response)
         
         });
 

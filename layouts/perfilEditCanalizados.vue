@@ -32,9 +32,7 @@ export default {
   name: "perfilEditCanalizados",
     data() {
     return {
-         arrayDataUser: {},
-          gruposRecomendados: [], 
-        labelRecomendados: 'Tus Grupos'
+         
     };
   },
  

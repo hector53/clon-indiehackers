@@ -70,7 +70,7 @@ export default {
   },
   async fetch() {
     await this.$axios.$get("/getpost/hoy/?filtro=nuevos").then((response) => {
-      console.log(response);
+     // console.log(response);
       this.arrayPostHoy = response.posts;
     });
   },

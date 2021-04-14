@@ -58,7 +58,7 @@
                   <div class="logo-text">CANALIZADOS</div></nuxt-link
                 >
               </div>
-              <nav
+            <!--  <nav
                 class="w-dropdown-list"
                 id="w-dropdown-list-0"
                 aria-labelledby="w-dropdown-toggle-0"
@@ -74,7 +74,7 @@
                 ><a href="#" class="w-dropdown-link" tabindex="0"
                   >✍️ Colaborá</a
                 >
-              </nav>
+              </nav>-->
             </div>
           </li>
         </ul>

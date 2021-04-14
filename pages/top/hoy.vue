@@ -53,8 +53,8 @@
         </div>
       </div>
     </div>
-     <div class="div-block-434">
-                    <div>Hay {{arrayPostHoy.length}} publicaciones desde que iniciamos</div>
+     <div class="div-block-434" v-if="arrayPostHoy.length > 0">
+                    <div >Hay {{arrayPostHoy.length}} publicaciones desde que iniciamos</div>
                     <div class="text-block-6">•</div>
                     <a href="#" class="link-18">Siguiente pagina</a>
                   </div>
@@ -75,8 +75,11 @@ export default {
   },
   async fetch() {
     await this.$axios.$get("/getpost/hoy/?filtro=hoy").then((response) => {
-      console.log(response);
-      this.arrayPostHoy = response.posts;
+     // console.log(response);
+      if(response.status > 0){
+  this.arrayPostHoy = response.posts;
+      }
+    
     });
   },
 };

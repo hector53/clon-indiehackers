@@ -109,7 +109,7 @@ export default {
              if(response.status == 1){
                     //existe el email 
                      this.errorLogin = true
-                  this.errorText = "El email no se encuentra registrado "
+                  this.errorText = "El email o usuario no se encuentra registrado "
             }
 
              if(response.status == 2){

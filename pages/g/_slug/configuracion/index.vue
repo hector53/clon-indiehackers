@@ -80,9 +80,9 @@ export default {
   components: { likeCanalizados },
   name: "grupo-slug-configuracion",
   layout: "grupoCanalizados",
- 
+  middleware: 'configGrupo',
   async fetch() {
-      
+  
   },
   
   data() {
@@ -163,9 +163,12 @@ async   previewFiles(e) {
     
     },
     mounted() {
-        console.log(this.$parent.$parent.$parent.refreshGroups())
+     
+ console.log(this.$parent.$parent.$parent.refreshGroups())
         this.content = this.$parent.$parent.$parent.$refs.bodyGrupo.contenido
         this.excerpt = this.$parent.$parent.$parent.$refs.bodyGrupo.excerptGrupo
+      
+       
     },
 };
 </script>

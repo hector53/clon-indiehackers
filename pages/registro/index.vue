@@ -134,10 +134,6 @@
           </div>
 
 
-
-
-
-
         </div>
       </div>
     </div>
@@ -238,6 +234,15 @@ export default {
           }
         });
     },
+  },
+  mounted() {
+    var cookieSuscribe = this.$cookies.get("suscribe_newsletter_cookie");
+    if (cookieSuscribe) {
+        this.email = cookieSuscribe
+
+   //   this.$cookies.remove("suscribe_newsletter_cookie");
+
+    }
   },
 };
 </script>

@@ -135,7 +135,7 @@ CantidadComentarios(val){
     await this.$axios
       .$get("/getpost/usuario/?slug=" + this.$route.params.slug+"&token="+this.$store.state.tokenUser)
       .then((response) => {
-            console.log(response)
+        //    console.log(response)
         if (response.status == 0) {
             this.status = 0
             console.log("estoy aqui redireccionar   ")
@@ -150,7 +150,7 @@ CantidadComentarios(val){
              this.favPost = response.post[0].fav
              this.cantidadComentarios = response.post[0].cantCommentarios
               this.idE = response.post[0].idE
-             console.log("idE", this.idE)
+             //console.log("idE", this.idE)
         }
       });
 
@@ -175,7 +175,7 @@ CantidadComentarios(val){
       this.getpost()
   },
   mounted() {
-   console.log(this.status)
+  // console.log(this.status)
   },
 
 };

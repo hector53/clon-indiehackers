@@ -5,6 +5,7 @@
     :responseGrupo="responseGrupo" :pGroup="pGroup" :tituloGrupo="tituloGrupo" :excerptGrupo="excerptGrupo"
     :imagenGrupo="imagenGrupo" :contenido="contenido" :miembros="miembros" :moderadores="moderadores"
     :rolName="rolName" :rolUser="rolUser" :miembrosO="miembrosO" :fechaM="fechaM"
+    @getGrupoNow="getGrupoNow"
     ></body-grupo>    
 
      
@@ -92,6 +93,9 @@ export default {
       cambiarTab(tab){
           this.tab = tab
       },
+      getGrupoNow(){
+          this.refreshGroups()
+      },
  
    refreshGroups() {
       this.$fetch()
@@ -101,7 +105,3 @@ export default {
   },
 };
 </script>
-<style >
-
-
-</style>

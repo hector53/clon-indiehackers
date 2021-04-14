@@ -156,7 +156,7 @@ export default {
       await this.$axios
         .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
           if(response.status > 0){
             if(response.status == 2){
                 this.labelRecomendados = 'Recomendados'

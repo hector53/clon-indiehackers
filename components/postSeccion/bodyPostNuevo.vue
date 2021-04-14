@@ -766,7 +766,7 @@ export default {
       await this.$axios
         .$get("/grupos/likegrupos?p=" + this.searchInput)
         .then((response) => {
-          console.log(response);
+     //     console.log(response);
           this.arraySearchOtros = response.grupos;
         });
     },
@@ -780,7 +780,7 @@ export default {
       this.contadorOutsideGrupo = 0;
     },
     async getMyGroups() {
-      console.log("/grupos/byuser/?token=" + this.$store.state.tokenUser);
+    //  console.log("/grupos/byuser/?token=" + this.$store.state.tokenUser);
       await this.$axios
         .$get("/grupos/byuser/?token=" + this.$store.state.tokenUser)
         .then((response) => {
@@ -797,7 +797,7 @@ export default {
       this.imagenPost = URL.createObjectURL(file);
     },
     previewPost(val) {
-      console.log(val);
+     // console.log(val);
       this.preview = val;
      this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
 
@@ -860,7 +860,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response)
+ //     console.log(response)
       if (response.status == 1) {
         this.$router.push({
           name: "c-slug",

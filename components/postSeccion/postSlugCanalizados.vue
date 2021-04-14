@@ -134,7 +134,11 @@
                    <comentarios-post :idP="idP" v-if="idP"
      @CantidadComentarios="CantidadComentarios"
       :p="p"></comentarios-post>
+
+      
               </div>
+              <h2>Relacionados</h2>
+              <trending-posts></trending-posts>
      
  </div>
 </template>
@@ -143,9 +147,10 @@
 <script>
 import ComentariosPost from '../comentarios/comentariosPost.vue';
 import encuestaPost from './encuestaPost.vue';
+import TrendingPosts from './trendingPosts.vue';
 
 export default {
-  components: { encuestaPost, ComentariosPost },
+  components: { encuestaPost, ComentariosPost, TrendingPosts },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost', 'arrayTrend', 'previewUrl'],
   data() {
@@ -203,7 +208,7 @@ export default {
     },
       },
   mounted() {
-      console.log(this.previewUrl)
+   //   console.log(this.previewUrl)
     if(this.status == 0){
      this.$router.push('/')
     }else{

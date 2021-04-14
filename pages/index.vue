@@ -76,7 +76,7 @@ export default {
   },
   async fetch() {
     await this.$axios.$get("/getpost/hoy/?filtro=semanal").then((response) => {
-      console.log(response);
+   //   console.log(response);
       this.arrayPostHoy = response.posts;
     });
   },

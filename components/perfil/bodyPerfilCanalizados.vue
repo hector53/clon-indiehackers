@@ -262,7 +262,7 @@ export default {
             this.$store.state.tokenUser
         )
         .then((response) => {
-          console.log(response)
+  //        console.log(response)
           this.$emit("recargarDataUser");
         });
       }, 
@@ -276,49 +276,3 @@ export default {
   },
 };
 </script>
-<style >
-.activeTabPerfil {
-  background: #3e64db;
-  color: white;
-}
-
-.activeTabPerfil a {
-  color: white;
-}
-.user-header__header-button {
-    color: #fff;
-    cursor: pointer;
-    background: #3e64db;
-    border-radius: 8px;
-    box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
-    display: flex;
-    font-size: 16px;
-    font-weight: 600;
-    white-space: nowrap;
-    height: 32px;
-    width: 32px;
-    flex: 0 0 auto;
-    margin-left: 14px;
-}
-.header-button__content {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.header-button__icon {
-    height: 16px;
-    width: 16px;
-    fill: white;
-}
-.header-button__content:hover {
-    background: #658af8;
-    border-radius: 8px;
-}
-.h1user{
-  display: flex;
-    min-width: 0;
-    width: 100%;
-    align-items: center;
-}
-</style>

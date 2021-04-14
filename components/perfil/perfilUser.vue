@@ -172,7 +172,7 @@ export default {
       }
   },
   mounted() {
-     console.log(this.$route)
+     //console.log(this.$route)
   },
 };
 </script>

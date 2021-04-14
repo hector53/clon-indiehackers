@@ -1,6 +1,6 @@
 <template>
- <div class="column-4 w-col w-col-8">
-                <div class="div-block-425" v-for="(item, index) in arrayNoticias" :key="index">
+   <div>
+    <div class="div-block-425" v-for="(item, index) in arrayNoticias" :key="index">
                   <div class="div-block-432">
                     <div class="columns w-row">
                       <div class="column w-col w-col-8">
@@ -67,27 +67,36 @@
                     </div>
                   </div>
                 </div>
-                
-              </div>
+   
+   </div>
 </template>
 
-
 <script>
-
 export default {
-    name: "historiasDestacadas", 
-    data() {
-        return {
-          arrayNoticias: []
-        }
-    },
-     async fetch() {
+  layout: "perfilEditCanalizados",
+  name: "staffpicks",
+  components: {},
+ async fetch() {
+      
+
   await this.$axios
         .$get("/getpost/getnoticias")
         .then((response) => {
-       //   console.log(response)
+          console.log(response)
           this.arrayNoticias = response
         })
   },
-}
+  data() {
+    return {
+        arrayNoticias: []
+    };
+  },
+  watch: {},
+  methods: {
+  
+  },
+  mounted() {
+  },
+};
 </script>
+
