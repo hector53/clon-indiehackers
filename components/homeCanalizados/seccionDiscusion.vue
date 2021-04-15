@@ -1,6 +1,6 @@
 <template>
 <div class="w-col w-col-8 w-col-tiny-tiny-stack">
-                <div class="div-block-433">
+                <div class="div-block-433 homeDiscusion">
                   <div>
                     <div class="div-block-435">
                       <div class="text-block-28">Comunidad</div>
@@ -116,4 +116,5 @@ a{
     color: #3e64db!important; 
      font-weight: 700;
 }
+
 </style>

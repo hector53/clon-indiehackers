@@ -1,9 +1,8 @@
 <template>
 <div>
-  <footer  class="site-footer ember-view">
+  <footer  class="site-footer ">
     <div
-      id="ember21802311"
-      class="mailing-list-form ember-view site-footer__mailing-list-form"
+      class="mailing-list-form site-footer__mailing-list-form"
     >
 
         <h2 class="mailing-list-form__title" v-if="error.statusCode === 404">Page not found</h2>
