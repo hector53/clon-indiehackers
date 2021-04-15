@@ -1,11 +1,14 @@
 <template>
   <div>
     <headerGrupoSlug :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :excerptGrupo="excerptGrupo"
-    :rolUser="rolUser" :rolName="rolName" @getGrupoNow="refreshGroups" :pGroup="pGroup" :tab="tab" @changeTab="cambiarTab"
+    :rolUser="rolUser" :rolName="rolName" @getGrupoNow="refreshGroups" :pGroup="pGroup"
+     :tab="tab" @changeTab="cambiarTab"
     ></headerGrupoSlug>
 
-  <contentDiscusion :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :miembros="miembros" :miembrosO="miembrosO"  :excerptGrupo="excerptGrupo"
-  :contenido="contenido" :moderadores="moderadores" @changeModeradores="changeModeradores" :tab="tab" :pGroup="pGroup" @changeIconGrupoHeader="changeIconHeGroup"></contentDiscusion>
+  <contentDiscusion :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :miembros="miembros"
+   :miembrosO="miembrosO"  :excerptGrupo="excerptGrupo"
+  :contenido="contenido" :moderadores="moderadores" @changeModeradores="changeModeradores" 
+  :tab="tab" :pGroup="pGroup" @changeIconGrupoHeader="changeIconHeGroup"></contentDiscusion>
 
 
   </div>

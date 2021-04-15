@@ -69,16 +69,29 @@ export default {
   components: { likeCanalizados },
   name: "grupo-slug-popular-index",
   layout: "grupoCanalizados",
+  async asyncData({ params, redirect }) {
+  if(params.slug == 'noticias'){
+         return redirect('/')
+  }
+  },
   data() {
     return {
       arrayPostHoy: [],
     };
   },
   async fetch() {
-    await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares").then((response) => {
-      console.log(response);
+   
+  },
+  methods: {
+   async getpostspo(){
+       await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares").then((response) => {
+    //  console.log(response);
       this.arrayPostHoy = response.posts;
     });
+    }
+  },
+  mounted() {
+    this.getpostspo()
   },
 };
 </script>

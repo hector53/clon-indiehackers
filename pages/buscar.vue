@@ -1,33 +1,6 @@
 <template>
-  <div class="ember-view">
     <div class="search-page">
-      <header class="search-page__header">
-        <div class="search-page__header-content">
-          <a href="/" id="ember6" class="ember-view search-page__logo">
-            <img
-              class="logo__glyph"
-              src="/images/isotipo-canaliza2.svg"
-              style="height: 24px; width: 24px"
-            />
-            <div class="logo-text">CANALIZADOS</div>
-          </a>
-          <div
-            @click="cerrarBusqueda"
-            class="modal-closer ember-view search-page__close-button"
-          >
-            <svg
-              class="modal-closer__close-icon"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-      </header>
-
+    
       <ul class="search-page__filters">
         <li
           class="search-page__filter"
@@ -35,6 +8,13 @@
           @click="cambiarTab(0)"
         >
           Todos
+        </li>
+        <li
+          class="search-page__filter"
+          :class="{ 'search-page__filter--selected': tab == 4 }"
+          @click="cambiarTab(4)"
+        >
+          Noticias
         </li>
         <li
           class="search-page__filter"
@@ -86,9 +66,9 @@
         class="search-page__results"
         v-if="q != '' && arrayBuscarPosts.length > 0"
       >
-        <div class="search-page__results-header" v-show="tab == 0 || tab == 1">
+        <div class="search-page__results-header" v-show="tab == 0 || tab == 4">
           <h2 class="search-page__results-label">
-            {{ totalDiscusiones }} Discusiones
+            {{ totalNo }} Noticias
           </h2>
 
           <div class="search-page__results-pagination">
@@ -100,7 +80,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                @click="cambiarPage(1, 1)"
+                @click="cambiarPage(4, 1)"
                 class="ember-view results-pagination__button results-pagination__button--prev"
                 :class="{ 'results-pagination__button--disabled': ini == 0 }"
               >
@@ -113,7 +93,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                @click="cambiarPage(1, 2)"
+                @click="cambiarPage(4, 2)"
                 class="ember-view results-pagination__button results-pagination__button--next"
                 :class="{
                   'results-pagination__button--disabled':
@@ -166,10 +146,128 @@
           </div>
         </div>
 
+
+ <div
+          v-show="tab == 0 || tab == 4"
+          class="search-page__results-content search-page__results-content--discussions search-page__results-content--multi"
+        >
+          <div
+            v-for="(item, index) in arrayNoti"
+            :key="index"
+            class="search-page__result search-result search-result--discussion ember-view"
+          >
+            <div class="user-link ember-view result__user-link">
+              <nuxt-link
+                :to="{
+                  name: 'u-username',
+                  params: { username: item.username },
+                }"
+                class="user-link__link ember-view"
+              >
+                <picture class="user-avatar ember-view user-link__avatar">
+                  <img :src="item.avatar" />
+                </picture>
+
+                <span class="user-link__name user-link__name--username">
+                  {{ item.username }}
+                </span>
+
+                <!---->
+
+                <!----></nuxt-link
+              >
+              <!---->
+              <!---->
+            </div>
+            <nuxt-link
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"
+              class="ember-view result__text-link"
+            >
+              <div class="result__title" v-html="item.titulo"></div>
+
+              <div class="result__snippet">
+                
+                <p v-html="item.contenido"></p>
+              </div>
+
+              <div class="result__metadata">
+                <span class="result__metadatum">{{ item.votos }} votos</span>
+                <span class="result__metadata-separator">·</span>
+                <span class="result__metadatum"
+                  >{{ item.comentarios }} comentarios </span
+                >
+   <span class="result__metadata-separator">·</span>
+                 <span class="result__metadatum"
+                  >{{item.fecha}}</span
+                >
+
+              </div>
+            </nuxt-link>
+          </div>
+
+
+
+
+
+          
+        </div>
+
+
+
+<div class="search-page__results-header" v-show="tab == 0 || tab == 1">
+          <h2 class="search-page__results-label">
+            {{ totalNo }} Discusiones
+          </h2>
+
+          <div class="search-page__results-pagination">
+            <span class="results-pagination__numbers">
+              {{ ini }} – {{ end }}
+            </span>
+
+            <div class="results-pagination__buttons">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                @click="cambiarPage(1, 1)"
+                class="ember-view results-pagination__button results-pagination__button--prev"
+                :class="{ 'results-pagination__button--disabled': ini == 0 }"
+              >
+                <path
+                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+                >
+                  <!---->
+                </path>
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                @click="cambiarPage(1, 2)"
+                class="ember-view results-pagination__button results-pagination__button--next"
+                :class="{
+                  'results-pagination__button--disabled':
+                    arrayBuscarPosts.length < pp,
+                }"
+              >
+                <path
+                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+                >
+                  <!---->
+                </path>
+              </svg>
+            </div>
+          </div>
+
+                  </div>
+
         <div
           v-show="tab == 0 || tab == 1"
           class="search-page__results-content search-page__results-content--discussions search-page__results-content--multi"
         >
+
+        
           <div
             v-for="(item, index) in arrayBuscarPosts"
             :key="index"
@@ -208,7 +306,7 @@
               <div class="result__title" v-html="item.titulo"></div>
 
               <div class="result__snippet">
-                {{ item.fecha }} -
+                
                 <p v-html="item.contenido"></p>
               </div>
 
@@ -216,11 +314,22 @@
                 <span class="result__metadatum">{{ item.votos }} votos</span>
                 <span class="result__metadata-separator">·</span>
                 <span class="result__metadatum"
-                  >{{ item.comentarios }} comentarios</span
+                  >{{ item.comentarios }} comentarios </span
                 >
+   <span class="result__metadata-separator">·</span>
+                 <span class="result__metadatum"
+                  >{{item.fecha}}</span
+                >
+
               </div>
             </nuxt-link>
           </div>
+
+
+
+
+
+          
         </div>
         <div class="search-page__results-header" v-show="tab == 0 || tab == 2">
           <h2 class="search-page__results-label">{{ totalGrupos }} Grupos</h2>
@@ -380,13 +489,13 @@
         </div>
       </div>
     </div>
-  </div>
+  
 </template>
 
 <script>
 import ClickOutside from 'vue-click-outside'
 export default {
-  layout: "buscar",
+  layout: "perfilEditCanalizados",
   name: "buscar",
    directives: {
     ClickOutside
@@ -397,9 +506,11 @@ export default {
       arrayBuscarPosts: [],
       arrayGrupos: [],
       arrayUsuarios: [],
+      arrayNoti: [],
       totalDiscusiones: "",
       totalGrupos: "",
       totalUsuarios: "",
+      totalNo: "",
       f: "",
       p: 0,
       ini: 0,
@@ -457,6 +568,9 @@ export default {
           if (this.f == "usuarios") {
             this.tab = 3;
           }
+          if (this.f == "noticias") {
+            this.tab = 4;
+          }
 
            this.getBuscar();
             return
@@ -508,6 +622,12 @@ export default {
         //usuarios
         this.f = "usuarios";
         this.tab = 3;
+       
+      }
+       if (tipo == 4) {
+        //usuarios
+        this.f = "noticias";
+        this.tab = 4;
        
       }
 
@@ -564,6 +684,20 @@ export default {
            this.$router.push({ query: { q: this.q, f: this.f } });
         }
         this.tab = 1;
+      }
+
+        if (tab == 4) {
+        //discusiones
+        this.f = "noticias";
+        this.p = 0;
+      
+       
+        if(this.sActivo){
+           this.$router.push({ query: { q: this.q, f: this.f, s:this.s } });
+        }else{
+           this.$router.push({ query: { q: this.q, f: this.f } });
+        }
+        this.tab = 4;
       }
 
       if (tab == 2) {
@@ -624,9 +758,11 @@ export default {
           this.arrayBuscarPosts = response.posts;
           this.arrayGrupos = response.grupos;
           this.arrayUsuarios = response.usuarios;
+          this.arrayNoti = response.noticias;
           this.totalDiscusiones = response.totalD;
           this.totalGrupos = response.totalG;
           this.totalUsuarios = response.totalU;
+          this.totalNo = response.totalNo;
           this.pp = response.pp;
           this.ini = response.ini;
           this.end = response.end;
@@ -644,6 +780,6 @@ export default {
 
 <style>
 .query-match {
-  color: red !important;
+  color: #3e64db !important;
 }
 </style>

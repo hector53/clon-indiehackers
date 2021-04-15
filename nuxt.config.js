@@ -50,8 +50,11 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'bootstrap-vue/nuxt'
-    
   ],
+
+  bootstrapVue: {
+    icons: false
+  },
 
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',

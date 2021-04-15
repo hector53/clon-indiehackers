@@ -25,7 +25,8 @@
         </div>
         </label>
               
-    <input style="display: none" ref="fileInput" id="file" type="file" @change="previewFiles" enctype="multipart/form-data">
+    <input style="display: none" ref="fileInput" accept="image/x-png,image/gif,image/jpeg"
+     id="file" type="file" @change="previewFiles" enctype="multipart/form-data">
      
 
         <div class="user-header__text-content">
@@ -316,14 +317,22 @@ export default {
                 }
               }
             )
-   this.$store.commit("setCookieImgPerfil", response );    
+
+            console.log(response)
+            if(response.status == 0){
+                alert(response.extension)
+            }else{
+                   this.$store.commit("setCookieImgPerfil", response.imagen );    
    const cookieRes = this.$cookies.get('user_data_')   
-    this.$cookies.set('user_data_', {img: response, username: cookieRes.username,
+    this.$cookies.set('user_data_', {img: response.imagen, username: cookieRes.username,
                     date: cookieRes.fecha, edad: cookieRes.edad, nombres: cookieRes.nombres, ciudad: cookieRes.ciudad, twitter: cookieRes.twitter, 
                     email: cookieRes.email, bio: cookieRes.bio, fechaNac: cookieRes.fechaNac}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
+            }
+
+
    
     },
   async  guardarPerfil(){

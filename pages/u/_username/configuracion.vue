@@ -1,206 +1,121 @@
 <template>
   <div class="user-settings">
     <div class="user-settings__settings-group">
-      <h2 class="user-settings__title">Account</h2>
+      <h2 class="user-settings__title">Configurar Cuenta</h2>
 
       <div class="settings-group__content">
-        <div class="settings-group__setting">
-          <label class="settings-group__label">Username</label>
-          <p class="settings-group__description">@nachobuey</p>
-          <button class="settings-group__button">Change</button>
+        
+
+
+        <div class="settings-group__setting" v-if="cambiarUsuario == false">
+          <label class="settings-group__label">Nombre de Usuario:</label>
+          <p class="settings-group__description">@{{$store.state.username}}</p>
+          <button class="settings-group__button" @click="cambiarForm(1)">Cambiar</button>
+        </div>
+        <form class="settings-group__form" v-if="cambiarUsuario">
+            <div class="settings-group__fields">
+                <fieldset class="settings-group__fieldset">
+                  <label>Nombre de Usuario Actual:</label>
+                  <input disabled="" v-model="username" type="text">
+                </fieldset>
+                <fieldset class="settings-group__fieldset">
+                  <label>Nombre de usuario nuevo</label>
+                  <input placeholder="Nombre de usuario nuevo" maxlength="20" v-model="usernameNuevo"
+                    type="text">
+                </fieldset>
+              
+                  <p class="settings-group__notice">
+                  Puedes cambiar el nombre de usuario cada 30 días, 
+                    se actualizara la página al guardar los cambios
+                  </p>
+                <div class="settings-group__buttons">
+                  <button :disabled="disabledB" class="settings-group__submit-button" 
+                  type="button" @click="cambiarNomnbreUsuario">
+                    Guardar
+                  </button>
+                    <button class="settings-group__cancel-button" type="button" @click="cancelarForm">
+                      Cancelar
+                    </button>
+                </div>
+            </div>
+          </form>
+
+
+
+
+
+
+
+        <div class="settings-group__setting" v-if="cambiarEmail == false">
+          <label class="settings-group__label">Email</label>
+          <p class="settings-group__description">{{$store.state.email}}</p>
+          <button class="settings-group__button"  @click="cambiarForm(2)">Cambiar</button>
         </div>
 
-        <div class="settings-group__setting">
-          <label class="settings-group__label">Email Address</label>
-          <p class="settings-group__description">nachobuey@hotmail.com</p>
-          <button class="settings-group__button">Change</button>
-        </div>
 
-        <div class="settings-group__setting">
-          <label class="settings-group__label">Password</label>
+        <form class="settings-group__form" v-if="cambiarEmail">
+            <div class="settings-group__fields">
+              <fieldset class="settings-group__fieldset">
+                <label>Email actual:</label>
+                <input disabled=""  type="text" v-model="email">
+              </fieldset>
+              <fieldset class="settings-group__fieldset">
+                <label>Email Nuevo</label>
+                <input placeholder="Email nuevo" v-model="emailNuevo" maxlength="256" type="text">
+              </fieldset>
+              
+                <p class="settings-group__notice">
+                 se actualizara la página al guardar los cambios
+                </p>
+              <div class="settings-group__buttons">
+                <button :disabled="disabledB"
+                 class="settings-group__submit-button" @click.prevent="cambiarEMail" type="submit">
+                  Guardar
+                </button>
+                  <button class="settings-group__cancel-button" type="button" @click="cancelarForm">
+                    Cancelar
+                  </button>
+              </div>
+            </div>
+          </form>
+
+        <div class="settings-group__setting" v-if="cambiarPass == false">
+          <label class="settings-group__label">Contraseña</label>
           <p class="settings-group__description">••••••••••</p>
-          <button class="settings-group__button">Change</button>
+          <button class="settings-group__button"  @click="cambiarForm(3)">Cambiar</button>
         </div>
 
-        <div class="settings-group__setting">
-          <label class="settings-group__label">Deletion</label>
-          <p class="settings-group__description">
-            Permanently delete your account, posts, and comments.
-          </p>
-          <button class="settings-group__button">Delete</button>
-        </div>
+        <form class="settings-group__form" v-if="cambiarPass">
+            <div class="settings-group__fields">
+              <fieldset class="settings-group__fieldset">
+                <label>Contraseña Actual</label>
+                <input placeholder="Inserte Contraseña Actual" maxlength="128" v-model="passOld" type="password">
+              </fieldset>
+              <fieldset class="settings-group__fieldset">
+                <label>Contraseña Nueva</label>
+                <input placeholder="Inserte nueva contraseña" maxlength="128" v-model="passNew" type="password">
+              </fieldset>
+              
+<!---->              <div class="settings-group__buttons">
+                <button :disabled="disabledB" class="settings-group__submit-button" @click.prevent="cambiarContra" type="submit">
+                  Guardar
+                </button>
+                  <button class="settings-group__cancel-button" type="button" @click="cancelarForm">
+                    Cancelar
+                  </button>
+              </div>
+            </div>
+          </form>
+
+        
       </div>
     </div>
 
-    <div class="user-settings__settings-group">
-      <h2 class="user-settings__title">Email Subscriptions</h2>
+  
 
-      <div class="settings-group__content">
-        <div
-          class="settings-group__setting settings-group__setting--subscription"
-        >
-          <img
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/miscellaneous-images/newsletter-icons__newsletter.png"
-            id="ember559"
-            class="img-lazy img-lazy--loaded ember-view settings-group__image"
-          />
-          <label class="settings-group__label">
-            <a href="/newsletter" id="ember560" class="ember-view"
-              >The Indie Hackers Newsletter</a
-            >
-          </label>
-          <p class="settings-group__description">
-            A regular dose of everything you need to stay informed as an indie
-            hacker: news, stories, deals, events, and more.
-          </p>
-          <button class="settings-group__button settings-group__button--active">
-            Unsubscribe
-          </button>
-        </div>
+    
 
-        <div
-          class="settings-group__setting settings-group__setting--subscription"
-        >
-          <img
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/miscellaneous-images/newsletter-icons__digest.png"
-            id="ember561"
-            class="img-lazy img-lazy--loaded ember-view settings-group__image"
-          />
-          <label class="settings-group__label">Community Digest</label>
-          <p class="settings-group__description">
-            The top posts from the people you follow and the groups you're
-            subscribed to.
-          </p>
-          <button class="settings-group__button settings-group__button--active">
-            Unsubscribe
-          </button>
-        </div>
-
-        <div
-          class="settings-group__setting settings-group__setting--subscription"
-        >
-          <img
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/miscellaneous-images/newsletter-icons__growthBites.png"
-            id="ember562"
-            class="img-lazy img-lazy--loaded ember-view settings-group__image"
-          />
-          <label class="settings-group__label">
-            <a href="/growth-bites" id="ember563" class="ember-view"
-              >Growth Bites</a
-            >
-          </label>
-          <p class="settings-group__description">
-            Tasty, bite-sized tactics to keep you at the top of your growth game
-            in just 30 seconds a day.
-          </p>
-          <button
-            class="settings-group__button settings-group__button--inactive"
-          >
-            Subscribe
-          </button>
-        </div>
-
-        <div
-          class="settings-group__setting settings-group__setting--subscription"
-        >
-          <img
-            src="https://storage.googleapis.com/indie-hackers.appspot.com/miscellaneous-images/newsletter-icons__topMilestones.png"
-            id="ember564"
-            class="img-lazy img-lazy--loaded ember-view settings-group__image"
-          />
-          <label class="settings-group__label">
-            <a href="/milestones" id="ember565" class="ember-view"
-              >Top Milestones</a
-            >
-          </label>
-          <p class="settings-group__description">
-            Stay motivated with a steady stream of the top wins shared by your
-            fellow indie hackers.
-          </p>
-          <button class="settings-group__button settings-group__button--active">
-            Unsubscribe
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="user-settings__field-group">
-      <h2 class="user-settings__title">
-        Website Notifications
-        <!---->
-      </h2>
-
-      <p class="user-settings__group-description">
-        What would you like to see when you visit the Indie Hackers website?
-      </p>
-
-      <fieldset class="settings-group__fieldset">
-        <label class="user-settings__labeled-checkbox checked">
-          <input
-            id="ember566"
-            class="ember-checkbox ember-view"
-            type="checkbox"
-          />
-          Notifications for new followers
-        </label>
-      </fieldset>
-
-      <fieldset class="settings-group__fieldset">
-        <label class="user-settings__labeled-checkbox">
-          <input
-            id="ember567"
-            class="ember-checkbox ember-view"
-            type="checkbox"
-          />
-          Notifications for likes on your posts
-        </label>
-      </fieldset>
-    </div>
-
-    <div class="user-settings__field-group">
-      <h2 class="user-settings__title">
-        Email Notifications
-        <!---->
-      </h2>
-
-      <p class="user-settings__group-description">
-        What would you like to be notified of via email?
-      </p>
-
-      <fieldset class="settings-group__fieldset">
-        <label class="user-settings__labeled-checkbox checked">
-          <input
-            id="ember568"
-            class="ember-checkbox ember-view"
-            type="checkbox"
-          />
-          Emails for new followers
-        </label>
-      </fieldset>
-
-      <fieldset class="settings-group__fieldset">
-        <label class="user-settings__labeled-checkbox checked">
-          <input
-            id="ember569"
-            class="ember-checkbox ember-view"
-            type="checkbox"
-          />
-          Emails for replies to your posts
-        </label>
-      </fieldset>
-
-      <fieldset class="settings-group__fieldset">
-        <label class="user-settings__labeled-checkbox checked">
-          <input
-            id="ember570"
-            class="ember-checkbox ember-view"
-            type="checkbox"
-          />
-          Emails when someone tags you
-        </label>
-      </fieldset>
-    </div>
-
+  
     
   </div>
 </template>
@@ -208,14 +123,162 @@
 <script>
 export default {
   name: "configuracion",
-  layout: "perfil",
+  layout: "perfilCanalizados",
   components: {},
   data() {
-    return {};
+    return {
+      cambiarUsuario: false, 
+      cambiarEmail: false, 
+      cambiarPass: false, 
+      email: this.$store.state.email, 
+      username: this.$store.state.username, 
+      disabledB: false, 
+      usernameNuevo: '', 
+      emailNuevo: '', 
+      passOld: '', 
+      passNew: '', 
+        reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+    
+    };
   },
-  methods: {},
+  methods: {
+    async cambiarContra(){
+
+   
+        if(this.passOld == '' || this.passNew == ''){
+         alert("hay campos vacios")
+          return false
+        }
+
+     
+
+
+      this.disabledB = true
+ let formData = new FormData();
+      formData.append("token", this.$store.state.tokenUser);
+       formData.append("tipo", 3);
+        formData.append("passold", this.passOld);
+        formData.append("passnew", this.passNew);
+      const response = await this.$axios.$post("/perfil/cambiardatosuser/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response)
+      if(response.status > 0){
+        this.disabledB = false
+        if(response.status == 1 && response.actualizar == null){
+              alert("contraseña actualizada con exito")
+        }
+         if(response.status == 3){
+            alert("contraseñas no coinciden")
+        }
+        if(response.status == 2){
+            alert("usuario no existe")
+        }
+      }
+    },
+     async cambiarEMail(){
+
+         var validateEmail = this.reg.test(this.emailNuevo)
+        if(validateEmail == false){
+         alert("error email incorrecto")
+          return false
+        }
+
+     
+
+
+      this.disabledB = true
+ let formData = new FormData();
+      formData.append("token", this.$store.state.tokenUser);
+       formData.append("tipo", 2);
+        formData.append("email", this.emailNuevo);
+      const response = await this.$axios.$post("/perfil/cambiardatosuser/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response)
+      if(response.status > 0){
+        this.disabledB = false
+        if(response.status == 1 && response.actualizar == 1){
+            const cookie = this.$cookies.get('user_data_')
+this.$cookies.remove("user_data_");
+  this.$cookies.set('user_data_', {img: cookie.img, username: cookie.username,
+                    date: cookie.date, edad: cookie.edad, nombres: cookie.nombres, ciudad: cookie.ciudad,
+                     twitter: cookie.twitter, 
+                    email: this.emailNuevo, bio: cookie.bio, p: cookie.p, fechaNac: cookie.fechaNac}, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                    })
+                    location.href = '/u/'+this.$store.state.username+'/configuracion'
+        }
+         if(response.status == 2){
+            alert("email ya existe")
+        }
+      }
+    },
+   async cambiarNomnbreUsuario(){
+      this.disabledB = true
+ let formData = new FormData();
+      formData.append("token", this.$store.state.tokenUser);
+       formData.append("tipo", 1);
+        formData.append("username", this.usernameNuevo);
+      const response = await this.$axios.$post("/perfil/cambiardatosuser/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      console.log(response)
+      if(response.status > 0){
+        this.disabledB = false
+        if(response.status == 1 && response.actualizar == 1){
+            const cookie = this.$cookies.get('user_data_')
+this.$cookies.remove("user_data_");
+  this.$cookies.set('user_data_', {img: cookie.img, username: this.usernameNuevo,
+                    date: cookie.date, edad: cookie.edad, nombres: cookie.nombres, ciudad: cookie.ciudad,
+                     twitter: cookie.twitter, 
+                    email: cookie.email, bio: cookie.bio, p: cookie.p, fechaNac: cookie.fechaNac}, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                    })
+                    location.href = '/u/'+this.usernameNuevo+'/configuracion'
+        }
+         if(response.status == 2){
+            alert("nombre de usuario ya existe")
+        }
+      }
+    },
+    cancelarForm(){
+       this.cambiarUsuario = false
+        this.cambiarEmail = false
+        this.cambiarPass = false
+    },
+    cambiarForm(val){
+      if(val == 1){
+        this.cambiarUsuario = true
+        this.cambiarEmail = false
+        this.cambiarPass = false
+      }
+       if(val == 2){
+        this.cambiarUsuario = false
+        this.cambiarEmail = true
+        this.cambiarPass = false
+      }
+       if(val == 3){
+        this.cambiarUsuario = false
+        this.cambiarEmail = false
+        this.cambiarPass = true
+      }
+    }
+  },
   async fetch() {},
-  mounted() {},
+  mounted() {
+    
+
+ 
+  },
 };
 </script>
 
