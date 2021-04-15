@@ -2910,6 +2910,10 @@ label {
 .div-block-433 {
     min-height: 550px;
 }
+.heading-3 {
+  margin-top: 0;
+  font-size: 18px;
+}
 @media screen and (max-width:991px) {
 
   .logo-text{
