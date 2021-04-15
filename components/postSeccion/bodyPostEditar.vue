@@ -74,6 +74,7 @@
         id="filePost"
         type="file"
         @change="previewFiles"
+          accept="image/x-png,image/gif,image/jpeg"
         enctype="multipart/form-data"
       />
 
@@ -836,9 +837,14 @@ export default {
     },
     async previewFiles(e) {
       const file = e.target.files[0];
-      this.filePost = file;
+      if(e.target.files[0].type==='image/jpeg' 
+      || e.target.files[0].type==='image/png' || e.target.files[0].type==='image/gif'
+      ){
+          this.filePost = file;
     //  console.log(file);
       this.imagenPost = URL.createObjectURL(file);
+      }
+    
     },
     previewPost(val) {
      // console.log(val);

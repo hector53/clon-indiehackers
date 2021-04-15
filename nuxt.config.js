@@ -53,7 +53,8 @@ export default {
   ],
 
   bootstrapVue: {
-    icons: false
+    icons: false, 
+  
   },
 
   axios: {
