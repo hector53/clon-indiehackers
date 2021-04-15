@@ -6,14 +6,12 @@
         </div>
         <div class="div-block-456">
           <div class="section-2">
-            <div class="columns-5 w-row">
-              <seccion-discusion></seccion-discusion>
-             <columna-derecha-discusion :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
+            <div class="columns-5 w-row" >
+              <seccion-discusion ></seccion-discusion>
+             <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
             </div>
           </div>
-          <div class="section-3">
-            <usuarios-destacados></usuarios-destacados>
-          </div>
+        
           <div class="section-4">
             <div class="columns-3 w-row">
               <historias-destacadas></historias-destacadas>
@@ -43,10 +41,14 @@ export default {
         return {
             arrayPopulares :  [], 
               gruposRecomendados: [], 
-        labelRecomendados: 'Tus Grupos'
+        labelRecomendados: 'Tus Grupos', 
+        msjBienvenida: false
         }
     },
     methods: {
+      cambiarColumnas(){
+        this.columnaDiscusionG = true
+      },
         async   getGrupos(){
 
       await this.$axios
@@ -77,8 +79,14 @@ export default {
         //  console.log(response)
           this.arrayPopulares =  response
           });
+
+           var cookieRegistro = this.$cookies.get("registro_nuevo");
+           if(cookieRegistro){
+              this.msjBienvenida = true
+           }
   },
     mounted() {
+       
       this.getGrupos()
     },
 }

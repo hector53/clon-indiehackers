@@ -50,6 +50,8 @@
                 params: { slug: item.slugGrupo },
               }" >
           <div class="text-block-7">{{item.tituloGrupo}}</div></nuxt-link>
+              <div class="text-block-6">•</div>
+          <div class="text-block-7">{{item.fecha}}</div>
         </div>
       </div>
     </div>

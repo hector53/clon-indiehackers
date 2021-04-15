@@ -192,6 +192,15 @@ export default {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
+
+                          this.$cookies.set(
+                          "registro_nuevo",
+                          'si',
+                          {
+                          path: "/",
+                          maxAge: 60 * 60 * 24 * 7,
+                          }
+                          );
              location.href = "/";
           }else{
               this.showErrorRegistroEmail = true
@@ -240,7 +249,7 @@ export default {
     if (cookieSuscribe) {
         this.email = cookieSuscribe
 
-   //   this.$cookies.remove("suscribe_newsletter_cookie");
+     this.$cookies.remove("suscribe_newsletter_cookie");
 
     }
   },

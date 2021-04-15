@@ -2883,6 +2883,33 @@ label {
   text-transform: capitalize!important;
 }
 
+.svgCloseBienvenida{
+  position: absolute;
+    right: 20px;
+    top: 10px;
+    fill: white!important;
+}
+.div-block-459{
+  justify-content: space-between;
+}
+
+.button-3 {
+  border-radius: 10px;
+  background-color: #3e64db;
+  color: white!important;
+}
+
+.div-block-458{
+  height: 530px;
+}
+
+.div-block-444 {
+  
+    height: 100%;
+}
+.div-block-433 {
+    min-height: 550px;
+}
 @media screen and (max-width:991px) {
 
   .logo-text{

@@ -180,17 +180,17 @@
         >
           <input
             name="rand-d8d6ed5133"
-            placeholder="Search groups…"
+            placeholder="Buscar Grupos"
             v-model="searchInput"
             class="ember-text-field ember-view group-selector__input"
             type="text"
           />
 
-          <div class="group-selector__groups">
-            <div
+          <div class="group-selector__groups"  v-if="gruposMios">
+            <div 
               class="group-selector__results-section group-selector__results-section--memberships"
             >
-              <div class="group-selector__results-heading">Mis Grupos</div>
+              <div class="group-selector__results-heading" >Mis Grupos</div>
               <ul class="group-selector__group-list">
                 <li
                   class="group-selector__group"
@@ -702,6 +702,7 @@ export default {
       opcionEncuesta: ['', ''],
       cantidadOpciones: 2,
       preguntaEncuesta: "",
+      gruposMios: false
     };
   },
   watch: {
@@ -785,6 +786,9 @@ export default {
         .$get("/grupos/byuser/?token=" + this.$store.state.tokenUser)
         .then((response) => {
           this.misGrupos = response.grupos;
+          if(response.grupos.length > 0){
+              this.misGrupos = true
+          } 
         });
     },
     addImagePost() {

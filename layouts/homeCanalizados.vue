@@ -21,17 +21,3 @@ export default {
   },
 };
 </script>
-<style >
-.div-block-458{
-  height: 530px;
-}
-.div-block-433 {
-  
-    height: 100%;
-}
-
-.div-block-444 {
-  
-    height: 100%;
-}
-</style>

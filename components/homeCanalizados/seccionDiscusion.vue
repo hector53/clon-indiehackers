@@ -19,14 +19,6 @@
                         Popular:
                         </div></nuxt-link>
 
-
-
-
-
-
-
-
-
                       
                       <ul role="list" class="list-4">
                         <li>
@@ -81,6 +73,7 @@
 
 export default {
     name: "seccionDiscusion", 
+    props: ['columnaDiscusionG'],
     data() {
         return {
 
