@@ -3116,11 +3116,21 @@ label {
   margin-bottom: 30px;
 
 }
-.btnLogin{
-  margin-left: 20px;
-}
+.btnLogin{/* float: right; */margin-left: 20px;}
 .btnLogin li{
   margin: 0;
+}
+.div-block-413{
+  width: 100%;
+}
+.div-block-414{
+  width: 100%;
+}
+.div-block-415{
+  width: 100%;
+}
+.list-8{
+  float: right;
 }
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
