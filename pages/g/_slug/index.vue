@@ -85,7 +85,7 @@ export default {
           content: ele.content,
         });
       });
-metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
+//metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
 var tituloSeo = metaArray[2].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
   },
