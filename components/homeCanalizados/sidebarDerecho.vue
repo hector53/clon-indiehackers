@@ -13,11 +13,21 @@
       </div>
       <div class="div-block-445" v-for="(item, index) in arrayPopulares" :key="index">
         <div class="div-block-446">
-          <div class="text-block-19">
-            {{item.titulo}}
+         <div class="text-block-19">
+             <nuxt-link  
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug }
+              }"  class="link-inline-black"> {{item.titulo}} </nuxt-link>
+            
           </div>
 
           <div class="text-block-imagenP">
+             <nuxt-link  
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug }
+              }" >
               <img
             :src="item.avatar"
             loading="lazy"
@@ -26,10 +36,21 @@
             alt=""
             class="image-14"
           />
+             </nuxt-link> 
           </div>
         
         </div>
-        <div><div class="text-block-18">{{item.tituloGrupo}} · {{item.fecha}}</div></div>
+        <div><div class="text-block-18">
+           <nuxt-link  
+              :to="{
+                name: 'g-slug',
+                params: { slug: item.slugGrupo }
+              }"  class="link-inline">{{item.tituloGrupo}}</nuxt-link>
+           ·  <nuxt-link  
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug }
+              }"  class="link-inline-black"> {{item.fecha}} </nuxt-link></div></div>
       </div>
     
       

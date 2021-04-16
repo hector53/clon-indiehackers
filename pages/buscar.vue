@@ -1,5 +1,9 @@
 <template>
-    <div class="search-page">
+
+<div>
+ <loader v-show="loader"></loader>
+
+    <div class="search-page" v-show="loader==false">
     
       <ul class="search-page__filters">
         <li
@@ -219,7 +223,7 @@
 
 <div class="search-page__results-header" v-show="tab == 0 || tab == 1">
           <h2 class="search-page__results-label">
-            {{ totalNo }} Discusiones
+            {{ totalDiscusiones }} Discusiones
           </h2>
 
           <div class="search-page__results-pagination">
@@ -489,12 +493,14 @@
         </div>
       </div>
     </div>
-  
+  </div>
 </template>
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import loader from '~/components/loader/loader.vue';
 export default {
+  components: { loader },
   layout: "perfilEditCanalizados",
   name: "buscar",
    directives: {
@@ -502,6 +508,7 @@ export default {
   },
   data() {
     return {
+      loader:true,
       q: "",
       arrayBuscarPosts: [],
       arrayGrupos: [],
@@ -766,14 +773,17 @@ export default {
           this.pp = response.pp;
           this.ini = response.ini;
           this.end = response.end;
+          this.loader = false
         });
     },
   },
   mounted() {
     if (this.$route.query.q == undefined) {
+      this.loader = false
     } else {
       this.q = this.$route.query.q;
     }
+
   },
 };
 </script>

@@ -1,4 +1,7 @@
 <template>
+
+
+
  <div >
    <div class="div-block-425" >
                 <div class="div-block-432">
@@ -203,12 +206,12 @@ export default {
       });
     },
     CantidadComentarios(val){
+     // console.log("cantidad comentarios", val)
         this.cantidadComentarios = val
           this.$emit("CantidadComentarios", val);
     },
       },
   mounted() {
-   //   console.log(this.previewUrl)
     if(this.status == 0){
      this.$router.push('/')
     }else{

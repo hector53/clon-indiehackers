@@ -42,19 +42,3 @@ export default {
   },
 };
 </script>
-<style >
-
-.list-10 {
-    
-    display: inline-block!important;
-  
-}
-.column-10 {
-    
-    display: grid!important;
-}
-.image-16 {
-   
-    margin: auto;
-}
-</style>

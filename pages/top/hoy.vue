@@ -1,5 +1,5 @@
 <template>
-  <div>
+ <div>
     <div
       class="div-block-419"
       v-for="(item, index) in arrayPostHoy"
@@ -42,7 +42,13 @@
               }" >
           <div class="text-block-7">{{item.username}}</div> </nuxt-link>
           <div class="text-block-6">•</div>
-          <div class="text-block-7">{{item.comentarios}} comentarios</div>
+
+           <nuxt-link  class="text-block-7"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.comentarios}} comentarios</nuxt-link>
           <div class="text-block-6">•</div>
            <nuxt-link
               :to="{
@@ -50,13 +56,20 @@
                 params: { slug: item.slugGrupo },
               }" >
           <div class="text-block-7">{{item.tituloGrupo}}</div></nuxt-link>
-              <div class="text-block-6">•</div>
-          <div class="text-block-7">{{item.fecha}}</div>
+
+            <div class="text-block-6">•</div>
+          <nuxt-link  class="text-block-7"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.fecha}}</nuxt-link>
         </div>
       </div>
     </div>
-     <div class="div-block-434" v-if="arrayPostHoy.length > 0">
-                    <div >Hay {{arrayPostHoy.length}} publicaciones desde que iniciamos</div>
+
+                  <div class="div-block-434">
+                    <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>
                     <div class="text-block-6">•</div>
                     <a href="#" class="link-18">Siguiente pagina</a>
                   </div>

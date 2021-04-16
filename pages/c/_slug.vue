@@ -14,8 +14,11 @@
         <div class="section-4">
           <div class="columns-3 w-row">
             <div class="column-4 w-col w-col-8">
-                    <post-slug-canalizados :previewUrl="previewUrl"  :arrayPost="arrayPost" v-if="arrayPost"
-                    :arrayTrend="arrayTrend"
+
+               <loader v-show="loader"></loader>
+
+                    <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl"  :arrayPost="arrayPost" v-if="arrayPost"
+                    :arrayTrend="arrayTrend" @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
 
             </div>
@@ -76,19 +79,26 @@ export default {
         loader: true, 
         previewUrl: '', 
         producto: false, 
-        idE: ''
+        idE: '', 
+        loader: true
 
     };
   },
   watch: {},
   async fetch() {
+  },
+  methods: {
+
+      async getpost(){
+          
+           
       await this.$axios
       .$get("/getpost/usuario/?slug=" + this.$route.params.slug+"&token="+this.$store.state.tokenUser)
       .then((response) => {
-            console.log(response)
+         //   console.log(response)
         if (response.status == 0) {
             this.status = 0
-            console.log("estoy aqui redireccionar   ")
+        //    console.log("estoy aqui redireccionar   ")
             
         } else {
             this.status = 1
@@ -99,20 +109,15 @@ export default {
            this.votos = response.post[0].votos;
              this.favPost = response.post[0].fav
              this.cantidadComentarios = response.post[0].cantCommentarios
-             console.log("votos", this.votos)
+        //     console.log("votos", this.votos)
              this.loader = false
-             console.log(response.previewUrl)
+          //   console.log(response.previewUrl)
              this.previewUrl = response.previewUrl
                this.idE = response.post[0].idE
-             console.log("idE", this.idE)
+         //    console.log("idE", this.idE)
+         this.loader = false
         }
-      });
-  },
-  methods: {
-
-      async getpost(){
-          
-                
+      });     
     
 
       },
@@ -135,6 +140,7 @@ export default {
   beforeMount() {
   },
   mounted() {
+    this.getpost()
   },
 
 };

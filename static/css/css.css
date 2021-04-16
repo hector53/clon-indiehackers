@@ -1996,15 +1996,15 @@ input[type="button"] {
 }
 .botonCanalizados{
   background: #3e64db;
-    color: white!important;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    height: calc(100% - 16px);
-    padding: 7px 16px;
-    text-transform: uppercase;
-    outline: none;
+  color: white!important;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  height: calc(100% - 16px);
+  padding: 7px 16px;
+  text-transform: uppercase;
+  outline: none;
 }
 .botonCanalizados[disabled] {
   filter: grayscale(.7);
@@ -2359,9 +2359,7 @@ input[type="button"] {
   opacity: .5;
 }
 
-.div-block-414 {
-  margin-right: unset;
-}
+
 .mysvg{
   fill: rgb(131, 129, 129);
   width: 30px;
@@ -2914,7 +2912,230 @@ label {
   margin-top: 0;
   font-size: 18px;
 }
+.list-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+.list-item-11 {
+  margin-right: 10px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background-color: rgba(62,100,219,.2);
+  display: block;
+  float: left;
+}
+.list-item-11 a {
+  color: #3e64db!important;
+}
+
+.user__content{
+  display: grid;
+    flex-direction: column;
+    margin-bottom: 60px;
+    position: relative;
+}
+.user-header{
+  width: 100%;
+    display: block;
+}
+.user-header__content{
+  display: flex;
+}
+.user-header__avatar-wrapper{
+        text-align: center;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 160px;
+}
+.user-header__text-content{
+      width: 100%;
+    display: flow-root;
+}
+.user-header__name{
+  display: inline-flex;
+}
+.edit-form {
+    max-width: 750px;
+}
+ .edit-form__fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+.edit-form__label {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+ .edit-form input:not(.ap-nostyle-input),  .edit-form textarea {
+    background-color: #ffffff;
+    color: #1a1b1f;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 14px;
+    text-overflow: ellipsis;
+    transition: border-width 120ms;
+    width: 100%;
+    border: 0;
+    box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+}
+.edit-form__fields-wrapper {
+    align-items: flex-start;
+    display: flex;
+    margin-top: 8px;
+}
+
+.edit-form__field:not(:last-child) {
+    margin-right: 6px;
+}
+ .edit-form .ember-select .es-options {
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 2px;
+    max-height: 236px;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.edit-form .ember-select .es-option {
+    font-size: 16px;
+    padding: 8px 14px;
+}
+ .edit-form .edit-form__field--birthday-month {
+    width: 8em!important;
+}
+.edit-form .ember-select {
+    flex: 0 0 auto;
+    padding: 0!important;
+    position: relative;
+}
+.edit-form .edit-form__field-description {
+    font-size: 17px;
+    margin-top: 8px;
+}
+
+ .edit-form .algolia-places-nostyle .ap-nostyle-hint, .edit-form .algolia-places-nostyle .ap-nostyle-input {
+    background-color: #ffffff;
+    color: #1a1b1f;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 14px;
+    text-overflow: ellipsis;
+    transition: border-width 120ms;
+    width: 100%;
+    border: 0;
+    box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+
+    }
+ .edit-form .edit-form__fieldset.edit-form__fieldset--buttons {
+    flex-direction: row;
+    margin-bottom: 0;
+}
+ .edit-form .edit-form__button {
+   background: #3e64db;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 2px;
+    flex: 0 0 auto;
+    font-size: 15px;
+    font-weight: 600;
+    height: 48px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+.edit-form .edit-form__button-content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.edit-form .edit-form__button svg {
+    fill: #ffffff;
+}
+
+ .edit-form .edit-form__button-icon {
+    height: 14px;
+    width: 14px;
+    margin-right: 10px;
+}
+ .edit-form .edit-form__button[disabled] {
+    cursor: default;
+    filter: grayscale(.7);
+    opacity: .7;
+}
+ .user-header .user-header__avatar-wrapper--editable:hover::before {
+    border: 5px solid #3e64db;
+    transform: rotate(45deg);
+}
+ .user-header .user-header__avatar-wrapper--editable::before {
+   height: 150px;
+    width: 150px;
+    border: 5px dashed #3e64db;
+    border-radius: 9999px;
+    content: "";
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    transition: border-color 220ms, transform .4s;
+    z-index: 1;
+}
+.user-header__edit-avatar-msg{
+  display: none;
+}
+
+.column-10 {
+    
+  display: grid!important;
+}
+.image-16 {
+ 
+  margin: auto;
+}
+.buscadorHeaderMovil{
+  display: none;
+}
+.columnaDerechaIndex{
+  display: inline-block!important;
+}
+.div-block-438 {
+  
+  display: block;
+  margin-bottom: 30px;
+
+}
+.btnLogin{
+  margin-left: 20px;
+}
+.btnLogin li{
+  margin: 0;
+}
 @media screen and (max-width:991px) {
+  .columnaDerechaIndex {
+    display: contents;
+}
+.div-block-438 {
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+  .buscadorHeaderMovil{
+    display: block;
+  }
+  .buscadorHeader{
+    display: none;
+  }
 
   .logo-text{
     display: none;

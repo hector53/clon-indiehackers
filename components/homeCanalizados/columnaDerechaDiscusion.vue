@@ -1,6 +1,6 @@
 <template>
 
-  <div class="column-9 w-col w-col-4 w-col-tiny-tiny-stack"
+  <div class="column-9 w-col w-col-4 w-col-tiny-tiny-stack columnaDerechaIndex"
     >
     <div class="div-block-458" v-if="$store.state.cookieLogin && msjBienvenida">
       <div>

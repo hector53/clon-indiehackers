@@ -7,22 +7,24 @@
                         <h3>
                         <nuxt-link  :to="{name: 'c-slug', params: {slug: item.slug}}"
                             class="link-15"
-                            >{{item.titulo}}</nuxt-link
-                          >
+                            >{{item.titulo}}</nuxt-link >
                         </h3>
                         <div class="div-block-426">
                           <div class="div-block-431">
                            <nuxt-link  :to="{name: 'g-slug', params: {slug: item.slugGrupo}}" class="link-17"
-                              >{{item.tituloGrupo}}</nuxt-link
-                            >
+                              >{{item.tituloGrupo}}</nuxt-link >
                           </div>
+                          <nuxt-link to="/staffpicks"  >
                           <div class="div-block-427">
                             <div class="text-block-6">•</div>
-                            <div>Noticias</div>
-                          </div>
+                            Noticias
+                          </div></nuxt-link>
                         </div>
                       </div>
                       <div class="column-2 w-col w-col-4">
+
+                        <nuxt-link  :to="{name: 'c-slug', params: {slug: item.slug}}"
+                            >
                         <div class="div-block-443">
                           <img
                             :src="item.imagen"
@@ -31,7 +33,7 @@
                             alt=""
                             class="image-11"
                           />
-                        </div>
+                        </div></nuxt-link >
                       </div>
                     </div>
                   </div>
@@ -61,7 +63,8 @@
                       </div>
                     </div>
                     <div class="div-block-430">
-                      <a href="#" class="link-16">{{item.fecha}}</a>
+                     <nuxt-link  :to="{name: 'c-slug', params: {slug: item.slug}}"
+                            class="link-16">{{item.fecha}}</nuxt-link>
                     </div>
                   </div>
                 </div>

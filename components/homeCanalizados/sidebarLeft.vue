@@ -127,8 +127,8 @@ props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios', 'previewUrl', 'id
       yMas: false
     };
   },
-  mounted() {
- //   console.log("votos", this.votos)
+  updated() {
+    console.log("cantidad comentarios", this.cantidadComentarios)
   },
 };
 </script>

@@ -42,7 +42,13 @@
               }" >
           <div class="text-block-7">{{item.username}}</div> </nuxt-link>
           <div class="text-block-6">•</div>
-          <div class="text-block-7">{{item.comentarios}} comentarios</div>
+
+           <nuxt-link  class="text-block-7"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.comentarios}} comentarios</nuxt-link>
           <div class="text-block-6">•</div>
            <nuxt-link
               :to="{
@@ -52,7 +58,12 @@
           <div class="text-block-7">{{item.tituloGrupo}}</div></nuxt-link>
 
             <div class="text-block-6">•</div>
-          <div class="text-block-7">{{item.fecha}}</div>
+          <nuxt-link  class="text-block-7"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.fecha}}</nuxt-link>
         </div>
       </div>
     </div>
