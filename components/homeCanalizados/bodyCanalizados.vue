@@ -46,6 +46,20 @@ export default {
         }
     },
     methods: {
+      async getDatos(){
+
+     await this.$axios
+          .$get("/getpost/populares/")
+          .then((response) => {
+        //  console.log(response)
+          this.arrayPopulares =  response
+          });
+
+           var cookieRegistro = this.$cookies.get("registro_nuevo");
+           if(cookieRegistro){
+              this.msjBienvenida = true
+           }
+      },
       cambiarColumnas(){
         this.columnaDiscusionG = true
       },
@@ -73,20 +87,9 @@ export default {
       }
     },
      async fetch() {
-     await this.$axios
-          .$get("/getpost/populares/")
-          .then((response) => {
-        //  console.log(response)
-          this.arrayPopulares =  response
-          });
-
-           var cookieRegistro = this.$cookies.get("registro_nuevo");
-           if(cookieRegistro){
-              this.msjBienvenida = true
-           }
   },
     mounted() {
-       
+       this.getDatos()
       this.getGrupos()
     },
 }

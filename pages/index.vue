@@ -89,10 +89,14 @@ export default {
     };
   },
   async fetch() {
+   
+  },
+ async mounted() {
     await this.$axios.$get("/getpost/hoy/?filtro=semanal").then((response) => {
    //   console.log(response);
       this.arrayPostHoy = response.posts;
     });
+    
   },
 };
 </script>
