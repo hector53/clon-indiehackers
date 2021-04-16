@@ -59,7 +59,7 @@ export default {
   ],
 
   bootstrapVue: {
-    icons: false, 
+    icons: false,
   
   },
 
@@ -70,9 +70,12 @@ export default {
     credentials: true
   },
 
- babel: { compact: true },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      compact: true
+    }
   }
 }
