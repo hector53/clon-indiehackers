@@ -65,14 +65,36 @@
 
 <script>
 import likeCanalizados from '~/components/likes/likeCanalizados.vue';
+import axios from 'axios'
 export default {
   components: { likeCanalizados },
   name: "grupo-slug-popular-index",
   layout: "grupoCanalizados",
-  async asyncData({ params, redirect }) {
-  if(params.slug == 'noticias'){
-         return redirect('/')
-  }
+ async asyncData({ params, store }) {
+
+     const seoDetails = await axios.get(
+      `https://acceso.canalizados.com/api/wp/v2/grupos/?slug=${params.slug}`
+    );
+    
+    const metaArray = [];
+    
+      seoDetails.data[0].yoast_meta.map(ele => {
+        metaArray.push({
+         hid: ele.name ? ele.name : ele.property,
+          name: ele.name ? ele.name : ele.property,
+          content: ele.content,
+        });
+      });
+metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
+var tituloSeo = metaArray[2].content
+    return { SeoPost: metaArray, tituloSeo: tituloSeo};
+  },
+   head(){
+    return {
+      title: this.tituloSeo,
+            meta: this.SeoPost, 
+     
+    }
   },
   data() {
     return {

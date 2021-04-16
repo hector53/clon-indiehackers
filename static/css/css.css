@@ -14,6 +14,7 @@ a {
 }
 .container{
   max-width: 1240px!important;
+  padding: 0!important;
 }
 .list-10 {
   
@@ -3131,6 +3132,11 @@ label {
 }
 .list-8{
   float: right;
+}
+.googleBtn{
+  width: 100%;
+    background: none;
+    padding: 0;
 }
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {

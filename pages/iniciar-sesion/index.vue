@@ -1,5 +1,7 @@
 <template>
-  <div class="section-5">
+<div>
+   <loader v-show="loader"></loader>
+  <div class="section-5" v-show="loader==false">
     <div class="columns-7 w-row">
       <div class="column-11 w-col w-col-6">
         <div class="div-block-464">
@@ -28,16 +30,20 @@
               </div>
               <div>Continuar con LinkedIn</div>
             </li>
-            <li class="list-item-16 google">
+            
+              <GoogleLogin  class="googleBtn" :params="params" :onSuccess="onSuccessGoogle"
+               :onFailure="onFailureGoogle">
+                <li class="list-item-16 google" @click="abrirGoogle">
               <div class="html-embed-14 w-embed">
                 <img
                   src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTEyMCAyNTZjMC0yNS4zNjcgNi45ODktNDkuMTMgMTkuMTMxLTY5LjQ3N3YtODYuMzA4aC04Ni4zMDhjLTM0LjI1NSA0NC40ODgtNTIuODIzIDk4LjcwNy01Mi44MjMgMTU1Ljc4NXMxOC41NjggMTExLjI5NyA1Mi44MjMgMTU1Ljc4NWg4Ni4zMDh2LTg2LjMwOGMtMTIuMTQyLTIwLjM0Ny0xOS4xMzEtNDQuMTEtMTkuMTMxLTY5LjQ3N3oiIGZpbGw9IiNmYmJkMDAiLz48cGF0aCBkPSJtMjU2IDM5Mi02MCA2MCA2MCA2MGM1Ny4wNzkgMCAxMTEuMjk3LTE4LjU2OCAxNTUuNzg1LTUyLjgyM3YtODYuMjE2aC04Ni4yMTZjLTIwLjUyNSAxMi4xODYtNDQuMzg4IDE5LjAzOS02OS41NjkgMTkuMDM5eiIgZmlsbD0iIzBmOWQ1OCIvPjxwYXRoIGQ9Im0xMzkuMTMxIDMyNS40NzctODYuMzA4IDg2LjMwOGM2Ljc4MiA4LjgwOCAxNC4xNjcgMTcuMjQzIDIyLjE1OCAyNS4yMzUgNDguMzUyIDQ4LjM1MSAxMTIuNjM5IDc0Ljk4IDE4MS4wMTkgNzQuOTh2LTEyMGMtNDkuNjI0IDAtOTMuMTE3LTI2LjcyLTExNi44NjktNjYuNTIzeiIgZmlsbD0iIzMxYWE1MiIvPjxwYXRoIGQ9Im01MTIgMjU2YzAtMTUuNTc1LTEuNDEtMzEuMTc5LTQuMTkyLTQ2LjM3N2wtMi4yNTEtMTIuMjk5aC0yNDkuNTU3djEyMGgxMjEuNDUyYy0xMS43OTQgMjMuNDYxLTI5LjkyOCA0Mi42MDItNTEuODg0IDU1LjYzOGw4Ni4yMTYgODYuMjE2YzguODA4LTYuNzgyIDE3LjI0My0xNC4xNjcgMjUuMjM1LTIyLjE1OCA0OC4zNTItNDguMzUzIDc0Ljk4MS0xMTIuNjQgNzQuOTgxLTE4MS4wMnoiIGZpbGw9IiMzYzc5ZTYiLz48cGF0aCBkPSJtMzUyLjE2NyAxNTkuODMzIDEwLjYwNiAxMC42MDYgODQuODUzLTg0Ljg1Mi0xMC42MDYtMTAuNjA2Yy00OC4zNTItNDguMzUyLTExMi42MzktNzQuOTgxLTE4MS4wMi03NC45ODFsLTYwIDYwIDYwIDYwYzM2LjMyNiAwIDcwLjQ3OSAxNC4xNDYgOTYuMTY3IDM5LjgzM3oiIGZpbGw9IiNjZjJkNDgiLz48cGF0aCBkPSJtMjU2IDEyMHYtMTIwYy02OC4zOCAwLTEzMi42NjcgMjYuNjI5LTE4MS4wMiA3NC45OC03Ljk5MSA3Ljk5MS0xNS4zNzYgMTYuNDI2LTIyLjE1OCAyNS4yMzVsODYuMzA4IDg2LjMwOGMyMy43NTMtMzkuODAzIDY3LjI0Ni02Ni41MjMgMTE2Ljg3LTY2LjUyM3oiIGZpbGw9IiNlYjQxMzIiLz48L2c+PC9zdmc+"
                 />
               </div>
               <div>Continuar con Google</div>
-            <googleSignIn :successCallBack="successCallBack"
-      :clientId="'294139711639-mq20hcf52r33svsveki2p80a7v6h7hal.apps.googleusercontent.com'"
-    />  </li>
+           
+             </li>
+              </GoogleLogin>
+          
           </ul>
           <div class="w-form" v-if="formPass==false">
             <form
@@ -163,18 +169,26 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 
 <script>
-import googleSignIn from 'google-signin-vue-nuxt/src/googleSignIn.vue'
+   import GoogleLogin from 'vue-google-login';
+
+
+
 export default {
-  components: {googleSignIn},
+  components: {GoogleLogin },
     middleware: 'authenticated',
   name: "iniciar-sesion",
   layout: "iniciarSesion",
   data() {
     return {
+      loader: false,
+       params: {
+                    client_id: "294139711639-mq20hcf52r33svsveki2p80a7v6h7hal.apps.googleusercontent.com"
+                },
           errorLogin: false,
       errorText: "Error",
       email: "", 
@@ -193,16 +207,11 @@ export default {
     }
   }, 
   methods: {
-    successCallBack(data){
-console.log(data)
-    },
-      
   async  Login(){
        if (!this.validateUser()) {
         return false;
       }
   this.loginDisable = true
-      console.log("/login/usuario/?email="+this.email+"&pass="+this.pass)
       await this.$axios
         .$get("/login/usuario/?email="+this.email+"&pass="+this.pass)
         .then((response) => {
@@ -238,6 +247,56 @@ console.log(data)
         });
 
     },
+    async loginGoogle(email){
+      console.log("estoy aqui")
+        await this.$axios
+        .$get("/login/usuariogoogle/?email="+email)
+        .then((response) => {
+          console.log(response)
+            if(response.status == 0){
+                    //pass incorrecta
+                   this.errorLogin = true
+                  this.errorText = "Contraseña incorrecta "
+                  this.loginDisable = false
+            }
+
+             if(response.status == 1){
+                    //existe el email 
+                     this.errorLogin = true
+                  this.errorText = "El email no se encuentra registrado "
+                   this.loginDisable = false
+            }
+
+             if(response.status == 2){
+                    //existe el email 
+                    this.$cookies.set('access_token_', response.token, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                    })
+                   this.$cookies.set('user_data_', {img: response.avatar, username: response.username,
+                    date: response.fecha, edad: response.edad, nombres: response.nombres, ciudad: response.ciudad, twitter: response.twitter, 
+                    email: response.email, bio: response.bio, p: response.p, fechaNac: response.fechaNac}, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                    })
+                    
+                    location.href = "/";
+            }
+        });
+    },
+    abrirGoogle(){
+        this.loader = true
+    },
+onSuccessGoogle(data){
+  //console.log(data.Rs.At)
+
+this.loginGoogle(data.Rs.At)
+},
+
+onFailureGoogle(data){
+  this.loader = false
+//console.log(data)
+},
     validateUser() {
       if (this.email == "") {
            this.errorLogin = true

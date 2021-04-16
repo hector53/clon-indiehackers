@@ -1,7 +1,8 @@
 import cookieparser from "cookieparser";
 export const state = () => ({
  cookieLogin: false, 
- urlApi: 'https://indiehackersapi.hectoracosta.site/api',
+ urlApi: 'http://acceso.canalizados.com/api/',
+ siteUrlSeo: 'https://canalizados.com', 
  img_perfil: '/images/avatar.png',
  tokenUser: '',
  p: '',
