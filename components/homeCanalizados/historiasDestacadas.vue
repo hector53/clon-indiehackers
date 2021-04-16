@@ -12,9 +12,8 @@
                         </h3>
                         <div class="div-block-426">
                           <div class="div-block-431">
-                          
-                            <a href="#" class="link-17"
-                              >{{item.categorias[0].titulo}}</a
+                           <nuxt-link  :to="{name: 'g-slug', params: {slug: item.slugGrupo}}" class="link-17"
+                              >{{item.tituloGrupo}}</nuxt-link
                             >
                           </div>
                           <div class="div-block-427">

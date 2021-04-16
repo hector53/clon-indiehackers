@@ -35,7 +35,9 @@
                 />
               </div>
               <div>Continuar con Google</div>
-            </li>
+            <googleSignIn :successCallBack="successCallBack"
+      :clientId="'294139711639-mq20hcf52r33svsveki2p80a7v6h7hal.apps.googleusercontent.com'"
+    />  </li>
           </ul>
           <div class="w-form" v-if="formPass==false">
             <form
@@ -165,8 +167,9 @@
 
 
 <script>
+import googleSignIn from 'google-signin-vue-nuxt/src/googleSignIn.vue'
 export default {
-  components: {},
+  components: {googleSignIn},
     middleware: 'authenticated',
   name: "iniciar-sesion",
   layout: "iniciarSesion",
@@ -190,6 +193,9 @@ export default {
     }
   }, 
   methods: {
+    successCallBack(data){
+console.log(data)
+    },
       
   async  Login(){
        if (!this.validateUser()) {
