@@ -5,11 +5,10 @@
                     <div class="columns w-row">
                       <div class="column w-col w-col-8">
                         <h3>
-                          <a
-                            href="https://angel.co/re/story/39313"
-                            target="_blank"
+                              <nuxt-link  :to="{name: 'c-slug', params: {slug: item.slug}}"
+                         
                             class="link-15"
-                            >{{item.titulo}}</a
+                            >{{item.titulo}}</nuxt-link
                           >
                         </h3>
                         <div class="div-block-426">
