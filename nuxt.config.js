@@ -35,12 +35,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-   
+    
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "~/plugins/vue2-editor", ssr: false }, 
+    { src: "~/plugins/bootstrap-vue", ssr: false }, 
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,12 +57,15 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt', 
+    
   ],
 
   bootstrapVue: {
     icons: false,
-  
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false,// Or `bvCSS: false`,
+    components: ['BCard', 'BCardText', 'BRow', 'BCol', ],
   },
 
   axios: {
@@ -70,8 +75,7 @@ export default {
     credentials: true
   },
 
-
-
+  
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {

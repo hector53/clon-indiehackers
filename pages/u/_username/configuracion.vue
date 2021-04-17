@@ -79,13 +79,13 @@
             </div>
           </form>
 
-        <div class="settings-group__setting" v-if="cambiarPass == false">
+        <div class="settings-group__setting" v-if="cambiarPass == false && $store.state.social == 0">
           <label class="settings-group__label">Contraseña</label>
           <p class="settings-group__description">••••••••••</p>
           <button class="settings-group__button"  @click="cambiarForm(3)">Cambiar</button>
         </div>
 
-        <form class="settings-group__form" v-if="cambiarPass">
+        <form class="settings-group__form" v-if="cambiarPass && $store.state.social == 0">
             <div class="settings-group__fields">
               <fieldset class="settings-group__fieldset">
                 <label>Contraseña Actual</label>

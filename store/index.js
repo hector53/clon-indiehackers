@@ -4,6 +4,7 @@ export const state = () => ({
  urlApi: 'http://acceso.canalizados.com/api/',
  siteUrlSeo: 'https://canalizados.com', 
  img_perfil: '/images/avatar.png',
+ social: 0,
  tokenUser: '',
  p: '',
  username: '',
@@ -74,7 +75,11 @@ export const mutations = {
   },
   setCookieP(state, val){
     state.p = val;
-  }
+  }, 
+  setCookieSocial(state, val){
+    state.social = val;
+  }, 
+  
 
 }
 
@@ -101,7 +106,9 @@ export const actions = {
       commit("setCookieDateUser", DataUser.date );
       commit("setCookieP", DataUser.p );
       commit("setCookieToken", accessTokenCookie );
-      
+      if(DataUser.social){
+        commit("setCookieSocial", DataUser.social );
+      }
       if(DataUser.edad){
         commit("setCookieEdad", DataUser.edad );
       }

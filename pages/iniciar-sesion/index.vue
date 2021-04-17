@@ -282,6 +282,14 @@ export default {
                     
                     location.href = "/";
             }
+
+              if(response.status == 3){
+                    //existe el email 
+                     this.errorLogin = true
+                  this.errorText = "El email no tiene una cuenta de Google Login "
+                   this.loginDisable = false
+                   this.loader  = false
+            }
         });
     },
     abrirGoogle(){
