@@ -56,7 +56,8 @@ a {
 
 .imgPost{
   display: initial;
-  width: 300px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 .link_post_titulo_preview{
   color: #3e64db;

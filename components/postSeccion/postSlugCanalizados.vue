@@ -6,14 +6,10 @@
    <div class="div-block-425" >
                 <div class="div-block-432">
                   <h3>
-                    <a
-                      href="https://angel.co/re/story/39313"
-                      target="_blank"
-                      class="link-15"
-                      >
+                    
                      {{tituloPost}}
-                      </a
-                    >
+                      
+                    
                   </h3>
                   <div class="div-block-426">
                     <div class="div-block-431">
@@ -212,6 +208,7 @@ export default {
     },
       },
   mounted() {
+    console.log(this.arrayPost)
     if(this.status == 0){
      this.$router.push('/')
     }else{

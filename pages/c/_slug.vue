@@ -80,8 +80,8 @@ export default {
           content: ele.content,
         });
       });
-//metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
-var tituloSeo = metaArray[2].content
+metaArray[5].content = metaArray[5].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
+var tituloSeo = metaArray[3].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
   },
 
@@ -121,7 +121,7 @@ var tituloSeo = metaArray[2].content
       await this.$axios
       .$get("/getpost/usuario/?slug=" + this.$route.params.slug+"&token="+this.$store.state.tokenUser)
       .then((response) => {
-         //   console.log(response)
+           console.log(response)
         if (response.status == 0) {
             this.status = 0
         //    console.log("estoy aqui redireccionar   ")
