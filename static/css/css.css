@@ -3139,6 +3139,20 @@ label {
     background: none;
     padding: 0;
 }
+.contenidoFull{
+  width: 100%;
+}
+.contenidoFull a{
+  display: contents;
+  color: #007bff!important;
+  font-weight: bold;
+}
+.contenidoFull img{
+  width: 100%;
+}
+.div-block-432{
+  text-align: justify;
+}
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;

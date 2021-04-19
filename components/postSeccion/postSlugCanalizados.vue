@@ -62,7 +62,7 @@
                           />
                           </div>
                     
-                   <div v-html="contenido"  v-if="esLink == 0"></div>
+                   <div class="contenidoFull" v-html="contenido"  v-if="esLink == 0"></div>
 
 
                     <div
