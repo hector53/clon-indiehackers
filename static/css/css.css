@@ -3153,6 +3153,9 @@ label {
 .div-block-432{
   text-align: justify;
 }
+.div-block-443 img{
+  float: right;
+}
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;
