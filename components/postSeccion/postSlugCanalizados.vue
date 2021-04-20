@@ -381,16 +381,7 @@ ol, ul {
     filter: grayscale(.7);
     opacity: .7;
 }
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-left: 20px;
-}
+
 .poll-viewer__see-results {
    display: inline-block;
     padding: 9px 15px;

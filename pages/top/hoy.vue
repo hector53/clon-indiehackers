@@ -69,7 +69,7 @@
     </div>
 
                   <div class="div-block-434">
-                    <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>
+                    <div>Hay {{arrayPostHoy.length}} publicaciones el día de hoy</div>
                     <div class="text-block-6">•</div>
                     <a href="#" class="link-18">Siguiente pagina</a>
                   </div>

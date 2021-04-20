@@ -14,11 +14,7 @@
                            <nuxt-link  :to="{name: 'g-slug', params: {slug: item.slugGrupo}}" class="link-17"
                               >{{item.tituloGrupo}}</nuxt-link >
                           </div>
-                          <nuxt-link to="/staffpicks"  >
-                          <div class="div-block-427">
-                            <div class="text-block-6">•</div>
-                            Noticias
-                          </div></nuxt-link>
+                        
                         </div>
                       </div>
                       <div class="column-2 w-col w-col-4">

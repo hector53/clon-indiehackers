@@ -2989,6 +2989,7 @@ label {
     width: 100%;
     border: 0;
     box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+    outline: none;
 }
 .edit-form__fields-wrapper {
     align-items: flex-start;
@@ -3062,6 +3063,7 @@ label {
     align-items: center;
     display: flex;
     height: 100%;
+    color: white;
 }
 
 .edit-form .edit-form__button svg {
@@ -3156,6 +3158,43 @@ label {
 .div-block-443 img{
   float: right;
 }
+blockquote {
+  text-align: justify;
+  
+}
+.div-block-431{
+  margin-top: 10px;
+}
+.imgPerfilEdit{
+  height: 140px;
+  width: 140px;
+  display: block;
+  margin-left: -5px;
+  margin-top: -6px;
+}
+.div-block-456{
+  margin-bottom: 20px;
+}
+.btn-lg, .btn-group-lg > .btn {
+ 
+  margin-right: 20px;
+  border-radius: 6px!important;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  background-color: #0d4c90!important;
+  border-color: #0d4c90!important;
+}
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.btn-group, .btn-group-vertical {
+  display: flow-root!important;
+}
+
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;

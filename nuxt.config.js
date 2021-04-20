@@ -65,7 +65,7 @@ export default {
     icons: false,
     bootstrapCSS: false, // Or `css: false`
     bootstrapVueCSS: false,// Or `bvCSS: false`,
-    components: ['BCard', 'BCardText', 'BRow', 'BCol', ],
+    components: ['BCard', 'BCardText', 'BRow', 'BCol', 'BFormDatePicker' ],
   },
 
   axios: {

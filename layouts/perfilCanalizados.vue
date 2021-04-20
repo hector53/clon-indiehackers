@@ -39,31 +39,9 @@ export default {
         this.$fetch()
       }, 
 
-        async   getGrupos(){
-
-      await this.$axios
-        .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
-        .then((response) => {
-          console.log(response)
-          if(response.status > 0){
-            if(response.status == 2){
-                this.labelRecomendados = 'Grupos Recomendados'
-            }
-            if(response.status == 1){
-                this.labelRecomendados = 'Tus Grupos'
-            }
-              this.gruposRecomendados =  response.grupos
-              
-                //     this.$store.commit('setLoader', false);
-              /// console.log("test loader", this.$store.state.loader)
-          }
-      
-        });
-
-      }
+        
   },
   mounted() {
-    this.getGrupos()
   },
 };
 </script>

@@ -16,10 +16,7 @@
                                <nuxt-link  :to="{name: 'g-slug', params: {slug: item.slugGrupo}}" class="link-17"
                               >{{item.tituloGrupo}}</nuxt-link >
                           </div>
-                          <div class="div-block-427">
-                            <div class="text-block-6">•</div>
-                            <div>Noticias</div>
-                          </div>
+                          
                         </div>
                       </div>
                       <div class="column-2 w-col w-col-4">

@@ -8,10 +8,8 @@
         >
         
           <picture 
-            style="height: 140px;
-    width: 140px;
-    display: block;"
-            class="user-avatar ember-view user-header__avatar"
+          
+            class="user-avatar user-header__avatar imgPerfilEdit"
           >
          
             <img   :src="imagenPerfil" style="border-radius: 9999px;"  />
