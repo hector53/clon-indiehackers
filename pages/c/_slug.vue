@@ -82,9 +82,6 @@ export default {
       });
 
 
-var resultado = metaArray.findIndex( fruta => fruta.name === 'og:image' );
-
-metaArray[resultado].content = metaArray[resultado].content.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
 
 var resultado2 = metaArray.findIndex( fruta => fruta.name === 'og:url' );
 
