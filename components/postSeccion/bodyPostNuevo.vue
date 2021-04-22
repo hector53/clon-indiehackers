@@ -258,6 +258,14 @@
       <!---->
     </div>
 
+<client-only>
+   <b-form-checkbox v-if="rolUser != 'subscriber' " class="esStaffpick"
+    v-model="staffpick" size="lg" name="check-button" switch>
+      Es StaffPick?
+    </b-form-checkbox>
+
+</client-only>
+
     <div class="post-page__main">
       <div
         v-if="preview && tabSelected == 1 && contentLink.length > 0"
@@ -392,12 +400,9 @@
       </div>
 
       <client-only>
-        <vue-editor
-          placeholder="Escriba Aquí"
-          :disabled="disableAll"
-          v-model="content"
-          v-if="tabSelected == 2 && preview == false"
-        ></vue-editor>
+        <tinymce class="tinyEditor"  :disabled="disableAll"  
+        v-if="tabSelected == 2 && preview == false" id="d1" 
+        v-model="content" :other_options="options"></tinymce>
       </client-only>
 
       <div
@@ -661,6 +666,9 @@ export default {
   },
   data() {
     return {
+        options: {
+                language_url: '/es_MX.js' //This url points to location of persian language file.
+            }, 
       picked: '',
       tituloPost: "",
       tabSelected: 2,
@@ -703,7 +711,9 @@ export default {
       opcionEncuesta: ['', ''],
       cantidadOpciones: 2,
       preguntaEncuesta: "",
-      gruposMios: false
+      gruposMios: false, 
+      staffpick: false, 
+      rolUser: 'subscriber'
     };
   },
   watch: {
@@ -818,6 +828,17 @@ export default {
       this.imagenPost = "";
     },
 
+  async  getRolByUser(){
+         await this.$axios
+      .$get("/perfil/getroluser/?token="+this.$store.state.tokenUser)
+      .then((response) => {
+        console.log(response)
+        if(response.status == 1){
+            this.rolUser = response.rol
+        }
+      })
+    },
+
     selectTab(val) {
       if (val == 1) {
         //voy pa la uno
@@ -865,6 +886,8 @@ export default {
         this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
         console.log(this.opcionEncuesta)
         formData.append("opcionesEncuesta", JSON.stringify(this.opcionEncuesta));
+        formData.append("staffpick", this.staffpick);
+        
 
       const response = await this.$axios.$post("/post/usuario/", formData, {
         headers: {
@@ -915,6 +938,7 @@ export default {
   },
 
   mounted() {
+    this.getRolByUser()
     var f = new Date();
     this.fechaActual =
       f.getDate() +

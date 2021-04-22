@@ -5,12 +5,12 @@
  <div >
    <div class="div-block-425" >
                 <div class="div-block-432">
-                  <h3>
+                  <h1>
                     
                      {{tituloPost}}
                       
                     
-                  </h3>
+                  </h1>
                   <div class="div-block-426">
                     <div class="div-block-431">
                    <nuxt-link

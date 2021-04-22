@@ -259,6 +259,14 @@
       <!---->
     </div>
 
+    <client-only>
+   <b-form-checkbox v-if="rolUser != 'subscriber' " class="esStaffpick"
+    v-model="staffpick" size="lg" name="check-button" switch>
+      Es StaffPick?
+    </b-form-checkbox>
+
+</client-only>
+
     <div class="post-page__main">
       <div
         v-if="preview && tabSelected == 1 && contentLink.length > 0"
@@ -394,12 +402,9 @@
       </div>
 
       <client-only>
-        <vue-editor
-          placeholder="Escriba Aquí"
-          :disabled="disableAll"
-          v-model="content"
-          v-if="tabSelected == 2 && preview == false"
-        ></vue-editor>
+        <tinymce class="tinyEditor"  :disabled="disableAll"  
+        v-if="tabSelected == 2 && preview == false" id="d1" 
+        v-model="content" :other_options="options"></tinymce>
       </client-only>
 
       <div
@@ -746,7 +751,12 @@ export default {
       preguntaEncuesta: "",
      disabledTab2: false,
      disabledTab1: false,
-     idP: ''
+     idP: '', 
+     staffpick: false, 
+      rolUser: 'subscriber', 
+      options: {
+                language_url: '/es_MX.js' //This url points to location of persian language file.
+            },  
     };
   },
   watch: {
@@ -790,6 +800,22 @@ export default {
     },
   },
   methods: {
+
+     async  getRolByUser(){
+       console.log("idp", this.idP)
+         await this.$axios
+      .$get("/perfil/getroluser/?token="+this.$store.state.tokenUser+"&p=" + this.$route.params.id)
+      .then((response) => {
+        console.log(response)
+        if(response.status == 1){
+            this.rolUser = response.rol
+            if(response.staffpick == 1){
+                this.staffpick = true
+            }
+
+        }
+      })
+    },
     reducirOpciones(index) {
    
 
@@ -906,13 +932,13 @@ export default {
         this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
         console.log(this.opcionEncuesta)
         formData.append("opcionesEncuesta", JSON.stringify(this.opcionEncuesta));
-
+ formData.append("staffpick", this.staffpick);
       const response = await this.$axios.$post("/post/editpost/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-   //   console.log(response)
+     console.log(response)
       if (response.status == 1) {
         this.$router.push({
           name: "c-slug",
@@ -1018,6 +1044,7 @@ export default {
       f.getFullYear();
 this.getPostForEdit()
    this.getMyGroups();
+   this.getRolByUser()
   
   },
 };

@@ -80,8 +80,18 @@ export default {
           content: ele.content,
         });
       });
-metaArray[5].content = metaArray[5].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
-var tituloSeo = metaArray[3].content
+
+
+var resultado = metaArray.findIndex( fruta => fruta.name === 'og:image' );
+
+metaArray[resultado].content = metaArray[resultado].content.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
+
+var resultado2 = metaArray.findIndex( fruta => fruta.name === 'og:url' );
+
+metaArray[resultado2].content = metaArray[resultado2].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
+var resultado3 = metaArray.findIndex( fruta => fruta.name === 'og:title' );
+
+var tituloSeo = metaArray[resultado3].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
   },
 

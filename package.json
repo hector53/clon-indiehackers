@@ -25,6 +25,7 @@
     "vue-click-outside": "^1.1.0",
     "vue-google-login": "^2.0.5",
     "vue-scrollto": "^2.20.0",
+    "vue-tinymce-editor": "^1.6.2",
     "vue2-editor": "^2.10.2",
     "vuejs-medium-editor": "^1.2.1"
   },

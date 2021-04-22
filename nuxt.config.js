@@ -29,7 +29,8 @@ export default {
       {  
           src: 'https://apis.google.com/js/platform.js',
           async: true
-      }
+      }, 
+      { hid: 'twitter', type: 'text/javascript', src: '//platform.twitter.com/widgets.js', async: true, defer: true }
   ]
   },
 
@@ -42,6 +43,7 @@ export default {
   plugins: [
     { src: "~/plugins/vue2-editor", ssr: false }, 
     { src: "~/plugins/bootstrap-vue", ssr: false }, 
+    { src: "~/plugins/editortiny", ssr: false }, 
 
   ],
 

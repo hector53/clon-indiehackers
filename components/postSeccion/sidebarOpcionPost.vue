@@ -21,7 +21,7 @@
 
 
          </li>
-          <li  v-if="p == $store.state.p "><a href="#"  @click.prevent="borrarPost">Borrar</a></li>
+          <li  v-if="p == $store.state.p && borrarPostActive == true "><a href="#"  @click.prevent="borrarPost">Borrar</a></li>
         
 
 
@@ -39,6 +39,7 @@ export default {
     return {
             status: 0,
       voto: this.votos,
+      borrarPostActive: false
     };
   },
   methods: {
