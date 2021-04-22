@@ -92,6 +92,7 @@ export default {
    
   },
  async mounted() {
+   console.log(this.$store.state.emailU)
     await this.$axios.$get("/getpost/hoy/?filtro=semanal").then((response) => {
    //   console.log(response);
       this.arrayPostHoy = response.posts;

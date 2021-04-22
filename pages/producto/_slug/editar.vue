@@ -32,12 +32,10 @@
             <span class="user-header__username"> Editar Producto </span>
 
             <!---->
-            <nuxt-link
-              :to="{
-                name: 'u-username',
-                params: { username: $store.state.username },
-              }"
+            <a
+              href="#"
               class="active  user-header__header-button user-header__header-button--stop-editing"
+              @click.prevent="goBack()"
             >
               <div class="header-button__content">
                 <svg
@@ -53,7 +51,7 @@
                   </path>
                 </svg>
               </div>
-            </nuxt-link>
+            </a>
           </h1>
 
           <div class="user-header__metadata">
@@ -127,7 +125,7 @@
             <input
             :disabled="disableAll"
             maxlength="300"
-            v-model="urlTwitter"
+            v-model="urlFacebook"
             class="edit-form__field ember-text-field"
             type="text" 
             placeholder="Url Facebook ejemplo: https://facebook.com/pagina"
@@ -138,12 +136,14 @@
 
          <div class="edit-form__fieldset">
           <label class="edit-form__label">Fecha Inicial</label>
-          <b-form-datepicker id="datepickerFechaInicial" 
+        <client-only>  <b-form-datepicker id="datepickerFechaInicial" 
           v-model="fechaI" placeholder="Seleccione Fecha Inicial" class="mb-2"></b-form-datepicker>
+          </client-only>
         </div>
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Fecha Final</label>
-          <b-form-datepicker id="datepickerFechaFinal"  placeholder="Seleccione Fecha Final" v-model="fechaF" class="mb-2"></b-form-datepicker>
+        <client-only>    <b-form-datepicker id="datepickerFechaFinal"  placeholder="Seleccione Fecha Final" v-model="fechaF"
+           class="mb-2"></b-form-datepicker></client-only>  
         </div>
     
       
@@ -169,97 +169,120 @@
 
          <div class="edit-form__fieldset">
           <label class="edit-form__label">Habilidad del Fundador</label>
-              <b-form-group>
-                <b-form-checkbox-group
+           <client-only>      <b-form-group
+           v-slot="{ ariaDescribedby }" > 
+             
+                <b-form-radio-group
                 v-model="habilidadFundadorSelect"
                 :options="habilidadFundador"
                 buttons
+                :aria-describedby="ariaDescribedby"
                 button-variant="primary"
-                name="buttons-2"
-                ></b-form-checkbox-group>
-              </b-form-group>
+                ></b-form-radio-group>
+              </b-form-group> </client-only>  
          
         </div>
 
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Numero de Fundadores</label>
-           <b-form-group
+         <client-only>     <b-form-group
+          v-slot="{ ariaDescribedby }" 
               >
-              <b-form-checkbox-group
+              <b-form-radio-group
               v-model="numeroFundadoresSelect"
+                :aria-describedby="ariaDescribedby"
               :options="NumeroFundadores"
               buttons
               button-variant="primary"
-              name="buttons-2"
-              ></b-form-checkbox-group>
-              </b-form-group>
+              ></b-form-radio-group>
+              </b-form-group> </client-only>  
          
         </div>
 
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Numero de Empleados</label>
-          <b-form-group>
-                <b-form-checkbox-group
+         <client-only>    <b-form-group
+          v-slot="{ ariaDescribedby }" >
+                <b-form-radio-group
                 v-model="numeroEmpleadosSelect"
+                 :aria-describedby="ariaDescribedby"
                 :options="numeroEmpleados"
                 buttons
                 button-variant="primary"
-                name="buttons-2"
-                ></b-form-checkbox-group>
-              </b-form-group>
+                ></b-form-radio-group>
+              </b-form-group> </client-only>  
          
         </div>
 
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Modelo de Negocio</label>
-          <b-form-group
+          <client-only>   <b-form-group
+           v-slot="{ ariaDescribedby }"
           label="¿Como genera dinero tu producto?"
           >
-                <b-form-checkbox-group
+                <b-form-radio-group
                 v-model="modeloNegocioSelect"
+                  :aria-describedby="ariaDescribedby"
                 :options="modeloNegocio"
                 buttons
                 button-variant="primary"
-                name="buttons-2"
-                ></b-form-checkbox-group>
-              </b-form-group>
+                ></b-form-radio-group>
+              </b-form-group> </client-only>  
          
         </div>
 
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Fondos</label>
-          <b-form-group
+        <client-only>     <b-form-group
           label="¿Como ha financiado su producto?"
+            v-slot="{ ariaDescribedby }"
           >
                 <b-form-checkbox-group
                 v-model="fondosSelect"
                 :options="fondos"
+                    :aria-describedby="ariaDescribedby"
                 buttons
                 button-variant="primary"
-                name="buttons-2"
                 ></b-form-checkbox-group>
-              </b-form-group>
+              </b-form-group> </client-only>  
          
         </div>
 
 
            <div class="edit-form__fieldset">
           <label class="edit-form__label">Compromiso Inicial</label>
-          <b-form-group
+         <client-only>    <b-form-group
+          v-slot="{ ariaDescribedby }"
           label="¿Cuanto tiempo dedico inicialmente en su producto?"
           >
-                <b-form-checkbox-group
+                <b-form-radio-group
                 v-model="compromisoInicialSelect"
                 :options="compromisoInicial"
+                 :aria-describedby="ariaDescribedby"
                 buttons
                 button-variant="primary"
                 name="buttons-2"
-                ></b-form-checkbox-group>
-              </b-form-group>
+                ></b-form-radio-group>
+              </b-form-group> </client-only>  
          
         </div>
     
-
+ <div class="edit-form__fieldset">
+          <label class="edit-form__label">Etiquetas</label>
+        <client-only>     <b-form-group
+          label="¿Que etiqueta describe mejor tu producto?"
+            v-slot="{ ariaDescribedby }"
+          >
+                <b-form-checkbox-group
+                v-model="etiquetasSelect"
+                :options="etiquetas"
+                    :aria-describedby="ariaDescribedby"
+                buttons
+                button-variant="primary"
+                ></b-form-checkbox-group>
+              </b-form-group> </client-only>  
+         
+        </div>
         <hr>
 
         <div class="edit-form__fieldset edit-form__fieldset--buttons">
@@ -290,12 +313,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   layout: "perfilEditCanalizados",
   name: "producto-slug-editar",
+  async asyncData({ params, store, redirect }) {
+
+     const response = await axios.get(
+      `https://acceso.canalizados.com/api/productos/confirmuser?slug=${params.slug}&token=${store.state.tokenUser}`
+    );
+
+      if(response.data.status == 0){
+        return redirect('/')
+      }
+    
+  },
   data() {
     return {
       nombreProducto: '', 
+      urlProducto: '',
+      urlTwitter: '', 
+      urlFacebook: '',
+      localizacion: '', 
       disableAll: false, 
         imagenPerfil: '/images/spinerImagen.gif', 
        previewImage: null,
@@ -336,7 +375,7 @@ export default {
            { text: 'Self Funded', value: 6 },
            { text: 'VC Funded', value: 7 },
         ], 
-        modeloNegocioSelect: [],
+        modeloNegocioSelect: '',
         modeloNegocio: [
           { text: 'Publicidad', value: 1 },
           { text: 'Comisiones', value: 2 },
@@ -351,11 +390,22 @@ export default {
         compromisoInicial: [
           { text: 'Tiempo Completo', value: 1 },
           { text: 'Proyecto en Paralelo', value: 2 },
-        ]
+        ], 
+        etiquetasSelect: [],
+        etiquetas: [
+  
+        ],
+        idP: ''
     };
   },
+  
   watch: {},
+
   methods: {
+    goBack(){
+        this.$router.back();
+
+    },
        async   previewFiles(e) {
         const file = e.target.files[0];
         console.log(file)
@@ -386,7 +436,70 @@ export default {
 
    
     },
-      guardarProducto(){
+    async  guardarProducto(){
+        
+        this.disableAll = true
+        let formData = new FormData();
+                formData.append('token', this.$store.state.tokenUser);
+                formData.append('nombreProducto', this.nombreProducto);
+                formData.append('descripcionCorta', this.descripcionCorta);
+                formData.append('urlProducto', this.urlProducto);
+                formData.append('motivacion', this.motivacion);
+                formData.append('urlTwitter', this.urlTwitter);
+                formData.append('urlFacebook', this.urlFacebook);
+                formData.append('fechaI', this.fechaI);
+                formData.append('fechaF', this.fechaF);
+
+                formData.append('localizacion', this.localizacion);
+                formData.append('habilidadFundador', this.habilidadFundadorSelect);
+                formData.append('numeroFundadores', this.numeroFundadoresSelect);
+                formData.append('numeroEmpleados', this.numeroEmpleadosSelect);
+                formData.append('modeloNegocio', this.modeloNegocioSelect);
+                formData.append('fondos', this.fondosSelect);
+                formData.append('compromisoInicial', this.compromisoInicialSelect);
+                formData.append('etiquetas', this.etiquetasSelect);
+                formData.append('idP', this.idP);
+                
+
+                const response = await this.$axios.$post('/productos/editproduct/',
+                formData,
+                {
+                headers: {
+                'Content-Type': 'multipart/form-data',
+                }
+                }
+                )
+                if(response.status==1){
+                  this.disableAll = false
+
+
+this.$swal({
+  title: 'Exito!',
+  text: "Actualizado con exito",
+  type: 'success',
+  confirmButtonText: 'OK'
+}).then((result) => {
+  console.log(result)
+  if (result.value) {
+      this.$router.push({name: 'producto-slug', params: {slug: this.$route.params.slug } })
+  }
+})
+
+
+
+
+                }else{
+                  const Toast = this.$swal.mixin({
+                        toast: true,
+                        position: 'center',
+                        showConfirmButton: true,
+                        timer: 2000
+                      });
+                      Toast.fire({
+                        type: 'error',
+                        title: 'Error!'
+					  }); 
+                }
 
       }, 
 
@@ -399,6 +512,25 @@ export default {
                     this.nombreProducto = response.producto[0].nombreProducto
                     this.descripcionCorta = response.producto[0].descripcionCorta
                     this.motivacion = response.producto[0].motivacion
+                    this.urlProducto = response.producto[0].urlProducto
+                    this.idP = response.producto[0].idP
+                    this.fondosSelect = response.producto[0].fondos
+
+                    this.urlTwitter = response.producto[0].url_twitter
+                    this.urlFacebook = response.producto[0].url_facebook
+                    this.fechaI = response.producto[0].fechaI_producto
+                    this.fechaF = response.producto[0].fechaF_producto
+                    this.localizacion = response.producto[0].localizacion_producto
+                    this.habilidadFundadorSelect = response.producto[0].habilidadFundador_producto
+                    this.numeroFundadoresSelect = response.producto[0].numeroFundadores_producto
+                    this.numeroEmpleadosSelect = response.producto[0].numeroEmpleados_producto
+                    this.modeloNegocioSelect = response.producto[0].modeloNegocio_producto
+                    this.compromisoInicialSelect = response.producto[0].compromisoInicial_producto
+                    this.etiquetas = response.categorias
+                    this.etiquetasSelect = response.tags
+
+
+
                     if(response.producto[0].imagen == false){
                             this.imagenPerfil = '/images/productDefault.png'
                     }else{
@@ -406,9 +538,15 @@ export default {
                     }
                 }
         })
-      }
+      }, 
+     
+  },
+
+  created() {
+    console.log("creado")
   },
   mounted() {
+    console.log("montado")
 
       this.getdetailsProduct()
 

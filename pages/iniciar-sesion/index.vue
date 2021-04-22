@@ -238,7 +238,7 @@ export default {
                     })
                    this.$cookies.set('user_data_', {img: response.avatar, username: response.username,
                     date: response.fecha, edad: response.edad, nombres: response.nombres, ciudad: response.ciudad, twitter: response.twitter, 
-                    email: response.email, bio: response.bio, p: response.p, fechaNac: response.fechaNac}, {
+                    email: response.email, bio: response.bio,  emailU: response.emailU, p: response.p, fechaNac: response.fechaNac}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
@@ -275,7 +275,7 @@ export default {
                     })
                    this.$cookies.set('user_data_', {img: response.avatar, username: response.username,
                     date: response.fecha, edad: response.edad, nombres: response.nombres, ciudad: response.ciudad, twitter: response.twitter, 
-                    email: response.email, bio: response.bio, p: response.p, fechaNac: response.fechaNac}, {
+                    email: response.email, bio: response.bio, emailU: response.emailU, p: response.p, fechaNac: response.fechaNac}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })

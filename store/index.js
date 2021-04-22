@@ -15,6 +15,7 @@ export const state = () => ({
  ciudad: '', 
  twitter: '', 
  email: '', 
+ emailU: '',
  bio: '',
  loader: true,
  notifyCount: 0,
@@ -33,6 +34,9 @@ export const getters = {
 export const mutations = {
   setLoader(state, val){
     state.loader = val;
+  }, 
+  setEmailU(state, val){
+    state.emailU = val;
   }, 
   setnotifyCount(state, val){
     state.notifyCount = val;
@@ -105,6 +109,7 @@ export const actions = {
       commit("setCookieUsername", DataUser.username );
       commit("setCookieDateUser", DataUser.date );
       commit("setCookieP", DataUser.p );
+      commit("setEmailU", DataUser.emailU );
       commit("setCookieToken", accessTokenCookie );
       if(DataUser.social){
         commit("setCookieSocial", DataUser.social );

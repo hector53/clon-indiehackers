@@ -48,7 +48,7 @@
 
         <div class="settings-group__setting" v-if="cambiarEmail == false">
           <label class="settings-group__label">Email</label>
-          <p class="settings-group__description">{{$store.state.email}}</p>
+          <p class="settings-group__description">{{$store.state.emailU}}</p>
           <button class="settings-group__button"  @click="cambiarForm(2)">Cambiar</button>
         </div>
 
@@ -130,7 +130,7 @@ export default {
       cambiarUsuario: false, 
       cambiarEmail: false, 
       cambiarPass: false, 
-      email: this.$store.state.email, 
+      email: this.$store.state.emailU, 
       username: this.$store.state.username, 
       disabledB: false, 
       usernameNuevo: '', 
@@ -208,7 +208,7 @@ this.$cookies.remove("user_data_");
   this.$cookies.set('user_data_', {img: cookie.img, username: cookie.username,
                     date: cookie.date, edad: cookie.edad, nombres: cookie.nombres, ciudad: cookie.ciudad,
                      twitter: cookie.twitter, 
-                    email: this.emailNuevo, bio: cookie.bio, p: cookie.p, fechaNac: cookie.fechaNac}, {
+                    emailU: this.emailNuevo, email: cookie.email, bio: cookie.bio, p: cookie.p, fechaNac: cookie.fechaNac}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })

@@ -58,6 +58,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'bootstrap-vue/nuxt', 
+    'nuxt-sweetalert2'
     
   ],
 
@@ -65,7 +66,7 @@ export default {
     icons: false,
     bootstrapCSS: false, // Or `css: false`
     bootstrapVueCSS: false,// Or `bvCSS: false`,
-    components: ['BCard', 'BCardText', 'BRow', 'BCol', 'BFormDatePicker' ],
+    components: ['BCard', 'BCardText', 'BRow', 'BCol' ],
   },
 
   axios: {

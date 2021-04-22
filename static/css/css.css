@@ -3194,7 +3194,56 @@ blockquote {
 .btn-group, .btn-group-vertical {
   display: flow-root!important;
 }
+.seeProduct{
+  margin-top: 10px;
+  display: flex;
+}
+.seeProduct span{
+  font-weight: bold;
+}
+.div-block-461 {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: none;
+}
+.list-item-14 {
 
+  width: 100%;
+  text-align: center;
+}
+.list-13 {
+  
+  justify-content: center;
+}
+.text-block-33:hover{
+  background-color: #3e64db;
+  color: white!important;
+  
+  border-radius: 5px;
+}
+.list-item-14 {
+  margin-right: 0;
+ 
+}
+
+.text-block-33 {
+    
+    background: #dad8d8cf;
+    border-radius: 6px;
+    width: 100%;
+}
+button[disabled], html input[disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.list-item-13:hover {
+ background-color: #3e64db;
+ color:white!important
+}
+.nombreProducto:hover{
+  text-decoration: underline!important;
+}
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;

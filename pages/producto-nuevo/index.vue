@@ -26,8 +26,6 @@
             type="text" 
           />
         </div>
-
-        
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Url del producto</label>
           <input
@@ -138,6 +136,12 @@ validURL(str) {
                 )
 
                 console.log(response)
+                if(response.status == 1){
+                    this.$router.push({name: 'producto-slug', params: {slug: response.slug}})
+                }else{
+                        alert("Error desconocido")
+                    return false
+                }
             }
         }
  },

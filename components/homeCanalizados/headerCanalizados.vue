@@ -232,6 +232,8 @@ export default {
     },
     cerrarSesion() {
       this.$cookies.remove("access_token_");
+      this.$cookies.remove("user_data_");
+      
       location.href = "/";
     },
     dropDownPerfilClic() {
