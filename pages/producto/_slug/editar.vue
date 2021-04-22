@@ -304,6 +304,13 @@
               <span class="edit-form__button-label">Cancelar</span>
             </div>
           </nuxt-link>
+          <button style="    margin-left: auto;" :disabled="disableAll" class="edit-form__button edit-form__button--save"
+           @click.prevent="eliminarProducto">
+            <div class="edit-form__button-content">
+              
+              <span class="edit-form__button-label">Eliminar</span>
+            </div>
+          </button>
         </div>
       </div>
     </div>
@@ -404,6 +411,58 @@ export default {
   methods: {
     goBack(){
         this.$router.back();
+
+    },
+
+    eliminarProducto(){
+        this.$swal({
+        title: '¿Estas seguro?',
+        text: "No puedes deshacer esto",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Borrar!'
+        }).then((result) => {
+      
+                  if (result.value) {
+                        
+                          this.disableAll = true
+                          let formData = new FormData();
+                          formData.append('idP', this.idP);
+                          formData.append('token', this.$store.state.tokenUser);
+
+                          const response = this.$axios.$post('/productos/borrarproducto/',
+                          formData,
+                          {
+                          headers: {
+                          'Content-Type': 'multipart/form-data',
+                          }
+                          }
+                          )
+
+                        if(response.status == 0){
+                                  this.$swal({
+                                  title: 'Error!',
+                                  text: "Ocurrio un error",
+                                  type: 'error',
+                                  confirmButtonText: 'OK'
+                                  })
+                      }else{
+                                  this.$swal({
+                                  title: 'Exito!',
+                                  text: "Borrado con exito",
+                                  type: 'success',
+                                  confirmButtonText: 'OK'
+                                  }).then((result) => {
+                                  if (result.value) {
+                                  this.$router.push({name: 'index' })
+                                  }
+                                  })
+                      }
+                  }
+        })
+
 
     },
        async   previewFiles(e) {
