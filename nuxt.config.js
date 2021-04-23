@@ -48,7 +48,7 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  //components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -68,7 +68,10 @@ export default {
         directiveName: 'twitter-widgets',
         scriptUrl: '//platform.twitter.com/widgets.js'
       }
-    ]
+    ], 
+    ['@nuxtjs/eslint-module', {
+      fix: true
+    }]
     
   ],
 
@@ -88,20 +91,6 @@ export default {
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: true,
-    
-    extractCSS: true,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
-      }
-    }
+   // analyze: true,
   }
 }
