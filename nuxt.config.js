@@ -29,8 +29,7 @@ export default {
       {  
           src: 'https://apis.google.com/js/platform.js',
           async: true
-      }, 
-      { hid: 'twitter', type: 'text/javascript', src: '//platform.twitter.com/widgets.js', async: true, defer: true }
+      }
   ]
   },
 
@@ -59,7 +58,14 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
-    'nuxt-sweetalert2'
+    'nuxt-sweetalert2', 
+    [
+      '@miyaoka/nuxt-twitter-widgets-module',
+      {
+        directiveName: 'twitter-widgets',
+        scriptUrl: '//platform.twitter.com/widgets.js'
+      }
+    ]
     
   ],
 

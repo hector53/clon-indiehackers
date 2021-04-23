@@ -9,10 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@miyaoka/nuxt-twitter-widgets-module": "0.0.1",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/proxy": "^2.1.0",
     "@tui-nuxt/editor": "^1.0.0-beta.3",
     "bootstrap-vue": "^2.21.2",
+    "cheerio": "^1.0.0-rc.6",
     "cookie-parser": "^1.4.5",
     "cookie-universal-nuxt": "^2.1.4",
     "cookieparser": "^0.1.0",
