@@ -22,7 +22,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/faviconCanalizados.png' }, 
       { rel: 'stylesheet', href: '/css/canalizados.css',  },
       { rel: 'stylesheet', href: '/css/css.css',  },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic',  },
       
     ], 
     script: [
@@ -37,6 +36,8 @@ export default {
   css: [
     
   ],
+
+ 
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -59,6 +60,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
+    '@nuxtjs/google-fonts',
     [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
@@ -69,7 +71,12 @@ export default {
     
   ],
 
-  
+  googleFonts: {
+    families: {
+     'Montserrat': true, 
+     'sans-serif': true
+    }
+  },
 
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
@@ -81,8 +88,22 @@ export default {
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    babel: {
-      compact: true
-    }
+    parallel: true,
+    hardSource: true,
+    cache: true,
+    html: {
+      minify: {
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true
+      }
+    } 
+
   }
 }
