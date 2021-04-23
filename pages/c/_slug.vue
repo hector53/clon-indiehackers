@@ -16,11 +16,9 @@
             <div class="column-4 w-col w-col-8">
 
                <loader v-show="loader"></loader>
-  <LazyHydrate when-visible>
                     <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl"  :arrayPost="arrayPost" v-if="arrayPost"
                     :arrayTrend="arrayTrend" @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
-  </LazyHydrate>
             </div>
             <div class="column-5 w-col w-col-4">
               <div class="div-block-448">
@@ -51,7 +49,6 @@ import GruposRecomendados from '~/components/postSeccion/gruposRecomendados.vue'
 import MasPopulares from '~/components/postSeccion/masPopulares.vue';
 import PostSlugCanalizados from '~/components/postSeccion/postSlugCanalizados.vue';
 import axios from 'axios'
-import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
   components: {
@@ -61,7 +58,7 @@ export default {
     FollowSeccion,
     MasPopulares,
     GruposRecomendados,
-    LazyHydrate
+    
 
   },
   name: "bodyPostCanalizados",

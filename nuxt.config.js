@@ -41,9 +41,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/vue2-editor", ssr: false }, 
     { src: "~/plugins/bootstrap-vue", ssr: false }, 
     { src: "~/plugins/editortiny", ssr: false }, 
+    
+    
 
   ],
 
@@ -53,8 +54,9 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/google-fonts',
-  ],
 
+  ],
+ 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
@@ -69,9 +71,7 @@ export default {
         scriptUrl: '//platform.twitter.com/widgets.js'
       }
     ], 
-    ['@nuxtjs/eslint-module', {
-      fix: true
-    }]
+  
     
   ],
 
@@ -91,6 +91,21 @@ export default {
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-   // analyze: true,
+   extractCSS: true,
+   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(css|vue)$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
+ analyze: true,
+
+   
   }
 }
