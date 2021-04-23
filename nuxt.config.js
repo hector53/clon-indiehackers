@@ -74,7 +74,6 @@ export default {
   googleFonts: {
     families: {
      'Montserrat': true, 
-     'sans-serif': true
     }
   },
 
