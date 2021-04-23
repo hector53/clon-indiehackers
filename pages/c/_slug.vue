@@ -68,7 +68,7 @@ export default {
  async asyncData({ params, store }) {
 
      const seoDetails = await axios.get(
-      `https://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
+      `http://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
     );
     
     const metaArray = [];
@@ -85,7 +85,7 @@ export default {
 
 var resultado2 = metaArray.findIndex( fruta => fruta.name === 'og:url' );
 
-metaArray[resultado2].content = metaArray[resultado2].content.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
+metaArray[resultado2].content = metaArray[resultado2].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
 var resultado3 = metaArray.findIndex( fruta => fruta.name === 'og:title' );
 
 var tituloSeo = metaArray[resultado3].content
