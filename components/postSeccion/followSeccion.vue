@@ -33,18 +33,18 @@
                   </div>
 
 
-                  <div>
-                    <ul role="list" class="list-13">
-                      <li class="list-item-14">
-                        <a class="text-block-33" href="#"  @click.prevent="followUser">
-                                <span v-if="yalosigo == 0">Seguir</span>
-                                 <span v-else>Dejar de Seguir</span>
-                            </a>
-                      </li>
-                      <li class="list-item-15">
-                        <div class="text-block-34">...</div>
-                      </li>
-                    </ul>
+                  <div class="list-13">
+                      <button
+                    :disabled="disableB"
+                    class="text-block-33"
+                    @click.prevent="followUser"
+                  >
+                    <span v-if="yalosigo == 0">Seguir</span>
+                    <span v-else>Dejar de Seguir</span>
+                  </button>
+
+
+                    
                   </div>
                 </div>
 </template>
@@ -58,7 +58,8 @@ export default {
     data() {
         return {
             producto: false, 
-            yalosigo: 0
+            yalosigo: 0, 
+            disableB: false
         }
     },
     methods: {
@@ -68,6 +69,19 @@ export default {
             this.$router.push("/login")
             return false
         }
+        this.disableB = true
+
+
+         
+          if(this.yalosigo == 0){
+              this.yalosigo = 1
+              this.disableB = false
+          }else{
+            this.yalosigo = 0
+            this.disableB = false
+          }
+
+
       await this.$axios
         .$get(
           "/perfil/followunfollow?username=" +
@@ -76,7 +90,7 @@ export default {
             this.$store.state.tokenUser
         )
         .then((response) => {
-         this.getDatauser()
+         
         });
       }, 
           async  getDatauser(){

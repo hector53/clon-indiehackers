@@ -90,10 +90,10 @@ export default {
   },
   async fetch() {
     await this.$axios.$get("/getpost/hoy/?filtro=hoy").then((response) => {
-     // console.log(response);
-      if(response.status > 0){
+      console.log(response);
+     
   this.arrayPostHoy = response.posts;
-      }
+      
     
     });
   },

@@ -3177,7 +3177,7 @@ label {
   width: 100%;
 }
 .div-block-432{
-  text-align: justify;
+  text-align: left;
 }
 .div-block-443 img{
   float: right;
@@ -3275,6 +3275,15 @@ button[disabled], html input[disabled] {
 }
 .tinyEditor iframe{
   height: 500px!important;
+}
+.div-block-425 {
+  
+  padding: 40px;
+
+}
+.div-block-448 {
+  position: relative;
+  margin-top: 0;
 }
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
