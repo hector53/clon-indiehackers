@@ -68,7 +68,7 @@ export default {
  async asyncData({ params, store }) {
 
      const seoDetails = await axios.get(
-      `http://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
+      `https://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
     );
     
     const metaArray = [];
