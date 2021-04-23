@@ -3285,6 +3285,9 @@ button[disabled], html input[disabled] {
   position: relative;
   margin-top: 0;
 }
+iframe{
+  width: 100%;
+}
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;
