@@ -76,6 +76,7 @@ export default {
   ],
 
   googleFonts: {
+    display: 'swap',
     families: {
      'Montserrat': true, 
     }
