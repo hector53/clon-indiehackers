@@ -59,17 +59,11 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
-    'bootstrap-vue/nuxt', 
     'nuxt-sweetalert2'
     
   ],
 
-  bootstrapVue: {
-    icons: false,
-    bootstrapCSS: false, // Or `css: false`
-    bootstrapVueCSS: false,// Or `bvCSS: false`,
-    components: ['BCard', 'BCardText', 'BRow', 'BCol' ],
-  },
+  
 
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
