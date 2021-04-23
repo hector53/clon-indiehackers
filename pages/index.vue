@@ -1,6 +1,5 @@
 <template>
   <div>
-    <LazyHydrate when-visible>
     <div
       class="div-block-419"
       v-for="(item, index) in arrayPostHoy"
@@ -68,7 +67,6 @@
         </div>
       </div>
     </div>
-    </LazyHydrate >
 
                   <div class="div-block-434">
                     <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>
@@ -81,9 +79,8 @@
 
 <script>
 import likeCanalizados from '~/components/likes/likeCanalizados.vue';
-import LazyHydrate from 'vue-lazy-hydration';
 export default {
-  components: { likeCanalizados, LazyHydrate},
+  components: { likeCanalizados},
   name: "index",
   layout: "homeCanalizados",
   data() {
