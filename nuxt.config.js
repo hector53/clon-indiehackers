@@ -52,6 +52,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -60,7 +61,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
-    '@nuxtjs/google-fonts',
+ 
     [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
