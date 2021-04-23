@@ -20,8 +20,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/faviconCanalizados.png' }, 
-      { rel: 'stylesheet', href: '/css/canalizados.css',  },
-      { rel: 'stylesheet', href: '/css/css.css',  },
       
     ], 
     script: [
@@ -34,7 +32,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    
+    '~/static/css/canalizados.css',
+    '~/static/css/css.css',
   ],
 
  
@@ -104,8 +103,7 @@ export default {
       }
     }
   },
- analyze: true,
-
+  analyze: true,
    
   }
 }
