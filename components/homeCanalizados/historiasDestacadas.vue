@@ -23,6 +23,7 @@
                             >
                         <div class="div-block-443">
                           <img
+                          width="150"
                             :src="item.imagen"
                             loading="lazy"
                             height=""
