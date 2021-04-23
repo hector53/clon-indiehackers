@@ -80,12 +80,15 @@ export default {
         }
     },
      async fetch() {
-  await this.$axios
+
+  },
+ async mounted() {
+     await this.$axios
         .$get("/getpost/getnoticias")
         .then((response) => {
        //   console.log(response)
           this.arrayNoticias = response
-        })
+        }) 
   },
 }
 </script>

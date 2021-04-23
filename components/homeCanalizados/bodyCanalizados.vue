@@ -89,7 +89,7 @@ export default {
      async fetch() {
   },
     mounted() {
-       this.getDatos()
+       //this.getDatos()
       this.getGrupos()
     },
 }
