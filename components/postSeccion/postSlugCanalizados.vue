@@ -65,6 +65,7 @@
                    <div class="contenidoFull" v-html="contenido" v-twitter-widgets  v-if="esLink == 0"></div>
 
 
+
                     <div
         v-if="esLink == 1 && previewUrlBo == false"
       
