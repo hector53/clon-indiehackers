@@ -32,7 +32,7 @@
                 <h1>
                   @{{ objUser.username }}  <span v-if="objUser.nombres != ''">- {{ objUser.nombres }}</span>
                 </h1>
-                <div v-if="objUser.bio != ''">Bio. {{ objUser.bio }}</div>
+                <div v-if="objUser.bio != ''">{{ objUser.bio }}</div>
 
                 <ul role="list" class="list-11">
                   <li class="list-item-12">

@@ -1,5 +1,5 @@
 <template>
-<div class="w-col w-col-8 w-col-tiny-tiny-stack">
+
                 <div class="div-block-433 homeDiscusion">
                   <div>
                     <div class="div-block-435">
@@ -65,7 +65,7 @@
                    <Nuxt  keep-alive />
                 
                 </div>
-              </div>
+            
 </template>
 
 

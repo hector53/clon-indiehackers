@@ -33,7 +33,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/static/css/canalizados.css',
-    '~/static/css/css.css',
+    '~/static/css/csscana.css',
   ],
 
  
@@ -74,11 +74,20 @@ export default {
   ],
 
   googleFonts: {
-    display: 'swap',
+    display: 'swap', 
+    preload: true,
+    useStylesheet: true,
     families: {
-     'Montserrat': true, 
+     'Montserrat': {
+      wght: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900],
+      ital: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900]
+     }, 
+     'Oxygen': [100, 200, 300, 400 ,500 , 600, 700, 800 , 900], 
     }
   },
+
+
+ 
 
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',

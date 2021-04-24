@@ -5,20 +5,23 @@
           <sidebar-left></sidebar-left>
         </div>
         <div class="div-block-456">
-          <div class="section-2">
-            <div class="columns-5 w-row" >
-              <seccion-discusion ></seccion-discusion>
-             <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
-            </div>
-          </div>
-        
-          <div class="section-4">
-            <div class="columns-3 w-row">
-              <historias-destacadas></historias-destacadas>
-              <sidebar-derecho :arrayPopulares="arrayPopulares" 
+
+            <div class="columns-8 w-row">
+                <div class="w-col w-col-8">
+                       <seccion-discusion ></seccion-discusion>
+                       <historias-destacadas></historias-destacadas>
+                </div>
+                <div class="w-col w-col-4">
+ <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
+           <sidebar-derecho :arrayPopulares="arrayPopulares" 
               :labelRecomendados="labelRecomendados" :gruposRecomendados="gruposRecomendados"></sidebar-derecho>
+                </div>
             </div>
-          </div>
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -89,7 +92,7 @@ export default {
      async fetch() {
   },
     mounted() {
-       //this.getDatos()
+       this.getDatos()
       this.getGrupos()
     },
 }

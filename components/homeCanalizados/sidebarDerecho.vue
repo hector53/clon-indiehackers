@@ -1,5 +1,5 @@
 <template>
- <div class="column-5 w-col w-col-4">
+ <div >
                 <div class="div-block-448">
                   
     <div class="div-block-444" v-if="$store.state.cookieLogin">

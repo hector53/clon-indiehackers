@@ -43,7 +43,7 @@
                   </div>
                   </nuxt-link>
                 </h1>
-                <div>Bio. {{ $store.state.bio }}</div>
+                <div>{{ $store.state.bio }}</div>
 
                 <ul role="list" class="list-11">
                   <li class="list-item-12">
