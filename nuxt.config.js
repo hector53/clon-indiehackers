@@ -53,8 +53,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/google-fonts',
-    'nuxt-compress'
-
   ],
  
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -63,8 +61,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
-    'nuxt-lazy-load',
- 
+    
     [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
@@ -106,6 +103,7 @@ export default {
       }
     }
   },
+
  // analyze: true,
    
   }
