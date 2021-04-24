@@ -26,7 +26,7 @@
                           width="150"
                             :src="item.imagen"
                             loading="lazy"
-                            height=""
+                            height="150"
                             alt=""
                             class="image-11"
                           />
