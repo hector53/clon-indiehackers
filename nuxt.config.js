@@ -63,7 +63,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
-    'nuxt-lazy-load'
+    'nuxt-lazy-load',
  
     [
       '@miyaoka/nuxt-twitter-widgets-module',
