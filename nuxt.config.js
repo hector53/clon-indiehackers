@@ -75,14 +75,12 @@ export default {
 
   googleFonts: {
     display: 'swap', 
-    preload: true,
     useStylesheet: true,
     families: {
      'Montserrat': {
       wght: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900],
       ital: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900]
      }, 
-     'Oxygen': [100, 200, 300, 400 ,500 , 600, 700, 800 , 900], 
     }
   },
 

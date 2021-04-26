@@ -34,7 +34,7 @@
             
           </div>
           <div class="column-2 w-col w-col-4">
-            <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
+            <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }" class="width100">
               <div class="div-block-443">
                 <img
                   width="150"

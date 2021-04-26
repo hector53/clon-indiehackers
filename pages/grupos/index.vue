@@ -31,6 +31,7 @@
 </template>
 
 <script>
+
 export default {
   layout: "perfilEditCanalizados",
   name: "grupos",
@@ -54,6 +55,9 @@ export default {
   
   },
   mounted() {
+  },
+  created() {
+    
   },
 };
 </script>

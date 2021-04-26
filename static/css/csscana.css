@@ -11,6 +11,9 @@ body {
   font-weight: 400 !important;
   background-color: #f3f6fd !important;
 }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+  line-height: 1.4!important;
+}
 
 a {
   text-decoration: none !important;
@@ -3269,8 +3272,11 @@ label {
 .heading-3 {
   margin-top: 0;
   font-size: 18px;
+  text-align: left;
 }
-
+.div-block-445{
+  text-align: left;
+}
 .list-10 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3499,6 +3505,7 @@ label {
 
 .columnaDerechaIndex {
   display: inline-block !important;
+  width: 100%;
 }
 
 .div-block-438 {
@@ -3555,10 +3562,11 @@ label {
 
 .div-block-432 {
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .div-block-443 img {
-  float: right;
+  width: 100%;
 }
 
 blockquote {
@@ -3682,21 +3690,30 @@ html input[disabled] {
 .div-block-425 {
 
   padding: 40px;
+  align-items: flex-start;
+  text-align: left;
 
 }
 
 .div-block-448 {
   position: relative;
-  margin-top: 0;
+  margin-top: 20px;
 }
 
 iframe {
   width: 100%;
 }
+.text-block-40{
+  text-align: left;
+}
 
 .div-block-427 {
   
   margin-top: 10px;
+
+}
+.width100{
+  width: 100%;
 }
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
