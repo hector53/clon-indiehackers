@@ -1,18 +1,20 @@
 <template>
 <div>
    <loader v-show="loader"></loader>
-  <div class="section-5" v-show="loader==false">
-    <div class="columns-7 w-row">
-      <div class="column-11 w-col w-col-6">
-        <div class="div-block-464">
+
+   <b-container v-show="loader==false">
+  <b-row>
+    <b-col sm="6" class="p-0">
+  <div class="div-block-464">
           <h1 class="heading-5">Bienvenido a Canalizados</h1>
           <div class="text-block-36">
             Somos una comunidad de +1000 emprendedores y Startups de Latam
           </div>
         </div>
-      </div>
-      <div class="column-12 w-col w-col-6">
-        <div class="div-block-465">
+    </b-col>
+    <b-col sm="6" class="p-0">
+
+<div class="div-block-465">
           <ul role="list" class="list-14">
             <li class="list-item-16">
               <div class="html-embed-14 w-embed">
@@ -93,8 +95,8 @@
               />
             
             </form>
-            <h6 style="    margin-top: 30px;">
-              <a href="#" @click="formPass = true" v-if="formPass == false">¿Olvido su Contraseña?</a> </h6>
+            <h4 style="    margin-top: 30px;">
+              <a href="#" @click="formPass = true" v-if="formPass == false">¿Olvido su Contraseña?</a> </h4>
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
@@ -166,20 +168,26 @@
 
 
         </div>
-      </div>
-    </div>
-  </div>
+
+
+
+    </b-col>
+  </b-row>
+
+   </b-container>
+ 
   </div>
 </template>
 
 
 <script>
    import GoogleLogin from 'vue-google-login';
+import Loader from '~/components/loader/loader.vue';
 
 
 
 export default {
-  components: {GoogleLogin },
+  components: {GoogleLogin,Loader },
     middleware: 'authenticated',
   name: "iniciar-sesion",
   layout: "iniciarSesion",

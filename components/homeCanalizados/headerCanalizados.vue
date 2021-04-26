@@ -2,9 +2,7 @@
   <header id="nav" class="sticky-nav">
     <nav class="container nav-bar w-container">
       <div class="div-block-413">
-        <ul role="list" class="list-2">
-          <li class="list-item-8">
-            <div
+        <div
               data-hover=""
               data-delay="0"
               class="dropdown w-dropdown"
@@ -70,8 +68,6 @@
                 >
               </nav>-->
             </div>
-          </li>
-        </ul>
       </div>
       <div class="div-block-414">
         <form action="/buscar" class="search-2 w-form buscadorHeader" method="GET" >

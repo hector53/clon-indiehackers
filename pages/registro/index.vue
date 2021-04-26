@@ -1,18 +1,23 @@
 <template>
 <div>
      <loader v-show="loader"></loader>
-  <div class="section-5" v-show="loader == false">
-    <div class="columns-7 w-row">
-      <div class="column-11 w-col w-col-6">
+
+
+
+ <b-container v-show="loader==false">
+
+    <b-row>
+      <b-col sm="6" class="p-0">
         <div class="div-block-464">
-          <h1 class="heading-5">Bienvenido a Canalizados</h1>
-          <div class="text-block-36">
-            Somos una comunidad de +1000 emprendedores y Startups de Latam
-          </div>
+        <h1 class="heading-5">Bienvenido a Canalizados</h1>
+        <div class="text-block-36">
+        Somos una comunidad de +1000 emprendedores y Startups de Latam
         </div>
-      </div>
-      <div class="column-12 w-col w-col-6">
-        <div class="div-block-465">
+        </div>
+      </b-col>
+
+      <b-col sm="6" class="p-0">
+ <div class="div-block-465">
             <h2>Registrarse</h2>
           <ul role="list" class="list-14" v-if="showFormFull">
             <li class="list-item-16">
@@ -141,9 +146,18 @@
 
 
         </div>
-      </div>
-    </div>
-  </div>
+      </b-col>
+
+    </b-row>
+
+ </b-container>
+
+
+
+
+
+
+
 </div>
 </template>
 

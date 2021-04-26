@@ -3524,17 +3524,6 @@ label {
   margin: 0;
 }
 
-.div-block-413 {
-  width: 100%;
-}
-
-.div-block-414 {
-  width: 100%;
-}
-
-.div-block-415 {
-  width: 100%;
-}
 
 .list-8 {
   float: right;
@@ -3715,6 +3704,9 @@ iframe {
 .width100{
   width: 100%;
 }
+.div-block-413{
+  display: flex;
+}
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {
     display: contents;
@@ -3734,11 +3726,18 @@ iframe {
     display: block;
   }
 
+  .sticky-nav {
+    padding: 7px!important;
+}
+
   .buscadorHeader {
     display: none;
   }
 
   .logo-text {
     display: none;
+  }
+  .botonCanalizados{
+    font-size: 11px;
   }
 }

@@ -40,7 +40,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/bootstrap-vue", ssr: false }, 
+  //  { src: "~/plugins/bootstrap-vue", ssr: false }, 
     { src: "~/plugins/editortiny", ssr: false }, 
     
     
@@ -61,6 +61,7 @@ export default {
     'cookie-universal-nuxt',
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
+    'bootstrap-vue/nuxt',
     
     [
       '@miyaoka/nuxt-twitter-widgets-module',
