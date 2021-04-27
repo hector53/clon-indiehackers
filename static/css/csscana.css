@@ -1172,20 +1172,28 @@ h6,
 .embedded-comments .comment-box .comment-box__save-button {
   white-space: nowrap
 }
-
+.btnVerMas{
+  margin-left: auto;
+    width: 150px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 6px;
+}
 .embedded-comments .comment-box .comment-box__save-button {
   color: #fff;
-  cursor: pointer;
-  background: #3e64db;
-  border-radius: 8px;
-  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex: 0 0 auto;
-  margin-left: 14px;
-  padding: 10px;
+    cursor: pointer;
+    background: #3e64db;
+    border-radius: 8px;
+    box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    margin-left: 0;
+    padding: 10px;
+    width: 150px;
+    justify-content: center;
 }
 
 .embedded-comments .comment-box .comment-box__save-button:hover:not([disabled]) {
@@ -3679,7 +3687,7 @@ html input[disabled] {
 .div-block-425 {
 
   padding: 40px;
-  align-items: flex-start;
+  align-items: normal;
   text-align: left;
 
 }
@@ -3706,6 +3714,9 @@ iframe {
 }
 .div-block-413{
   display: flex;
+}
+.post-page__comments{
+  width: 100%;
 }
 @media screen and (max-width:991px) {
   .columnaDerechaIndex {

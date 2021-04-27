@@ -81,6 +81,9 @@
         </div>
       </div>
     </div>
+     <nuxt-link to="/staffpicks" v-if="btnVerMas" class="botonCanalizados btnVerMas" 
+     data-v-70e177c0="">Ver más...</nuxt-link>
+               
   </div>
 </template>
 
@@ -91,6 +94,7 @@ export default {
   data() {
     return {
       arrayNoticias: [],
+      btnVerMas: false
     };
   },
   async fetch() {},
@@ -98,6 +102,7 @@ export default {
     await this.$axios.$get("/getpost/getnoticias").then((response) => {
       console.log(response);
       this.arrayNoticias = response;
+      this.btnVerMas = true
     });
   },
 };

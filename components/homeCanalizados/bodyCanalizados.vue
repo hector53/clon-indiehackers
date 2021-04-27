@@ -10,7 +10,7 @@
                 <div class="w-col w-col-8">
                        <seccion-discusion ></seccion-discusion>
                        <historias-destacadas></historias-destacadas>
-                </div>
+                       </div>
                 <div class="w-col w-col-4">
  <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
            <sidebar-derecho :arrayPopulares="arrayPopulares" 
