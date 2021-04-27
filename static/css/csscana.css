@@ -3691,7 +3691,11 @@ html input[disabled] {
   text-align: left;
 
 }
-
+.image-11{
+  object-fit: cover;
+  width: 200px;
+  height: 150px;
+}
 .div-block-448 {
   position: relative;
   margin-top: 20px;

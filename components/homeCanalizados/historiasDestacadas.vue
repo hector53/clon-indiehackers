@@ -34,17 +34,15 @@
             
           </div>
           <div class="column-2 w-col w-col-4">
-            <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }" class="width100">
-              <div class="div-block-443">
+            <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }" >
+             
                 <img
-                  width="150"
                   :src="item.imagen"
                   loading="lazy"
-                  height="150"
                   alt=""
                   class="image-11"
-                /></div
-            ></nuxt-link>
+                />
+            </nuxt-link>
           </div>
         </div>
       </div>
