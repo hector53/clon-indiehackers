@@ -62,7 +62,7 @@ export default {
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
     'bootstrap-vue/nuxt',
-    
+    '@nuxtjs/google-analytics',
     [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
@@ -73,6 +73,10 @@ export default {
   
     
   ],
+
+  googleAnalytics: {
+    id: 'UA-121959606-1'
+  },
 
   googleFonts: {
     display: 'swap', 

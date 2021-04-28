@@ -1,5 +1,4 @@
 <template>
- <div >
                 <div class="div-block-448">
                   
     <div class="div-block-444" v-if="$store.state.cookieLogin">
@@ -84,7 +83,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+          
 </template>
 
 

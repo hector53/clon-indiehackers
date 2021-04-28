@@ -67,7 +67,7 @@ export default {
         async   followUser(){
 
         if(this.$store.state.cookieLogin == false){
-            this.$router.push("/login")
+            this.$router.push("/iniciar-sesion")
             return false
         }
         this.disableB = true
