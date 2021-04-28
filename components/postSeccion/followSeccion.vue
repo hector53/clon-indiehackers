@@ -1,5 +1,6 @@
 <template>
   <div class="div-block-444"> 
+                 <nuxt-link :to="{name: 'u-username', params: {username: username}}">
                   <div class="div-block-447">
                     <img
                       :src="avatar"
@@ -11,7 +12,7 @@
                     />
                     <div class="text-block-37">{{username}}</div>
                   </div>
-                 
+                 </nuxt-link>
                  
                   <div class="div-block-461" v-if="producto">
                     <div class="text-block-31">Trabajo</div>
