@@ -1,4 +1,5 @@
 <template>
+<div :class="{'div-block-425': preview}">
   <div class="post-page__content">
     <!-- Text Editor -->
 
@@ -6,7 +7,7 @@
 
     <header class="post-page__header">
       <textarea
-        v-if="preview == false"
+        v-show="preview == false"
         :disabled="disableAll"
         rows="1"
         tabindex="1"
@@ -21,7 +22,7 @@
 
       <div
         class="dragSortList -draggingEnabled ember-view drag-sort-list--1"
-        v-if="imagenPost != '' && preview == false && tabSelected == 2"
+        v-show="imagenPost != '' && preview == false && tabSelected == 2"
       >
         <div class="dragSortItem ember-view">
           <div class="drag-sort-list__image-wrapper">
@@ -43,10 +44,10 @@
         </div>
       </div>
 
-      <h1 class="post-page__title" v-if="preview">{{ tituloPost }}</h1>
+      <h1 class="post-page__title" v-show="preview">{{ tituloPost }}</h1>
       <a
         href="/Nananonaweb"
-        v-if="preview"
+        v-show="preview"
         id="ember901"
         class="ember-view post-page__byline"
       >
@@ -55,7 +56,7 @@
 
       <div
         class="post-page__images post-page__images--1"
-        v-if="imagenPost != '' && preview"
+        v-show="imagenPost != '' && preview"
       >
         <img
           :src="imagenPost"
@@ -66,7 +67,7 @@
 
     <div
       class="post-page__subheader post-page__subheader--editing"
-      v-if="preview == false"
+      v-show="preview == false"
     >
       <input
         style="display: none"
@@ -80,7 +81,7 @@
 
       <button
         class="post-page__action post-page__action--images"
-        v-if="tabSelected == 2"
+        v-show="tabSelected == 2"
         tabindex="2"
         title="Add Images"
         @click="addImagePost"
@@ -136,7 +137,7 @@
           <picture
             id="ember644"
             class="group-icon ember-view group-selector__selected-icon"
-            v-if="iconSelectGroup != ''"
+            v-show="iconSelectGroup != ''"
           >
             <img :src="iconSelectGroup" />
           </picture>
@@ -158,7 +159,7 @@
           </svg>
         </div>
         <div
-          v-if="quitarGrupoSeleccionado"
+          v-show="quitarGrupoSeleccionado"
           @click="quitarGrupoSelect"
           class="modal-closer ember-view group-selector__clear-button"
         >
@@ -176,7 +177,7 @@
         <div
           class="group-selector__dropdown"
           style="left: 0px"
-          v-if="selectGrupo"
+          v-show="selectGrupo"
           v-click-outside="selectGroupOut"
         >
           <input
@@ -187,7 +188,7 @@
             type="text"
           />
 
-          <div class="group-selector__groups"  v-if="gruposMios">
+          <div class="group-selector__groups"  v-show="gruposMios">
             <div 
               class="group-selector__results-section group-selector__results-section--memberships"
             >
@@ -220,7 +221,7 @@
             </div>
           </div>
 
-          <div class="group-selector__groups" v-if="otrosSearch">
+          <div class="group-selector__groups" v-show="otrosSearch">
             <div
               class="group-selector__results-section group-selector__results-section--memberships"
             >
@@ -259,7 +260,7 @@
     </div>
 
 <client-only>
-   <b-form-checkbox v-if="rolUser != 'subscriber' " class="esStaffpick"
+   <b-form-checkbox v-if="rolUser != 'subscriber' && preview ==false " class="esStaffpick"
     v-model="staffpick" size="lg" name="check-button" switch>
       Es StaffPick?
     </b-form-checkbox>
@@ -268,7 +269,7 @@
 
     <div class="post-page__main">
       <div
-        v-if="preview && tabSelected == 1 && contentLink.length > 0"
+        v-show="preview && tabSelected == 1 && contentLink.length > 0"
         class="attached-link attached-link--small-image attached-link--no-image attached-link--no-title attached-link--no-description ember-view post-page__attached-link"
       >
         <a
@@ -302,14 +303,14 @@
         </a>
       </div>
       <div
-        class="post-page__body content ember-view"
-        v-if="preview && tabSelected == 2"
+        class="post-page__body content ember-view contenidoFull"
+        v-show="preview && tabSelected == 2"
         v-html="content"
       ></div>
 
       <!--Preview encuesta-->
 
-      <div class="poll-viewer ember-view post-page__poll-viewer" v-if="encuesta && preview">
+      <div class="poll-viewer ember-view post-page__poll-viewer" v-show="encuesta && preview">
         <header class="poll-viewer__header">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +354,7 @@
 
       <!--Preview encuesta-->
 
-      <div class="post-page__mode-tabs" v-if="preview == false">
+      <div class="post-page__mode-tabs" v-show="preview == false">
         <button
           class="mode-tabs__tab"
           :class="{ 'mode-tabs__tab--selected': tabSelected == 1 }"
@@ -401,13 +402,13 @@
 
       <client-only>
         <tinymce class="tinyEditor"  :disabled="disableAll"  
-        v-if="tabSelected == 2 && preview == false" id="d1" 
+        v-show="tabSelected == 2 && preview == false" id="d1" 
         v-model="content" :other_options="options"></tinymce>
       </client-only>
 
       <div
         class="post-page__link-nudge"
-        v-if="tabSelected == 1 && preview == false"
+        v-show="tabSelected == 1 && preview == false"
       >
         <p>Share a link to discuss with other indie hackers.</p>
       </div>
@@ -416,7 +417,7 @@
         rows="1"
         tabindex="8"
         placeholder="https://…"
-        v-if="tabSelected == 1 && preview == false"
+        v-show="tabSelected == 1 && preview == false"
         class="ember-text-area ember-auto-resize ember-view edit-post__link-field"
         style="height: 67.5px; overflow: hidden"
         v-model="contentLink"
@@ -426,7 +427,7 @@
       <div
         id="addEncuesta"
         class="post-page__inline-author edit-post__inline-author"
-        v-if="preview == false"
+        v-show="preview == false"
       >
         <div class="user-link ember-view">
           <nuxt-link
@@ -449,7 +450,7 @@
 
       <!--Encuestas-->
 
-      <div class="post-page__options-header" v-if="encuesta && preview == false">
+      <div class="post-page__options-header" v-show="encuesta && preview == false">
         <div class="options-header__title-and-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -480,7 +481,7 @@
       </div>
 
       <div
-        v-if="encuesta && preview == false"
+        v-show="encuesta && preview == false"
         class="poll-editor ember-view post-page__poll-editor post-options post-options--poll"
       >
         <div class="post-options__fieldset">
@@ -512,7 +513,7 @@
             ></textarea>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              v-if="opcionEncuesta.length > 2"
+              v-show="opcionEncuesta.length > 2"
               @click="reducirOpciones(index)"
               viewBox="0 0 24 24"
               id="ember116"
@@ -546,7 +547,7 @@
 
       <!--fin Encuestas-->
 
-      <div class="post-page__post-footer" v-if="preview">
+      <div class="post-page__post-footer" v-show="preview">
         <div class="post-page__inline-author">
           <div id="ember1037" class="user-link ember-view">
             <nuxt-link
@@ -568,7 +569,7 @@
         </div>
 
         <nuxt-link
-          v-if="selectGroupId > 0"
+          v-show="selectGroupId > 0"
           :to="{
             name: 'grupo-slug',
             params: { slug: groupSlug },
@@ -592,7 +593,7 @@
         </a>
       </div>
 
-      <div class="edit-post__group-guidelines" v-if="selectGroupId > 0 && preview==false">
+      <div class="edit-post__group-guidelines" v-show="selectGroupId > 0 && preview==false">
         <header>
           <picture id="ember725" class="group-icon ember-view">
             <img :src="iconSelectGroup" />
@@ -614,7 +615,7 @@
         <button
           class="post-page__preview-toggle"
           @click="previewPost(true)"
-          v-if="preview == false"
+          v-show="preview == false"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -632,7 +633,7 @@
 
         <button
           class="post-page__preview-toggle"
-          v-if="preview"
+          v-show="preview"
           @click="previewPost(false)"
         >
           <svg
@@ -655,6 +656,7 @@
 
 
   </div>
+</div>
 </template>
 
 <script>
@@ -670,8 +672,9 @@ export default {
                 language_url: '/es_MX.js',
                  font_formats: 'Montserrat', 
                   content_style:
-    "@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic'); body { font-family: Montserrat; }",
-            }, 
+    '@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");', 
+    content_css: "/css/csseditor.css"
+    }, 
       picked: '',
       tituloPost: "",
       tabSelected: 2,
@@ -812,6 +815,7 @@ export default {
      // console.log(val);
       this.preview = val;
      this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
+     console.log(this.content)
 
     },
 
