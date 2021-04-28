@@ -667,7 +667,10 @@ export default {
   data() {
     return {
         options: {
-                language_url: '/es_MX.js' //This url points to location of persian language file.
+                language_url: '/es_MX.js',
+                 font_formats: 'Montserrat', 
+                  content_style:
+    "@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic'); body { font-family: Montserrat; }",
             }, 
       picked: '',
       tituloPost: "",
@@ -742,19 +745,7 @@ export default {
       }
     },
 
-    tituloPost: function (value) {
-      console.log(value.length);
-      if (value.length > 0 && value.length < 43) {
-        document.getElementById("tituloPost").style.height = "75px";
-      }
-      if (value.length > 43 && value.length < 82) {
-        document.getElementById("tituloPost").style.height = "130px";
-      }
-
-      if (value.length > 118 && value.length < 140) {
-        document.getElementById("tituloPost").style.height = "200px";
-      }
-    },
+  
   },
   methods: {
     reducirOpciones(index) {

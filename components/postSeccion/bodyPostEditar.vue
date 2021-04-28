@@ -404,7 +404,7 @@
       <client-only>
         <tinymce class="tinyEditor"  :disabled="disableAll"  
         v-if="tabSelected == 2 && preview == false" id="d1" 
-        v-model="content" :other_options="options"></tinymce>
+        v-model="content" :other_options="options" ></tinymce>
       </client-only>
 
       <div
@@ -755,7 +755,8 @@ export default {
      staffpick: false, 
       rolUser: 'subscriber', 
       options: {
-                language_url: '/es_MX.js' //This url points to location of persian language file.
+                language_url: '/es_MX.js', 
+                font_formats: 'Montserrat'
             },  
     };
   },
