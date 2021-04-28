@@ -911,7 +911,7 @@ textarea.w-select {
   }
 }
 
-@media screen and (max-width:479px) {
+@media screen and (max-width:800px) {
   .w-container {
     max-width: none
   }
@@ -5671,11 +5671,7 @@ figcaption {
   font-weight: 700
 }
 
-.div-block-467 {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px
-}
+
 
 .image-19 {
   width: 24px;
@@ -6257,7 +6253,7 @@ figcaption {
   }
 }
 
-@media screen and (max-width:479px) {
+@media screen and (max-width:800px) {
   .rich-text {
     width: 100%;
     max-width: none

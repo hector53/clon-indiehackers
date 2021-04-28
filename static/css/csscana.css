@@ -2637,6 +2637,7 @@ input[type="button"] {
   border: 5px solid #bbb;
   border-radius: 1000px;
   width: 140px;
+  object-fit: cover;
 }
 
 .marginAuto {
@@ -3697,8 +3698,12 @@ html input[disabled] {
   height: 150px;
 }
 .div-block-448 {
-  position: relative;
-  margin-top: 20px;
+  position: sticky;
+  top: 20px;
+}
+.div-block-457{
+  position: sticky;
+    top: 20px;
 }
 
 iframe {

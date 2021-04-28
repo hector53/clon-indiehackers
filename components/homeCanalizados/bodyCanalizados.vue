@@ -1,30 +1,47 @@
 <template>
-<div class="container w-container">
-      <div class="div-block-455">
-        <div class="div-block-457">
+
+<div>
+
+
+<b-container >
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <b-row>
+    <b-col lg="2" >
+ <div class="div-block-457">
           <sidebar-left></sidebar-left>
         </div>
-        <div class="div-block-456">
-
-            <div class="columns-8 w-row">
-                <div class="w-col w-col-8">
-                       <seccion-discusion ></seccion-discusion>
+    </b-col>
+    <b-col  lg="10">
+          <b-row>
+               <b-col  lg="8">
+                      <seccion-discusion ></seccion-discusion>
                        <historias-destacadas></historias-destacadas>
-                       </div>
-                <div class="w-col w-col-4">
+               </b-col>
+
+                <b-col  lg="4">
  <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
            <sidebar-derecho :arrayPopulares="arrayPopulares" 
-              :labelRecomendados="labelRecomendados" :gruposRecomendados="gruposRecomendados"></sidebar-derecho>
-                </div>
-            </div>
+              :labelRecomendados="labelRecomendados" :gruposRecomendados="gruposRecomendados">
+              </sidebar-derecho>
+                </b-col>
+          </b-row>
+      
+    </b-col>
+  </b-row>
+
+</b-container>
 
 
 
 
 
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+</div>
+
 </template>
 
 
