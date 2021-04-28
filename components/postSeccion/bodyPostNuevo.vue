@@ -403,7 +403,7 @@
       <client-only>
         <tinymce class="tinyEditor"  :disabled="disableAll"  
         v-show="tabSelected == 2 && preview == false" id="d1" 
-        v-model="content" :other_options="options"></tinymce>
+        v-model="content"  :other_options="options"></tinymce>
       </client-only>
 
       <div
