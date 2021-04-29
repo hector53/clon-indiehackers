@@ -50,7 +50,9 @@ h6,
 .h6 {
   font-size: 0.50rem !important;
 }
-
+.card-title{
+  font-weight: bold;
+}
 .esStaffpick {
   margin-top: 30px;
 }
@@ -104,6 +106,7 @@ h6,
 .html-embed-4 {
 
   cursor: pointer;
+  margin-right: 0;
 }
 
 .imgPost {
@@ -1297,6 +1300,7 @@ h6,
   width: 100%;
   border: 0;
   box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+  outline: none;
 }
 
 .post-page__subheader--editing {
@@ -1856,6 +1860,7 @@ h6,
   color: #3e64db;
   font-size: 18px;
   padding: 18px 12px;
+  outline: none;
 }
 
 .group-selector .group-selector__groups {
@@ -3256,6 +3261,7 @@ label {
 
 .div-block-459 {
   justify-content: space-between;
+  display: flex;
 }
 
 .button-3 {
@@ -3727,7 +3733,36 @@ iframe {
 .post-page__comments{
   width: 100%;
 }
+
+.rowIndex{
+  border-bottom: 1px solid rgb(219, 219, 219);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.colIndex{
+  margin-left: -5px;
+}
+.h4Index{
+  text-align: left;
+}
+.votoIndex{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.imgIndex{
+  display: flex;
+  align-items: center;
+}
+.userIndex{
+  display: block;
+}
 @media screen and (max-width:991px) {
+  .userIndex{
+    display: none;
+  }
   .columnaDerechaIndex {
     display: contents;
   }
@@ -3759,5 +3794,12 @@ iframe {
   }
   .botonCanalizados{
     font-size: 11px;
+  }
+  .div-block-459 {
+    
+    display: flow-root;
+  }
+  .votoIndex{
+    justify-content: center;
   }
 }

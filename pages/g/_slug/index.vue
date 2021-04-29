@@ -27,7 +27,6 @@
             
             <img
               :src="item.avatar"
-              loading="lazy"
              
               alt=""
               class="image-10 first"
@@ -70,12 +69,20 @@ export default {
   components: { likeCanalizados },
   name: "grupo-slug-popular-index",
   layout: "grupoCanalizados",
- async asyncData({ params, store }) {
+ async asyncData({ params, store, redirect }) {
 
      const seoDetails = await axios.get(
       `https://acceso.canalizados.com/api/wp/v2/grupos/?slug=${params.slug}`
     );
+
+    console.log(seoDetails.data[0])
+  if(seoDetails.data[0] === undefined){
+
+    return redirect('/')
+
     
+  }else{
+
     const metaArray = [];
     
       seoDetails.data[0].yoast_meta.map(ele => {
@@ -87,7 +94,10 @@ export default {
       });
 //metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
 var tituloSeo = metaArray[2].content
-    return { SeoPost: metaArray, tituloSeo: tituloSeo};
+    return { SeoPost: metaArray, tituloSeo: tituloSeo}
+      
+  }
+    
   },
    head(){
     return {

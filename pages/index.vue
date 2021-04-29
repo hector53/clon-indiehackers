@@ -1,24 +1,15 @@
 <template>
   <div>
-    <div
-      class="div-block-419"
-      v-for="(item, index) in arrayPostHoy"
-      :key="index"
-    >
-     <like-canalizados :p="item.id" :votos="item.votos"></like-canalizados>
-     
-      <div class="div-block-421">
-        <div class="div-block-424">
-          <nuxt-link class="link-14"
-              :to="{
-                name: 'c-slug',
-                params: { slug: item.slug },
-              }"  
-            >{{item.titulo}}</nuxt-link
-          >
-        </div>
-        <div class="div-block-422">
-             <nuxt-link
+
+
+    <b-container>
+      <b-row  v-for="(item, index) in arrayPostHoy" class="rowIndex"
+      :key="index">
+          <b-col cols="1" lg="1" sm="1" xs="1" class="votoIndex" >
+<like-canalizados :p="item.id" :votos="item.votos"></like-canalizados>
+          </b-col>
+          <b-col cols="1" lg="1" sm="1" xs="1" class="imgIndex" >
+<nuxt-link
               :to="{
                 name: 'u-username',
                 params: { username: item.username },
@@ -35,13 +26,29 @@
               
           </div>
           </nuxt-link>
+          </b-col>
+          <b-col cols="10" lg="10" sm="10" xs="10" class="colIndex" >
+             <h4 class="h4Index">
+                <nuxt-link class="link-14"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.titulo}}</nuxt-link>
+             </h4>
+
+
+
+ <div class="div-block-422">
+           
            <nuxt-link
+           class="userIndex"
               :to="{
                 name: 'u-username',
                 params: { username: item.username },
               }" >
           <div class="text-block-7">{{item.username}}</div> </nuxt-link>
-          <div class="text-block-6">•</div>
+          <div class="text-block-6 userIndex ">•</div>
 
            <nuxt-link  class="text-block-7"
               :to="{
@@ -65,8 +72,16 @@
               }"  
             >{{item.fecha}}</nuxt-link>
         </div>
-      </div>
-    </div>
+
+
+
+
+          </b-col>
+      </b-row>
+    </b-container>
+
+
+    
 
                   <div class="div-block-434">
                     <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>

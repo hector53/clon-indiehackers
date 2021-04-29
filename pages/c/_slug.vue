@@ -63,13 +63,15 @@ export default {
   },
   name: "bodyPostCanalizados",
   layout: 'postCanalizados',
- async asyncData({ params, store }) {
+ async asyncData({ params, store, redirect }) {
 
      const seoDetails = await axios.get(
       `https://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
     );
-    
-    const metaArray = [];
+     if(seoDetails.data[0] === undefined){
+return redirect('/')
+     }else{
+ const metaArray = [];
     
       seoDetails.data[0].yoast_meta.map(ele => {
         metaArray.push({
@@ -88,6 +90,8 @@ var resultado3 = metaArray.findIndex( fruta => fruta.name === 'og:title' );
 
 var tituloSeo = metaArray[resultado3].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
+     }
+   
   },
 
     head(){

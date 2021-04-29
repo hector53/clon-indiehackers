@@ -182,11 +182,10 @@
           v-click-outside="selectGroupOut"
         >
           <input
-            name="rand-d8d6ed5133"
             placeholder="Search groups…"
             v-model="searchInput"
             class="ember-text-field ember-view group-selector__input"
-            type="text"
+            type="search"
           />
 
           <div class="group-selector__groups">

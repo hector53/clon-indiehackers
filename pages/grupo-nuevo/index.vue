@@ -7,7 +7,7 @@
             
           
             <input placeholder="Nombre del grupo" v-model="titulo"
-             maxlength="25" class="group-admin__input" 
+            class="group-admin__input" 
              type="text">
           </fieldset>
 
