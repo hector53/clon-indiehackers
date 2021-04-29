@@ -4070,7 +4070,6 @@ figcaption {
   display: inline-block;
   height: 100%;
   margin-left: -1.3em;
-  border: 2px solid #fff;
   border-radius: 100px;
   -webkit-transition: margin-left .2s;
   transition: margin-left .2s;

@@ -26,15 +26,25 @@
             <div
               class="div-block-420 pic-hover"
             >
-              <img
+            <nuxt-link 
+            style="width: 33px;
+    height: 33px;"
+     class="image-10"
+    
+                 :class="{'unaSola' : item.votos == 1, 'unaSola': item.users.length == index+1 }"
+             v-for="(img, index) in item.users" :key="index"   :to="{
+                name: 'u-username',
+                params: { username: img.username },
+              }">
+            <img
                
                 loading="lazy"
                 sizes="(max-width: 479px) 14vw, 33.0625px"
-                class="image-10"
-                v-for="(img, index) in item.users" :key="index"
                  :src="img.avatar"
-                 :class="{'unaSola' : item.votos == 1, 'unaSola': item.users.length == index+1 }"
+                class="imageUserIndex"
               />
+            </nuxt-link>
+              
             </div>
             <nuxt-link
               class="userIndex"

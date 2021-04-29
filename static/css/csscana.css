@@ -3770,8 +3770,12 @@ iframe {
 .unaSola{
   margin: 0;
 }
-.div-block-420:hover > img{
+.div-block-420:hover > a{
   margin-left: 0;
+}
+.imageUserIndex{
+  border: 2px solid #fff;
+  border-radius: 100px;
 }
 @media screen and (max-width:991px) {
   .userIndex{
