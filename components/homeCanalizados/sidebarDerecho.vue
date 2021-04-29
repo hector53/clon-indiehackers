@@ -1,7 +1,7 @@
 <template>
                 <div class="div-block-448">
                   
-    <div class="div-block-444" v-if="$store.state.cookieLogin">
+    <div class="div-block-444">
       <div class="div-block-447">
         <div class="html-embed-7 w-embed">
           <img

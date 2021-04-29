@@ -59,15 +59,29 @@ h6,
 
 .container {
   max-width: 1240px !important;
-  padding: 0 !important;
+}
+.seguidosUser{
+  text-align: left;
+}
+.imageSeguidosUser{
+  width: 32px;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    display: inline-block;
 }
 
+.imageSeguidosUser img{
+    border-radius: 20px;
+}
 .list-10 {
 
   display: inline-block !important;
 
 }
-
+.sidebarIndex{
+  margin-right: 0
+}
 .column-10 {
 
   display: grid !important;
@@ -92,8 +106,15 @@ h6,
   float: right;
   width: 44px;
   height: 44px;
+  border-radius: 100px;
 }
-
+.userStaffpick{
+  color: rgb(111, 111, 111) !important;
+    display: flex!important;
+}
+.userStaffpick span{
+  margin-left: 10px;
+}
 .link-inline {
   display: inline-block;
 }
@@ -3305,7 +3326,7 @@ label {
 
 .list-item-11 {
   margin-right: 10px;
-  padding: 5px 15px;
+  padding: 5px 10px;
   border-radius: 10px;
   background-color: rgba(62, 100, 219, .2);
   display: block;
@@ -3314,6 +3335,10 @@ label {
 
 .list-item-11 a {
   color: #3e64db !important;
+  font-size: 13px;
+}
+.list-item-15{
+  margin-left: 10px;
 }
 
 .user__content {
@@ -3776,6 +3801,9 @@ iframe {
 .imageUserIndex{
   border: 2px solid #fff;
   border-radius: 100px;
+}
+.user-notification__markdown-content p{
+  display: flex;
 }
 @media screen and (max-width:991px) {
   .userIndex{

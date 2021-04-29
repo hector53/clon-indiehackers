@@ -64,10 +64,10 @@
                     params: { username: item.username },
                   }"
                   class="ember-view"
-                  >{{ item.username }}</nuxt-link
+                  >{{ item.username }} &nbsp;</nuxt-link
                 >
                 <!---->
-                le gusta
+                le gusta &nbsp;
                 <nuxt-link
                   :to="{
                     name: 'c-slug',

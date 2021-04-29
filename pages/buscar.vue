@@ -68,7 +68,7 @@
 
       <div
         class="search-page__results"
-        v-if="q != '' && arrayBuscarPosts.length > 0"
+        v-if="q != '' "
       >
         <div class="search-page__results-header" v-show="tab == 0 || tab == 4">
           <h2 class="search-page__results-label">
@@ -151,8 +151,7 @@
         </div>
 
 
- <div
-          v-show="tab == 0 || tab == 4"
+ <div  v-show="tab == 0 || tab == 4"
           class="search-page__results-content search-page__results-content--discussions search-page__results-content--multi"
         >
           <div
@@ -783,7 +782,7 @@ export default {
     } else {
       this.q = this.$route.query.q;
     }
-
+    console.log(this.tab)
   },
 };
 </script>

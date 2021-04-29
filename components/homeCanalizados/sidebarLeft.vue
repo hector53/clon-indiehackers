@@ -1,5 +1,5 @@
 <template>
-  <div class="div-block-449">
+  <div class="div-block-449 ">
    <div class="div-block-467">
     <sidebar-opcion-post :idE="idE"
     :p="p" :idP="idP" :votos="votos"

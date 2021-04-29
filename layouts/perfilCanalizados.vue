@@ -27,21 +27,27 @@ export default {
     };
   },
    async fetch() {
-      await this.$axios
+   
+  },
+  methods: {
+       recargarDataUser(){
+       this.getDatosUser()
+      }, 
+
+    async  getDatosUser(){
+              this.arrayDataUser = {}
+           await this.$axios
         .$get("/perfil/getdatainicial?username=" + this.$route.params.username+"&token="+this.$store.state.tokenUser)
         .then((response) => {
             console.log(response)
             this.arrayDataUser = response
         });
-  },
-  methods: {
-       recargarDataUser(){
-        this.$fetch()
-      }, 
-
+      }
         
   },
   mounted() {
+    this.getDatosUser()
+
   },
 };
 </script>
