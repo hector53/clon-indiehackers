@@ -101,10 +101,6 @@ a{
     border-color: #3e64db;
     color: #3e64db;
 }
-.div-block-420{
-    width: 33px;
-    display: -webkit-inline-box;
-}
 
 .text-block-9 {
     display: inline-block;

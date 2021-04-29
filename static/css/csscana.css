@@ -3759,6 +3759,20 @@ iframe {
 .userIndex{
   display: block;
 }
+.picHover{
+  margin-left: 0px;
+}
+.imgComment{
+  width: 15px;
+    display: inline-block;
+    margin-top: -5px;
+}
+.unaSola{
+  margin: 0;
+}
+.div-block-420:hover > img{
+  margin-left: 0;
+}
 @media screen and (max-width:991px) {
   .userIndex{
     display: none;
