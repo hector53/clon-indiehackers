@@ -19,7 +19,7 @@
                </b-col>
 
                 <b-col  lg="4">
- <columna-derecha-discusion :msjBienvenidaInit="msjBienvenida" :arrayPopulares="arrayPopulares"></columna-derecha-discusion>
+            <columna-derecha-discusion :arraySidebar="arraySidebar" :msjBienvenidaInit="msjBienvenida" ></columna-derecha-discusion>
            <sidebar-derecho :arrayPopulares="arrayPopulares" 
               :labelRecomendados="labelRecomendados" :gruposRecomendados="gruposRecomendados">
               </sidebar-derecho>
@@ -61,8 +61,9 @@ export default {
         return {
             arrayPopulares :  [], 
               gruposRecomendados: [], 
+              arraySidebar: [],
         labelRecomendados: 'Tus Grupos', 
-        msjBienvenida: false
+        msjBienvenida: false, 
         }
     },
     methods: {
@@ -104,13 +105,25 @@ export default {
       
         });
 
+      }, 
+
+         async   getSidebarDerecho(){
+
+      await this.$axios
+        .$get("/getpost/sidebarderecho/")
+        .then((response) => {
+              this.arraySidebar = response
+        });
+
       }
     },
      async fetch() {
   },
     mounted() {
+      this.getSidebarDerecho()
        this.getDatos()
       this.getGrupos()
+      
     },
 }
 </script>
