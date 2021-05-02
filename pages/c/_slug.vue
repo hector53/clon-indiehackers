@@ -1,27 +1,36 @@
 <template>
 <div>
+
+
+
+
 <loader v-if="loader"></loader>
 
- 
-  <div class="container w-container"  v-if="loader==false">
-    <div class="div-block-455">
-      <div class="div-block-457">
-        <sidebar-left :idE="idE" :p="p" :idP="idP" :votos="votos" v-if="votos"
-         :favPost="favPost" :cantidadComentarios="cantidadComentarios" ></sidebar-left>
-         
-      </div>
-      <div class="div-block-456">
-        <div class="section-4">
-          <div class="columns-3 w-row">
-            <div class="column-4 w-col w-col-8">
+<b-container v-else >
+  
 
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <b-row>
+    <b-col lg="2" >
+ <div class="div-block-457">
+           <sidebar-left :idE="idE" :p="p" :idP="idP" :votos="votos" v-if="votos"
+         :favPost="favPost" :cantidadComentarios="cantidadComentarios" ></sidebar-left>
+        </div>
+    </b-col>
+    <b-col  lg="10">
+          <b-row>
+               <b-col  lg="8">
+                   
                <loader v-show="loader"></loader>
                     <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl"  :arrayPost="arrayPost" v-if="arrayPost"
                     :arrayTrend="arrayTrend" @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
-            </div>
-            <div class="column-5 w-col w-col-4">
-              <div class="div-block-448">
+
+                    
+               </b-col>
+
+                <b-col  lg="4">
+       <div class="div-block-448">
               <follow-seccion :p="p" :avatar="arrayPost[0].avatar" :username="arrayPost[0].username"></follow-seccion>
                  <mas-populares></mas-populares>
                 <grupos-recomendados></grupos-recomendados>
@@ -31,12 +40,19 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                </b-col>
+          </b-row>
+      
+    </b-col>
+  </b-row>
+
+</b-container>
+
+
+
+
+
+
   </div>
 </template>
 

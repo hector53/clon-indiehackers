@@ -2,15 +2,23 @@
   <div>
     <header-canalizados></header-canalizados>
 
-<div class="container w-container">
-    <div class="div-block-455">
-      <sidebar-left></sidebar-left>
-      <div class="div-block-456">
+
+<b-container >
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <b-row>
+    <b-col lg="2" >
+          <sidebar-left></sidebar-left>
+    </b-col>
+    <b-col  lg="10">
            <Nuxt  />
-      </div>
-           
-    </div>
-</div>
+
+    </b-col>
+
+  </b-row>
+
+
+</b-container>
+
 
 
    

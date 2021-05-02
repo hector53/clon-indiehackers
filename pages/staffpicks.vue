@@ -94,7 +94,7 @@ export default {
       
 
   await this.$axios
-        .$get("/getpost/getnoticias")
+        .$get("/getpost/getnoticias?p=20")
         .then((response) => {
           console.log(response)
           this.arrayNoticias = response
