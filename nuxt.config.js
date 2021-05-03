@@ -1,3 +1,4 @@
+const axios = require('axios')
 export default {
  /* server: {
     port: 8000 // default: 3000
@@ -63,6 +64,7 @@ export default {
     'nuxt-sweetalert2', 
     'bootstrap-vue/nuxt',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/sitemap',
     [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
@@ -97,6 +99,47 @@ export default {
   baseURL: 'https://acceso.canalizados.com/api',
     proxyHeaders: true,
     credentials: true
+  },
+
+
+
+  sitemap: {
+    path: 'sitemap.xml',
+    lastmod: new Date(),
+    exclude: [
+      '/**'
+    ],
+    sitemaps: [
+      {
+        path: '/sitemap-paginas.xml',
+        exclude: ['/producto', '/producto-nuevo', '/g', '/grupo-nuevo']
+      }, , 
+      {
+        path: '/sitemap-posts.xml',
+        routes: async () => {
+          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/posts/')
+          return data.map((post) => `/c/${post.slug}`)
+        },
+        exclude: ['/**']
+      }, 
+
+      {
+        path: '/sitemap-grupos.xml',
+        routes: async () => {
+          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/grupos/')
+          return data.map((post) => `/c/${post.slug}`)
+        },
+        exclude: ['/**']
+      }, 
+      {
+        path: '/sitemap-productos.xml',
+        routes: async () => {
+          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/producto/')
+          return data.map((post) => `/c/${post.slug}`)
+        },
+        exclude: ['/**']
+      }, 
+    ]
   },
 
   
