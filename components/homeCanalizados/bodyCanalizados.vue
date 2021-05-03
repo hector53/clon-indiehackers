@@ -15,13 +15,18 @@
           <b-row>
                <b-col  lg="8">
                       <seccion-discusion ></seccion-discusion>
-                       <historias-destacadas></historias-destacadas>
+                     <LazyHydrate  when-visible>   <historias-destacadas></historias-destacadas>
+                      </LazyHydrate>
                </b-col>
 
                 <b-col  lg="4">
-            <columna-derecha-discusion  :msjBienvenidaInit="msjBienvenida" ></columna-derecha-discusion>
+                   <LazyHydrate  when-visible>
+      <columna-derecha-discusion  :msjBienvenidaInit="msjBienvenida" ></columna-derecha-discusion>
+            </LazyHydrate>
+            <LazyHydrate  when-visible>
            <sidebar-derecho >
               </sidebar-derecho>
+               </LazyHydrate>
                 </b-col>
           </b-row>
       
@@ -51,9 +56,10 @@ import SeccionDiscusion from './seccionDiscusion.vue'
 import SidebarDerecho from './sidebarDerecho.vue'
 import sidebarLeft from './sidebarLeft.vue'
 import UsuariosDestacados from './usuariosDestacados.vue'
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
-  components: { sidebarLeft, SeccionDiscusion, ColumnaDerechaDiscusion, UsuariosDestacados, HistoriasDestacadas, SidebarDerecho },
+  components: { sidebarLeft, LazyHydrate, SeccionDiscusion, ColumnaDerechaDiscusion, UsuariosDestacados, HistoriasDestacadas, SidebarDerecho },
     name: "bodyCanalizados", 
     
     data() {

@@ -91,6 +91,7 @@ export const mutations = {
 
 export const actions = {
     nuxtServerInit({ commit }, { req }) {
+      console.log(req._parsedOriginalUrl.path)
       if (process.server && process.static) return;
       if (!req.headers.cookie) return;
   

@@ -17,7 +17,7 @@
             </h3>
 
             <div class="div-block-426">
-              <div class="div-block-431">
+              <div class="div-block-431" v-if="item.slugGrupo != ''">
                 <nuxt-link
                   :to="{ name: 'g-slug', params: { slug: item.slugGrupo } }"
                   class="link-17"

@@ -236,7 +236,9 @@ export default {
       
      },
   mounted() {
+        if(this.$store.state.cookieLogin){
       this.getsiVote()
+        }
   },
 };
 </script>
