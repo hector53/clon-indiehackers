@@ -65,13 +65,13 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap',
-    [
+   /* [
       '@miyaoka/nuxt-twitter-widgets-module',
       {
         directiveName: 'twitter-widgets',
         scriptUrl: '//platform.twitter.com/widgets.js'
       }
-    ], 
+    ], */
   
     
   ],
