@@ -97,18 +97,30 @@
 <script>
 export default {
   name: "columnaDerechaDiscusion",
-  props: [ "msjBienvenidaInit", "arraySidebar"],
+  props: [ "msjBienvenidaInit", ],
   data() {
     return {
       msjBienvenida: this.msjBienvenidaInit,
+      arraySidebar: []
     };
   },
   methods: {
+      async   getSidebarDerecho(){
+
+      await this.$axios
+        .$get("/getpost/sidebarderecho/")
+        .then((response) => {
+              this.arraySidebar = response
+        });
+
+      },
     cerrarBienvenida() {
       this.$cookies.remove("registro_nuevo");
       this.msjBienvenida = false;
     },
   },
-  mounted() {},
+  async mounted() {
+    this.getSidebarDerecho()
+  },
 };
 </script>

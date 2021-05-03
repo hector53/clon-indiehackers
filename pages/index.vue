@@ -113,19 +113,17 @@ export default {
     };
   },
   methods: {
-    async getPost() {
-      console.log(this.$store.state.emailU);
-      await this.$axios
+  
+  },
+  async fetch() {
+    await this.$axios
         .$get("/getpost/hoy/?filtro=semanal")
         .then((response) => {
           console.log(response);
           this.arrayPostHoy = response.posts;
         });
-    },
   },
-  async fetch() {},
   mounted() {
-    this.getPost();
   },
 };
 </script>

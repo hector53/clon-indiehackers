@@ -220,11 +220,14 @@ export default {
   },
   methods: {
     async getCountNotify() {
-      await this.$axios
+      if(this.$store.state.cookieLogin){
+          await this.$axios
         .$get("/perfil/getcountnotify?p=" + this.$store.state.p)
         .then((response) => {
           this.$store.commit("setnotifyCount", response);
         });
+      }
+    
     },
     cerrarSesion() {
       this.$cookies.remove("access_token_");
