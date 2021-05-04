@@ -3842,6 +3842,9 @@ iframe {
     font-size: 11px;
     padding: 5px;
   }
+  .homeDiscusion{
+    min-height: 600px;
+  }
   .div-block-459 {
     
     display: flow-root;
