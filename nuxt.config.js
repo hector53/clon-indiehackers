@@ -41,13 +41,14 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-  //  { src: "~/plugins/bootstrap-vue", ssr: false }, 
-    { src: "~/plugins/editortiny", ssr: false }, 
+    //{ src: "~/plugins/bootstrap-vue", ssr: true }, 
+  //  { src: "~/plugins/editortiny", ssr: false }, 
     
     
 
   ],
 
+  
   // Auto import components: https://go.nuxtjs.dev/config-components
   //components: true,
 
@@ -75,7 +76,13 @@ export default {
   
     
   ],
-
+  bootstrapVue: {
+    componentPlugins: [
+      'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
+      'FormDatepickerPlugin'
+    ],
+    directivePlugins: []
+  },
   googleAnalytics: {
     id: 'UA-121959606-1'
   },
@@ -159,7 +166,7 @@ export default {
     }
   },
 
- // analyze: true,
+ analyze: true,
    
   }
 }
