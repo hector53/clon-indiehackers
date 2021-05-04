@@ -106,13 +106,7 @@ export default {
   components: { likeCanalizados },
   name: "index",
   layout: "homeCanalizados",
-  async asyncData({ store, app }) {
-    console.log(app)
-     const datosIndex = await app.$axios.$get(
-    "/getpost/index?token="+store.tokenUser
-    );
-    store.commit('SetindexObj', datosIndex);
-  },
+
   data() {
     return {
       arrayPostHoy: [],

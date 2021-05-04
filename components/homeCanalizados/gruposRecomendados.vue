@@ -32,22 +32,38 @@ export default {
     name: "gruposRecomendados", 
     data() {
         return {
-          gruposRecomendados:  this.$store.state.indexObj.grupos.grupos,  
+          gruposRecomendados: [], 
         labelRecomendados: 'Tus Grupos', 
         }
     },
     methods: {
 
-    
-      
-    },
-    mounted() {
-   if(this.$store.state.indexObj.grupos.status == 2){
+          async   getGrupos(){
+
+      await this.$axios
+        .$get("/grupos/recomendados/?token="+this.$store.state.tokenUser)
+        .then((response) => {
+         console.log(response)
+          if(response.status > 0){
+            if(response.status == 2){
                 this.labelRecomendados = 'Grupos Recomendados'
             }
-            if(this.$store.state.indexObj.grupos.status == 1){
+            if(response.status == 1){
                 this.labelRecomendados = 'Tus Grupos'
             }
+              this.gruposRecomendados =  response.grupos
+              
+                //     this.$store.commit('setLoader', false);
+              /// console.log("test loader", this.$store.state.loader)
+          }
+      
+        });
+
+      }
+      
+    },
+  async  mounted() {
+      this.getGrupos()
 
     },
 }
