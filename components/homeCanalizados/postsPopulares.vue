@@ -1,5 +1,5 @@
 <template>
-          <div class="div-block-444">
+          <div class="div-block-444" >
       <div class="div-block-447">
         <div class="html-embed-7 w-embed">
           <img
@@ -62,29 +62,16 @@ export default {
     name: "postPopulares", 
     data() {
         return {
-            arrayPopulares :  [], 
+            arrayPopulares :  this.$store.state.indexObj.populares, 
         }
     },
     methods: {
 
-         async getDatos(){
-
-     await this.$axios
-          .$get("/getpost/populares/")
-          .then((response) => {
-        //  console.log(response)
-          this.arrayPopulares =  response
-          });
-
-       /*    var cookieRegistro = this.$cookies.get("registro_nuevo");
-           if(cookieRegistro){
-              this.msjBienvenida = true
-           }*/
-      }
+     
       
     },
-  async  mounted() {
-      this.getDatos()
+    mounted() {
+ 
 
     },
 }

@@ -103,17 +103,12 @@ export default {
   name: "historiasDestacadas",
   data() {
     return {
-      arrayNoticias: [],
+      arrayNoticias: this.$store.state.indexObj.noticias,
       btnVerMas: false
     };
   },
   async fetch() {},
-  async mounted() {
-    await this.$axios.$get("/getpost/getnoticias").then((response) => {
-      console.log(response);
-      this.arrayNoticias = response;
-      this.btnVerMas = true
-    });
+   mounted() {
   },
 };
 </script>

@@ -106,6 +106,13 @@ export default {
   components: { likeCanalizados },
   name: "index",
   layout: "homeCanalizados",
+  async asyncData({ store, app }) {
+    console.log(app)
+     const datosIndex = await app.$axios.$get(
+    "/getpost/index?token="+store.tokenUser
+    );
+    store.commit('SetindexObj', datosIndex);
+  },
   data() {
     return {
       arrayPostHoy: [],
@@ -116,12 +123,13 @@ export default {
   
   },
   async fetch() {
-    await this.$axios
-        .$get("/getpost/hoy/?filtro=semanal")
-        .then((response) => {
-          console.log(response);
-          this.arrayPostHoy = response.posts;
-        });
+          await this.$axios.$get("/getpost/hoy/?filtro=hoy").then((response) => {
+      console.log(response);
+     
+  this.arrayPostHoy = response.posts;
+      
+    
+    });
   },
   mounted() {
   },

@@ -19,6 +19,7 @@ export const state = () => ({
  bio: '',
  loader: true,
  notifyCount: 0,
+ indexObj: {},
  Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
 'Octubre', 'Noviembre', 'Diciembre' ], 
 
@@ -32,6 +33,9 @@ export const getters = {
 }
 
 export const mutations = {
+  SetindexObj(state, val){
+    state.indexObj = val;
+  }, 
   setLoader(state, val){
     state.loader = val;
   }, 
@@ -90,8 +94,15 @@ export const mutations = {
 
 
 export const actions = {
-    nuxtServerInit({ commit }, { req }) {
-      console.log(req._parsedOriginalUrl.path)
+ async   nuxtServerInit({ commit }, { req }) {
+ /*    if(req._parsedOriginalUrl.path=='/'){
+      await     this.$axios.$get("https://acceso.canalizados.com/api/getpost/index")
+      .then(response =>{
+        commit("SetindexObj", response );
+      })
+     }
+*/
+
       if (process.server && process.static) return;
       if (!req.headers.cookie) return;
   
@@ -148,6 +159,10 @@ export const actions = {
       
 
 
-    }
+    }, 
+
+
+
+    
   };
 
