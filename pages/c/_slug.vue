@@ -142,6 +142,12 @@ var tituloSeo = metaArray[resultado3].content
   },
   watch: {},
   async fetch() {
+  },
+  methods: {
+
+      async getpost(){
+
+        
     
           
            
@@ -171,10 +177,6 @@ var tituloSeo = metaArray[resultado3].content
         }
       });     
     
-  },
-  methods: {
-
-      async getpost(){
 
       },
 
@@ -196,7 +198,7 @@ var tituloSeo = metaArray[resultado3].content
   beforeMount() {
   },
   mounted() {
-   
+   this.getpost()
   },
 
 };
