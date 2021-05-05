@@ -33,20 +33,20 @@ export default {
  
         metaArray.push(
           {hid: 'description',     name: 'description', content: response.data.producto[0].descripcionCorta },
-          { property: 'og:locale', content: 'es_ES' },
-          { property: 'og:type', content: 'article' },
-          { property: 'og:title', content: response.data.producto[0].nombreProducto+' - Canalizados' },
-          { property: 'og:description', content: response.data.producto[0].descripcionCorta },
-          { property: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
+          {hid: 'og:locale',   property: 'og:locale', content: 'es_ES' },
+          {hid: 'og:type',   property: 'og:type', content: 'article' },
+          {hid: 'og:title',   property: 'og:title', content: response.data.producto[0].nombreProducto+' - Canalizados' },
+          {hid: 'og:description',   property: 'og:description', content: response.data.producto[0].descripcionCorta },
+          {hid: 'og:url',   property: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
 
-          { property: 'og:site_name', content: 'Canalizados' },
+          {hid: 'og:site_name',   property: 'og:site_name', content: 'Canalizados' },
 
-          { property: 'og:image', content: response.data.producto[0].imagen },
+          {hid: 'og:image',   property: 'og:image', content: response.data.producto[0].imagen },
 
-          { property: 'og:image:width', content: '1200' },
-          { property: 'og:image:height', content: '630' },
+          {hid: 'og:image:width',   property: 'og:image:width', content: '1200' },
+          {hid: 'og:image:height',   property: 'og:image:height', content: '630' },
 
-          { name: 'twitter:card', content: 'summary_large_image' },
+          {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
          
          
          
