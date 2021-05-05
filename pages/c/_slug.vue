@@ -4,13 +4,14 @@
 
 
 
-<loader v-if="loader"></loader>
 
-<b-container v-else >
+
+<b-container  >
   
 
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <b-row>
+  <loader v-if="loader"></loader>
+  <b-row v-else>
     <b-col lg="2" >
  <div class="div-block-457">
            <sidebar-left :idE="idE" :p="p" :idP="idP" :votos="votos" v-if="votos"
@@ -22,7 +23,7 @@
                <b-col  lg="8">
                    
                
-                    <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl" 
+                    <post-slug-canalizados  :previewUrl="previewUrl" 
                      :arrayPost="arrayPost" v-if="arrayPost"
                    @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
@@ -67,9 +68,7 @@ import SidebarLeft from '~/components/homeCanalizados/sidebarLeft.vue';
 import Loader from '~/components/loader/loader.vue';
 import FollowSeccion from '~/components/postSeccion/followSeccion.vue';
 import GruposRecomendados from '~/components/postSeccion/gruposRecomendados.vue';
-import MasPopulares from '~/components/postSeccion/masPopulares.vue';
 import PostSlugCanalizados from '~/components/postSeccion/postSlugCanalizados.vue';
-import axios from 'axios'
 import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
@@ -78,38 +77,31 @@ export default {
     PostSlugCanalizados,
     Loader,
     FollowSeccion,
-    MasPopulares,
     GruposRecomendados,
-    LazyHydrate
-
+    LazyHydrate,
+ MasPopulares: () => import('~/components/postSeccion/masPopulares.vue'),
   },
   name: "bodyPostCanalizados",
   layout: 'postCanalizados',
- async asyncData({ params, store, redirect }) {
+ async asyncData({ params, store, redirect, app }) {
 
-     const seoDetails = await axios.get(
-      `https://acceso.canalizados.com/api/wp/v2/posts/?slug=${params.slug}`
+     const seoDetails = await app.$axios.$get(
+      'https://acceso.canalizados.com/api/wp/v2/posts/?slug='+params.slug
     );
-     if(seoDetails.data[0] === undefined){
+     if(seoDetails[0] === undefined){
 return redirect('/')
      }else{
  const metaArray = [];
-    
-      seoDetails.data[0].yoast_meta.map(ele => {
+      seoDetails[0].yoast_meta.map(ele => {
         metaArray.push({
          hid: ele.name ? ele.name : ele.property,
           name: ele.name ? ele.name : ele.property,
           content: ele.content,
         });
       });
-
-
-
 var resultado2 = metaArray.findIndex( fruta => fruta.name === 'og:url' );
-
 metaArray[resultado2].content = metaArray[resultado2].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
 var resultado3 = metaArray.findIndex( fruta => fruta.name === 'og:title' );
-
 var tituloSeo = metaArray[resultado3].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
      }
@@ -141,12 +133,12 @@ var tituloSeo = metaArray[resultado3].content
     };
   },
   watch: {},
-  async fetch() {
+  async fetch() {   
+    
   },
   methods: {
 
       async getpost(){
-
         
     
           
@@ -168,15 +160,14 @@ var tituloSeo = metaArray[resultado3].content
              this.favPost = response.post[0].fav
              this.cantidadComentarios = response.post[0].cantCommentarios
         //     console.log("votos", this.votos)
-             this.loader = false
+      
           //   console.log(response.previewUrl)
              this.previewUrl = response.previewUrl
                this.idE = response.post[0].idE
          //    console.log("idE", this.idE)
-         this.loader = false
+        this.loader = false
         }
-      });     
-    
+      });  
 
       },
 

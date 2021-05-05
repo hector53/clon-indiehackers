@@ -1,7 +1,7 @@
 <template>
   <div class="container w-container">
     <div class="div-block-455">
-      <sidebar-left></sidebar-left>
+      <sidebar-left  style="    margin-right: 50px;"></sidebar-left>
       <div class="div-block-456">
         <div class="section-5">
           <div class="div-block-433">
@@ -143,7 +143,7 @@
                   <div class="div-block-461">
                     <p>{{ arrayProducto[0].motivacion }}</p>
                   </div>
-                  <div class="div-block-461">
+                  <div class="div-block-461" v-if="arrayProducto[0].fundador>0">
                     <div class="text-block-31">Fundador</div>
 
                     <div class="seeProduct">
