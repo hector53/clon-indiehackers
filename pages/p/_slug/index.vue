@@ -33,22 +33,20 @@ export default {
  
         metaArray.push(
           {hid: 'description',     name: 'description', content: response.data.producto[0].descripcionCorta },
-          {hid: 'og:locale',   name: 'og:locale', content: 'es_ES' },
-          {hid: 'og:type',   name: 'og:type', content: 'article' },
-          {hid: 'og:title',   name: 'og:title', content: response.data.producto[0].nombreProducto+' - Canalizados' },
-          {hid: 'og:description',   name: 'og:description', content: response.data.producto[0].descripcionCorta },
-          {hid: 'og:url',   name: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
-
-          {hid: 'og:site_name',   name: 'og:site_name', content: 'Canalizados' },
-
-          {hid: 'og:image',   name: 'og:image', content: response.data.producto[0].imagen },
-
+          {hid: 'og:locale',   property: 'og:locale', content: 'es_ES' },
+          {hid: 'og:type',   property: 'og:type', content: 'website' },
+            {hid: 'og:url',   property: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
+          {hid: 'og:title',   property: 'og:title', content: response.data.producto[0].nombreProducto+' - Canalizados' },
+          {hid: 'og:description',   property: 'og:description', content: response.data.producto[0].descripcionCorta },
+            {hid: 'og:image',   property: 'og:image', content: response.data.producto[0].imagen },
           {hid: 'og:image:width',   name: 'og:image:width', content: '1200' },
           {hid: 'og:image:height',   name: 'og:image:height', content: '630' },
 
-          {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-         
-         
+          {hid: 'twitter:card', property: 'twitter:card', content: 'summary_large_image' },
+          {hid: 'twitter:url', property: 'twitter:url', content:  'https://canalizados.com/p/'+params.slug },
+         {hid: 'twitter:title', property: 'twitter:title', content:  response.data.producto[0].nombreProducto+' - Canalizados' },
+          {hid: 'twitter:description', property: 'twitter:description', content:  response.data.producto[0].descripcionCorta  },
+          {hid: 'twitter:image', property: 'twitter:image', content:  response.data.producto[0].imagen },
          
          );
       
