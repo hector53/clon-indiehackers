@@ -28,7 +28,7 @@ export default {
         return redirect('/')
       }else{
 
-        var tituloSeo = response.data.producto[0].nombreProducto
+        var tituloSeo = response.data.producto[0].nombreProducto+' - Canalizados'
          const metaArray = [];
  
         metaArray.push(
