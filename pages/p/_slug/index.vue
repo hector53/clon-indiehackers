@@ -33,18 +33,18 @@ export default {
  
         metaArray.push(
           {hid: 'description',     name: 'description', content: response.data.producto[0].descripcionCorta },
-          { name: 'og:locale', content: 'es_ES' },
-          { name: 'og:type', content: 'article' },
-          { name: 'og:title', content: response.data.producto[0].nombreProducto },
-          { name: 'og:description', content: response.data.producto[0].descripcionCorta },
-          { name: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
+          { property: 'og:locale', content: 'es_ES' },
+          { property: 'og:type', content: 'article' },
+          { property: 'og:title', content: response.data.producto[0].nombreProducto },
+          { property: 'og:description', content: response.data.producto[0].descripcionCorta },
+          { property: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
 
-          { name: 'og:site_name', content: 'Canalizados' },
+          { property: 'og:site_name', content: 'Canalizados' },
 
-          { name: 'og:image', content: response.data.producto[0].imagen },
+          { property: 'og:image', content: response.data.producto[0].imagen },
 
-          { name: 'og:image:width', content: '1520' },
-          { name: 'og:image:height', content: '800' },
+          { property: 'og:image:width', content: '800' },
+          { property: 'og:image:height', content: '600' },
 
           { name: 'twitter:card', content: 'summary_large_image' },
          
@@ -61,6 +61,12 @@ export default {
     return {
       title: this.tituloSeo,
             meta: this.SeoPost, 
+            link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/p/' + this.$route.params.slug
+        }
+      ]
      
     }
   },
