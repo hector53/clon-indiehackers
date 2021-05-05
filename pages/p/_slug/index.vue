@@ -35,7 +35,7 @@ export default {
           {hid: 'description',     name: 'description', content: response.data.producto[0].descripcionCorta },
           { property: 'og:locale', content: 'es_ES' },
           { property: 'og:type', content: 'article' },
-          { property: 'og:title', content: response.data.producto[0].nombreProducto },
+          { property: 'og:title', content: response.data.producto[0].nombreProducto+' - Canalizados' },
           { property: 'og:description', content: response.data.producto[0].descripcionCorta },
           { property: 'og:url', content: 'https://canalizados.com/p/'+params.slug },
 
@@ -43,8 +43,8 @@ export default {
 
           { property: 'og:image', content: response.data.producto[0].imagen },
 
-          { property: 'og:image:width', content: '800' },
-          { property: 'og:image:height', content: '600' },
+          { property: 'og:image:width', content: '1200' },
+          { property: 'og:image:height', content: '630' },
 
           { name: 'twitter:card', content: 'summary_large_image' },
          
