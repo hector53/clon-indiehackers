@@ -402,9 +402,34 @@
       </div>
 
       <client-only>
-        <tinymce class="tinyEditor"  :disabled="disableAll"  
-        v-show="tabSelected == 2 && preview == false" id="d1" 
-        v-model="content" :other_options="options" ></tinymce>
+         <Editor
+          :disabled="disableAll"  
+        v-show="tabSelected == 2 && preview == false" 
+        v-model="content"
+       api-key="idqg8ff4sgvmj2hgpcq8f8j5rp3zf2kt238cppa5qi2glwv3"
+       :init="{
+         height: 500,
+         menubar: false,
+          language_url: '/es_MX.js',
+                 font_formats: 'Montserrat', 
+                  content_style:
+    '@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);', 
+    content_css: '/css/csseditor.css',
+         plugins: [
+           'advlist autolink lists link image charmap print preview anchor',
+           'searchreplace visualblocks code fullscreen',
+           'insertdatetime media table paste code help wordcount'
+         ],
+         toolbar:
+           'undo redo | formatselect | bold italic backcolor | \
+           alignleft aligncenter alignright alignjustify | \
+           bullist numlist outdent indent | removeformat | forecolor backcolor casechange | \
+           image media link codesample |  pagebreak | charmap emoticons | fullscreen  preview |  ', 
+           
+       }"
+     />
+
+     
       </client-only>
 
       <div

@@ -15,13 +15,14 @@
           <b-row>
                <b-col  lg="8">
                       <seccion-discusion ></seccion-discusion>
-                     <LazyHydrate  when-visible>   <historias-destacadas></historias-destacadas>
+                     <LazyHydrate  when-visible>  
+                        <historias-destacadas ref="historiasDes"></historias-destacadas>
                       </LazyHydrate>
                </b-col>
 
                 <b-col  lg="4">
-                   <LazyHydrate  when-visible>
-      <columna-derecha-discusion  :msjBienvenidaInit="msjBienvenida" ></columna-derecha-discusion>
+                   <LazyHydrate  when-visible >
+      <columna-derecha-discusion ref="columDere"  :msjBienvenidaInit="msjBienvenida" ></columna-derecha-discusion>
             </LazyHydrate>
             <LazyHydrate  when-visible>
            <sidebar-derecho >

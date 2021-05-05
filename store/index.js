@@ -20,6 +20,7 @@ export const state = () => ({
  loader: true,
  notifyCount: 0,
  indexObj: {},
+ indexData: false,
  Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
 'Octubre', 'Noviembre', 'Diciembre' ], 
 
@@ -35,6 +36,7 @@ export const getters = {
 export const mutations = {
   SetindexObj(state, val){
     state.indexObj = val;
+    state.indexData = true;
   }, 
   setLoader(state, val){
     state.loader = val;
