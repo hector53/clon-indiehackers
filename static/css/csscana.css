@@ -3815,6 +3815,15 @@ iframe {
   margin-top: -10px;
   margin-right: 10px;
 }
+.seeProduct p{
+  font-weight: 600;
+  width: 100%;
+}
+.seeProduct a{
+  text-align: center;
+    margin-top: 20px;
+    color: #3e64db!important;
+}
 @media screen and (max-width:991px) {
   .userIndex{
     display: none;

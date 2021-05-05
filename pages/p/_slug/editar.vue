@@ -540,7 +540,7 @@ this.$swal({
 }).then((result) => {
   console.log(result)
   if (result.value) {
-      this.$router.push({name: 'producto-slug', params: {slug: this.$route.params.slug } })
+      this.$router.push({name: 'p-slug', params: {slug: this.$route.params.slug } })
   }
 })
 

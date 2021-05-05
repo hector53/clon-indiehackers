@@ -37,7 +37,7 @@
                   <nuxt-link
                     v-if="arrayProducto[0].d == 1"
                     :to="{
-                      name: 'producto-slug-editar',
+                      name: 'p-slug-editar',
                       params: { slug: $route.params.slug },
                     }"
                     class="ember-view user-header__header-button user-header__header-button--edit"
@@ -72,9 +72,9 @@
               <li>
                 <nuxt-link
                   class="list-item-13"
-                  :class="{ activeTabPerfil: $route.name == 'producto-slug' }"
+                  :class="{ activeTabPerfil: $route.name == 'p-slug' }"
                   :to="{
-                    name: 'producto-slug',
+                    name: 'p-slug',
                     params: { slug: $route.params.slug },
                   }"
                 >
@@ -85,10 +85,10 @@
                 <nuxt-link
                   class="list-item-13"
                   :class="{
-                    activeTabPerfil: $route.name == 'producto-slug-seguidores',
+                    activeTabPerfil: $route.name == 'p-slug-seguidores',
                   }"
                   :to="{
-                    name: 'producto-slug-seguidores',
+                    name: 'p-slug-seguidores',
                     params: { slug: $route.params.slug },
                   }"
                   ><div>Seguidores ({{ seguidores }})</div></nuxt-link
@@ -141,9 +141,9 @@
                   </div>
 
                   <div class="div-block-461">
-                    <p>{{ arrayProducto[0].motivacion }}</p>
+                    <p v-html="arrayProducto[0].motivacion"></p>
                   </div>
-                  <div class="div-block-461" v-if="arrayProducto[0].fundador>0">
+                  <div class="div-block-461" v-if="arrayProducto[0].fundador!=0">
                     <div class="text-block-31">Fundador</div>
 
                     <div class="seeProduct">
@@ -169,6 +169,13 @@
                       >
                         <span>{{ arrayProducto[0].fundador }}</span></nuxt-link
                       >
+                    </div>
+                  </div>
+                  <div class="div-block-461" v-else>
+               <div class="text-block-31">Fundador</div>
+
+                    <div class="seeProduct">
+                     <p>¿Eres el fundador de este producto? <a href="#" >Verificar Aquí!</a> </p>
                     </div>
                   </div>
                 </div>

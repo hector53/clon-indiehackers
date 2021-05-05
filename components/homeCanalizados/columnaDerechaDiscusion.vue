@@ -70,9 +70,9 @@
     <div class="div-block-438" v-for="(item, index) in arraySidebar.productos" :key="index+1000">
       <div class="div-block-439">
         <h3 class="heading-3">
-          <nuxt-link :to="{name: 'producto-slug', params: {slug: item.slug}}">
+          <nuxt-link :to="{name: 'p-slug', params: {slug: item.slug}}">
             {{item.titulo}}</nuxt-link></h3>
-          <nuxt-link :to="{name: 'producto-slug', params: {slug: item.slug}}">
+          <nuxt-link :to="{name: 'p-slug', params: {slug: item.slug}}">
         <img
           width="48"
           height="48"

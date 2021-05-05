@@ -223,9 +223,9 @@
                     <div class="text-block-17">Productos</div>
 
                   </div>
-                  <a href="/producto-nuevo" style="display: inline-block;" class="botonCanalizados " data-v-70e177c0="">Agregar</a>
+                  <a href="/p-nuevo" style="display: inline-block;" class="botonCanalizados " data-v-70e177c0="">Agregar</a>
                      <div class="seeProduct" v-for="(item, index) in arrayDataUser.productos" :key="index">
-                            <nuxt-link class="image-17" :to="{name:'producto-slug',
+                            <nuxt-link class="image-17" :to="{name:'p-slug',
                              params: {slug: item.slug}}" >
                             <img 
                             :src="item.imagen"
@@ -235,7 +235,7 @@
                             
                             />
                             </nuxt-link>
-                           <nuxt-link  :to="{name:'producto-slug',
+                           <nuxt-link  :to="{name:'p-slug',
                              params: {slug: item.slug}}" >  <span>{{item.nombreProducto}}</span></nuxt-link>
                         </div>
                 </div>
