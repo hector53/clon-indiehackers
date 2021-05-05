@@ -1,7 +1,7 @@
 <template>
  <div class="container w-container">
     <div class="div-block-455">
-      <sidebar-left></sidebar-left>
+      <sidebar-left style="    margin-right: 50px;"></sidebar-left>
       <div class="div-block-456">
         <div class="section-5">
                 <body-post-nuevo></body-post-nuevo>

@@ -401,7 +401,6 @@
   <client-only>
          <Editor
           :disabled="disableAll"  
-        v-show="tabSelected == 2 && preview == false" 
         v-model="content"
        api-key="idqg8ff4sgvmj2hgpcq8f8j5rp3zf2kt238cppa5qi2glwv3"
        :init="{
@@ -839,7 +838,16 @@ export default {
      // console.log(val);
       this.preview = val;
      this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
-     console.log(this.content)
+      var divsToHide = document.getElementsByClassName("tox-tinymce"); //divsToHide is an array
+        if(val == true){
+          for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "none"; // or
+          }
+        }else{
+          for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "flex"; // or
+          }
+        }
 
     },
 
@@ -859,7 +867,15 @@ export default {
     },
 
     selectTab(val) {
+
+       var divsToHide = document.getElementsByClassName("tox-tinymce"); //divsToHide is an array
+    
+
+
       if (val == 1) {
+         for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "none"; // or
+          }
         //voy pa la uno
         if (this.contentLink.length == 0) {
           this.botonDisable = true;
@@ -869,6 +885,9 @@ export default {
       }
 
       if (val == 2) {
+         for(var i = 0; i < divsToHide.length; i++){
+          divsToHide[i].style.display = "flex"; // or
+          }
         if (this.content.length == 0) {
           this.botonDisable = true;
         } else {

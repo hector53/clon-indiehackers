@@ -3805,6 +3805,14 @@ iframe {
 .user-notification__markdown-content p{
   display: flex;
 }
+.attached-link__link{
+  display: flex;
+}
+.attached-link__link svg{
+  width: 20px;
+  margin-top: -10px;
+  margin-right: 10px;
+}
 @media screen and (max-width:991px) {
   .userIndex{
     display: none;
