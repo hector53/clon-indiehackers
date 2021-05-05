@@ -135,7 +135,7 @@ export default {
         path: '/sitemap-grupos.xml',
         routes: async () => {
           const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/grupos/')
-          return data.map((post) => `/c/${post.slug}`)
+          return data.map((post) => `/g/${post.slug}`)
         },
         exclude: ['/**']
       }, 
@@ -143,7 +143,7 @@ export default {
         path: '/sitemap-productos.xml',
         routes: async () => {
           const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/producto/')
-          return data.map((post) => `/c/${post.slug}`)
+          return data.map((post) => `/p/${post.slug}`)
         },
         exclude: ['/**']
       }, 
