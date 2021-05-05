@@ -112,6 +112,9 @@ arrayNoticias: []
           this.arrayNoticias = response
         })
   },
+  mounted() {
+    console.log("get trending")
+  },
   
 }
 </script>

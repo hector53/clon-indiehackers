@@ -21,17 +21,21 @@
           <b-row>
                <b-col  lg="8">
                    
-               <loader v-show="loader"></loader>
-                    <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl"  :arrayPost="arrayPost" v-if="arrayPost"
-                    :arrayTrend="arrayTrend" @CantidadComentarios="CantidadComentarios"
+               
+                    <post-slug-canalizados v-show="loader==false" :previewUrl="previewUrl" 
+                     :arrayPost="arrayPost" v-if="arrayPost"
+                   @CantidadComentarios="CantidadComentarios"
                     :status='status'></post-slug-canalizados>
 
                     
                </b-col>
 
                 <b-col  lg="4">
+                  <LazyHydrate  when-visible>  
        <div class="div-block-448">
-              <follow-seccion :p="p" :avatar="arrayPost[0].avatar" :username="arrayPost[0].username"></follow-seccion>
+                
+              <follow-seccion :p="p" :avatar="arrayPost[0].avatar"
+               :username="arrayPost[0].username"></follow-seccion>
                  <mas-populares></mas-populares>
                 <grupos-recomendados></grupos-recomendados>
                 <div>
@@ -40,6 +44,7 @@
                   </div>
                 </div>
               </div>
+              </LazyHydrate>  
                 </b-col>
           </b-row>
       
@@ -65,6 +70,7 @@ import GruposRecomendados from '~/components/postSeccion/gruposRecomendados.vue'
 import MasPopulares from '~/components/postSeccion/masPopulares.vue';
 import PostSlugCanalizados from '~/components/postSeccion/postSlugCanalizados.vue';
 import axios from 'axios'
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
   components: {
@@ -74,7 +80,7 @@ export default {
     FollowSeccion,
     MasPopulares,
     GruposRecomendados,
-    
+    LazyHydrate
 
   },
   name: "bodyPostCanalizados",
@@ -120,7 +126,6 @@ var tituloSeo = metaArray[resultado3].content
    data() {
     return {
         arrayPost: [], 
-        arrayTrend: [], 
         idP: 0,
         votos: 0,
         cantidadComentarios: 0, 
@@ -137,10 +142,7 @@ var tituloSeo = metaArray[resultado3].content
   },
   watch: {},
   async fetch() {
-  },
-  methods: {
-
-      async getpost(){
+    
           
            
       await this.$axios
@@ -154,7 +156,6 @@ var tituloSeo = metaArray[resultado3].content
         } else {
             this.status = 1
                 this.arrayPost = response.post
-                this.arrayTrend = response.trending
                  this.p = response.post[0].p;
           this.idP = response.post[0].id;
            this.votos = response.post[0].votos;
@@ -170,6 +171,10 @@ var tituloSeo = metaArray[resultado3].content
         }
       });     
     
+  },
+  methods: {
+
+      async getpost(){
 
       },
 
@@ -191,7 +196,7 @@ var tituloSeo = metaArray[resultado3].content
   beforeMount() {
   },
   mounted() {
-    this.getpost()
+   
   },
 
 };

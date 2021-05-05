@@ -62,7 +62,7 @@
                           />
                           </div>
                     
-                   <div class="contenidoFull" v-html="contenido" v-twitter-widgets  v-if="esLink == 0"></div>
+                   <div class="contenidoFull" v-html="contenido"   v-if="esLink == 0"></div>
 
 
 
@@ -128,18 +128,26 @@
                 
                 </div>
               </div>
+                <LazyHydrate  when-visible>  
               <div class="div-block-425">
                 <div class="div-block-432"><h3>
-                  <a href="#" target="_blank" class="link-15">Comentarios ({{cantidadComentarios}})</a></h3></div>
-                   <comentarios-post :idP="idP" v-if="idP"
+                  <a href="#" target="_blank" class="link-15">Comentarios ({{cantidadComentarios}})</a>
+                  </h3></div>
+          
+              
+                   <comentarios-post :idP="idP" 
      @CantidadComentarios="CantidadComentarios"
       :p="p"></comentarios-post>
-
-      
               </div>
+              </LazyHydrate>  
+
               <h2>Relacionados</h2>
+              <div>
+                <LazyHydrate  when-visible>  
               <trending-posts></trending-posts>
-     
+              </LazyHydrate >  
+              </div>
+           
  </div>
 </template>
 
@@ -148,11 +156,12 @@
 import ComentariosPost from '../comentarios/comentariosPost.vue';
 import encuestaPost from './encuestaPost.vue';
 import TrendingPosts from './trendingPosts.vue';
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
-  components: { encuestaPost, ComentariosPost, TrendingPosts },
+  components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
-  props: ['status', 'arrayPost', 'arrayTrend', 'previewUrl'],
+  props: ['status', 'arrayPost',  'previewUrl'],
   data() {
     return {
 

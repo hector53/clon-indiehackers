@@ -96,8 +96,10 @@ export default {
     },
   },
   mounted() {
-      this.getsiVote()
-      console.log("votos", this.votos)
+    if(this.$store.state.cookieLogin){
+        this.getsiVote()
+    }
+    
   },
 };
 </script>

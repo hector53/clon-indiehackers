@@ -264,7 +264,7 @@ export default {
         if(this.$store.state.tokenUser != ''){
          
         }else{
-          this.$router.push({name: 'login'})
+          this.$router.push({name: 'iniciar-sesion'})
           return false
         }
 
@@ -316,6 +316,7 @@ export default {
       
      },
   mounted() {
+    console.log("cargaron comentarios")
      this.getComments();
   },
 };
