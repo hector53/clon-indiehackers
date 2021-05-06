@@ -3833,7 +3833,7 @@ iframe {
   background-color: white;
   border-radius: 6px;
   width: 100%;
-  height: 180px;
+  min-height: 180px;
   padding-left: 15px;
   padding-right: 15px;
 }

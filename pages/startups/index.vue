@@ -87,11 +87,11 @@
 <b-container v-show="loader==false"  >
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <b-row>
-    <b-col cols="6" class="mb-3"  v-for="(item, index) in arrayStartups"
+    <b-col md="6" class="mb-3"  v-for="(item, index) in arrayStartups"
     :key="index" >
     <div class="card-resultados">
         <b-row style="height: 100%">
-                <b-col cols="2">
+                <b-col md="2">
                     <nuxt-link
                     :to="{
                     name: 'p-slug',
@@ -104,7 +104,7 @@
                
                     </nuxt-link>
                 </b-col>
-                 <b-col cols="10">
+                 <b-col md="10">
                     <nuxt-link
                     :to="{
                     name: 'p-slug',
