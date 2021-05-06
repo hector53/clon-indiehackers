@@ -49,6 +49,7 @@ export default {
   plugins: [
     //{ src: "~/plugins/bootstrap-vue", ssr: true }, 
    { src: "~/plugins/editortiny", ssr: false }, 
+   { src: "~/plugins/vuegtag", ssr: false }, 
     
     
 
@@ -70,7 +71,6 @@ export default {
     'vue-scrollto/nuxt',
     'nuxt-sweetalert2', 
     'bootstrap-vue/nuxt',
-    '@nuxtjs/google-analytics',
     '@nuxtjs/sitemap',
    /* [
       '@miyaoka/nuxt-twitter-widgets-module',
@@ -89,9 +89,7 @@ export default {
     ],
     directivePlugins: []
   },
-  googleAnalytics: {
-    id: 'G-JG1LZGHKE2'
-  },
+ 
 
   googleFonts: {
     display: 'swap', 
