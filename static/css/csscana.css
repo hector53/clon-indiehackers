@@ -3829,11 +3829,13 @@ iframe {
 }
 .card-resultados{
   box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
-    padding: 10px;
-    background-color: white;
-    border-radius: 6px;
-    width: 100%;
-    height: 150px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  width: 100%;
+  height: 180px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .card-resultados:hover{
   background-color: #a3b9ff;
@@ -3843,6 +3845,9 @@ iframe {
   object-fit: cover;
   width: 50px;
   height: 50px;
+}
+.fontW500{
+  font-weight: 500;
 }
 @media screen and (max-width:991px) {
   .userIndex{

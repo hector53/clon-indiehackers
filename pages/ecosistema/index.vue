@@ -1,11 +1,6 @@
 <template>
-
 <div>
-
     <div class="search-page" >
-    
-    
-
       <div class="search-page__field-wrapper">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +11,6 @@
           <path
             d="M13 8h-8v-1h8v1zm0 2h-8v-1h8v1zm-3 2h-5v-1h5v1zm11.172 12l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"
           >
-            <!---->
           </path>
         </svg>
         <input
@@ -28,14 +22,12 @@
           v-model="q"
         />
       </div>
-
       <div
         class="search-page__results"
-      
       >
         <div class="search-page__results-header">
           <h2 class="search-page__results-label">
-            {{ totalStartups }} Startups
+            {{ totalStartups }} Usuarios
           </h2>
 
           <div class="search-page__results-pagination">
@@ -94,27 +86,29 @@
                 <b-col cols="2">
                     <nuxt-link
                     :to="{
-                    name: 'p-slug',
-                    params: { slug: item.slug },
+                    name: 'u-username',
+                    params: { username: item.username },
                     }"
                     class="user-link__link ember-view"
                     >
                  
-                    <img :src="item.imagen" class="image-result" />
+                    <img :src="item.avatar" class="image-result" />
                
                     </nuxt-link>
                 </b-col>
                  <b-col cols="10">
                     <nuxt-link
                     :to="{
-                    name: 'p-slug',
-                    params: { slug: item.slug },
+                    name: 'u-username',
+                    params: { username: item.username },
                     }"
                    
                     >
-                    <h3 class="fontW500" v-html="item.titulo"></h3>
+                    <h3 class="fontW500"><span v-html="item.nombres" v-if="item.nombres != ''"></span> 
+                    <span v-if="item.nombres != ''"> | </span>
+                    <span>@</span><span v-html="item.username"></span></h3>
                     <div class="result__snippet">
-                    <p v-html="item.contenido"></p>
+                    <p v-html="item.bio"></p>
                     </div>
                     </nuxt-link>
                 </b-col>
@@ -157,7 +151,13 @@ export default {
   },
   watch: {
          q: function (value) {
-                this.getStartups()
+             if(value.length == 0){
+                 this.q = ''
+                    this.getStartups()
+             }else{
+                  this.getStartups()
+             }
+                
          }
   },
   methods: {
@@ -172,9 +172,9 @@ export default {
             }
       },
      async getStartups(){
-                await this.$axios.$get("/buscar/productos/?q="+this.q+"&ini="+this.ini).then((response) => {
+                await this.$axios.$get("/buscar/ecosistema/?q="+this.q+"&ini="+this.ini).then((response) => {
                 console.log(response);
-                this.arrayStartups = response.productos;
+                this.arrayStartups = response.usuarios;
                 this.totalStartups =  response.totalPro;
                 this.end =  response.totalPaginas;
                 this.loader = false
