@@ -2810,8 +2810,11 @@ input[type="button"] {
   width: 38px;
   border-radius: 2px;
   padding: 12px;
+  cursor: pointer;
 }
-
+.results-pagination__button:hover {
+ background-color: #3e64db;
+}
 .search-page .search-page__results-actions {
   margin-left: 16px;
   margin-right: 0;
@@ -3823,6 +3826,23 @@ iframe {
   text-align: center;
     margin-top: 20px;
     color: #3e64db!important;
+}
+.card-resultados{
+  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    width: 100%;
+    height: 150px;
+}
+.card-resultados:hover{
+  background-color: #a3b9ff;
+}
+.image-result{
+  border-radius: 100px;
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
 }
 @media screen and (max-width:991px) {
   .userIndex{
