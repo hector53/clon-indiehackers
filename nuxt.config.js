@@ -90,7 +90,7 @@ export default {
     directivePlugins: []
   },
   googleAnalytics: {
-    id: 'UA-121959606-1'
+    id: 'G-JG1LZGHKE2'
   },
 
   googleFonts: {
