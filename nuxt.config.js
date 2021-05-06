@@ -1,4 +1,5 @@
 const axios = require('axios')
+import redirectSSL from 'redirect-ssl'
 export default {
  /* server: {
     port: 8000 // default: 3000
