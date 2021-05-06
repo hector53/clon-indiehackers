@@ -38,7 +38,11 @@ export default {
     '~/static/css/csscana.css',
   ],
 
- 
+  serverMiddleware: [
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production'
+     }),
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
