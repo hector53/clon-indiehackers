@@ -2854,6 +2854,7 @@ input[type="button"] {
 .user-link__twitter-link {
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .search-page .search-result--discussion .user-link__avatar {
