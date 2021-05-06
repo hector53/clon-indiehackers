@@ -40,7 +40,7 @@
 
           <div class="search-page__results-pagination">
             <span class="results-pagination__numbers">
-              {{ ini+1 }} – {{ end+1 }}
+              {{ ini+1 }} – {{ end }}
             </span>
 
             <div class="results-pagination__buttons">
@@ -64,7 +64,7 @@
                 class="ember-view results-pagination__button results-pagination__button--next"
                 :class="{
                   'results-pagination__button--disabled':
-                    ini == end,
+                    (ini+1) == end,
                 }"
               >
                 <path
@@ -83,8 +83,8 @@
 
 
 
-
-<b-container >
+ <loader v-show="loader"></loader>
+<b-container v-show="loader==false"  >
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <b-row>
     <b-col cols="6" class="mb-3"  v-for="(item, index) in arrayStartups"
@@ -150,25 +150,7 @@ export default {
         totalStartups: '',
       loader:true,
       q: "",
-      arrayBuscarPosts: [],
-      arrayGrupos: [],
-      arrayUsuarios: [],
-      arrayNoti: [],
-      totalDiscusiones: "",
-      totalGrupos: "",
-      totalUsuarios: "",
-      totalNo: "",
-      f: "",
-      p: 0,
-      ini: 0,
-      pp: 0,
-      end: 0,
-      tab: 0,
-      filtroDrop: false, 
-      filtroText: 'Recientes', 
-      s: 'recientes', 
-      sActivo: false,
-      contadorFiltro: 0, 
+      pp:6,
       ini: 0, 
       end: 0
     };
@@ -180,6 +162,7 @@ export default {
   },
   methods: {
       cambiarPage(val){
+          this.loader = true
             if(val == 1){
                     this.ini--
                      this.getStartups()
@@ -194,6 +177,7 @@ export default {
                 this.arrayStartups = response.productos;
                 this.totalStartups =  response.totalPro;
                 this.end =  response.totalPaginas;
+                this.loader = false
                 });
       }
   },

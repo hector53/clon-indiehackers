@@ -1,6 +1,6 @@
 <template>
  <div 
-  style="min-height: 800px; margin: auto"
+  style="min-height: 400px; margin: auto"
       class="poll-viewer__loading-spinner loading-spinner ember-view"
     >
       <svg
