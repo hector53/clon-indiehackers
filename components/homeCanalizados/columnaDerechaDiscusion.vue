@@ -63,7 +63,7 @@
       <div class="div-block-440">
         <div>{{item.ciudad}}</div>
       </div>
-      <div><a href="#" class="button-3 w-button">Conocé el ecosistema</a></div>
+      <div><nuxt-link to="/ecosistema"  class="button-3 w-button">Conocé el ecosistema</nuxt-link></div>
     </div>
 
 
@@ -86,7 +86,7 @@
       <div class="div-block-440">
         <div>{{item.excerpt}}</div>
       </div>
-      <div><a href="#" class="button-3 w-button">Startups de Latam</a></div>
+      <div><nuxt-link to="/startups" class="button-3 w-button">Startups de Latam</nuxt-link></div>
     </div>
 
     
