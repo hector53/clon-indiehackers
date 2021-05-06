@@ -155,6 +155,16 @@ export default {
       end: 0
     };
   },
+
+  head(){
+    return {
+      title: 'Startups - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Startups' }
+    ],
+     
+    }
+  },
   watch: {
          q: function (value) {
                 this.getStartups()

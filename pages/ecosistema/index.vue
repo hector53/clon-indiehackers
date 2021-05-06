@@ -149,6 +149,15 @@ export default {
       end: 0
     };
   },
+   head(){
+    return {
+      title: 'Ecosistema - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Ecosistema' }
+    ],
+     
+    }
+  },
   watch: {
          q: function (value) {
              if(value.length == 0){
