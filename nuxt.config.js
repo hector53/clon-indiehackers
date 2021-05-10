@@ -43,8 +43,9 @@ export default {
     redirectSSL.create({
       enabled: process.env.NODE_ENV === 'production'
      }),
+     '~/middleware/seo.js'
   ],
-
+ 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     //{ src: "~/plugins/bootstrap-vue", ssr: true }, 
