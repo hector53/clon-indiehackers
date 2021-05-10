@@ -116,6 +116,7 @@ var tituloSeo = metaArray[2].content
   },
   methods: {
    async getpostspo(){
+     console.log("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares")
        await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares").then((response) => {
     //  console.log(response);
       this.arrayPostHoy = response.posts;
