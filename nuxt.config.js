@@ -171,7 +171,7 @@ export default {
     }
   },
 
- analyze: true,
+ //analyze: true,
    
   }
 }

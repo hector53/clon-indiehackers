@@ -301,10 +301,6 @@ export default {
     flex-direction: column;
         margin-top: 10px;
 }
-ol, ul {
-    list-style: none;
-    padding-left: 0;
-}
  .poll-viewer__vote--selected {
     color: #3e64db;
     fill: #4799eb;
