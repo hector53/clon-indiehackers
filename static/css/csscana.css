@@ -3849,6 +3849,9 @@ iframe {
 .fontW500{
   font-weight: 500;
 }
+.userNone{
+  display: none;
+}
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;

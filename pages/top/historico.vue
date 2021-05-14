@@ -10,7 +10,7 @@
           <like-canalizados :p="item.id" :votos="item.votos"></like-canalizados>
         </b-col>
 
-        <b-col cols="11" lg="11" sm="11" xs="11" class="colIndex">
+        <b-col cols="10" lg="11" sm="11" xs="10" class="colIndex">
           <h4 class="h4Index">
             <nuxt-link
               class="link-14"
@@ -46,7 +46,8 @@
             </nuxt-link>
               
             </div>
-            <nuxt-link
+           <div class="userNone">
+              <nuxt-link
               class="userIndex"
               :to="{
                 name: 'u-username',
@@ -56,6 +57,8 @@
               <div class="text-block-7">{{ item.username }}</div>
             </nuxt-link>
             <div class="text-block-6 userIndex">•</div>
+              </div>
+           
 
             <nuxt-link
               class="text-block-7"

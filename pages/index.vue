@@ -46,7 +46,8 @@
             </nuxt-link>
               
             </div>
-            <nuxt-link
+           <div class="userNone">
+              <nuxt-link
               class="userIndex"
               :to="{
                 name: 'u-username',
@@ -56,6 +57,8 @@
               <div class="text-block-7">{{ item.username }}</div>
             </nuxt-link>
             <div class="text-block-6 userIndex">•</div>
+              </div>
+           
 
             <nuxt-link
               class="text-block-7"
