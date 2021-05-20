@@ -1,6 +1,7 @@
 <template>
    <div>
-     <div
+       <loader v-show="loader"></loader>
+     <div v-show="loader==false"
       class="div-block-425"
       v-for="(item, index) in arrayNoticias"
       :key="index"
@@ -81,35 +82,112 @@
         </div>
       </div>
     </div>
+
+
+<div class="ui pagination menu" >
+<nuxt-link class="item"   
+	:to="{ name: 'staffpicks-pag', params: {pag: 1}}" rel="start"
+	v-show="paginaActual > 1"
+	 >Primero</nuxt-link>
+<nuxt-link class="item"   
+	:to="{ name: 'staffpicks-pag', params: {pag: paginaActual - 1} }" rel="prev"
+	v-show="paginaActual > 1"
+	 >&lt;</nuxt-link>
+	<nuxt-link class="item"   
+	 v-for="(n, index) in totalPaginas" :key="index"
+	 :class="{'active' : n == paginaActual   }"
+	:to="{ name: 'staffpicks-pag', params: {pag: n} }"
+	v-show="n >= num_actual_ini && n <= num_actual_fin "
+	>
+	{{n}}</nuxt-link>
+	<nuxt-link class="item"   
+	:to="{ name: 'staffpicks-pag', params: {pag: paginaActual + 1} }" rel="next"
+	v-show="paginaActual < totalPaginas"
+	 >&gt;</nuxt-link>
+	<nuxt-link class="item"  
+	:to="{ name: 'staffpicks-pag', params: {pag: totalPaginas} }" rel="start"
+	v-show="paginaActual < totalPaginas"
+	 >Ultimo</nuxt-link>		
+    	</div>    
+
+
    
    </div>
 </template>
 
 <script>
+import Loader from '~/components/loader/loader.vue'
 export default {
   layout: "perfilEditCanalizados",
   name: "staffpicks",
-  components: {},
+  components: {Loader},
  async fetch() {
       
-
-  await this.$axios
-        .$get("/getpost/getnoticias?p=20")
-        .then((response) => {
-          console.log(response)
-          this.arrayNoticias = response
-        })
   },
   data() {
     return {
-        arrayNoticias: []
+        loader: true,
+        arrayNoticias: [], 
+            totalPaginas: 0, 
+       registrosxPag: 20,
+      paginaActual: 1, 
+       num_actual_ini: 1,
+        num_actual_fin: 3,
+        ini: 0, 
+        fin: 20,
     };
   },
   watch: {},
   methods: {
-  
+      async get_staffpicks(){
+          await this.$axios
+        .$get("/getpost/getnoticias?xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin)
+        .then((response) => {
+          console.log(response)
+          this.arrayNoticias = response.noticias
+          this.totalPaginas = response.totalPaginas
+           this.paginaActual = parseInt(this.$route.params.pag); 
+                     if(this.$route.params.pag > 1){
+                       
+                   
+                       this.fin = this.registrosxPag
+                       this.num_actual_fin = 5
+                       if(this.$route.params.pag > 4){
+                         if(this.$route.params.pag == this.totalPaginas){
+                     
+                           this.num_actual_ini = this.paginaActual - 2
+                           this.num_actual_fin = this.totalPaginas
+                         }else
+                         {
+                            this.num_actual_ini = this.paginaActual - 2
+                          this.num_actual_fin = this.paginaActual + 2
+                       
+                         }
+                         
+                       }
+                       
+                     }else
+                     {
+                       this.paginaActual = 1
+                       this.num_actual_fin = 3
+                     
+                     }
+          this.loader = false
+        })
+      }
   },
   mounted() {
+      this.get_staffpicks()
+  },
+  created() {
+      if(this.$route.params.pag > 1){
+
+          this.ini = (parseInt(this.$route.params.pag) - 1) * this.registrosxPag;
+
+          }else{
+
+          this.ini = 0; 
+          }
   },
 };
 </script>

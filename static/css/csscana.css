@@ -3852,6 +3852,28 @@ iframe {
 .userNone{
   display: none;
 }
+.ui.pagination.menu{
+  border-radius: 2px;
+    box-shadow: none;
+    background: 0 0;
+    border-color: #252833;
+    margin-bottom: 20px;
+}
+.ui.pagination.menu .item {
+  border: solid 1px #d7d7d7;
+  border-radius: 0.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  background: #fff;
+  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+}
+.ui.pagination.menu .item.active {
+  color: #fff!important;
+  background: #3898ec;
+}
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;
