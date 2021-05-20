@@ -106,10 +106,10 @@ arrayNoticias: []
 
        async fetch() {
   await this.$axios
-        .$get("/getpost/getnoticias")
+        .$get("/getpost/getnoticias?fin=20&ini=0&xPag=20")
         .then((response) => {
        //   console.log(response)
-          this.arrayNoticias = response
+          this.arrayNoticias = response.noticias
         })
   },
   mounted() {

@@ -91,7 +91,7 @@
         </div>
       </div>
     </div>
-     <nuxt-link to="/staffpicks" v-if="btnVerMas" class="botonCanalizados btnVerMas" 
+     <nuxt-link to="/staffpicks/2" v-if="btnVerMas" class="botonCanalizados btnVerMas" 
      data-v-70e177c0="">Ver más...</nuxt-link>
                
   </div>
@@ -109,9 +109,9 @@ export default {
   },
   async fetch() {},
   async mounted() {
-    await this.$axios.$get("/getpost/getnoticias").then((response) => {
+    await this.$axios.$get("/getpost/getnoticias?fin=20&ini=0&xPag=20").then((response) => {
       console.log(response);
-      this.arrayNoticias = response;
+      this.arrayNoticias = response.noticias;
       this.btnVerMas = true
     });
   },
