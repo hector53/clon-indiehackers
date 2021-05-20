@@ -106,7 +106,7 @@ arrayNoticias: []
 
        async fetch() {
   await this.$axios
-        .$get("/getpost/getnoticias?fin=20&ini=0&xPag=20")
+        .$get("/getpost/getnoticias?fin=6&ini=0&xPag=6")
         .then((response) => {
        //   console.log(response)
           this.arrayNoticias = response.noticias
