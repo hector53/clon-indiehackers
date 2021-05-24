@@ -28,6 +28,17 @@ export default {
         
     };
   },
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/editar-post'
+        }
+      ]
+     
+    }
+  },
    async fetch() {
    },
   methods: {

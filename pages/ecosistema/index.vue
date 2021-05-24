@@ -155,6 +155,12 @@ export default {
        meta: [
       { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Ecosistema' }
     ],
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/ecosistema'
+        }
+      ]
      
     }
   },

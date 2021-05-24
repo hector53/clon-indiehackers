@@ -170,6 +170,17 @@ export default {
     middleware: 'authenticated',
   name: "iniciar-sesion",
   layout: "iniciarSesion",
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/registro'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
           params: {

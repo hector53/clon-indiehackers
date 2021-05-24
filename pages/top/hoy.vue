@@ -109,6 +109,21 @@ export default {
   components: { likeCanalizados },
   name: "hoy",
   layout: "homeCanalizados",
+  head(){
+    return {
+      title: 'Top Hoy - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Top Hoy' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/top/hoy'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayPostHoy: [],

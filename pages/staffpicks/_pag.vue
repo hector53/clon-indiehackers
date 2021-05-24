@@ -124,6 +124,21 @@ export default {
  async fetch() {
       
   },
+  head(){
+    return {
+       title: 'Staffpicks - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Staffpicks' }
+    ],
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/staffpicks'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
         loader: true,

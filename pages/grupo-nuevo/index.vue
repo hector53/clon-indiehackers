@@ -49,6 +49,17 @@ export default {
 
     };
   },
+   head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/grupo-nuevo'
+        }
+      ]
+     
+    }
+  },
   watch: {},
   methods: {
   

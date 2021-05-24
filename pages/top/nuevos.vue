@@ -109,6 +109,21 @@ export default {
   components: { likeCanalizados },
   name: "nuevos",
   layout: "homeCanalizados",
+  head(){
+    return {
+      title: 'Top Nuevos - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Top Nuevos' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/top/nuevos'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayPostHoy: [],

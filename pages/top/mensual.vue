@@ -109,6 +109,21 @@ export default {
   components: { likeCanalizados },
   name: "mensual",
   layout: "homeCanalizados",
+  head(){
+    return {
+      title: 'Top Mensual - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Top Mensual' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/top/mensual'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayPostHoy: [],

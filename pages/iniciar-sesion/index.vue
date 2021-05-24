@@ -205,6 +205,17 @@ export default {
       formPass: false
     };
   },
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/iniciar-sesion'
+        }
+      ]
+     
+    }
+  },
   async fetch() {},
    watch: {
     

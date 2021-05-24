@@ -162,6 +162,12 @@ export default {
        meta: [
       { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Startups' }
     ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/startups'
+        }
+      ]
      
     }
   },

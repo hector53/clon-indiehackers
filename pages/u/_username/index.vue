@@ -75,6 +75,21 @@ export default {
   components: {Loader  },
   layout: "perfilCanalizados",
   name: "perfilPostsDestacados",
+  head(){
+    return {
+      title: 'Usuario - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Usuario' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/u/'+this.$route.params.username
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
           arrayDestacados: [], 

@@ -103,6 +103,12 @@ var tituloSeo = metaArray[2].content
     return {
       title: this.tituloSeo,
             meta: this.SeoPost, 
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug
+        }
+      ]
      
     }
   },

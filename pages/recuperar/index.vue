@@ -78,6 +78,17 @@ export default {
     middleware: 'authenticated',
   name: "recuperar",
   layout: "iniciarSesion",
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/recuperar'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
               errorLogin: false,

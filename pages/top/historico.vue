@@ -109,6 +109,21 @@ export default {
   components: { likeCanalizados },
   name: "historico",
   layout: "homeCanalizados",
+  head(){
+    return {
+      title: 'Top Historico - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Top Historico' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/top/historico'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayPostHoy: [],

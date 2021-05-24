@@ -83,6 +83,17 @@ export default {
         disableAll: false
     };
   },
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/p-nuevo'
+        }
+      ]
+     
+    }
+  },
   watch: {},
   methods: {
 validURL(str) {

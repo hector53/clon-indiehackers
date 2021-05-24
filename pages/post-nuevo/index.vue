@@ -28,6 +28,17 @@ export default {
         
     };
   },
+  head(){
+    return {
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/post-nuevo'
+        }
+      ]
+     
+    }
+  },
    async fetch() {
    },
   methods: {

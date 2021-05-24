@@ -50,6 +50,21 @@ export default {
         arrayGrupos: []
     };
   },
+   head(){
+    return {
+      title: 'Grupos - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Grupos' }
+    ],
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/grupos'
+        }
+      ]
+     
+    }
+  },
   watch: {},
   methods: {
   
