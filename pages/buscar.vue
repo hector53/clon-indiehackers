@@ -505,6 +505,21 @@ export default {
    directives: {
     ClickOutside
   },
+    head(){
+    return {
+       title: 'Buscar - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Buscar' }
+    ],
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/buscar'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       loader:true,

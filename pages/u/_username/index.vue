@@ -77,9 +77,9 @@ export default {
   name: "perfilPostsDestacados",
   head(){
     return {
-      title: 'Usuario - Canalizados',
+      title: this.$route.params.username+' - Canalizados',
        meta: [
-      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Usuario' }
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - '+this.$route.params.username }
     ],
        link: [
         {

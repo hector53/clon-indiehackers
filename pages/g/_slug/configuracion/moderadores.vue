@@ -73,6 +73,19 @@ export default {
      directives: {
     ClickOutside
   },
+  head(){
+    return {
+      title: this.tituloSeo,
+            meta: this.SeoPost, 
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug+'/configuracion/moderadores'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
         dropMo: -1, 

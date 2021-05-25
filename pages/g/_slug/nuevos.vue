@@ -69,6 +69,19 @@ export default {
   components: { likeCanalizados },
   name: "grupo-slug-popular-nuevos",
   layout: "grupoCanalizados",
+  head(){
+    return {
+      title: this.tituloSeo,
+            meta: this.SeoPost, 
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug+'/nuevos'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayPostHoy: [],

@@ -84,6 +84,19 @@ export default {
   async fetch() {
   
   },
+  head(){
+    return {
+      title: this.tituloSeo,
+            meta: this.SeoPost, 
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug+'/configuracion'
+        }
+      ]
+     
+    }
+  },
   
   data() {
     return {

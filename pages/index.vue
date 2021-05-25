@@ -109,6 +109,21 @@ export default {
   components: { likeCanalizados },
   name: "index",
   layout: "homeCanalizados",
+    head(){
+    return {
+       title: 'Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' }
+    ],
+             link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/'
+        }
+      ]
+     
+    }
+  },
 
   data() {
     return {

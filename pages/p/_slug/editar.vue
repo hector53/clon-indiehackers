@@ -335,6 +335,17 @@ export default {
       }
     
   },
+   head(){
+    return {
+            link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/p/' + this.$route.params.slug+'/editar'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       nombreProducto: '', 

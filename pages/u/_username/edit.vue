@@ -275,6 +275,21 @@ import ClickOutside from 'vue-click-outside'
 export default {
   layout: "perfilEditCanalizados",
   name: "EditPerfil",
+   head(){
+    return {
+      title: 'Usuario - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Usuario' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/u/'+this.$route.params.username+'/edit'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       opcionMes: false, 
