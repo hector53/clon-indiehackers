@@ -86,8 +86,6 @@ export default {
   },
   head(){
     return {
-      title: this.tituloSeo,
-            meta: this.SeoPost, 
                  link: [
         {
           rel: 'canonical',

@@ -71,8 +71,6 @@ export default {
   layout: "grupoCanalizados",
   head(){
     return {
-      title: this.tituloSeo,
-            meta: this.SeoPost, 
                  link: [
         {
           rel: 'canonical',
