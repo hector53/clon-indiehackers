@@ -115,7 +115,7 @@ var tituloSeo = metaArray[resultado3].content
                  link: [
         {
           rel: 'canonical',
-          href: 'https://canalizados.com/p/' + this.$route.params.slug
+          href: 'https://canalizados.com/c/' + this.$route.params.slug
         }
       ]
      
