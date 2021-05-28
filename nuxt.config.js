@@ -74,14 +74,8 @@ export default {
     'nuxt-sweetalert2', 
     'bootstrap-vue/nuxt',
     '@nuxtjs/sitemap',
-   /* [
-      '@miyaoka/nuxt-twitter-widgets-module',
-      {
-        directiveName: 'twitter-widgets',
-        scriptUrl: '//platform.twitter.com/widgets.js'
-      }
-    ], */
-  
+    '@nuxtjs/robots',
+   
     
   ],
   bootstrapVue: {
@@ -92,7 +86,10 @@ export default {
     directivePlugins: []
   },
  
-
+  robots: {
+    UserAgent: '*',
+    Allow: '/'
+  },
   googleFonts: {
     display: 'swap', 
     useStylesheet: true,
