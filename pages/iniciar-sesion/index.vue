@@ -284,6 +284,8 @@ export default {
                      this.errorLogin = true
                   this.errorText = "El email no se encuentra registrado "
                    this.loginDisable = false
+                   alert("El email no se encuentra registrado, por favor debes registrarte primero")
+                    location.href = "/registro";
             }
 
              if(response.status == 2){
@@ -316,8 +318,8 @@ export default {
     },
 onSuccessGoogle(data){
   //console.log(data.Rs.At)
-
-this.loginGoogle(data.Rs.At)
+var perfil = data.getBasicProfile()
+this.loginGoogle(perfil.pu)
 },
 
 onFailureGoogle(data){

@@ -53,8 +53,6 @@
           <div class="w-form"  v-if="showFormFull">
               <span class="pw-sign-in__username">Nombre de Usuario: {{username}}</span>
             <form
-              id="email-form"
-              name="email-form"
               data-name="Email Form"
               class="subscribe-form-flex"
               style=" display: inline-block; width: 100%;"
@@ -67,7 +65,6 @@
                   name="Subscriber-Email"
                   data-name="Subscriber Email"
                   placeholder="Ingresa tu Email"
-                  id="Subscriber-Email"
                   required="required"
                   class="subscribe-form-input w-input"
                   v-model="email"
@@ -81,7 +78,6 @@
                   type="password"
                   v-model="pass"
                   maxlength="256"
-                  name="pass"
                   placeholder="Introducir contraseña"
                   required="required"
                   class="subscribe-form-input w-input"
@@ -119,7 +115,7 @@
                 <input
                 style="    width: 100%;"
                   placeholder="Nombre de usuario"
-                  id="Subscriber-Email"
+                  id="Subscriber-Email2"
                   required="required"
                   class="subscribe-form-input w-input"
                  type="text"
@@ -214,10 +210,12 @@ export default {
   methods: {
        abrirGoogle(){
         this.loader = true
+        console.log("abri google")
     },
 onSuccessGoogle(data){
-  console.log(data.Rs.At)
-  this.email = data.Rs.At
+//  console.log(data.getBasicProfile())
+  var perfil = data.getBasicProfile()
+  this.email = perfil.pu
   this.s = 1
   var randomstring = Math.random().toString(36).slice(-8);
   this.pass = randomstring
@@ -226,6 +224,8 @@ onSuccessGoogle(data){
 },
 
 onFailureGoogle(data){
+  console.log("fallo")
+  console.log(data)
   this.loader = false
 //console.log(data)
 },
@@ -234,6 +234,7 @@ onFailureGoogle(data){
       await this.$axios
         .$get("/registrar/usuario/?username=" + this.username+"&email="+this.email+"&pass="+this.pass+"&s="+this.s)
         .then((response) => {
+          console.log(response)
           if (response.status == 1) {
              this.showErrorRegistroEmail = false
                 this.$cookies.set('access_token_', response.token, {
