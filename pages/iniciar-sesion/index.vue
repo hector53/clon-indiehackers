@@ -353,6 +353,7 @@ export default {
         this.loader = true
     },
 onSuccessGoogle(data){
+  
   //console.log(data.Rs.At)
 var perfil = data.getBasicProfile()
 this.loginGoogle(perfil.pu)

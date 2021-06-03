@@ -261,7 +261,7 @@ onSuccessGoogle(data){
   this.s = 1
   var randomstring = Math.random().toString(36).slice(-8);
   this.pass = randomstring
-  this.SignUpGoogle()
+  this.SignUpGoogle(perfil.Ve, perfil.vK)
 
 },
 
@@ -271,10 +271,10 @@ onFailureGoogle(data){
   this.loader = false
 //console.log(data)
 },
- async  SignUpGoogle(){
+ async  SignUpGoogle(nombres, imagen){
     
       await this.$axios
-        .$get("/registrar/usuario/?username=" + this.username+"&email="+this.email+"&pass="+this.pass+"&s="+this.s)
+        .$get("/registrar/usuario/?username=" + this.username+"&email="+this.email+"&pass="+this.pass+"&s="+this.s+"&nombres="+nombres+"&imagen="+imagen)
         .then((response) => {
           console.log(response)
           if (response.status == 1) {
@@ -284,7 +284,7 @@ onFailureGoogle(data){
                 maxAge: 60 * 60 * 24 * 7
                 })
                  this.$cookies.set('user_data_', {img: response.avatar,
-                  username: response.username, date: response.fecha, p: response.p, social: response.social}, {
+                  username: response.username, date: response.fecha, nombres: response.nombres, p: response.p, social: response.social}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
