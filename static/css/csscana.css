@@ -3875,6 +3875,9 @@ iframe {
   color: #fff!important;
   background: #3898ec;
 }
+.twitterLogin{
+  cursor: pointer;
+}
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;
