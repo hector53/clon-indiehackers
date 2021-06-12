@@ -27,7 +27,10 @@
               <div class="div-block-427">
                 <div class="text-block-6" v-if="item.tituloGrupo != null">•</div>
                     <nuxt-link
-                  :to="{ name: 'u-username', params: { slug: item.username } }"
+                   :to="{
+                name: 'u-username',
+                params: { username: item.username },
+              }"
                   style="    color: #6f6f6f!important;"
                   >{{ item.username }}</nuxt-link>
               </div>
