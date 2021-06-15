@@ -152,7 +152,10 @@ export default {
     ]
   },
 
-  
+  // omit
+
+   
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
    extractCSS: true,

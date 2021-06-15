@@ -105,6 +105,8 @@ var descripcionSeo = metaArray[0].content
 
 //twitter cards 
 var rImg = metaArray.findIndex( img => img.property === 'og:image' );
+var ImageUrl = metaArray[rImg].content
+metaArray[rImg].content = ImageUrl.replace("https", "http")
 var rImagen = metaArray[rImg].content
 
 metaArray.push(

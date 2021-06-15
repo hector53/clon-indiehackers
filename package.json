@@ -17,6 +17,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@tinymce/tinymce-vue": "^3.2.8",
     "bootstrap-vue": "^2.21.2",
+    "cheerio": "^1.0.0-rc.10",
     "cookie-parser": "^1.4.5",
     "cookie-universal-nuxt": "^2.1.4",
     "cookieparser": "^0.1.0",
