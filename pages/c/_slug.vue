@@ -92,13 +92,34 @@ export default {
 return redirect('/')
      }else{
  const metaArray = seoDetails[0].yoast_meta
-
 var resultado2 = metaArray.findIndex( fruta => fruta.property === 'og:url' );
 var url = metaArray[resultado2].content
 metaArray[resultado2].content = url.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
-console.log("resultado2", metaArray[resultado2].content)
 var resultado3 = metaArray.findIndex( fruta => fruta.property === 'og:title' );
 var tituloSeo = metaArray[resultado3].content
+
+var descripcionSeo = metaArray[0].content
+
+
+//twitter cards 
+var rImg = metaArray.findIndex( img => img.property === 'og:image' );
+var rImagen = metaArray[rImg].content
+
+metaArray.push(
+{
+    name: 'twitter:title',
+    content: tituloSeo
+  },
+   {
+    name: 'twitter:image',
+    content: rImagen
+  },
+  {
+    name: 'twitter:description',
+    content: descripcionSeo
+  },
+ 
+)
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
      }
    
