@@ -92,6 +92,8 @@ export default {
 return redirect('/')
      }else{
  const metaArray = seoDetails[0].yoast_meta
+
+ console.log(metaArray)
 var resultado2 = metaArray.findIndex( fruta => fruta.property === 'og:url' );
 var url = metaArray[resultado2].content
 metaArray[resultado2].content = url.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
