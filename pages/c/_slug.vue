@@ -91,17 +91,13 @@ export default {
      if(seoDetails[0] === undefined){
 return redirect('/')
      }else{
- const metaArray = [];
-      seoDetails[0].yoast_meta.map(ele => {
-        metaArray.push({
-         hid: ele.name ? ele.name : ele.property,
-          name: ele.name ? ele.name : ele.property,
-          content: ele.content,
-        });
-      });
-var resultado2 = metaArray.findIndex( fruta => fruta.name === 'og:url' );
-metaArray[resultado2].content = metaArray[resultado2].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
-var resultado3 = metaArray.findIndex( fruta => fruta.name === 'og:title' );
+ const metaArray = seoDetails[0].yoast_meta
+
+var resultado2 = metaArray.findIndex( fruta => fruta.property === 'og:url' );
+var url = metaArray[resultado2].content
+metaArray[resultado2].content = url.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
+console.log("resultado2", metaArray[resultado2].content)
+var resultado3 = metaArray.findIndex( fruta => fruta.property === 'og:title' );
 var tituloSeo = metaArray[resultado3].content
     return { SeoPost: metaArray, tituloSeo: tituloSeo};
      }
