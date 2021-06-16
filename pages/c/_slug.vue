@@ -93,6 +93,8 @@ export default {
 return redirect('/')
      }else{
      //   console.log(seoDetails.post[0].titulo)
+     var imagenSeo = seoDetails.post[0].imagen
+     imagenSeo = imagenSeo.replace("https", "http")
          const metaArray = []
 metaArray.push(
   {
@@ -118,7 +120,7 @@ metaArray.push(
 
   {
     hid: 'og:image',
-     property:"og:image", content:seoDetails.post[0].imagen
+     property:"og:image", content: imagenSeo
   },
    {
       hid: 'twitter:card',
@@ -140,7 +142,7 @@ metaArray.push(
   {
       hid: 'twitter:image',
   name: 'twitter:image',
-  content: seoDetails.post[0].imagen
+  content: imagenSeo
   },
   {
       hid: 'twitter:description',
