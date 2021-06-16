@@ -94,7 +94,7 @@ return redirect('/')
      }else{
      //   console.log(seoDetails.post[0].titulo)
      var imagenSeo = seoDetails.post[0].imagen
-     imagenSeo = imagenSeo.replace("https", "http")
+   //  imagenSeo = imagenSeo.replace("https", "http")
          const metaArray = []
 metaArray.push(
   {
@@ -165,11 +165,7 @@ metaArray.push(
           href: 'https://canalizados.com/c/' + this.$route.params.slug
         }
       ], 
-      script: [
-      {src: 'https://platform-api.sharethis.com/js/sharethis.js#property=60c9e07cbae049001929f615&product=inline-share-buttons', 
-      async: true
-      },
-    ],
+     
      
     }
   },
