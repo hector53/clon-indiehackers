@@ -96,44 +96,54 @@ return redirect('/')
          const metaArray = []
 metaArray.push(
   {
+    hid: 'og:type',
      property:"og:type", content:"article"
   },
   {
+    hid: 'og:title',
      property:"og:title", content: seoDetails.post[0].titulo
   },
   {
+    hid: 'og:description',
      property:"og:description", content:seoDetails.post[0].descripcion
   },
   {
+      hid: 'og:url',
      property:"og:url", content:"https://canalizados.com/c/"+params.slug
   },
   {
+    hid: 'og:site_name',
      property:"og:site_name", content:"Canalizados"
   },
+
   {
-    name:"image", property:"og:image", content:seoDetails.post[0].imagen
-  },
-  {
+    hid: 'og:image',
      property:"og:image", content:seoDetails.post[0].imagen
   },
    {
+      hid: 'twitter:card',
      name:"twitter:card", content:"summary_large_image" 
   },
    {
+         hid: 'twitter:label1',
      name:"twitter:label1", content:"Escrito por"
   },
    {
+      hid: 'twitter:data1',
      name:"twitter:data1",  content:seoDetails.post[0].username
   },
   {
+     hid: 'twitter:title',
   name: 'twitter:title',
   content: seoDetails.post[0].titulo
   },
   {
+      hid: 'twitter:image',
   name: 'twitter:image',
   content: seoDetails.post[0].imagen
   },
   {
+      hid: 'twitter:description',
   name: 'twitter:description',
   content: seoDetails.post[0].descripcion
   },
