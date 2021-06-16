@@ -86,45 +86,58 @@ export default {
  async asyncData({ params, store, redirect, app }) {
 
      const seoDetails = await app.$axios.$get(
-      'https://acceso.canalizados.com/api/wp/v2/posts/?slug='+params.slug
+      'https://acceso.canalizados.com/api/seo/slug/?slug='+params.slug
     );
-     if(seoDetails[0] === undefined){
+    
+     if(seoDetails.status == 0){
 return redirect('/')
      }else{
- const metaArray = seoDetails[0].yoast_meta
-
- console.log(metaArray)
-var resultado2 = metaArray.findIndex( fruta => fruta.property === 'og:url' );
-var url = metaArray[resultado2].content
-metaArray[resultado2].content = url.replace("https://acceso.canalizados.com", store.state.siteUrlSeo)
-var resultado3 = metaArray.findIndex( fruta => fruta.property === 'og:title' );
-var tituloSeo = metaArray[resultado3].content
-
-var descripcionSeo = metaArray[0].content
-
-
-//twitter cards 
-var rImg = metaArray.findIndex( img => img.property === 'og:image' );
-var ImageUrl = metaArray[rImg].content
-metaArray[rImg].content = ImageUrl.replace("https", "http")
-var rImagen = metaArray[rImg].content
-
+     //   console.log(seoDetails.post[0].titulo)
+         const metaArray = []
 metaArray.push(
-{
-    name: 'twitter:title',
-    content: tituloSeo
-  },
-   {
-    name: 'twitter:image',
-    content: rImagen
+  {
+     property:"og:type", content:"article"
   },
   {
-    name: 'twitter:description',
-    content: descripcionSeo
+     property:"og:title", content: seoDetails.post[0].titulo
   },
- 
+  {
+     property:"og:description", content:seoDetails.post[0].descripcion
+  },
+  {
+     property:"og:url", content:"https://canalizados.com/c/"+params.slug
+  },
+  {
+     property:"og:site_name", content:"Canalizados"
+  },
+  {
+     property:"og:image", content:seoDetails.post[0].imagen
+  },
+
+
+   {
+     name:"twitter:card", content:"summary_large_image" 
+  },
+   {
+     name:"twitter:label1", content:"Escrito por"
+  },
+   {
+     name:"twitter:data1",  content:seoDetails.post[0].username
+  },
+  {
+  name: 'twitter:title',
+  content: seoDetails.post[0].titulo
+  },
+  {
+  name: 'twitter:image',
+  content: seoDetails.post[0].imagen
+  },
+  {
+  name: 'twitter:description',
+  content: seoDetails.post[0].descripcion
+  },
 )
-    return { SeoPost: metaArray, tituloSeo: tituloSeo};
+    return { SeoPost: metaArray, tituloSeo: seoDetails.post[0].titulo};
      }
    
   },
@@ -216,6 +229,7 @@ metaArray.push(
   beforeMount() {
   },
   mounted() {
+
    this.getpost()
   },
 

@@ -18,7 +18,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' }
+      { property:"og:locale" , content:"es_ES"},
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' },
+      
     ],
     
     link: [
