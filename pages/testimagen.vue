@@ -26,7 +26,7 @@ export default {
 
   {
     hid: 'og:image',
-     property:"og:image", content: "https://cdn.canalizados.com/uploads/2021/06/C1E8423B-FB60-46F3-A332-A2804B8CC2A6.jpeg"
+     property:"og:image", content: process.env.baseUrl+"/images/C1E8423B-FB60-46F3-A332-A2804B8CC2A6.jpeg"
   },
    {
       hid: 'twitter:card',

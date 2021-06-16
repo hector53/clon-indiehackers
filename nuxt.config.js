@@ -1,6 +1,10 @@
 const axios = require('axios')
 import redirectSSL from 'redirect-ssl'
 export default {
+  env: {
+    // baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    baseUrl: process.env.BASE_URL || 'https://canalizados.com'
+   },
  /* server: {
     port: 8000 // default: 3000
   },*/
@@ -160,6 +164,21 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+   extractCSS: true,
+   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(css|vue)$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
+
+ //analyze: true,
    
   }
 }
