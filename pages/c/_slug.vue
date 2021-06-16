@@ -151,7 +151,12 @@ metaArray.push(
           rel: 'canonical',
           href: 'https://canalizados.com/c/' + this.$route.params.slug
         }
-      ]
+      ], 
+      script: [
+      {src: 'https://platform-api.sharethis.com/js/sharethis.js#property=60c9e07cbae049001929f615&product=inline-share-buttons', 
+      async: true
+      },
+    ],
      
     }
   },
