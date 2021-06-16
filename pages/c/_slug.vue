@@ -111,7 +111,7 @@ metaArray.push(
      property:"og:site_name", content:"Canalizados"
   },
   {
-     property:"og:image", content:seoDetails.post[0].imagen
+    name:"image", property:"og:image", content:seoDetails.post[0].imagen
   },
 
 
