@@ -28,7 +28,7 @@ export default {
     ],
     
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://acceso.canalizados.com/wp-content/uploads/2021/05/favicon-32x32-min.png' }, 
+      { rel: 'icon', type: 'image/x-icon', href: 'https://canalizados.com/images/logo/isotipo_1.svg' }, 
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'}, 
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Space+Grotesk:wght@500&display=swap' },
     ], 
