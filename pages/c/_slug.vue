@@ -94,6 +94,9 @@ return redirect('/')
      }else{
      //   console.log(seoDetails.post[0].titulo)
      var imagenSeo = seoDetails.post[0].imagen
+     if(imagenSeo==''){
+       imagenSeo = 'https://canalizados.com/images/canalizadosPortada.jpg'
+     }
    //  imagenSeo = imagenSeo.replace("https", "http")
          const metaArray = []
 metaArray.push(

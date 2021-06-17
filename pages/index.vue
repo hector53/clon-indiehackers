@@ -113,7 +113,9 @@ export default {
     return {
        title: 'Canalizados',
        meta: [
-      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' }
+       {
+            property:"og:image", content: process.env.baseUrl+"/images/canalizadosPortada.jpg"
+         }, 
     ],
              link: [
         {
