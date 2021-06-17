@@ -150,7 +150,7 @@ export default {
 </script>
 <style >
 .btnCanalizado{
-      background: #3e64db;
+      background: #7986CB;
     color: white;
     border-radius: 5px;
     padding: 10px; 

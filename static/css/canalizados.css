@@ -3772,7 +3772,8 @@ figcaption {
   top: 0;
   z-index: 1;
   padding: 10px;
-  background-color: #fff
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EBEBEB;
 }
 
 .nav-grid {
@@ -4154,7 +4155,7 @@ figcaption {
 
 .text-block-9 {
   display: inline-block;
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 
@@ -4214,7 +4215,7 @@ figcaption {
 }
 
 .text-block-12.vote-active {
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 
@@ -4249,13 +4250,13 @@ figcaption {
 }
 
 .list-item-7.active {
-  border: 1px solid #3e64db;
+  border: 1px solid #7986CB;
   border-radius: 10px;
   font-weight: 700
 }
 
 .text-block-13 {
-  color: #3e64db
+  color: #7986CB
 }
 
 .div-block-425 {
@@ -4387,7 +4388,7 @@ figcaption {
 }
 
 .link-17 {
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700;
   text-decoration: none
 }
@@ -4550,7 +4551,7 @@ figcaption {
 
 .button-3 {
   border-radius: 10px;
-  background-color: #3e64db
+  background-color: #7986CB
 }
 
 .div-block-439 {
@@ -4670,7 +4671,7 @@ figcaption {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 
@@ -4798,7 +4799,8 @@ figcaption {
 .subscribe-form {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #f1f1f1
+  background-color: #f1f1f1;
+  margin-top: 40px;
 }
 
 .centered-container {
@@ -4914,12 +4916,12 @@ figcaption {
 }
 
 .text-block-21 {
-  color: #1a1b1f;
+  color: #435282;
   font-weight: 700
 }
 
 .text-block-21.active {
-  border-bottom: 1px solid #3e64db
+  color: #FE8A65
 }
 
 .text-block-22,
@@ -5029,8 +5031,8 @@ figcaption {
 }
 
 .search-input:focus {
-  border: 1px solid #3e64db;
-  box-shadow: 0 1px 0 1px #3e64db
+  border: 1px solid #7986CB;
+  box-shadow: 0 1px 0 1px #7986CB
 }
 
 .dropdown-toggle-2 {
@@ -5197,7 +5199,7 @@ figcaption {
   -ms-flex-pack: justify;
   justify-content: space-between;
   border-radius: 15px;
-  background-color: #3e64db;
+  background-color: #7986CB;
   box-shadow: -1px 1px 5px 1px rgba(152, 163, 179, .5)
 }
 
@@ -5285,8 +5287,8 @@ figcaption {
 }
 
 .div-block-460.active {
-  border-color: #3e64db;
-  color: #3e64db
+  border-color: #7986CB;
+  color: #7986CB
 }
 
 .list-10 {
@@ -5305,7 +5307,7 @@ figcaption {
   padding: 5px 15px;
   border-radius: 10px;
   background-color: rgba(62, 100, 219, .2);
-  color: #3e64db
+  color: #7986CB
 }
 
 .html-embed-12 {
@@ -5315,7 +5317,7 @@ figcaption {
 }
 
 .html-embed-12:hover {
-  color: #3e64db
+  color: #7986CB
 }
 
 .dropdown-toggle-3 {
@@ -5412,9 +5414,9 @@ figcaption {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border: 1px solid #3e64db;
+  border: 1px solid #7986CB;
   border-radius: 5px;
-  color: #3e64db
+  color: #7986CB
 }
 
 .text-block-29 {
@@ -5471,7 +5473,7 @@ figcaption {
 
 .text-block-33 {
   padding: 5px 10px;
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 
@@ -5575,7 +5577,7 @@ figcaption {
   align-items: stretch;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-  background-color: #3e64db;
+  background-color: #7986CB;
   box-shadow: -1px 1px 5px 1px rgba(152, 163, 179, .5)
 }
 
@@ -5665,7 +5667,7 @@ figcaption {
 }
 
 .text-span-4 {
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 
@@ -5722,7 +5724,7 @@ figcaption {
 }
 
 .text-block-39 {
-  color: #3e64db;
+  color: #7986CB;
   font-weight: 700
 }
 

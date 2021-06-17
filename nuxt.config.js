@@ -29,7 +29,8 @@ export default {
     
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'https://acceso.canalizados.com/wp-content/uploads/2021/05/favicon-32x32-min.png' }, 
-    
+      {rel: 'preconnect', href: 'https://fonts.gstatic.com'}, 
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Space+Grotesk:wght@500&display=swap' },
     ], 
     script: [
       {  
@@ -69,7 +70,6 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/google-fonts',
   ],
  
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -96,16 +96,7 @@ export default {
     UserAgent: '*',
     Allow: '/'
   },
-  googleFonts: {
-    display: 'swap', 
-    useStylesheet: true,
-    families: {
-     'Montserrat': {
-      wght: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900],
-      ital: [100, 200, 300, 400 ,500 , 600, 700, 800 , 900]
-     }, 
-    }
-  },
+  
 
 
  

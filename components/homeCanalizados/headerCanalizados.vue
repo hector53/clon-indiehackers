@@ -13,42 +13,16 @@
                 class="dropdown-toggle w-dropdown-toggle"
                 role="button"
               >
-                <div class="logo-hover">
-                  <div class="html-embed-12 w-embed">
-                    <!--?xml version="1.0" encoding="utf-8"?-->
-                    <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg
-                      version="1.1"
-                      id="Capa_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 300.2 252.15"
-                      style="enable-background: new 0 0 300.2 252.15"
-                      xml:space="preserve"
-                    >
-                      <g>
-                        <path
-                          style="fill: currentColor"
-                          d="M107.27,249.06h85.66c1.89,0,3.62-1.22,4.47-3.16l16.16-36.82c1.67-3.81-0.74-8.31-4.47-8.31H91.11
-		c-3.72,0-6.14,4.5-4.47,8.31l16.16,36.82C103.65,247.84,105.38,249.06,107.27,249.06z"
-                        ></path>
-                        <path
-                          style="fill: currentColor"
-                          d="M3.54,19.71l13.11,29.88c1.7,3.87,5.15,6.31,8.93,6.31h249.03c3.78,0,7.23-2.44,8.93-6.31
-		l13.11-29.88c3.35-7.63-1.49-16.63-8.93-16.63H12.47C5.03,3.08,0.19,12.08,3.54,19.71z"
-                        ></path>
-                        <path
-                          style="fill: currentColor"
-                          d="M66.12,152.48h167.96c2.64,0,5.06-1.71,6.25-4.42l14.14-32.23c2.34-5.34-1.04-11.64-6.25-11.64
-		H51.97c-5.21,0-8.6,6.3-6.25,11.64l14.14,32.23C61.05,150.77,63.47,152.48,66.12,152.48z"
-                        ></path>
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <nuxt-link class="logo-text" to="/"> CANALIZADOS</nuxt-link>
+              
+                <nuxt-link  to="/">
+                <img src="/images/logo/logo.svg" class="tamaLogoL" />
+                </nuxt-link>
+
+                <nuxt-link  to="/">
+                <img src="/images/logo/isotipo_1.svg" class="tamaLogoP" />
+                </nuxt-link>
+
+
               </div>
               <!--  <nav
                 class="w-dropdown-list"
@@ -268,6 +242,6 @@ a:hover {
   color: #1542c7;
 }
 .sihaynotify {
-  background-color: #3e64db;
+  background-color: #7986CB;
 }
 </style>
