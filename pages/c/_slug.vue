@@ -32,6 +32,7 @@
                </b-col>
 
                 <b-col  lg="4">
+                  <LazyHydrate  when-visible>  
        <div class="div-block-448">
                 
               <follow-seccion :p="p" :avatar="arrayPost[0].avatar"
@@ -44,6 +45,7 @@
                   </div>
                 </div>
               </div>
+              </LazyHydrate>  
                 </b-col>
           </b-row>
       
@@ -93,7 +95,7 @@ return redirect('/')
      //   console.log(seoDetails.post[0].titulo)
      var imagenSeo = seoDetails.post[0].imagen
      if(imagenSeo==''){
-       imagenSeo = 'https://canalizados.com/images/canalizadosPortada.jpg'
+       imagenSeo = 'https://e54k7o.infiniteuploads.cloud/2021/06/portadacanalizados.jpg'
      }
    //  imagenSeo = imagenSeo.replace("https", "http")
          const metaArray = []
