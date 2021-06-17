@@ -200,7 +200,7 @@ metaArray.push(
       await this.$axios
       .$get("/getpost/usuario/?slug=" + this.$route.params.slug+"&token="+this.$store.state.tokenUser)
       .then((response) => {
-           console.log(response)
+          // console.log(response)
         if (response.status == 0) {
             this.status = 0
         //    console.log("estoy aqui redireccionar   ")
