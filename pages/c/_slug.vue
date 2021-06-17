@@ -99,40 +99,48 @@ return redirect('/')
 metaArray.push(
   {
     hid: 'og:type',
-     property:"og:type", content:"article"
+     property:'og:type', content:'article'
   },
   {
     hid: 'og:title',
-     property:"og:title", content: seoDetails.post[0].titulo
+     property:'og:title', content: seoDetails.post[0].titulo
   },
   {
     hid: 'og:description',
-     property:"og:description", content:seoDetails.post[0].descripcion
+     property:'og:description', content:seoDetails.post[0].descripcion
   },
   {
       hid: 'og:url',
-     property:"og:url", content:"https://canalizados.com/c/"+params.slug
+     property:'og:url', content:'https://canalizados.com/c/'+params.slug
   },
   {
     hid: 'og:site_name',
-     property:"og:site_name", content:"Canalizados"
+     property:'og:site_name', content:'Canalizados'
   },
 
   {
     hid: 'og:image',
-     property:"og:image", content: imagenSeo
+     property:'og:image', content: imagenSeo
+  },
+  {
+     hid: 'og:image:width',
+property:"og:image:width", content:"1200"
+  },
+  {
+     hid: 'og:image:height',
+property:"og:image:height", content:"630"
   },
    {
       hid: 'twitter:card',
-     name:"twitter:card", content:"summary_large_image" 
+     name:'twitter:card', content:'summary_large_image' 
   },
    {
          hid: 'twitter:label1',
-     name:"twitter:label1", content:"Escrito por"
+     name:'twitter:label1', content:'Escrito por'
   },
    {
       hid: 'twitter:data1',
-     name:"twitter:data1",  content:seoDetails.post[0].username
+     name:'twitter:data1',  content:seoDetails.post[0].username
   },
   {
      hid: 'twitter:title',
