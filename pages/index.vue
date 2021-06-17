@@ -114,7 +114,15 @@ export default {
        title: 'Canalizados',
        
        meta: [
-          { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' },
+         {
+    hid: 'og:title',
+     property:'og:title', content: "Canalizados"
+  },
+   {
+    hid: 'og:description',
+     property:'og:description', content:"Canalizados comunidad de emprendedores"
+  },
+
        {
             property:"og:image", content: "https://e54k7o.infiniteuploads.cloud/2021/06/portadacanalizados.jpg"
          }, 
