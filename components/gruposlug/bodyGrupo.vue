@@ -308,7 +308,7 @@ export default {
        }else{
 
       if(this.$store.state.cookieLogin){
-    console.log("hola join o leave")
+   // console.log("hola join o leave")
           let formData = new FormData();
             
             formData.append('token', this.$store.state.tokenUser);
@@ -350,7 +350,7 @@ export default {
             this.$store.state.tokenUser
         )
         .then((response) => {
-          console.log(response);
+         // console.log(response);
           this.$emit("recargarDataUser");
         });
     },

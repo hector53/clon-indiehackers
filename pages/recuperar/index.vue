@@ -102,10 +102,10 @@ export default {
         .$get("/login/consultadatos/?email="+this.$route.query.email+"&key="+this.$route.query.key)
         .then((response) => {
             if(response.status == 0){
-                    console.log("error")
+            //        console.log("error")
                     this.$router.push("/")
             }else{
-                console.log("todo bien")
+             //   console.log("todo bien")
             }
         })
   },
@@ -125,7 +125,7 @@ export default {
         .$get("/login/updatepass/?email="+this.$route.query.email+"&key="+this.$route.query.key+
         "&pass="+this.pass)
         .then((response) => {
-            console.log(response)
+        //    console.log(response)
             if(response.status == 0){
                     alert("error en sus datos")
                     this.loginDisable = false

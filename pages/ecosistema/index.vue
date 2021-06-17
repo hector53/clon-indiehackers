@@ -188,7 +188,7 @@ export default {
       },
      async getStartups(){
                 await this.$axios.$get("/buscar/ecosistema/?q="+this.q+"&ini="+this.ini).then((response) => {
-                console.log(response);
+             //   console.log(response);
                 this.arrayStartups = response.usuarios;
                 this.totalStartups =  response.totalPro;
                 this.end =  response.totalPaginas;

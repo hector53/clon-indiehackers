@@ -124,7 +124,7 @@ export default {
       await this.$axios
         .$get("/perfil/getpubliseguidas?username=" + this.$route.params.username)
         .then((response) => {
-            console.log(response)
+         //   console.log(response)
           this.arrayDestacados = response
           this.loader = false
         });
@@ -136,7 +136,7 @@ export default {
       await this.$axios
         .$get("/perfil/getdestacados?username=" + this.$route.params.username)
         .then((response) => {
-            console.log(response)
+         //   console.log(response)
           this.arrayDestacados = response
           this.loader = false
         });

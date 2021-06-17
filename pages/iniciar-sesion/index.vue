@@ -190,13 +190,13 @@ export default {
       var token = route.query.t
       var s = route.query.s
       if(token && s){
-        console.log("si existen los dos parametros")
+       // console.log("si existen los dos parametros")
         //consulto si el usuario recien creado existe en la db 
         if(s==2){
           var response = await app.$axios.$get(
             'https://acceso.canalizados.com/api/twitter/login/?token='+token
             );
-            console.log(response)
+          //  console.log(response)
              if (response.status == 1) {
 
                
@@ -270,7 +270,7 @@ export default {
       await this.$axios
         .$get("/login/usuario/?email="+this.email+"&pass="+this.pass)
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
             if(response.status == 0){
                     //pass incorrecta
                    this.errorLogin = true
@@ -303,11 +303,11 @@ export default {
 
     },
     async loginGoogle(email){
-      console.log("estoy aqui")
+   //   console.log("estoy aqui")
         await this.$axios
         .$get("/login/usuariogoogle/?email="+email)
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
             if(response.status == 0){
                     //pass incorrecta
                    this.errorLogin = true

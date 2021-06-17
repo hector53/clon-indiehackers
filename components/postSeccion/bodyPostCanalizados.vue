@@ -138,7 +138,7 @@ CantidadComentarios(val){
         //    console.log(response)
         if (response.status == 0) {
             this.status = 0
-            console.log("estoy aqui redireccionar   ")
+       //     console.log("estoy aqui redireccionar   ")
             
         } else {
             this.status = 1

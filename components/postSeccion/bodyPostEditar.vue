@@ -832,11 +832,11 @@ export default {
   methods: {
 
      async  getRolByUser(){
-       console.log("idp", this.idP)
+     //  console.log("idp", this.idP)
          await this.$axios
       .$get("/perfil/getroluser/?token="+this.$store.state.tokenUser+"&p=" + this.$route.params.id)
       .then((response) => {
-        console.log(response)
+      //  console.log(response)
         if(response.status == 1){
             this.rolUser = response.rol
             if(response.staffpick == 1){
@@ -960,7 +960,7 @@ export default {
       formData.append("idGrupo", this.selectGroupId);
        formData.append("preguntaEncuesta", this.preguntaEncuesta);
         this.opcionEncuesta = this.opcionEncuesta.filter(n => n)
-        console.log(this.opcionEncuesta)
+     ///   console.log(this.opcionEncuesta)
         formData.append("opcionesEncuesta", JSON.stringify(this.opcionEncuesta));
  formData.append("staffpick", this.staffpick);
       const response = await this.$axios.$post("/post/editpost/", formData, {
@@ -968,7 +968,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
-     console.log(response)
+   //  console.log(response)
       if (response.status == 1) {
         this.$router.push({
           name: "c-slug",
@@ -1035,7 +1035,7 @@ export default {
                       this.tabSelected = 1
                       }
 
-                          console.log("eslink = ", this.esLink)
+                         // console.log("eslink = ", this.esLink)
 
           //add encuesta 
             if(response.post[0].encuesta != 0){

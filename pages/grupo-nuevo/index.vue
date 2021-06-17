@@ -103,7 +103,7 @@ if(response.status == 1){
        this.errorText = 'Error al publicar'
 }
   
-            console.log(response)
+          //  console.log(response)
 
 
       }

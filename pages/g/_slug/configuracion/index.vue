@@ -114,7 +114,7 @@ export default {
 async   previewFiles(e) {
         const file = e.target.files[0];
         this.filePost = file
-        console.log(file)
+     //   console.log(file)
       this.iconoGrupo = URL.createObjectURL(file);
            let formData = new FormData();
             formData.append('file', file);
@@ -130,7 +130,7 @@ async   previewFiles(e) {
               }
             )
 
-            console.log(response)
+         //   console.log(response)
             if(response.status == 0){
                 alert("Error en la imagen")
             }

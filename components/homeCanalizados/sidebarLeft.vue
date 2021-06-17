@@ -140,7 +140,7 @@ props: ['p', 'idP', 'votos', 'favPost', 'cantidadComentarios', 'previewUrl', 'id
     };
   },
   updated() {
-    console.log("cantidad comentarios", this.cantidadComentarios)
+   // console.log("cantidad comentarios", this.cantidadComentarios)
   },
 };
 </script>

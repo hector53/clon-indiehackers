@@ -75,7 +75,7 @@ export default {
       `https://acceso.canalizados.com/api/wp/v2/grupos/?slug=${params.slug}`
     );
 
-    console.log(seoDetails.data[0])
+  //  console.log(seoDetails.data[0])
   if(seoDetails.data[0] === undefined){
 
     return redirect('/')

@@ -139,9 +139,6 @@ export default {
       if(response.status == 1){
           this.getEncuesta(response.p)
       }
-        
-      
-      
            
       },
     verResultados() {

@@ -166,13 +166,13 @@ export default {
       var token = route.query.t
       var s = route.query.s
       if(token && s){
-        console.log("si existen los dos parametros")
+       // console.log("si existen los dos parametros")
         //consulto si el usuario recien creado existe en la db 
         if(s==2){
           var response = await app.$axios.$get(
             'https://acceso.canalizados.com/api/twitter/getuser/?token='+token
             );
-            console.log(response)
+        //    console.log(response)
              if (response.status == 1) {
                 app.$cookies.set('access_token_', response.token, {
                 path: '/',
@@ -252,7 +252,7 @@ export default {
     },
        abrirGoogle(){
         this.loader = true
-        console.log("abri google")
+      //  console.log("abri google")
     },
 onSuccessGoogle(data){
 //  console.log(data.getBasicProfile())
@@ -266,8 +266,8 @@ onSuccessGoogle(data){
 },
 
 onFailureGoogle(data){
-  console.log("fallo")
-  console.log(data)
+//  console.log("fallo")
+//  console.log(data)
   this.loader = false
 //console.log(data)
 },
@@ -276,7 +276,7 @@ onFailureGoogle(data){
       await this.$axios
         .$get("/registrar/usuario/?username=" + this.username+"&email="+this.email+"&pass="+this.pass+"&s="+this.s+"&nombres="+nombres+"&imagen="+imagen)
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
           if (response.status == 1) {
              this.showErrorRegistroEmail = false
                 this.$cookies.set('access_token_', response.token, {
@@ -383,7 +383,7 @@ onFailureGoogle(data){
     if(errorT && errorT=='t'){
       alert("error usuario ya existe")
     }
-    console.log(this.contexto)
+  //  console.log(this.contexto)
     var cookieSuscribe = this.$cookies.get("suscribe_newsletter_cookie");
     if (cookieSuscribe) {
         this.email = cookieSuscribe

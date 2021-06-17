@@ -130,7 +130,7 @@ export default {
                 }
               }
             )
-            console.log(response)
+         //   console.log(response)
             if(response.status == 1){
                      this.$parent.$parent.$parent.refreshGroups()
                       this.moderadores = response.moderadores
@@ -205,7 +205,7 @@ export default {
                 }
               }
             )
-            console.log(response)
+          //  console.log(response)
             if(response.status == 1){
                       this.$parent.$parent.$parent.refreshGroups()
                        this.moderadores = response.moderadores

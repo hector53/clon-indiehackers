@@ -478,7 +478,7 @@ export default {
     },
        async   previewFiles(e) {
         const file = e.target.files[0];
-        console.log(file)
+     //   console.log(file)
           this.imagenPerfil = '/images/spinerImagen.gif'
             let formData = new FormData();
             formData.append('file', file);
@@ -496,7 +496,7 @@ export default {
               }
             )
 
-            console.log(response)
+          //  console.log(response)
             if(response.status == 0){
                 alert("error")
             }else{
@@ -549,7 +549,7 @@ this.$swal({
   type: 'success',
   confirmButtonText: 'OK'
 }).then((result) => {
-  console.log(result)
+//  console.log(result)
   if (result.value) {
       this.$router.push({name: 'p-slug', params: {slug: this.$route.params.slug } })
   }
@@ -577,7 +577,7 @@ this.$swal({
              await this.$axios
         .$get("/productos/getdetailedit/?token="+this.$store.state.tokenUser+"&slug="+this.$route.params.slug)
         .then((response) => {
-                console.log(response)
+              //  console.log(response)
                 if(response.status == 1){
                     this.nombreProducto = response.producto[0].nombreProducto
                     this.descripcionCorta = response.producto[0].descripcionCorta
@@ -613,10 +613,10 @@ this.$swal({
   },
 
   created() {
-    console.log("creado")
+   // console.log("creado")
   },
   mounted() {
-    console.log("montado")
+   // console.log("montado")
 
       this.getdetailsProduct()
 

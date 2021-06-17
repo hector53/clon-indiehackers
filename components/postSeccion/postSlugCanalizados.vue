@@ -232,7 +232,7 @@ export default {
     },
       },
   mounted() {
-    console.log(this.arrayPost)
+  //  console.log(this.arrayPost)
     if(this.status == 0){
      this.$router.push('/')
     }else{

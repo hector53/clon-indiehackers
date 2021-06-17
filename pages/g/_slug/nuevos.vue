@@ -87,7 +87,7 @@ export default {
   },
   async fetch() {
     await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=nuevos").then((response) => {
-      console.log(response);
+   //   console.log(response);
       this.arrayPostHoy = response.posts;
     });
   },

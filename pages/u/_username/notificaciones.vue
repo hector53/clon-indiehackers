@@ -297,7 +297,7 @@ export default {
             },
           }
         );
-        console.log(response);
+      //  console.log(response);
         if (response.status != 0) {
           this.getnotify();
           this.$store.commit("setnotifyCount", 0);
@@ -318,7 +318,7 @@ export default {
           },
         }
       );
-      console.log(response);
+    //  console.log(response);
       if (response.status != 0) {
         this.getnotify();
         this.$store.commit("setnotifyCount", this.$store.state.notifyCount - 1);
@@ -328,7 +328,7 @@ export default {
       await this.$axios
         .$get("/perfil/getnotify?username=" + this.$route.params.username)
         .then((response) => {
-          console.log(response);
+        //  console.log(response);
           this.arrayNotify = response.notify;
           this.loader = false;
         });

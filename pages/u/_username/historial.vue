@@ -94,7 +94,7 @@ export default {
       await this.$axios
         .$get("/perfil/gethistory?username=" + this.$route.params.username)
         .then((response) => {
-            console.log(response)
+         //   console.log(response)
           this.arrayPosts = response.post
           this.loader = false
         });

@@ -212,7 +212,7 @@ export default {
   methods: {
     async followUser() {
       this.disableB = true;
-      console.log("seguir o dejar de seguir");
+  //    console.log("seguir o dejar de seguir");
       if (this.$store.state.cookieLogin == false) {
         this.$router.push("/iniciar-sesion");
         return false;
@@ -234,7 +234,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.arrayProducto);
+  //  console.log(this.arrayProducto);
   },
 };
 </script>

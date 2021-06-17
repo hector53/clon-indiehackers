@@ -77,7 +77,7 @@ export default {
                 }
               }
             )
-           console.log(response)
+         //  console.log(response)
           this.status = response.status
           this.voto = response.votos
       },
@@ -90,7 +90,7 @@ export default {
             this.idP
         )
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
           this.status = response.status;
         });
     },

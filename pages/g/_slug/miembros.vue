@@ -51,7 +51,7 @@ export default {
   await this.$axios
         .$get("/grupos/getmembers?p="+this.$route.params.slug)
         .then((response) => {
-            console.log(response)
+           // console.log(response)
           this.arrayMiembros = response.miembros
         })
   },

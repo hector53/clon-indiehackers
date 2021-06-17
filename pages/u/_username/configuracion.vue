@@ -179,7 +179,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response)
+    //  console.log(response)
       if(response.status > 0){
         this.disabledB = false
         if(response.status == 1 && response.actualizar == null){
@@ -214,7 +214,7 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response)
+    //  console.log(response)
       if(response.status > 0){
         this.disabledB = false
         if(response.status == 1 && response.actualizar == 1){
@@ -245,7 +245,7 @@ this.$cookies.remove("user_data_");
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response)
+     // console.log(response)
       if(response.status > 0){
         this.disabledB = false
         if(response.status == 1 && response.actualizar == 1){

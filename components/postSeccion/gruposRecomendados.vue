@@ -60,7 +60,7 @@ export default {
       }
     },
     mounted() {
-      console.log("cargo el grupo recomendado")
+   //   console.log("cargo el grupo recomendado")
         this.getGrupos()
     },
 }

@@ -823,13 +823,13 @@ export default {
       document.getElementById("filePost").click();
     },
     async previewFiles(e) {
-      console.log(e.target.files[0])
+    //  console.log(e.target.files[0])
       const file = e.target.files[0];
       if(e.target.files[0].type==='image/jpeg' 
       || e.target.files[0].type==='image/png' || e.target.files[0].type==='image/gif'
       ){
             this.filePost = file;
-      console.log(file);
+   //   console.log(file);
       this.imagenPost = URL.createObjectURL(file);
       }
     
@@ -859,7 +859,7 @@ export default {
          await this.$axios
       .$get("/perfil/getroluser/?token="+this.$store.state.tokenUser)
       .then((response) => {
-        console.log(response)
+      //  console.log(response)
         if(response.status == 1){
             this.rolUser = response.rol
         }

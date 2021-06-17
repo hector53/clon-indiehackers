@@ -169,7 +169,7 @@ export default {
           await this.$axios
         .$get("/getpost/getnoticias?xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin)
         .then((response) => {
-          console.log(response)
+        //  console.log(response)
           this.arrayNoticias = response.noticias
           this.totalPaginas = response.totalPaginas
            this.paginaActual = parseInt(this.$route.params.pag); 

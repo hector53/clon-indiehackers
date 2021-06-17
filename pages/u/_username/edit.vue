@@ -314,7 +314,7 @@ export default {
   methods: {
   async   previewFiles(e) {
         const file = e.target.files[0];
-        console.log(file)
+     //   console.log(file)
       this.imagenPerfil = URL.createObjectURL(file);
             let formData = new FormData();
             formData.append('file', file);
@@ -331,7 +331,7 @@ export default {
               }
             )
 
-            console.log(response)
+          //  console.log(response)
             if(response.status == 0){
                 alert(response.extension)
             }else{
@@ -362,7 +362,7 @@ export default {
         "&fechaNac="+fechaNac+"&ciudad="+this.ciudad+"&twitterUser="+this.twitterUser+
         "&emailPublic="+this.emailPublic+"&bio="+this.bio)
         .then((response) => {
-          console.log(response)
+         // console.log(response)
 
           if(response.status == 1){
             

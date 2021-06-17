@@ -195,7 +195,7 @@ export default {
     },
     async  joinGroup(){
       if(this.$store.state.cookieLogin){
-    console.log("hola join o leave")
+    //console.log("hola join o leave")
           let formData = new FormData();
             
             formData.append('token', this.$store.state.tokenUser);

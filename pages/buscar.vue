@@ -775,7 +775,7 @@ export default {
       await this.$axios
         .$get("/buscar/post/?q=" + this.q + "&f=" + this.f + "&p=" + this.p+"&s="+this.s)
         .then((response) => {
-          console.log(response);
+      //    console.log(response);
           this.arrayBuscarPosts = response.posts;
           this.arrayGrupos = response.grupos;
           this.arrayUsuarios = response.usuarios;
@@ -797,7 +797,7 @@ export default {
     } else {
       this.q = this.$route.query.q;
     }
-    console.log(this.tab)
+   // console.log(this.tab)
   },
 };
 </script>
