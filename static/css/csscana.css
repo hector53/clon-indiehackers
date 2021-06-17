@@ -4,11 +4,12 @@ html {
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #3D3D3D!important;
   font-size: 16px !important;
   line-height: 28px !important;
   font-weight: 400 !important;
+  background-color: rgba(1,1,81,0.02);
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   line-height: 1.4!important;
@@ -120,6 +121,8 @@ h6,
 .link-inline-black {
   color: #1a1b1f;
   display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
 }
 
 .html-embed-4 {

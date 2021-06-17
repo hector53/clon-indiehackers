@@ -4096,6 +4096,7 @@ figcaption {
 }
 
 .link-14 {
+  font-family: 'Space Grotesk', sans-serif;
   display: inline;
   width: 100%;
   -webkit-align-self: stretch;
@@ -4106,7 +4107,7 @@ figcaption {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -4134,7 +4135,8 @@ figcaption {
 
 .text-block-7 {
   display: inline-block;
-  cursor: pointer
+  cursor: pointer; 
+  color: #7986CB;
 }
 
 .div-block-422 {
@@ -4300,7 +4302,8 @@ figcaption {
 .link-15 {
   font-size: 24px;
   font-weight: 700;
-  text-decoration: none
+  text-decoration: none; 
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .div-block-428 {
@@ -4546,7 +4549,8 @@ figcaption {
 
 .heading-3 {
   margin-top: 0;
-  font-size: 21px
+  font-size: 21px; 
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .button-3 {
@@ -4917,7 +4921,8 @@ figcaption {
 
 .text-block-21 {
   color: #435282;
-  font-weight: 700
+  font-weight: 600; 
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .text-block-21.active {
