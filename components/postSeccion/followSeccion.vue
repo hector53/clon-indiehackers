@@ -113,7 +113,7 @@ export default {
     },
     mounted() {
       if(this.$store.state.cookieLogin){
-        console.log("cargo el folow sectio")
+    //    console.log("cargo el folow sectio")
            this.getDatauser()
       }
        

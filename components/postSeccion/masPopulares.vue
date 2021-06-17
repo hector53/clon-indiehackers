@@ -36,7 +36,7 @@
               :to="{
                 name: 'g-slug',
                 params: { slug: item.slugGrupo }
-              }"  class="link-inline ">{{item.tituloGrupo}}</nuxt-link>
+              }"  class="link-inline grupoPostPopular ">{{item.tituloGrupo}}</nuxt-link>
            · {{item.fecha}}</div></div>
       </div>
     

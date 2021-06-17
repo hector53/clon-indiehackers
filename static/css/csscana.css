@@ -12,6 +12,7 @@ body {
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   line-height: 1.4!important;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 a {
@@ -128,7 +129,7 @@ h6,
 .html-embed-4 {
 
   cursor: pointer;
-  margin-right: 0;
+  margin-right: 10px;
 }
 
 .imgPost {
@@ -3587,7 +3588,7 @@ label {
 
 .contenidoFull a {
   display: contents;
-  color: #007bff !important;
+  color: #7986CB !important;
   font-weight: bold;
 }
 
@@ -3887,8 +3888,14 @@ iframe {
 .grupoPostPopular{
   color: #7986CB!important;
 }
-.fechaPostPopular{
-  
+.svgIconSidebar{
+  color: #435282;
+  opacity: 0.3;
+  height: 27px;
+    width: 27px;
+}
+.svgIconSidebar.active{
+  opacity: 1
 }
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{

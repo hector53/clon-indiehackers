@@ -351,7 +351,7 @@ export default {
   margin-bottom: 36px;
 }
 .user-notifications-title {
-  color: #3e64db;
+  color: #7986CB;
   font-size: 26px;
   font-weight: 600;
   flex: 0 1 auto;
@@ -368,7 +368,7 @@ export default {
   margin-right: 12px;
 }
 .user-notifications-button {
-    background-color: #3e64db;
+    background-color: #7986CB;
     box-shadow: 0 0 8px #93989c;
     align-items: center;
     border-radius: 2px;
@@ -458,7 +458,7 @@ export default {
     border-radius: 9999px;
     cursor: pointer;
     display: flex;
-    fill: #3e64db;
+    fill: #7986CB;
     justify-content: center;
     position: absolute;
     right: -10px;
@@ -472,7 +472,7 @@ export default {
      box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
 }
 .linkHeaderNoty{
-  color: #3e64db;
+  color: #7986CB;
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -481,7 +481,7 @@ export default {
     font-weight: 600;
     margin: 16px 0;
     padding: 16px 20px;
-    background: #3e64db;
+    background: #7986CB;
     color: white;
 }
 

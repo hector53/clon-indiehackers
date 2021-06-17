@@ -4079,7 +4079,8 @@ figcaption {
 
 .image-10.first {
   margin-left: -1.3em;
-  cursor: pointer
+  cursor: pointer; 
+  width: 50px;
 }
 
 .image-10.user-active {

@@ -113,7 +113,7 @@ arrayNoticias: []
         })
   },
   mounted() {
-    console.log("get trending")
+   // console.log("get trending")
   },
   
 }
