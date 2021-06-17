@@ -118,6 +118,10 @@ export default {
        {
             property:"og:image", content: "https://e54k7o.infiniteuploads.cloud/2021/06/portadacanalizados.jpg"
          }, 
+          {
+      hid: 'twitter:card',
+     name:'twitter:card', content:'summary_large_image' 
+  },
     ],
              link: [
         {

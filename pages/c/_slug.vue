@@ -32,7 +32,6 @@
                </b-col>
 
                 <b-col  lg="4">
-                  <LazyHydrate  when-visible>  
        <div class="div-block-448">
                 
               <follow-seccion :p="p" :avatar="arrayPost[0].avatar"
@@ -45,7 +44,6 @@
                   </div>
                 </div>
               </div>
-              </LazyHydrate>  
                 </b-col>
           </b-row>
       
