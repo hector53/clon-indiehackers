@@ -42,12 +42,12 @@
               :to="{
                 name: 'g-slug',
                 params: { slug: item.slugGrupo }
-              }"  class="link-inline">{{item.tituloGrupo}}</nuxt-link>
+              }"  class="link-inline grupoPostPopular">{{item.tituloGrupo}}</nuxt-link>
            ·  <nuxt-link  
               :to="{
                 name: 'c-slug',
                 params: { slug: item.slug }
-              }"  class="link-inline-black"> {{item.fecha}} </nuxt-link></div></div>
+              }"  class="link-inline-black fechaPostPopular"> {{item.fecha}} </nuxt-link></div></div>
       </div>
     
       
