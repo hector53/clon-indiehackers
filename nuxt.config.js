@@ -81,9 +81,13 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
+    '@nuxtjs/google-analytics'
    
     
   ],
+  googleAnalytics: {
+    id: 'G-JG1LZGHKE2'
+  },
   bootstrapVue: {
     componentPlugins: [
       'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
@@ -124,7 +128,7 @@ export default {
       {
         path: '/sitemap-posts.xml',
         routes: async () => {
-          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/posts/')
+          const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=post')
           return data.map((post) => `/c/${post.slug}`)
         },
         exclude: ['/**']
@@ -133,7 +137,7 @@ export default {
       {
         path: '/sitemap-grupos.xml',
         routes: async () => {
-          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/grupos/')
+          const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=grupos')
           return data.map((post) => `/g/${post.slug}`)
         },
         exclude: ['/**']
@@ -141,7 +145,7 @@ export default {
       {
         path: '/sitemap-productos.xml',
         routes: async () => {
-          const { data } = await axios.get('https://acceso.canalizados.com/api/wp/v2/producto/')
+          const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=producto')
           return data.map((post) => `/p/${post.slug}`)
         },
         exclude: ['/**']
