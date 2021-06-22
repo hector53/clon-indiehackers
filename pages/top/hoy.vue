@@ -130,7 +130,7 @@ export default {
     };
   },
   async fetch() {
-    await this.$axios.$get("/getpost/hoy/?filtro=hoy").then((response) => {
+    await this.$axios.$get("/getpost2/hoy/?filtro=hoy").then((response) => {
    // console.log(response);
      
   this.arrayPostHoy = response.posts;
