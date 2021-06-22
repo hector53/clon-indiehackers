@@ -49,11 +49,7 @@
       </div>
     </footer>
 
-    <script type="text/javascript">
-var sc_project=12554867; 
-var sc_invisible=1; 
-var sc_security="0dbf9b59"; 
-</script>
+    
 </div>
 </template>
 

@@ -47,7 +47,7 @@
                           :class="{'activeTop' : $route.name == 'top-historico' }">Historico </nuxt-link></li>
                       </ul>
                       <nuxt-link 
-                      
+                        class="btnNuevosComunidad"
                          :to="{name: 'top-nuevos', params: { slug: $route.params.slug },  }">
                         <div class="div-block-460" :class="{'activePopular' : $route.name == 'top-nuevos'}">
                         <div class="html-embed-11 w-embed">

@@ -3896,6 +3896,13 @@ iframe {
 .svgIconSidebar.active{
   opacity: 1
 }
+.cubre3movil{
+  display: flex;
+}
+::marker {
+  list-style-type: none
+}
+
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;
@@ -3966,10 +3973,34 @@ iframe {
   .votoIndex{
     justify-content: center;
   }
+  .btnNuevosComunidad{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 60px;
+    margin-right: 22px;
+  }
+  .cubrePic{
+    position: absolute;
+    top: 5px;
+    right: -50px;
+  }
+  .link-14{
+    font-size: 14px;
+  }
+  .cubre3movil {
+    font-size: 12px;
+}
+.image-10{
+  display: none;
+}
+.unaSola{
+  display: block;
+}
 }
 
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:650px) {
   .tamaLogoL{
     display: none;
   }
@@ -3977,4 +4008,5 @@ iframe {
   display: block;
   width: 30px;
   }
+  
 }

@@ -37,10 +37,7 @@ export default {
           src: 'https://apis.google.com/js/platform.js',
           async: true
       }, 
-      {  
-        src: 'https://www.statcounter.com/counter/counter.js',
-        async: true
-    }, 
+      
     
   ]
   },
