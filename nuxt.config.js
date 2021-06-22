@@ -37,6 +37,7 @@ export default {
           src: 'https://apis.google.com/js/platform.js',
           async: true
       }, 
+      { src: '/js/histats.js' } // customscript.js located in "static/" directory
       
     
   ]
