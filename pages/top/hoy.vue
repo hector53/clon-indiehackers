@@ -1,6 +1,6 @@
 <template>
  <div>
-    <b-container>
+    <b-container class="containerComunidad">
       <b-row
         v-for="(item, index) in arrayPostHoy"
         class="rowIndex"

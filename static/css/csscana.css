@@ -3980,17 +3980,24 @@ iframe {
     margin-top: 60px;
     margin-right: 22px;
   }
+  .containerComunidad{
+    padding-right: 0;
+  }
   .cubrePic{
     position: absolute;
     top: 10px;
-    right: -50px;
+    right: -40px;
   }
   .link-14{
     font-size: 14px;
   }
-  .cubre3movil {
-    font-size: 12px;
+  .list-4 {
+    margin-top: 30px;
 }
+  .cubre3movil {
+    font-size: 14px;
+}
+
 .image-10{
   display: none;
 }
