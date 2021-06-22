@@ -23,7 +23,9 @@
           </h4>
 
           <div class="div-block-422">
-            <div
+
+<div class="cubrePic">
+<div
               class="div-block-420 pic-hover"
             >
             <nuxt-link 
@@ -46,6 +48,12 @@
             </nuxt-link>
               
             </div>
+</div>
+            
+
+
+
+
            <div class="userNone">
               <nuxt-link
               class="userIndex"
@@ -59,8 +67,8 @@
             <div class="text-block-6 userIndex">•</div>
               </div>
            
-
-            <nuxt-link
+          <div class="cubre3movil">
+<nuxt-link
               class="text-block-7"
               :to="{
                 name: 'c-slug',
@@ -77,18 +85,23 @@
                 params: { slug: item.slugGrupo },
               }"
             >
-              <div class="text-block-7">{{ item.tituloGrupo }}</div></nuxt-link
+              <div class="text-block-7" >{{ item.tituloGrupo }}</div></nuxt-link
             >
 
-            <div class="text-block-6">•</div>
+            <div class="text-block-6" v-if="item.tituloGrupo != ''">•</div>
             <nuxt-link
               class="text-block-7"
               :to="{
                 name: 'c-slug',
                 params: { slug: item.slug },
               }"
-              >{{ item.fecha }}</nuxt-link
-            >
+              >{{ item.fecha }}</nuxt-link>
+          </div>
+            
+
+
+
+            
           </div>
         </b-col>
       </b-row>
