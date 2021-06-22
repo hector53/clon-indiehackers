@@ -48,6 +48,12 @@
         <div>Copyright © 2021 Canalizados. Todos los derechos reservados.</div>
       </div>
     </footer>
+
+    <script type="text/javascript">
+var sc_project=12554867; 
+var sc_invisible=1; 
+var sc_security="0dbf9b59"; 
+</script>
 </div>
 </template>
 
@@ -63,8 +69,7 @@ export default {
             error: false, 
             errorText: '',
             done: false,
-            reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
-    
+            reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
         }
     },
     methods: {
