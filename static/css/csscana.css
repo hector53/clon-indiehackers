@@ -3902,7 +3902,13 @@ iframe {
 ::marker {
   list-style-type: none
 }
-
+.likeEstilo2{
+  flex-direction: inherit;
+  margin-right: 0;
+}
+.leftSpace{
+  margin-left: 10px;
+}
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;

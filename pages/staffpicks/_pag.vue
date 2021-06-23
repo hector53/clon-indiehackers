@@ -57,12 +57,7 @@
       </div>
       <div class="div-block-428">
         <div class="div-block-454">
-          <div class="html-embed-10 w-embed">
-            <img
-              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDQ5NC4xNDggNDk0LjE0OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0xLDEsNi4xMjMyMzM5OTU3MzY3NjZlLTE3LC0wLjAwMDAwMzgxNDY5NzI5NDA0NjcwOTQsNDk0LjE0ODAwNjQzOTIwOSkiPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQwNS4yODQsMjAxLjE4OEwxMzAuODA0LDEzLjI4QzExOC4xMjgsNC41OTYsMTA1LjM1NiwwLDk0Ljc0LDBDNzQuMjE2LDAsNjEuNTIsMTYuNDcyLDYxLjUyLDQ0LjA0NHY0MDYuMTI0ICAgIGMwLDI3LjU0LDEyLjY4LDQzLjk4LDMzLjE1Niw0My45OGMxMC42MzIsMCwyMy4yLTQuNiwzNS45MDQtMTMuMzA4bDI3NC42MDgtMTg3LjkwNGMxNy42Ni0xMi4xMDQsMjcuNDQtMjguMzkyLDI3LjQ0LTQ1Ljg4NCAgICBDNDMyLjYzMiwyMjkuNTcyLDQyMi45NjQsMjEzLjI4OCw0MDUuMjg0LDIwMS4xODh6IiBmaWxsPSIjMWExYjFmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg=="
-            />
-          </div>
-          <div class="text-block-12">{{ item.votos }}</div>
+          <like-canalizados :p="item.id" :votos="item.votos" :estilo="2"></like-canalizados>
         </div>
         <div class="div-block-429">
           
@@ -127,11 +122,12 @@
 </template>
 
 <script>
+import LikeCanalizados from '~/components/likes/likeCanalizados.vue';
 import Loader from '~/components/loader/loader.vue'
 export default {
   layout: "perfilEditCanalizados",
   name: "staffpicks",
-  components: {Loader},
+  components: {Loader, LikeCanalizados},
  async fetch() {
       
   },
@@ -169,7 +165,7 @@ export default {
           await this.$axios
         .$get("/getpost/getnoticias?xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin)
         .then((response) => {
-        //  console.log(response)
+          console.log(response)
           this.arrayNoticias = response.noticias
           this.totalPaginas = response.totalPaginas
            this.paginaActual = parseInt(this.$route.params.pag); 
