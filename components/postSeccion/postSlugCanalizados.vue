@@ -232,7 +232,7 @@ export default {
     },
       },
   mounted() {
-  //  console.log(this.arrayPost)
+    console.log(this.arrayPost)
     if(this.status == 0){
      this.$router.push('/')
     }else{
@@ -264,13 +264,7 @@ export default {
             }
           }
 
-          var f = new Date(this.fecha);
-          this.fecha =
-            f.getDate() +
-            " de " +
-            this.meses[f.getMonth()] +
-            " de " +
-            f.getFullYear();
+        
 
           this.loader = false
     }
