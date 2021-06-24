@@ -97,8 +97,8 @@ export default {
             "Canalizados comunidad de emprendedores",
       };
 
-      const response = await axios.get(`https://acceso.canalizados.com/api/get/seoposts?post_type=post`)
-      
+      const response = await axios.get(`https://acceso.canalizados.com/api/get/feed?post_type=post`)
+    //  console.log(response)
       response.data.map(blog => {
       const url = `https://canalizados.com/c/${blog.slug}`;
       feed.addItem({
@@ -108,7 +108,7 @@ export default {
       description: blog.descripcion,
       image: blog.imagen,
       content: blog.content,
-      published: blog.fecha,
+      published: new Date(blog.fecha),
       author: [
       {
       name: blog.username, // optional
@@ -120,6 +120,7 @@ export default {
     }, 
     cacheTime: 1000 * 60 * 15,
   type: "rss2",
+  data: [ 'blog', 'xml' ]
     
   },
   googleAnalytics: {
