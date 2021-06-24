@@ -37,8 +37,13 @@ export default {
           src: 'https://apis.google.com/js/platform.js',
           async: true
       }, 
-      { src: '/js/histats.js' } // customscript.js located in "static/" directory
-      
+      { src: '/js/histats.js' }, // customscript.js located in "static/" directory, 
+
+         {  
+          src: 'https://cdn.volument.com/v1/volument.js',
+          async: true, 
+          onload: "volument('76a861b68e')"
+      }, 
     
   ]
   },
