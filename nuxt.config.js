@@ -100,7 +100,7 @@ export default {
       const response = await axios.get(`https://acceso.canalizados.com/api/get/seoposts?post_type=post`)
       
       response.data.map(blog => {
-      const url = `https://canalizados.com/${blog.slug}`;
+      const url = `https://canalizados.com/c/${blog.slug}`;
       feed.addItem({
       title: blog.titulo,
       id: url,
