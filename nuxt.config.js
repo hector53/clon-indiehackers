@@ -83,10 +83,45 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    '@nuxtjs/google-analytics'
-   
-    
+    '@nuxtjs/google-analytics', 
+    '@nuxtjs/feed'
   ],
+  feed: {
+    // Your feeds here
+    path: "/rss.xml",
+    async create(feed) {
+        feed.options = {
+          title: "Canalizados",
+          link: "https://canalizados.com/rss",
+          description:
+            "Canalizados comunidad de emprendedores",
+      };
+
+      const response = await axios.get(`https://acceso.canalizados.com/api/get/seoposts?post_type=post`)
+      
+      response.data.map(blog => {
+      const url = `https://canalizados.com/${blog.slug}`;
+      feed.addItem({
+      title: blog.titulo,
+      id: url,
+      link: url,
+      description: blog.descripcion,
+      image: blog.imagen,
+      content: blog.content,
+      published: blog.fecha,
+      author: [
+      {
+      name: blog.username, // optional
+      },
+      ],
+      });
+      });
+   
+    }, 
+    cacheTime: 1000 * 60 * 15,
+  type: "rss2",
+    
+  },
   googleAnalytics: {
     id: 'G-JG1LZGHKE2'
   },
