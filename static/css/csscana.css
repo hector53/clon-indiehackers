@@ -3909,6 +3909,59 @@ iframe {
 .leftSpace{
   margin-left: 10px;
 }
+.cubrePostStaffpicks{
+  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+  padding: 10px;
+  display: flex;
+  background: white;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 170px;
+}
+.cubrePostStaffpicks img{
+  width: 90px;
+  height: 90px;
+}
+
+
+.cubrePostStaffpicks h3{
+  font-size: 12px!important;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  font-weight: bold;
+}
+.cubrePostStaffpicks p{
+  font-size: 10px;
+  padding-left: 10px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.cubreUserStaffpick{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 7px;
+}
+.userStaffpick2{
+  color: rgb(111, 111, 111) !important;
+    display: flex!important;
+    padding-left: 10px;
+}
+.userStaffpick2 img{
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+}
+.userStaffpick2 span{
+  padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
 @media screen and (max-width:991px) {
   .search-page .search-page__field-icon{
     fill: #4799eb;

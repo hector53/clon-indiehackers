@@ -8,8 +8,6 @@
    </LazyHydrate> 
   </div>
 </template>
-
-
 <script>
 import BodyCanalizados from '~/components/homeCanalizados/bodyCanalizados.vue';
 import footerCanalizados from '~/components/homeCanalizados/footerCanalizados.vue';

@@ -143,20 +143,12 @@ export default {
     UserAgent: '*',
     Allow: '/'
   },
-  
-
-
- 
-
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
   baseURL: 'https://acceso.canalizados.com/api',
     proxyHeaders: true,
     credentials: true
   },
-
-
-
   sitemap: {
     path: 'sitemap.xml',
     lastmod: new Date(),
