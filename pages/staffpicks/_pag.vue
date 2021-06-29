@@ -47,7 +47,7 @@
 
     <div class="ui pagination menu">
       <nuxt-link
-        class="item"
+        class="item primero"
         :to="{ name: 'staffpicks-pag', params: { pag: 1 } }"
         rel="start"
         v-show="paginaActual > 1"
@@ -78,7 +78,7 @@
         >&gt;</nuxt-link
       >
       <nuxt-link
-        class="item"
+        class="item ultimo"
         :to="{ name: 'staffpicks-pag', params: { pag: totalPaginas } }"
         rel="start"
         v-show="paginaActual < totalPaginas"
