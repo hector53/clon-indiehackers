@@ -3,6 +3,7 @@
 
 
  <div >
+   <article>
    <div class="div-block-425" >
                 <div class="div-block-432">
                   <h1>
@@ -142,6 +143,7 @@
          
         </div>
               </div>
+   </article>
                 <LazyHydrate  when-visible>  
               <div class="div-block-425">
                 <div class="div-block-432"><h3>
