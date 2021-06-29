@@ -3912,16 +3912,12 @@ iframe {
 .cubrePostStaffpicks{
   box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
   padding: 10px;
-  display: flex;
   background: white;
   text-align: left;
   padding-top: 20px;
   padding-bottom: 20px;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
+  height: 100%;
 }
 .cubrePostStaffpicks img{
   width: 100%;
@@ -3935,18 +3931,14 @@ iframe {
   margin: 0;
   padding-left: 10px;
   font-weight: bold;
-  height: 80px;
   margin-top: 10px;
 }
 .cubrePostStaffpicks p{
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 10px;
   line-height: 1.7;
   margin-bottom: 0;
   margin-top: 15px;
-  
-  height: 100px;
-
 }
 .cubreUserStaffpick{
   display: flex;
@@ -3972,14 +3964,12 @@ iframe {
     font-weight: bold;
     margin-left: 5px;
 }
+.sobreUserStaff{
+  position: absolute;
+    bottom: 10px;
+    width: 270px;
+}
 @media screen and (max-width:991px) {
-  .cubrePostStaffpicks h3{
-    height: 100%
-  }
-  .cubrePostStaffpicks p{
-    height: 100%
-  
-  }
   .search-page .search-page__field-icon{
     fill: #4799eb;
     pointer-events: none;

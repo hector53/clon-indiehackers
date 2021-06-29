@@ -1,21 +1,25 @@
 <template>
   <div>
     <loader v-show="loader"></loader>
- <b-row class="mb-5" style="margin: 0">
-      <b-col
-        md="4"
-        class="mt-3"
-        style="padding: 5px"
-        v-for="(item, index) in arrayNoticias"
-        :key="index"
-      >
-        <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
-          <div class="cubrePostStaffpicks">
+
+
+<b-row align-v="stretch">
+    <b-col   md="4" class="mb-4"   v-for="(item, index) in arrayNoticias"
+        :key="index" >
+      <div class="cubrePostStaffpicks">
             <img :src="item.imagen" loading="lazy" alt="" class="image-11" />
-            <div>
               <h3>{{ item.titulo }}</h3>
               <p v-text="item.contenido"></p>
-              <div class="cubreUserStaffpick">
+              
+              <div class="div-block-431" style="padding-left:10px" v-if="item.slugGrupo != ''">
+                <nuxt-link
+                  :to="{ name: 'g-slug', params: { slug: item.slugGrupo } }"
+                  class="link-17"
+                  >{{ item.tituloGrupo }}</nuxt-link>
+              </div>
+              <br>
+              <div class="sobreUserStaff">
+                <div class="cubreUserStaffpick">
                 <nuxt-link
                   class="userStaffpick2"
                   :to="{
@@ -28,11 +32,15 @@
                 >
                 <span style="font-size: 12px">{{ item.fecha }}</span>
               </div>
-            </div>
+              </div>
+              
           </div>
-        </nuxt-link>
-      </b-col>
-    </b-row>
+    </b-col>
+   
+  </b-row>
+
+
+
 
 
     
