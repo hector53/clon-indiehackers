@@ -3917,26 +3917,36 @@ iframe {
   text-align: left;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 170px;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 .cubrePostStaffpicks img{
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  object-fit: cover;
 }
 
 
 .cubrePostStaffpicks h3{
-  font-size: 12px!important;
+  font-size: 16px!important;
   padding: 0;
   margin: 0;
   padding-left: 10px;
   font-weight: bold;
+  height: 80px;
+  margin-top: 10px;
 }
 .cubrePostStaffpicks p{
-  font-size: 10px;
+  font-size: 12px;
   padding-left: 10px;
   line-height: 1.7;
   margin-bottom: 0;
+  margin-top: 15px;
+  
+  height: 100px;
+
 }
 .cubreUserStaffpick{
   display: flex;
