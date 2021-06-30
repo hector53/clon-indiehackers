@@ -6,11 +6,14 @@
 <b-row align-v="stretch">
     <b-col   md="4" class="mb-4"   v-for="(item, index) in arrayNoticias"
         :key="index" >
+       
+
       <div class="cubrePostStaffpicks">
-            <img :src="item.imagen" loading="lazy" alt="" class="image-11" />
+           <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
+             <img :src="item.imagen" loading="lazy" alt="" class="image-11" />
               <h3>{{ item.titulo }}</h3>
               <p v-text="item.contenido"></p>
-              
+           </nuxt-link>
               <div class="div-block-431" style="padding-left:10px" v-if="item.slugGrupo != ''">
                 <nuxt-link
                   :to="{ name: 'g-slug', params: { slug: item.slugGrupo } }"
