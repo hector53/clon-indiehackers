@@ -30,7 +30,7 @@
                     params: { username: item.username },
                   }"
                 >
-                  <img :src="item.imagen" class="image-12" />
+                  <img :src="item.avatar" class="image-12" />
                   <span>{{ item.username }}</span></nuxt-link
                 >
                 <span style="font-size: 12px">{{ item.fecha }}</span>
