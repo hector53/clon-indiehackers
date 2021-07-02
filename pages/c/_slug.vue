@@ -262,7 +262,7 @@ property:"og:image:height", content:"630"
   },
   mounted() {
 
-   this.getpost()
+   //this.getpost()
   },
 
 };
