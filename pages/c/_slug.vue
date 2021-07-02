@@ -84,19 +84,28 @@ export default {
   name: "bodyPostCanalizados",
   layout: 'postCanalizados',
  async asyncData({ params, store, redirect, app }) {
-
      const seoDetails = await app.$axios.$get(
-      'https://acceso.canalizados.com/api/seo/slug/?slug='+params.slug
+      'https://acceso.canalizados.com/api/getpost/usuario/?slug='+params.slug+'&token='+store.state.tokenUser
     );
     
      if(seoDetails.status == 0){
 return redirect('/')
      }else{
      //   console.log(seoDetails.post[0].titulo)
-     var imagenSeo = seoDetails.post[0].imagen
+     var imagenSeo = seoDetails.post[0].imagen;
      if(imagenSeo==''){
        imagenSeo = 'https://e54k7o.infiniteuploads.cloud/2021/06/portadacanalizados.jpg'
      }
+
+
+
+
+
+
+
+
+
+
    //  imagenSeo = imagenSeo.replace("https", "http")
          const metaArray = []
 metaArray.push(
@@ -161,7 +170,15 @@ property:"og:image:height", content:"630"
   content: seoDetails.post[0].descripcion
   },
 )
-    return { SeoPost: metaArray, tituloSeo: seoDetails.post[0].titulo};
+
+
+
+
+    return { SeoPost: metaArray, tituloSeo: seoDetails.post[0].titulo, 
+    arrayPost: seoDetails.post, p:seoDetails.post[0].p, idP: seoDetails.post[0].id, 
+    votos: seoDetails.post[0].votos, favPost: seoDetails.post[0].fav, cantidadComentarios: seoDetails.post[0].cantCommentarios, 
+    previewUrl: seoDetails.previewUrl, idE: seoDetails.post[0].idE, status: 1
+    };
      }
    
   },
@@ -182,18 +199,8 @@ property:"og:image:height", content:"630"
   },
    data() {
     return {
-        arrayPost: [], 
-        idP: 0,
-        votos: 0,
-        cantidadComentarios: 0, 
-        p:0, 
-        favPost: 0, 
-        status: 2, 
-        loader: true, 
-        previewUrl: '', 
         producto: false, 
-        idE: '', 
-        loader: true
+        loader: false
 
     };
   },
