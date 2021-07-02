@@ -354,9 +354,13 @@ export default {
     },
 onSuccessGoogle(data){
   
-  //console.log(data.Rs.At)
-var perfil = data.getBasicProfile()
-this.loginGoogle(perfil.pu)
+  //console.log(data)
+  var datos = data.getBasicProfile()
+//  console.log("datos", datos)
+  var datosToArray = Object.values(datos)
+ // console.log(datosToArray[5]); 
+var perfil = datosToArray[5]
+this.loginGoogle(perfil)
 },
 
 onFailureGoogle(data){

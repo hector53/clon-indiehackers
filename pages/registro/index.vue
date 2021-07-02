@@ -255,14 +255,13 @@ export default {
       //  console.log("abri google")
     },
 onSuccessGoogle(data){
-//  console.log(data.getBasicProfile())
-  var perfil = data.getBasicProfile()
-  this.email = perfil.pu
+   var datos = data.getBasicProfile()
+  var datosToArray = Object.values(datos)
+  this.email = datosToArray[5]
   this.s = 1
   var randomstring = Math.random().toString(36).slice(-8);
   this.pass = randomstring
-  this.SignUpGoogle(perfil.Ve, perfil.vK)
-
+  this.SignUpGoogle(datosToArray[1], datosToArray[4])
 },
 
 onFailureGoogle(data){
@@ -299,6 +298,7 @@ onFailureGoogle(data){
                           );
              location.href = "/";
           }else{
+            this.loader = false
               this.showErrorRegistroEmail = true
           }
         });
