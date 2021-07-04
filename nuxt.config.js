@@ -15,7 +15,7 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Canalizados',
+    title: 'Canalizados - Somos la unica comunidad de startups en latinoamerica',
     htmlAttrs: {
       lang: 'es'
     },
@@ -23,7 +23,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { property:"og:locale" , content:"es_ES"},
-      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores' },
+      { hid: 'description', name: 'description', content: 'Mantenete informado del ecosistema de startups, tecnologia y VCs latinoamericano. Argentina, Chile, Colombia, Peru, Mexico' },
       
     ],
     

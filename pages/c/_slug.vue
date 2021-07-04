@@ -242,21 +242,15 @@ property:"og:image:height", content:"630"
       });  
 
       },
-
     CantidadComentarios(val){
         this.cantidadComentarios = val
     },
-  
     async previewUrlPost(url) {
    //   console.log("enviar url: ", url)
       await this.$axios.$get("/link/preview/?url=" + url).then((response) => {
         //  console.log("preview", response)
       });
     },
-
-   
-
-  
   },
   beforeMount() {
   },
