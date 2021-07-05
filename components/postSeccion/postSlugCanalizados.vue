@@ -12,8 +12,7 @@
                       
                     
                   </h1>
-                  <iframe v-if="audio != 0" :src="'https://play.ht/embed/?article_url=https://play.ht/drafts/uGox7PXvuWZibUrd4XgDLkldXbf1/'+audio+'&voice=es-MX-DaliaNeural'" 
-                  scrolling="no" height="90px" width="100%" frameborder="0" allowfullscreen></iframe>
+                 
                   <div class="div-block-426">
                     <div class="div-block-431">
                    <nuxt-link
@@ -51,6 +50,9 @@
                       {{fecha}}
                     </div>
                   </div>
+                  
+                   <iframe v-if="audio != 0" :src="'https://play.ht/embed/?article_url=https://canalizados.com/c/'+$route.params.slug+'&voice=es-MX-DaliaNeural'" 
+                  scrolling="no" height="90px" width="100%" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div>
                           <div
