@@ -106,6 +106,7 @@ h6,
 
   float: right;
   height: 40px;
+  width: 40px;
   border-radius: 100px;
 }
 .userStaffpick{
@@ -3973,6 +3974,10 @@ iframe {
 }
 .paginas{
   width: 100%;
+}
+.paginas a{
+  display: inline!important;
+  color: #7986cb!important
 }
 .paginas h1{
   font-size:40px!important; 
