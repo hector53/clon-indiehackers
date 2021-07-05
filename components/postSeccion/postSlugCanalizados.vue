@@ -12,6 +12,8 @@
                       
                     
                   </h1>
+                  <iframe v-if="audio != 0" :src="'https://play.ht/embed/?article_url=https://play.ht/drafts/uGox7PXvuWZibUrd4XgDLkldXbf1/'+audio+'&voice=es-MX-DaliaNeural'" 
+                  scrolling="no" height="90px" width="100%" frameborder="0" allowfullscreen></iframe>
                   <div class="div-block-426">
                     <div class="div-block-431">
                    <nuxt-link
@@ -177,7 +179,7 @@ import LazyHydrate from 'vue-lazy-hydration';
 export default {
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
-  props: ['status', 'arrayPost',  'previewUrl'],
+  props: ['status', 'arrayPost',  'previewUrl', 'audio'],
   data() {
     return {
 
@@ -215,7 +217,8 @@ export default {
       idE: '', 
       arrayEncuesta : [], 
       loader: true, 
-      avatar: ''
+      avatar: '', 
+     
      
     };
   },
