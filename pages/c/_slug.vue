@@ -26,7 +26,7 @@
                     <post-slug-canalizados  :previewUrl="previewUrl" 
                      :arrayPost="arrayPost" v-if="arrayPost"
                    @CantidadComentarios="CantidadComentarios"
-                    :status='status' :audio="audio"></post-slug-canalizados>
+                    :status='status' :audio="audio" :audioActivo="audioActivo"></post-slug-canalizados>
 
                     
                </b-col>
@@ -88,7 +88,7 @@ export default {
      const seoDetails = await app.$axios.$get(
       'https://acceso.canalizados.com/api/getpost/usuario/?slug='+params.slug+'&token='+store.state.tokenUser
     );
-    console.log(seoDetails)
+   // console.log(seoDetails)
      if(seoDetails.status == 0){
 return redirect('/')
      }else{
@@ -178,7 +178,8 @@ property:"og:image:height", content:"630"
     return { SeoPost: metaArray, tituloSeo: seoDetails.post[0].titulo, 
     arrayPost: seoDetails.post, p:seoDetails.post[0].p, idP: seoDetails.post[0].id, 
     votos: seoDetails.post[0].votos, favPost: seoDetails.post[0].fav, cantidadComentarios: seoDetails.post[0].cantCommentarios, 
-    previewUrl: seoDetails.previewUrl, idE: seoDetails.post[0].idE, status: 1, audio: seoDetails.post[0].audio
+    previewUrl: seoDetails.previewUrl, idE: seoDetails.post[0].idE, status: 1,
+     audio: seoDetails.post[0].audio, audioActivo: seoDetails.post[0].audioActivo
     };
      }
    

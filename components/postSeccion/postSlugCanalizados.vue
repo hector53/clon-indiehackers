@@ -51,7 +51,7 @@
                     </div>
                   </div>
                   
-                   <iframe v-if="audio != 0" :src="'https://play.ht/embed/?article_url=https://canalizados.com/c/'+$route.params.slug+'&voice=es-MX-DaliaNeural'" 
+                   <iframe v-if="audio != 0 && audioActivo==1" :src="'https://play.ht/embed/?article_url=https://canalizados.com/c/'+$route.params.slug+'&voice=es-MX-DaliaNeural'" 
                   scrolling="no" height="90px" width="100%" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div>
@@ -181,7 +181,7 @@ import LazyHydrate from 'vue-lazy-hydration';
 export default {
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
-  props: ['status', 'arrayPost',  'previewUrl', 'audio'],
+  props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
   data() {
     return {
 
