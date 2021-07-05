@@ -157,10 +157,13 @@ export default {
     ],
     sitemaps: [
       {
+        
         path: '/sitemap-paginas.xml',
+        lastmod: new Date(),
         exclude: ['/producto', '/producto-nuevo', '/g', '/grupo-nuevo']
       }, , 
       {
+        lastmod: new Date(),
         path: '/sitemap-posts.xml',
         routes: async () => {
           const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=post')
@@ -170,6 +173,7 @@ export default {
       }, 
 
       {
+        lastmod: new Date(),
         path: '/sitemap-grupos.xml',
         routes: async () => {
           const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=grupos')
@@ -178,6 +182,7 @@ export default {
         exclude: ['/**']
       }, 
       {
+        lastmod: new Date(),
         path: '/sitemap-productos.xml',
         routes: async () => {
           const { data } = await axios.get('https://acceso.canalizados.com/api/get/seoposts?post_type=producto')
