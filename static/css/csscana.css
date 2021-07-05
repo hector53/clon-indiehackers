@@ -3971,6 +3971,29 @@ iframe {
     bottom: 10px;
     width: 270px;
 }
+.paginas{
+  width: 100%;
+}
+.paginas h1{
+  font-size:40px!important; 
+  margin: 0;
+  margin-bottom: 20px;
+}
+.menuPoliticas{
+  display: flex;
+}
+.menuPoliticas a{
+  margin-right: 10px;
+}
+.menuPoliticas a:hover{
+text-decoration:underline!important;
+}
+.linkTwitter:hover{
+  text-decoration:underline!important;
+}
+.cubreInputContacto{
+  margin-bottom: 20px;
+}
 @media screen and (max-width:991px) {
   .primero{
   display: none!important;

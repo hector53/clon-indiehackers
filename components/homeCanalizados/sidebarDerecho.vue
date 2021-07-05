@@ -7,7 +7,14 @@
                  
                   <div>
                     <div class="text-block-20">
-                      @canalizados<br />FAQ · Terminos · Privacidad
+                      <a class="linkTwitter" href="https://twitter.com/canalizados_">
+                      @canalizados_</a>
+                      <div class="menuPoliticas">
+                        <nuxt-link to="/quienes-somos">Quienes Somos </nuxt-link> <a>·</a>
+                         <nuxt-link to="/politica-de-privacidad" >Privacidad </nuxt-link> <a>·</a>
+                         <nuxt-link to="/contacto" >Contacto </nuxt-link>
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
