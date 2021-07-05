@@ -3981,6 +3981,7 @@ iframe {
 }
 .menuPoliticas{
   display: flex;
+  justify-content: center;
 }
 .menuPoliticas a{
   margin-right: 10px;

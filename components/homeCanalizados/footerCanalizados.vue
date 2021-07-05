@@ -46,6 +46,11 @@
     <footer id="footer" class="footer">
       <div class="w-container">
         <div>Copyright © 2021 Canalizados. Todos los derechos reservados.</div>
+         <div class="menuPoliticas">
+                        <nuxt-link to="/quienes-somos">Quienes Somos </nuxt-link> <a>·</a>
+                         <nuxt-link to="/politica-de-privacidad" >Privacidad </nuxt-link> <a>·</a>
+                         <nuxt-link to="/contacto" >Contacto </nuxt-link>
+                      </div>
       </div>
     </footer>
 
