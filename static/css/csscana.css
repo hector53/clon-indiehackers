@@ -3726,7 +3726,7 @@ html input[disabled] {
 
 .div-block-425 {
 
-  padding: 40px;
+  padding: 20px;
   align-items: normal;
   text-align: left;
 
@@ -3999,6 +3999,9 @@ text-decoration:underline!important;
 }
 .cubreInputContacto{
   margin-bottom: 20px;
+}
+.wp-caption {
+  width:100%!important
 }
 @media screen and (max-width:991px) {
   .primero{
