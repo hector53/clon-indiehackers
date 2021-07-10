@@ -23,8 +23,6 @@
               <img
             :src="item.avatar"
             loading="lazy"
-            width="60"
-            height="60"
             alt=""
             class="image-14"
           />
