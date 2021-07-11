@@ -4001,7 +4001,7 @@ text-decoration:underline!important;
   margin-bottom: 20px;
 }
 .wp-caption {
-  width:100%!important
+  max-width: 100%!important;
 }
 @media screen and (max-width:991px) {
   .primero{
