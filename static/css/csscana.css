@@ -4003,6 +4003,20 @@ text-decoration:underline!important;
 .wp-caption {
   max-width: 100%!important;
 }
+.wp-caption.alignright{
+  float: right;
+  padding-left: 10px;
+}
+.wp-caption.alignleft{
+  float: left;
+  padding-right: 10px;
+}
+.wp-caption.aligncenter{
+  margin: auto ;
+}
+.wp-caption-text{
+  text-align: center
+}
 @media screen and (max-width:991px) {
   .primero{
   display: none!important;
@@ -4114,6 +4128,16 @@ text-decoration:underline!important;
 
 
 @media screen and (max-width:650px) {
+  .wp-caption.alignright{
+    float: none;
+    padding-left: 0;
+    margin:auto;
+  }
+  .wp-caption.alignleft{
+    float: none;
+    padding-left: 0;
+    margin:auto;
+  }
   .tamaLogoL{
     display: none;
   }
