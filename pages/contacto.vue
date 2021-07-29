@@ -118,7 +118,7 @@ export default {
             formData.append('name', this.name);
             formData.append('email', this.email);
             formData.append('phone', this.phone);
-             formData.append('phone', this.message);
+             formData.append('message', this.message);
          
     await this.$axios.$post('/send/contact/',
                 formData,

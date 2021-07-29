@@ -1,0 +1,22 @@
+<template>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        <url>
+            <loc>{{generateURL('index')}}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>1.0</priority>
+        </url>
+    </urlset>
+</template>
+<script>
+
+export default {
+    layout: null,
+    serverSideOnly: true,
+
+    methods: {
+        generateURL(routeName) {
+            return 'https://example.com' + this.$router.resolve(routeName).href;
+        }
+    }
+}
+</script>
