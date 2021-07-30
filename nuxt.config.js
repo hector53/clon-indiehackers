@@ -142,7 +142,7 @@ export default {
  
   robots: {
     UserAgent: '*',
-    Allow: '/'
+    Disallow: '/'
   },
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
