@@ -84,7 +84,7 @@ import loader from '~/components/loader/loader.vue';
 export default {
   components: { loader },
   name: "contacto",
-  layout: "perfilEditCanalizados",
+  layout: " ",
 
     head(){
     return {
