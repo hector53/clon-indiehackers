@@ -4013,6 +4013,12 @@ text-decoration:underline!important;
 .wp-caption-text{
   text-align: center
 }
+.list-item-9 a{
+  border: 0.20000000298023224px solid #95989A; 
+  border-radius: 20px;    padding-left: 15px;  
+  padding-right: 15px;    padding-top: 5px;   
+  padding-bottom: 5px; min-width: 150px;
+}
 @media screen and (max-width:991px) {
   .primero{
   display: none!important;

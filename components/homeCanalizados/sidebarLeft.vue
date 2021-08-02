@@ -11,8 +11,8 @@
         v-if="$route.name == 'c-slug'"
       ></sidebar-opcion-post>
       <ul role="list" class="list-7">
-        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454; border: 0.20000000298023224px solid #95989A; opacity: 1; border-radius: 20px; padding-left: 10px; padding-bottom: 2px">
-          <nuxt-link to="/">
+        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454;  opacity: 1;  padding-left: 10px; padding-bottom: 2px">
+          <nuxt-link to="/" >
             <div class="html-embed-3 w-embed">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
           </nuxt-link>
         </li>
 
-        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454; border: 0.20000000298023224px solid #95989A; opacity: 1; border-radius: 20px; padding-left: 10px; padding-bottom: 2px">
+        <li class="list-item-9" >
           <nuxt-link to="/staffpicks">
             <div class="html-embed-7 w-embed">
               <svg
@@ -103,7 +103,7 @@
             </div>
           </nuxt-link>
         </li>
-        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454; border: 0.20000000298023224px solid #95989A; opacity: 1; border-radius: 20px; padding-left: 10px; padding-bottom: 2px">
+        <li class="list-item-9">
           <nuxt-link to="/startups">
             <div class="html-embed-9 w-embed">
               <svg
@@ -172,7 +172,7 @@
           </nuxt-link>
         </li>
 
-        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454; border: 0.20000000298023224px solid #95989A; opacity: 1; border-radius: 20px; padding-left: 10px; padding-bottom: 2px">
+        <li class="list-item-9">
           <nuxt-link to="/ecosistema">
             <div class="html-embed-9 w-embed">
               <svg
@@ -206,7 +206,7 @@
             </div>
           </nuxt-link>
         </li>
-        <li class="list-item-9" style="background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 0px 3px 6px #4545454; border: 0.20000000298023224px solid #95989A; opacity: 1; border-radius: 20px; padding-left: 10px; padding-bottom: 2px">
+        <li class="list-item-9">
           <nuxt-link to="/grupos">
             <div class="html-embed-9 w-embed">
               <svg
