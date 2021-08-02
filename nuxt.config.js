@@ -29,6 +29,7 @@ export default {
     
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'https://canalizados.com/images/logo/isotipo_1.svg' }, 
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'}, 
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Space+Grotesk:wght@500&display=swap' },
     ], 
@@ -37,7 +38,7 @@ export default {
           src: 'https://apis.google.com/js/platform.js',
           async: true
       }, 
-      { src: '/js/histats.js' }, // customscript.js located in "static/" directory, 
+     
 
          {  
           src: 'https://cdn.volument.com/v1/volument.js',
