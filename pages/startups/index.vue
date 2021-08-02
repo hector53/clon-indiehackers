@@ -137,7 +137,10 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 import loader from '~/components/loader/loader.vue';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
+library.add(faUserSecret)
 export default {
   components: { loader },
   layout: "perfilEditCanalizados",
