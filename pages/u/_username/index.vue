@@ -1,53 +1,70 @@
 <template>
-  <div  class="featured-posts ember-view"> 
-   <div class="featured-posts__instructions">
-    <div class="featured-posts__title">Publicaciones Destacadas</div>
+  <div>
+<div class="cubreBtnMisPubli">
+  <button @click="misPublicaciones" class="btnCanalizado" :class="{'escalaGris' : misPubli == false}" >Mis Publicaciones</button>
+  <button @click="misPubliSeguidas" class="btnCanalizado" :class="{'escalaGris' : misPubli}">Publicaciones Seguidas</button>
+</div>
 
-    <p>
-      Este es el lugar para mostrar tus mejores publicaciones: las historias, los consejos y las
-       discusiones de las que estás más orgulloso. Simplemente cree una publicación o visite 
-       cualquiera de sus publicaciones existentes, luego haga clic en el menú de opciones para 
-       agregarlas en la siguiente lista.
-    </p>
-  </div>
- <loader v-show="loader"></loader>
-<ol class="featured-posts__list" v-show="loader==false">
-  <li class="featured-posts__list-item" v-for="(item, index) in arrayDestacados" :key="index">
-     <nuxt-link
+    <loader v-show="loader"></loader>
+
+    <div v-show="loader==false">
+
+ <div class="div-block-425"  v-for="(item, index) in arrayDestacados" :key="index">
+                <div class="div-block-432">
+                  <div class="columns w-row">
+                    <div class="column w-col w-col-12">
+                      <h3>
+                      <nuxt-link
                   :to="{
                     name: 'c-slug',
                     params: { slug: item.slug },
-                  }" class="ember-view featured-posts__post-link">
-        <header class="featured-posts__post-header">
-          <picture v-if="item.imagenGrupo != 0"
-          class="group-icon ember-view featured-posts__group-icon">
-          <img :src="item.imagenGrupo">
-          </picture>
-          <div class="featured-posts__post-date">
-            {{item.fecha}}
-          </div>
-          <div class="featured-posts__post-likes">
-            {{item.votos}}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember855" class="ember-view featured-posts__likes-icon"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z">
-<!----></path>
-</svg>
-          </div>
-          <div class="featured-posts__post-replies">
-            {{item.comentarios}}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember856" class="ember-view featured-posts__replies-icon"><path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 9.236 2.247 15.968-3.405 15.968-9.457 0-5.812-5.701-10.007-12-10.007zm0 14h-6v-1h6v1zm6-3h-12v-1h12v1zm0-3h-12v-1h12v1z">
-<!----></path>
-</svg>
-          </div>
-<!---->        </header>
-        <div class="featured-posts__post-title">{{item.titulo}}</div>
-        <div class="featured-posts__post-snippet">
-          {{item.contenido}}
-        </div>
-      </nuxt-link>
-    </li>
-</ol>
+                  }"
+                          class="link-15"
+                          >{{item.titulo}}</nuxt-link>
+                      </h3>
+                      <div class="div-block-426">
+                        <div class="div-block-431">
+                        <nuxt-link class="link-17"
+                  :to="{
+                    name: 'g-slug',
+                    params: { slug: item.slugGrupo },
+                  }"      >{{item.tituloGrupo}}</nuxt-link
+                          >
+                        </div>
+                       
+                      </div>
+                    </div>
+                 
+                  </div>
+                </div>
+                <div>
+                  <p style="margin-top: -10px;">
+                {{item.contenido}}
+                  </p>
+                </div>
+                <div class="div-block-428">
+                  
+                  <div class="div-block-430">
+                    <a href="#" class="link-16">{{item.votos}} Votos</a>
+                  </div>
+                      <div class="text-block-6">•</div>
+                  <div class="div-block-430">
+                    <a href="#" class="link-16">{{item.comentarios}} Comentarios</a>
+                  </div>
+                    <div class="text-block-6">•</div>
+                  <div class="div-block-430">
+                    <a href="#" class="link-16">{{item.fecha}}</a>
+                  </div>
+                </div>
+              </div>
 
-<!----></div>
+
+
+    </div>
+             
+
+
+  </div>
 </template>
 
 <script>
@@ -56,12 +73,28 @@ import Loader from '~/components/loader/loader.vue';
 
 export default {
   components: {Loader  },
-  layout: "perfil",
+  layout: "perfilCanalizados",
   name: "perfilPostsDestacados",
+  head(){
+    return {
+      title: this.$route.params.username+' - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - '+this.$route.params.username }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/u/'+this.$route.params.username
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
           arrayDestacados: [], 
-          loader: true
+          loader: true, 
+          misPubli: true, 
     };
   },
 
@@ -69,6 +102,33 @@ export default {
     
   },
   methods: {
+    misPubliSeguidas(){
+        if(this.misPubli){
+                    //hago algo
+                    this.misPubli = false
+                    this.loader = true
+                    this.getPubliSeguidas()
+              }
+    },
+    misPublicaciones(){
+      if(this.misPubli==false){
+            //hago algo
+            this.misPubli = true
+             this.loader = true
+             this.getDestacados()
+      }
+    },
+     async getPubliSeguidas(){
+
+    
+      await this.$axios
+        .$get("/perfil/getpubliseguidas?username=" + this.$route.params.username)
+        .then((response) => {
+         //   console.log(response)
+          this.arrayDestacados = response
+          this.loader = false
+        });
+    },
 
     async getDestacados(){
 
@@ -76,7 +136,7 @@ export default {
       await this.$axios
         .$get("/perfil/getdestacados?username=" + this.$route.params.username)
         .then((response) => {
-            console.log(response)
+         //   console.log(response)
           this.arrayDestacados = response
           this.loader = false
         });
@@ -88,4 +148,27 @@ export default {
   },
 };
 </script>
+<style >
+.btnCanalizado{
+      background: #7986CB;
+    color: white;
+    border-radius: 5px;
+    padding: 10px; 
+      outline: none!important;
+}
+.cubreBtnMisPubli{
+      margin-bottom: 20px;
+    display: inline-block;
+      outline: none!important;
+}
+.escalaGris{
+      filter: grayscale(.7);
+    cursor: pointer;
+    opacity: .5;
+}
+input[type="button"] {
+ 
+  outline: none!important;
+}
+</style>
 

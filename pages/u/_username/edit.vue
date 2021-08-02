@@ -8,12 +8,11 @@
         >
         
           <picture 
-            
-            class="user-avatar ember-view user-header__avatar"
+          
+            class="user-avatar user-header__avatar imgPerfilEdit"
           >
-            <source :srcset="imagenPerfil" type="image/png" />
-            <!---->  
-            <img   :src="imagenPerfil"  />
+         
+            <img   :src="imagenPerfil" style="border-radius: 9999px;"  />
           </picture>
         
      
@@ -24,7 +23,8 @@
         </div>
         </label>
               
-    <input style="display: none" ref="fileInput" id="file" type="file" @change="previewFiles" enctype="multipart/form-data">
+    <input style="display: none" ref="fileInput" accept="image/x-png,image/gif,image/jpeg"
+     id="file" type="file" @change="previewFiles" enctype="multipart/form-data">
      
 
         <div class="user-header__text-content">
@@ -34,7 +34,7 @@
             <!---->
             <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: $store.state.username },
               }"
               class="active ember-view user-header__header-button user-header__header-button--stop-editing"
@@ -180,85 +180,16 @@
           </div>
         </div>
 
+      
         <div class="edit-form__fieldset">
           <label class="edit-form__label">Ciudad</label>
-          
-          <div id="ember3047" class="places-input-wrapper ember-view">
-            <span
-              class="algolia-places-nostyle"
-              style="position: relative; display: inline-block; direction: ltr"
-              ><input
-               :disabled="disableAll"
-                class="edit-form__field ember-text-field ember-view ap-nostyle-input"
-                type="text"
-                autocomplete="off"
-                v-model="ciudad"
-                style="position: relative; vertical-align: top" />
-              <pre
-                aria-hidden="true"
-                style="
-                  position: absolute;
-                  visibility: hidden;
-                  white-space: pre;
-                  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica,
-                    sans-serif;
-                  font-size: 18px;
-                  font-style: normal;
-                  font-variant: normal;
-                  font-weight: 400;
-                  word-spacing: 0px;
-                  letter-spacing: normal;
-                  text-indent: 0px;
-                  text-rendering: auto;
-                  text-transform: none;
-                "
-              ></pre>
-              <span
-                class="ap-nostyle-dropdown-menu"
-                role="listbox"
-                id="algolia-places-nostyle-listbox-4"
-                style="
-                  position: absolute;
-                  top: 100%;
-                  z-index: 100;
-                  display: none;
-                  left: 0px;
-                  right: auto;
-                "
-                ><div class="ap-nostyle-dataset-places"></div></span
-              ><button
-                type="button"
-                aria-label="clear"
-                class="ap-nostyle-input-icon ap-nostyle-icon-clear"
-                style="display: none"
-              >
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M.566 1.698L0 1.13 1.132 0l.565.566L6 4.868 10.302.566 10.868 0 12 1.132l-.566.565L7.132 6l4.302 4.3.566.568L10.868 12l-.565-.566L6 7.132l-4.3 4.302L1.13 12 0 10.868l.566-.565L4.868 6 .566 1.698z"
-                  ></path>
-                </svg></button
-              ><button
-                type="button"
-                aria-label="focus"
-                class="ap-nostyle-input-icon ap-nostyle-icon-pin"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 14 20"
-                >
-                  <path
-                    d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5C5.62 9.5 4.5 8.38 4.5 7S5.62 4.5 7 4.5 9.5 5.62 9.5 7 8.38 9.5 7 9.5z"
-                  ></path>
-                </svg></button
-            ></span>
-          </div>
+          <input
+          :disabled="disableAll"
+            maxlength="20"
+           v-model="ciudad"
+            class="edit-form__field ember-text-field ember-view"
+            type="text"
+          />
         </div>
 
         <div class="edit-form__fieldset">
@@ -298,6 +229,7 @@
             maxlength="150"
             v-model="bio"
             class="edit-form__field ember-text-area ember-view"
+            style="resize: none"
           ></textarea>
           <!---->
         </div>
@@ -322,7 +254,7 @@
           </button>
          <nuxt-link
               :to="{
-                name: 'perfil-username',
+                name: 'u-username',
                 params: { username: $store.state.username },
               }"   
             class="edit-form__button edit-form__button--cancel active ember-view"
@@ -342,8 +274,23 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 export default {
-  layout: "editUser",
+  layout: "perfilEditCanalizados",
   name: "EditPerfil",
+   head(){
+    return {
+      title: 'Usuario - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Usuario' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/u/'+this.$route.params.username+'/edit'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       opcionMes: false, 
@@ -368,7 +315,7 @@ export default {
   methods: {
   async   previewFiles(e) {
         const file = e.target.files[0];
-        console.log(file)
+     //   console.log(file)
       this.imagenPerfil = URL.createObjectURL(file);
             let formData = new FormData();
             formData.append('file', file);
@@ -384,14 +331,22 @@ export default {
                 }
               }
             )
-   this.$store.commit("setCookieImgPerfil", response );    
+
+          //  console.log(response)
+            if(response.status == 0){
+                alert(response.extension)
+            }else{
+                   this.$store.commit("setCookieImgPerfil", response.imagen );    
    const cookieRes = this.$cookies.get('user_data_')   
-    this.$cookies.set('user_data_', {img: response, username: cookieRes.username,
+    this.$cookies.set('user_data_', {img: response.imagen, username: cookieRes.username,
                     date: cookieRes.fecha, edad: cookieRes.edad, nombres: cookieRes.nombres, ciudad: cookieRes.ciudad, twitter: cookieRes.twitter, 
                     email: cookieRes.email, bio: cookieRes.bio, fechaNac: cookieRes.fechaNac}, {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
+            }
+
+
    
     },
   async  guardarPerfil(){
@@ -408,7 +363,7 @@ export default {
         "&fechaNac="+fechaNac+"&ciudad="+this.ciudad+"&twitterUser="+this.twitterUser+
         "&emailPublic="+this.emailPublic+"&bio="+this.bio)
         .then((response) => {
-          console.log(response)
+         // console.log(response)
 
           if(response.status == 1){
             
@@ -418,7 +373,7 @@ export default {
                     path: '/',
                     maxAge: 60 * 60 * 24 * 7
                     })
-                    location.href = "/perfil/"+this.$store.state.username;
+                    location.href = "/u/"+this.$store.state.username;
           }
         });
 

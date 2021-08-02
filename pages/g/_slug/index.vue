@@ -1,101 +1,136 @@
 <template>
   <div>
-    <headerGrupoSlug :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :excerptGrupo="excerptGrupo"
-    :rolUser="rolUser" :rolName="rolName" @getGrupoNow="refreshGroups" :pGroup="pGroup" :tab="tab" @changeTab="cambiarTab"
-    ></headerGrupoSlug>
+    <div
+      class="div-block-419"
+      v-for="(item, index) in arrayPostHoy"
+      :key="index"
+    >
+     <like-canalizados :p="item.id" :votos="item.votos"></like-canalizados>
+     
+      <div class="div-block-421">
+        <div class="div-block-424">
+          <nuxt-link class="link-14"
+              :to="{
+                name: 'c-slug',
+                params: { slug: item.slug },
+              }"  
+            >{{item.titulo}}</nuxt-link
+          >
+        </div>
+        <div class="div-block-422">
+             <nuxt-link
+              :to="{
+                name: 'u-username',
+                params: { username: item.username },
+              }" >
+          <div class="div-block-420 ">
+            
+            <img
+              :src="item.avatar"
+             
+              alt=""
+              class="image-10 first"
+            />
+              
+          </div>
+          </nuxt-link>
+           <nuxt-link
+              :to="{
+                name: 'u-username',
+                params: { username: item.username },
+              }" >
+          <div class="text-block-7">{{item.username}}</div> </nuxt-link>
+          <div class="text-block-6">•</div>
+          <div class="text-block-7">{{item.comentarios}} comentarios</div>
+          <div class="text-block-6">•</div>
+           <nuxt-link
+              :to="{
+                name: 'g-slug',
+                params: { slug: item.slugGrupo },
+              }" >
+          <div class="text-block-7">{{item.tituloGrupo}}</div></nuxt-link>
+        </div>
+      </div>
+    </div>
 
-  <contentDiscusion :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :miembros="miembros" :miembrosO="miembrosO"  :excerptGrupo="excerptGrupo"
-  :contenido="contenido" :moderadores="moderadores" @changeModeradores="changeModeradores" :tab="tab" :pGroup="pGroup" @changeIconGrupoHeader="changeIconHeGroup"></contentDiscusion>
-
-
+                  <div class="div-block-434">
+                    <div>Hay {{arrayPostHoy.length}} publicaciones esta semana</div>
+                    <div class="text-block-6">•</div>
+                    <a href="#" class="link-18">Siguiente pagina</a>
+                  </div>
   </div>
 </template>
 
+
 <script>
-import headerGrupoSlug from '~/components/gruposlug/headerGrupoSlug.vue';
-import contentDiscusion from '~/components/gruposlug/contentDiscusion.vue';
+import likeCanalizados from '~/components/likes/likeCanalizados.vue';
+import axios from 'axios'
 export default {
-  layout: "grupo",
-  name: "grupo-slug",
-  components: {contentDiscusion, headerGrupoSlug},
-  async asyncData(app) {
-   
-   },
+  components: { likeCanalizados },
+  name: "grupo-slug-popular-index",
+  layout: "grupoCanalizados",
+ async asyncData({ params, store, redirect }) {
 
-   async fetch() {
+     const seoDetails = await axios.get(
+      `https://acceso.canalizados.com/api/wp/v2/grupos/?slug=${params.slug}`
+    );
 
-        
+  //  console.log(seoDetails.data[0])
+  if(seoDetails.data[0] === undefined){
 
+    return redirect('/')
 
-  await this.$axios
-        .$get("/grupos/getslug?slug="+this.$route.params.slug+"&token="+this.$store.state.tokenUser)
-        .then((response) => {
-          console.log(response)
-            if (response.status == 0) {
-            return app.redirect("/");
-            } else {
-            var rolName = 0;
-            if (response.grupo[0].rolUser == 1) {
-            rolName = "Owner";
-            }
-            if (response.grupo[0].rolUser == 2) {
-            rolName = "Moderador";
-            }
-            if (response.grupo[0].rolUser == 3) {
-            rolName = "Miembro";
-            }
+    
+  }else{
 
-            this.responseGrupo= response
-            this.pGroup= response.grupo[0].id
-            this.tituloGrupo= response.grupo[0].titulo
-            this.excerptGrupo= response.grupo[0].excerpt
-            this.imagenGrupo= response.grupo[0].imagen
-            this.contenido= response.grupo[0].contenido
-            this.miembros= response.grupo[0].miembros
-            this.moderadores= response.grupo[0].moderadores
-            this.rolName= rolName
-            this.rolUser= response.grupo[0].rolUser
-            this.miembrosO = response.grupo[0].miembrosO
-
-            }
-        })
-
-    },
-
+    const metaArray = [];
+    
+      seoDetails.data[0].yoast_meta.map(ele => {
+        metaArray.push({
+         hid: ele.name ? ele.name : ele.property,
+          name: ele.name ? ele.name : ele.property,
+          content: ele.content,
+        });
+      });
+//metaArray[4].content = metaArray[4].content.replace("http://acceso.canalizados.com", store.state.siteUrlSeo)
+var tituloSeo = metaArray[2].content
+    return { SeoPost: metaArray, tituloSeo: tituloSeo}
+      
+  }
+    
+  },
+   head(){
+    return {
+      title: this.tituloSeo,
+            meta: this.SeoPost, 
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
-       miembrosO: '',
-        pGroup:'',
-        tituloGrupo: '',
-        excerptGrupo: '',
-        imagenGrupo: '',
-        contenido: '',
-        miembros: '',
-        moderadores:'',
-        rolName: '',
-        rolUser: '', 
-        tab: 0
-        
+      arrayPostHoy: [],
     };
   },
-  watch: {},
+  async fetch() {
+   
+  },
   methods: {
-    changeModeradores(moderadores){
-        this.moderadores = moderadores
-    },
-    changeIconHeGroup(icono){
-        this.imagenGrupo = icono
-    },
-      cambiarTab(tab){
-          this.tab = tab
-      },
- 
-   refreshGroups() {
-      this.$fetch()
+   async getpostspo(){
+     console.log("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares")
+       await this.$axios.$get("/grupos/getpostbyslug/?slug="+this.$route.params.slug+"&s=populares").then((response) => {
+    //  console.log(response);
+      this.arrayPostHoy = response.posts;
+    });
     }
   },
   mounted() {
+    this.getpostspo()
   },
 };
 </script>
-

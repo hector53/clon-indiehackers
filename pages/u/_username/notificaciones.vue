@@ -1,19 +1,19 @@
 <template>
-<div>
+  <div>
    <loader v-show="loader"></loader>
   <div v-show="loader==false"  class="user-notifications ember-view">
     <div class="user-notifications__list">
-      <header class="user-notifications__header">
-        <h2 class="user-notifications__title">
+      <header class="user-notifications-header">
+        <h2 class="user-notifications-title">
           {{ arrayNotify.length }} Notificacion sin leer
         </h2>
 
-        <div class="user-notifications__clear-button" @click="marcarTodasLeidas">
+        <div class="user-notifications-button" @click="marcarTodasLeidas">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             id="ember118"
-            class="user-notifications__clear-icon ember-view"
+            class="user-notifications-icon"
           >
             <path
               d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
@@ -34,12 +34,12 @@
         >
           <header class="user-notification__header">
             <span class="user-notification__date">{{ item.fecha }}</span>
-            <span class="user-notification__notification-summary">
+            <span class="user-notification__notification-summary" style="margin-top: 0;">
               <div class="users-list ember-view">
                 <div class="user-link users-list__user-link ember-view">
                   <nuxt-link
                     :to="{
-                      name: 'perfil-username',
+                      name: 'u-username',
                       params: { username: item.username },
                     }"
                     class="user-link__link ember-view"
@@ -60,17 +60,17 @@
               <p>
                 <nuxt-link
                   :to="{
-                    name: 'perfil-username',
+                    name: 'u-username',
                     params: { username: item.username },
                   }"
                   class="ember-view"
-                  >{{ item.username }}</nuxt-link
+                  >{{ item.username }} &nbsp;</nuxt-link
                 >
                 <!---->
-                le gusta
+                le gusta &nbsp;
                 <nuxt-link
                   :to="{
-                    name: 'post-slug',
+                    name: 'c-slug',
                     params: { slug: item.slug },
                   }"
                   class="ember-view"
@@ -108,30 +108,30 @@
             <span class="user-notification__notification-summary">
               <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }"
-                class="ember-view"
+                class="linkHeaderNoty"
                 >{{ item.username }}</nuxt-link
               >
 
               <nuxt-link
                 :to="{
-                  name: 'post-slug',
+                  name: 'c-slug',
                   params: { slug: item.slug },
                   query: { commentId: item.comentarioId },
                 }"
-                class="user-notification__action-link ember-view"
+                class="user-notification__action-link linkHeaderNoty"
                 >comentó</nuxt-link
               >
 
               tu post
               <nuxt-link
                 :to="{
-                  name: 'post-slug',
+                  name: 'c-slug',
                   params: { slug: item.slug },
                 }"
-                class="ember-view"
+                class="linkHeaderNoty"
               >
                 "{{ item.tituloPost }}"
               </nuxt-link>
@@ -172,14 +172,14 @@
           <header class="user-notification__header">
             <span class="user-notification__date"> {{ item.fecha }}</span>
 
-            <span class="user-notification__notification-summary">
+            <span class="user-notification__notification-summary" style="margin-top: 0;">
               <div id="ember548" class="users-list ember-view">
                 <div
                   class="user-link users-list__user-link ember-view"
                 >
                   <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }"
                     class="user-link__link ember-view"
@@ -204,7 +204,7 @@
               <p>
              <nuxt-link
                 :to="{
-                  name: 'perfil-username',
+                  name: 'u-username',
                   params: { username: item.username },
                 }" class="active ember-view"
                   >{{item.username}}</nuxt-link
@@ -257,60 +257,80 @@
 </template>
 
 <script>
-import Loader from '~/components/loader/loader.vue';
 export default {
-     layout: "perfil",
-  name: "notificaciones",
-  components: {Loader},
+  layout: "perfilCanalizados",
+  name: "historyPerfilCanalizados",
+  components: {},
+   head(){
+    return {
+      title: 'Usuario - Canalizados',
+       meta: [
+      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Usuario' }
+    ],
+       link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/u/'+this.$route.params.username+'/notificaciones'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
       arrayNotify: [],
-      loader:true
+      loader: true,
     };
   },
   methods: {
-  async marcarTodasLeidas(){
-    if(this.arrayNotify.length > 0){
- this.arrayNotify = []
-     let formData = new FormData();
-      formData.append("token", this.$store.state.tokenUser);
-      const response = await this.$axios.$post("/perfil/leidastodas/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(response)
-      if(response.status != 0){
-          this.getnotify()
-          this.$store.commit("setnotifyCount", 0 );
+    async marcarTodasLeidas() {
+      if (this.arrayNotify.length > 0) {
+        this.arrayNotify = [];
+        let formData = new FormData();
+        formData.append("token", this.$store.state.tokenUser);
+        const response = await this.$axios.$post(
+          "/perfil/leidastodas/",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      //  console.log(response);
+        if (response.status != 0) {
+          this.getnotify();
+          this.$store.commit("setnotifyCount", 0);
+        }
       }
-    }
-     
-
-},
-    async MarcarLeida(id, index){
-this.arrayNotify.splice(index, 1);
-   let formData = new FormData();
+    },
+    async MarcarLeida(id, index) {
+      this.arrayNotify.splice(index, 1);
+      let formData = new FormData();
       formData.append("p", id);
       formData.append("token", this.$store.state.tokenUser);
-      const response = await this.$axios.$post("/perfil/notifyleida/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      console.log(response)
-      if(response.status != 0){
-          this.getnotify()
-          this.$store.commit("setnotifyCount", this.$store.state.notifyCount - 1 );
+      const response = await this.$axios.$post(
+        "/perfil/notifyleida/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    //  console.log(response);
+      if (response.status != 0) {
+        this.getnotify();
+        this.$store.commit("setnotifyCount", this.$store.state.notifyCount - 1);
       }
     },
     async getnotify() {
       await this.$axios
         .$get("/perfil/getnotify?username=" + this.$route.params.username)
         .then((response) => {
-          console.log(response);
+        //  console.log(response);
           this.arrayNotify = response.notify;
-          this.loader = false
+          this.loader = false;
         });
     },
   },
@@ -320,4 +340,165 @@ this.arrayNotify.splice(index, 1);
   },
 };
 </script>
+<style >
+.creastePost {
+  font-weight: bold;
+}
+.user-notifications-header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.user-notifications-title {
+  color: #7986CB;
+  font-size: 26px;
+  font-weight: 600;
+  flex: 0 1 auto;
+  margin-right: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-notifications-icon {
+  height: 16px;
+  width: 16px;
+  fill: white;
+  flex: 0 0 auto;
+  margin-right: 12px;
+}
+.user-notifications-button {
+    background-color: #7986CB;
+    box-shadow: 0 0 8px #93989c;
+    align-items: center;
+    border-radius: 2px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    text-align: right;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.user-notifications-button:hover {
+      transform: scale(1.05);
+}
+.user-notification__header{
+  display: flex;
+    font-size: 15px;
+}
+.user-notification__date {
+    align-items: center;
+    align-self: flex-start;
+    display: flex;
+    height: 36px;
+    margin-top: 9px;
+}
 
+.user-notification__notification-summary {
+        line-height: 1.5em;
+    display: inline-flex;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.users-list {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+}
+.users-list__user-link {
+    height: 36px;
+    width: 36px;
+    margin: 9px 0 0 9px;
+}
+.user-link__link{
+  height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+.user-link__avatar {
+    flex: 0 0 auto;
+        height: 100%;
+    width: 100%;
+}
+.avatarImg{
+  border-radius: 9999px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.user-link__name {
+    margin-left: 8px;
+}
+.user-notification__content {
+    background-color: #ffffff;
+    border-radius: 3px;
+    color: #1a1b1f;
+    margin-top: 15px;
+    padding: 18px;
+    position: relative;
+    box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+}
+ .user-notification__markdown-content {
+    color: #1a1b1f;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+ .user-notification__markdown-content p {
+   word-wrap: break-word;
+}
+
+ .user-notification__clear-button {
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    fill: #7986CB;
+    justify-content: center;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+.user-notification__clear-button svg {
+    height: 16px;
+    width: 16px;
+}
+.user-notification__clear-button:hover {
+     box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+}
+.linkHeaderNoty{
+  color: #7986CB;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.user-notifications__more-button {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0;
+    padding: 16px 20px;
+    background: #7986CB;
+    color: white;
+}
+
+.load-more-button__content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.load-more-button__icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    fill: white;
+}
+
+
+ .load-more-button:not([disabled]):hover {
+    transform: scale(1.05);
+}
+</style>

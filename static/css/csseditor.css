@@ -1,0 +1,56 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+     Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  }
+  
+  body {
+    font-family: Montserrat!important;
+    color: #3D3D3D!important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    font-weight: 400 !important;
+    background-color: #ffffff !important;
+  }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    line-height: 1.4!important;
+    font-weight: 500;
+  }
+  
+  a {
+    text-decoration: none !important;
+    display: contents;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  
+  h1,
+  .h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2,
+  .h2 {
+    font-size: 1.50rem !important;
+  }
+  
+  h3,
+  .h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  h4,
+  .h4 {
+    font-size: 1rem !important;
+  }
+  
+  h5,
+  .h5 {
+    font-size: 0.75rem !important;
+  }
+  
+  h6,
+  .h6 {
+    font-size: 0.50rem !important;
+  }
+  
