@@ -15,8 +15,8 @@
           class="list-item-9"
          
         >
-          <nuxt-link to="/">
-            <div class="html-embed-3 w-embed">
+          <nuxt-link to="/" style="display: flex;">
+            <div class="html-embed-3 w-embed" >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.1"
@@ -71,7 +71,7 @@
         </li>
 
         <li class="list-item-9">
-          <nuxt-link to="/staffpicks">
+          <nuxt-link to="/staffpicks" style="display: flex;">
             <div class="html-embed-7 w-embed">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@
           </nuxt-link>
         </li>
         <li class="list-item-9">
-          <nuxt-link to="/startups">
+          <nuxt-link to="/startups" style="display: flex;">
             <div class="html-embed-9 w-embed">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +176,7 @@
         </li>
 
         <li class="list-item-9">
-          <nuxt-link to="/ecosistema">
+          <nuxt-link to="/ecosistema" style="display: flex;">
             <div class="html-embed-9 w-embed">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +210,7 @@
           </nuxt-link>
         </li>
         <li class="list-item-9">
-          <nuxt-link to="/grupos">
+          <nuxt-link to="/grupos" style="display: flex;">
             <div class="html-embed-9 w-embed">
               <svg
                 enable-background="new 0 0 511.976 511.976"
