@@ -5,9 +5,9 @@ export default {
     // baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     baseUrl: process.env.BASE_URL || 'https://canalizados.com'
    },
- /* server: {
+ server: {
     port: 8000 // default: 3000
-  },*/
+  },
   target: 'server',
   loading: {
     color: 'blue',
