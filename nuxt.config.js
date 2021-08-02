@@ -5,6 +5,7 @@ export default {
     // baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     baseUrl: process.env.BASE_URL || 'https://canalizados.com'
    },
+   //activar para test
   server: {
     port: 8000 // default: 3000
   },
@@ -142,7 +143,8 @@ export default {
  
   robots: {
     UserAgent: '*',
-    Disallow: '/'
+    //Allow: '/'
+    Disallow: '/' // activar para test
   },
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
