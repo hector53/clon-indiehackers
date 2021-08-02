@@ -143,7 +143,8 @@ export default {
  
   robots: {
     UserAgent: '*',
-    Allow: '/'
+     //Allow: '/'
+     Disallow: '/' // activar para test
   },
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
