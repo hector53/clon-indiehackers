@@ -75,7 +75,10 @@ export default {
   },
   async fetch() {},
   mounted() {
-    this.getsiVote();
+    if(this.$store.state.cookieLogin){
+          this.getsiVote();
+    }
+  
   },
 };
 </script>

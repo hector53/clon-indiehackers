@@ -1,4 +1,4 @@
 export default ({  redirect }) => {
-    return redirect('/grupos')
+    return redirect('/startups')
    
   }

@@ -135,11 +135,10 @@ export default {
           "Content-Type": "multipart/form-data",
         },
       });
+    //  console.log(response)
       if(response.status == 1){
-
-            this.getEncuesta(response.p)
+          this.getEncuesta(response.p)
       }
-      
            
       },
     verResultados() {
@@ -149,8 +148,7 @@ export default {
      await this.$axios
       .$get("/get/encuestabyid/?p=" + id + "&token="+this.$store.state.tokenUser)
       .then((response) => {
-          console.log(response
-          )
+       //   console.log(response    )
             this.loadingResultados = false
           this.arrayMiEncuesta = response
           this.votos = response.VotosTotales
@@ -161,7 +159,9 @@ export default {
 
   },
   async fetch() {},
-  mounted() {},
+  mounted() {
+ //   console.log(this.arrayEncuesta)
+  },
 };
 </script>
 

@@ -141,7 +141,7 @@ export default {
             this.p
         )
         .then((response) => {
-          console.log(response)
+     //     console.log(response)
           this.status = response.status;
         });
     },
