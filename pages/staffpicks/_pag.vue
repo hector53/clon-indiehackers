@@ -48,7 +48,7 @@
 
     
 
-    <div class="ui pagination menu">
+    <div class="ui pagination menu" style="display: flex; justify-content: center; align-items: center">
       <nuxt-link
         class="item primero"
         :to="{ name: 'staffpicks-pag', params: { pag: 1 } }"
