@@ -282,11 +282,10 @@
       </ul>
     </div>
     <footer>
-      <h4>¡Síguenos en nuestras redes sociales!</h4>
-      <p style="display:flex;     flex-direction: column;">
-        <span style="display: flex;    justify-content: right;    align-items: center;"><i class="fa fa-twitter" style="margin-right: 5px; " aria-hidden="true"></i><a href="https://twitter.com/Canalizados_" class="link">Twitter</a></span>
-         <span  style="display: flex;    justify-content: right;    align-items: center;"><i class="fa fa-instagram"  style="margin-right: 5px; "  aria-hidden="true"></i><a href="https://www.instagram.com/canalizados_/">Instagram</a> </span>
-          <span  style="display: flex;    justify-content: right;    align-items: center;"><i class="fa fa-linkedin"  style="margin-right: 5px; "  aria-hidden="true"></i><a href="https://www.linkedin.com/company/canalizados/" class="link"          >LinkedIn</a ></span>
+      <p style="display:flex; justify-content:space-between">
+        <span><a href="https://twitter.com/Canalizados_" class="link"><i class="fa fa-twitter" style="margin-left: 20px; font-size: 20px; color: #00acee" aria-hidden="true"></i></a></span>
+         <span ><a href="https://www.instagram.com/canalizados_/"><i class="fa fa-instagram" style="font-size: 20px; color: #dd6819" aria-hidden="true"></i></a> </span>
+          <span ><a href="https://www.linkedin.com/company/canalizados/" class="link"><i class="fa fa-linkedin" style="margin-right: 20px; font-size: 20px; color: #3f729b"   aria-hidden="true"></i></a ></span>
         
       </p>
     </footer>
