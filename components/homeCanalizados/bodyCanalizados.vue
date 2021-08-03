@@ -11,19 +11,22 @@
         <b-col lg="10">
           <b-row>
             <b-col lg="8">
-              <historias-destacadas ref="historiasDes"></historias-destacadas>
-
-              
+              <!-- <historias-destacadas ref="historiasDes"></historias-destacadas> -->
+              <div>
+                <SliderDestacadas />
+              </div>
 
               <LazyHydrate when-visible>
                 <seccion-discusion></seccion-discusion>
+              </LazyHydrate>
+              <LazyHydrate when-visible>
+                <historias-destacadas ref="historiasDes"></historias-destacadas>
               </LazyHydrate>
             </b-col>
 
             <b-col lg="4">
               <LazyHydrate when-visible>
                 <sidebar-derecho> </sidebar-derecho>
-                
               </LazyHydrate>
               <LazyHydrate when-visible>
                 <columna-derecha-discusion
@@ -39,7 +42,6 @@
   </div>
 </template>
 
-
 <script>
 import ColumnaDerechaDiscusion from "./columnaDerechaDiscusion.vue";
 import HistoriasDestacadas from "./historiasDestacadas.vue";
@@ -48,6 +50,7 @@ import SidebarDerecho from "./sidebarDerecho.vue";
 import sidebarLeft from "./sidebarLeft.vue";
 import UsuariosDestacados from "./usuariosDestacados.vue";
 import LazyHydrate from "vue-lazy-hydration";
+import SliderDestacadas from './sliderDestacadas.vue';
 
 export default {
   components: {
@@ -58,25 +61,33 @@ export default {
     UsuariosDestacados,
     HistoriasDestacadas,
     SidebarDerecho,
+    SliderDestacadas
   },
   name: "bodyCanalizados",
 
   data() {
     return {
+      slide: 0,
+      sliding: null,
       arrayPopulares: [],
       gruposRecomendados: [],
       arraySidebar: [],
       labelRecomendados: "Tus Grupos",
-      msjBienvenida: false,
+      msjBienvenida: false
     };
   },
   methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    },
     cambiarColumnas() {
       this.columnaDiscusionG = true;
-    },
+    }
   },
   async fetch() {},
-  mounted() {},
+  mounted() {}
 };
 </script>
-

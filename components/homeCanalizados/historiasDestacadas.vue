@@ -2,13 +2,13 @@
   <div>
     
 <b-row align-v="stretch">
-    <b-col   md="12" class="mb-4"   v-for="(item, index) in arrayNoticias"
+    <b-col   md="6" class="mb-4"   v-for="(item, index) in arrayNoticias"
         :key="index" >
        
 
       <div class="cubrePostStaffpicks">
            <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
-             <img :src="item.imagen" loading="lazy" alt="" class="image-11" style="border-radius:20px"/>
+             <img :src="item.imagen" loading="lazy" alt="" class="image-11" />
               <h3>{{ item.titulo }}</h3>
               <p v-text="item.contenido"></p>
            </nuxt-link>
@@ -31,7 +31,7 @@
                   <img :src="item.avatar" class="image-12" />
                   <span>{{ item.username }}</span></nuxt-link
                 >
-                <span style="font-size: 12px;" class="float-right">{{ item.fecha }}</span>
+                <span style="font-size: 12px">{{ item.fecha }}</span>
               </div>
               </div>
               
@@ -43,10 +43,9 @@
     <nuxt-link
       to="/staffpicks"
       v-if="btnVerMas"
-      style="margin-bottom: 20px"
       class="botonCanalizados btnVerMas"
       data-v-70e177c0=""
-      >Ver más</nuxt-link
+      >Ver más...</nuxt-link
     >
   </div>
 </template>
