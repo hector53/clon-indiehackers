@@ -1,70 +1,110 @@
 <template>
-  <div class="card mb-5" style="border-radius: 10px;">
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="4000"
-      controls
-      indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
-      @sliding-start="onSlideStart"
-      @sliding-end="onSlideEnd"
+  <div>
+    <VueSlickCarousel
+      v-bind="settings"
+      style="margin-bottom: 50px"
     >
-      <!-- Text slides with image -->
-      <b-carousel-slide
-        img-src="https://acceso.canalizados.com/wp-content/uploads/2021/08/IMG_9903-1024x573.jpeg"
-      ></b-carousel-slide>
+    <div v-for="index in 9" :key="index" class="p-2">
+<div class="cubrePostStaffpicks"  >
+        <a
+          href="/c/olaclick-recauda-usd-2-m-para-revolucionar-la-industria-de-los-servicios"
+          class=""
+          ><img
+            src="https://acceso.canalizados.com/wp-content/uploads/2021/08/Restaurante-300x200.jpg"
+            loading="lazy"
+            alt=""
+            class="image-11"
+          />
+          <h3>
+            OlaClick recauda USD 2 M para revolucionar la industria de los
+            servicios
+          </h3>
+          </a
+        >
+        <!---->
+        <br />
+        <div class="sobreUserStaff2">
+          <div class="cubreUserStaffpick">
+            <a href="/u/gzcasti" class="userStaffpick2"
+              ><img
+                src="https://acceso.canalizados.com/wp-content/uploads/2021/04/Foto-de-perfil-4-liviana-150x150.jpg"
+                class="image-12"
+              />
+              <span>gzcasti</span></a
+            >
+            <span style="font-size: 12px">8 mins</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="1024"
-            height="480"
-            src="https://picsum.photos/1024/480/?image=55"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-    </b-carousel>
-    <h3 class="title-slider" style="font-weight: bold;">Newtopia invertirá USD 50 M en startups en etapa temprana de América Latina</h3>
-    <h4>América Latina vive un boom alrededor del venture capital global con nombres de la talla de Sequoia Capital, Andreessen Horowitz y SoftBank. Ahora, Newtopia VC acaba de lanzarse desde Argentina con USD $50 millones para invertir en startups de toda la región.</h4>
-    <div class="" style="display: flex;">
-    <img src="https://acceso.canalizados.com/wp-content/uploads/2021/06/2_20140707_132434%20(2)-150x150.jpg" alt="" class="image-12">
-    <h7>jose.martin</h7>
-    <p>·</p>
-    <p>03/08/2021</p>
     </div>
+      
+    </VueSlickCarousel>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        slide: 0,
-        sliding: null
+
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+export default {
+  components: { VueSlickCarousel },
+  data() {
+    return {
+      slide: 0,
+      sliding: null,
+      settings: {
+  "dots": true,
+  "infinite": true,
+  "speed": 500,
+  "slidesToShow": 3,
+  "slidesToScroll": 3,
+  "initialSlide": 0,
+  "responsive": [
+    {
+      "breakpoint": 1024,
+      "settings": {
+        "slidesToShow": 3,
+        "slidesToScroll": 3,
+        "infinite": true,
+        "dots": true
       }
     },
-    methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
+    {
+      "breakpoint": 600,
+      "settings": {
+        "slidesToShow": 2,
+        "slidesToScroll": 2,
+        "initialSlide": 2
+      }
+    },
+    {
+      "breakpoint": 480,
+      "settings": {
+        "slidesToShow": 1,
+        "slidesToScroll": 1
       }
     }
-  }
+  ]
+}
+    };
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true;
+    },
+    onSlideEnd(slide) {
+      this.sliding = false;
+    },
+  },
+};
 </script>
+
+<style>
+.sobreUserStaff2 {
+  width: 90%;
+}
+
+</style>
