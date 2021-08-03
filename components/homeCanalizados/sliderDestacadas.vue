@@ -1,50 +1,46 @@
 <template>
   <div>
-    <VueSlickCarousel
-      v-bind="settings"
-      style="margin-bottom: 50px"
-    >
-    <div v-for="index in 9" :key="index" class="p-2">
-<div class="cubrePostStaffpicks"  >
-        <a
-          href="/c/olaclick-recauda-usd-2-m-para-revolucionar-la-industria-de-los-servicios"
-          class=""
-          ><img
-            src="https://acceso.canalizados.com/wp-content/uploads/2021/08/Restaurante-300x200.jpg"
-            loading="lazy"
-            alt=""
-            class="image-11"
-          />
-          <h3>
-            OlaClick recauda USD 2 M para revolucionar la industria de los
-            servicios
-          </h3>
-          </a
-        >
-        <!---->
-        <br />
-        <div class="sobreUserStaff2">
-          <div class="cubreUserStaffpick">
-            <a href="/u/gzcasti" class="userStaffpick2"
-              ><img
-                src="https://acceso.canalizados.com/wp-content/uploads/2021/04/Foto-de-perfil-4-liviana-150x150.jpg"
-                class="image-12"
-              />
-              <span>gzcasti</span></a
+    <VueSlickCarousel v-bind="settings" style="margin-bottom: 50px" v-if="mostrar">
+      <div v-for="(item, index) in arrayNoticias"        :key="index" class="p-2">
+        <div class="cubrePostStaffpicks">
+          <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
+            <img :src="item.imagen" loading="lazy" alt="" class="image-11 imgslider" />
+            <h3>{{ item.titulo }}</h3>
+          </nuxt-link>
+          <div
+            class="div-block-431"
+            style="padding-left: 10px"
+            v-if="item.slugGrupo != ''"
+          >
+            <nuxt-link
+              :to="{ name: 'g-slug', params: { slug: item.slugGrupo } }"
+              class="link-17"
+              >{{ item.tituloGrupo }}</nuxt-link
             >
-            <span style="font-size: 12px">8 mins</span>
+          </div>
+          <br />
+          <div class="sobreUserStaff2">
+            <div class="cubreUserStaffpick">
+              <nuxt-link
+                class="userStaffpick2"
+                :to="{
+                  name: 'u-username',
+                  params: { username: item.username },
+                }"
+              >
+                <img :src="item.avatar" class="image-12" />
+                <span>{{ item.username }}</span></nuxt-link
+              >
+              <span style="font-size: 12px">{{ item.fecha }}</span>
+            </div>
           </div>
         </div>
       </div>
-
-    </div>
-      
     </VueSlickCarousel>
   </div>
 </template>
 
 <script>
-
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
@@ -53,42 +49,44 @@ export default {
   components: { VueSlickCarousel },
   data() {
     return {
+      mostrar: false,
+      arrayNoticias: [],
       slide: 0,
       sliding: null,
       settings: {
-  "dots": true,
-  "infinite": true,
-  "speed": 500,
-  "slidesToShow": 3,
-  "slidesToScroll": 3,
-  "initialSlide": 0,
-  "responsive": [
-    {
-      "breakpoint": 1024,
-      "settings": {
-        "slidesToShow": 3,
-        "slidesToScroll": 3,
-        "infinite": true,
-        "dots": true
-      }
-    },
-    {
-      "breakpoint": 600,
-      "settings": {
-        "slidesToShow": 2,
-        "slidesToScroll": 2,
-        "initialSlide": 2
-      }
-    },
-    {
-      "breakpoint": 480,
-      "settings": {
-        "slidesToShow": 1,
-        "slidesToScroll": 1
-      }
-    }
-  ]
-}
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -99,6 +97,15 @@ export default {
       this.sliding = false;
     },
   },
+  async mounted() {
+    await this.$axios
+      .$get("/getpost/getnoticias?fin=12&ini=0&xPag=9")
+      .then((response) => {
+        console.log(response);
+        this.arrayNoticias = response.noticias;
+        this.mostrar = true
+      });
+  },
 };
 </script>
 
@@ -106,5 +113,7 @@ export default {
 .sobreUserStaff2 {
   width: 90%;
 }
-
+.imgslider{
+  height: 100px;
+}
 </style>
