@@ -1,7 +1,7 @@
 <template>
   <div>
-    <VueSlickCarousel v-bind="settings" style="margin-bottom: 50px" v-if="mostrar">
-      <div v-for="(item, index) in arrayNoticias"        :key="index" class="p-2">
+    <VueSlickCarousel v-bind="settings" style="margin-bottom: 50px;" v-if="mostrar" class="slider">
+      <div v-for="(item, index) in arrayNoticias" :key="index" class="p-2">
         <div class="cubrePostStaffpicks">
           <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
             <img :src="item.imagen" loading="lazy" alt="" class="image-11 imgslider" />
@@ -83,6 +83,7 @@ export default {
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
+              dots: false,
             },
           },
         ],
@@ -115,5 +116,15 @@ export default {
 }
 .imgslider{
   height: auto;
+}
+
+@media screen and (max-width:480px) {
+  .slider {
+    height: 100px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
