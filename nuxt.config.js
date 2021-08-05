@@ -35,16 +35,50 @@ export default {
     ], 
     script: [
       {  
-          src: 'https://apis.google.com/js/platform.js',
-          async: true
+        src: 'https://apis.google.com/js/platform.js',
+        async: true
       }, 
-     
-
-         {  
-          src: 'https://cdn.volument.com/v1/volument.js',
-          async: true, 
-          onload: "volument('76a861b68e')"
-      }, 
+      {  
+        src: 'https://cdn.volument.com/v1/volument.js',
+        async: true, 
+        onload: "volument('76a861b68e')"
+      },
+      {
+        src: 'https://code.jquery.com/jquery-3.6.0.min.js',
+        async: true
+      },
+      {
+        src: 'https://unpkg.com/@popperjs/core@2',
+        async: true
+      },
+      {
+        src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js',
+        async: true
+      },
+      {
+        src: '//cdn.jsdelivr.net/npm/sweetalert2@11',
+        async: true
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js',
+        async: true
+      },
+      {
+        src: 'https://unpkg.com/scrollreveal',
+        async: true
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js',
+        async: true
+      },
+      {
+        src: 'https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js',
+        async: true
+      },
+      {
+        src: '//cdn.jsdelivr.net/npm/sweetalert2@11',
+        async: true
+      },
     
   ]
   },
