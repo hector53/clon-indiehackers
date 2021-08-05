@@ -1,5 +1,6 @@
 <template>
 <div>
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -81,7 +82,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="./assets/images/features-icon-1.png" alt="">
+                            <img src="assets/images/features-icon-1.png" alt="">
                             <h4>Crea tu Startup</h4>
                             <p>Piensa una idea revolucionaria y única. Luego de eso súbelo a nuestra página</p>
                             <a href="#testimonials" class="main-button">
@@ -95,7 +96,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>02</h2>
-                            <img src="./assets/images/features-icon-2.png" alt="">
+                            <img src="assets/images/features-icon-2.png" alt="">
                             <h4>Formá un equipo</h4>
                             <p>Crea una sociedad con un grupo de personas que sepas que te desempeñas bien.</p>
                             <a href="#testimonials" class="main-button">
@@ -109,7 +110,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="./assets/images/features-icon-3.png" alt="">
+                            <img src="assets/images/features-icon-3.png" alt="">
                             <h4>Sube tu Startup</h4>
                             <p>Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec consectetur diam.</p>
                             <a href="#testimonials" class="main-button">
@@ -131,26 +132,26 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="./assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                            <img src="./assets/images/about-icon-01.png" alt="">
+                            <img src="assets/images/about-icon-01.png" alt="">
                             <div class="text">
                                 <h4>Lorem ipsum dolor sit.</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum distinctio, laboriosam iusto eius.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="./assets/images/about-icon-02.png" alt="">
+                            <img src="assets/images/about-icon-02.png" alt="">
                             <div class="text">
                                 <h4>Lorem ipsum dolor sit.</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni explicabo saepe illo et, amet harum.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="./assets/images/about-icon-03.png" alt="">
+                            <img src="assets/images/about-icon-03.png" alt="">
                             <div class="text">
                                 <h4>Lorem ipsum dolor sit.</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum pariatur, libero odit dolor quae laudantium.</p>
@@ -180,7 +181,7 @@
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="./assets/images/testimonial-author-1.png" alt="Author One"></i>
+                                <i><img src="assets/images/testimonial-author-1.png" alt="Author One"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -197,7 +198,7 @@
                         </div>
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="./assets/images/testimonial-author-1.png" alt="Second Author"></i>
+                                <i><img src="assets/images/testimonial-author-1.png" alt="Second Author"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -213,7 +214,7 @@
                         </div>
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="./assets/images/testimonial-author-1.png" alt="Author Third"></i>
+                                <i><img src="assets/images/testimonial-author-1.png" alt="Author Third"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -229,7 +230,7 @@
                         </div>
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="./assets/images/testimonial-author-1.png" alt="Fourth Author"></i>
+                                <i><img src="assets/images/testimonial-author-1.png" alt="Fourth Author"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
@@ -315,7 +316,8 @@
             </div>
         </div>
     </footer>
-  </div>
+
+</div>
 </template>
 
 <script>
@@ -335,11 +337,52 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: "text/css", href: "assets/css/bootstrap.min.css"},
       { rel: 'stylesheet', type: "text/css", href: "assets/css/font-awesome.css"},
-      { rel: 'stylesheet', href: "assets/css/styles.css"},
+      { rel: 'stylesheet', href: "assets/css/templatemo-lava.css"},
       { rel: 'stylesheet', href: "assets/css/owl-carousel.css"},
-    ]
+    ],
+     script: [
+      {  
+        src: 'assets/js/jquery-2.1.0.min.js',
+      }, 
+       {  
+        src: 'assets/js/popper.js',
+      }, 
+       {  
+        src: 'assets/js/bootstrap.min.js',
+      }, 
+      {  
+        src: '//cdn.jsdelivr.net/npm/sweetalert2@11',
+      }, 
+
+
+      
+       {  
+        src: 'assets/js/owl-carousel.js',
+      }, 
+       {  
+        src: 'assets/js/scrollreveal.min.js',
+      }, 
+       {  
+        src: 'assets/js/waypoints.min.js',
+      }, 
+       {  
+        src: 'assets/js/jquery.counterup.min.js',
+      }, 
+       {  
+        src: 'assets/js/imgfix.min.js',
+      }, 
+
+       {  
+        src: 'assets/js/alerts.js',
+      }, 
+
+       {  
+        src: 'assets/js/custom.js',
+      }, 
+     ]
+
   },
-  middleware: "miauth",
+ 
   layout: "landing",
 }
 </script>

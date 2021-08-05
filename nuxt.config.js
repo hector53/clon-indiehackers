@@ -38,11 +38,7 @@ export default {
         src: 'https://apis.google.com/js/platform.js',
         async: true
       }, 
-      {  
-        src: 'https://cdn.volument.com/v1/volument.js',
-        async: true, 
-        onload: "volument('76a861b68e')"
-      },
+   
       {
         src: 'https://code.jquery.com/jquery-3.6.0.min.js',
         async: true
@@ -84,10 +80,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/static/css/canalizados.css',
-    '~/static/css/csscana.css',
-  ],
+
 
   serverMiddleware: [
     redirectSSL.create({
@@ -106,7 +99,10 @@ export default {
 
   ],
 
-  
+  css: [
+    '~/static/css/canalizados.css',
+    '~/static/css/csscana.css',
+  ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   //components: true,
 
