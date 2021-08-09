@@ -32,17 +32,20 @@
                 <li class="scroll-to-section">
                   <a href="#testimonials" class="menu-item">Testimonios</a>
                 </li>
-                <li class="submenu">
+                <!-- <li class="submenu">
                   <a href="javascript:;">Participá</a>
                   <ul>
-                    <li><NuxtLink to="/login"><a href="" class="menu-item">Iniciá sesión</a></NuxtLink></li>
-                    <li><NuxtLink to="/registro"><a href="" class="menu-item">Regístrate</a></NuxtLink></li>
-                    <li><NuxtLink to="/faqs"><a href="" class="menu-item">FAQ'S</a></NuxtLink></li>
-                    <li><NuxtLink to="/comunidad"><a href="" class="menu-item">Comunidad</a></NuxtLink></li>
+                    <NuxtLink to="/login"><li><a class="menu-item">Iniciá sesión</a></li></NuxtLink>
+                    <NuxtLink to="/registro"><li><a class="menu-item">Regístrate</a></li></NuxtLink>
+                    <NuxtLink to="/faqs"><li><a class="menu-item">FAQ'S</a></li></NuxtLink>
+                    <NuxtLink to="/comunidad"><li><a class="menu-item">Comunidad</a></li></NuxtLink>
                   </ul>
-                </li>
+                </li> -->
                 <li class="scroll-to-section">
                   <a href="#contact-us" class="menu-item">Contáctanos</a>
+                </li>
+                <li>
+                  <NuxtLink to="/login"><a class="menu-item">Iniciá sesión</a></NuxtLink>
                 </li>
               </ul>
               <a class="menu-trigger">
