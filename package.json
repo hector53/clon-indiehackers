@@ -27,6 +27,7 @@
     "core-js": "^3.8.3",
     "google-signin-vue-nuxt": "^1.0.0",
     "i": "^0.3.6",
+    "jquery": "^3.6.0",
     "npm": "^7.20.3",
     "nuxt": "^2.14.12",
     "nuxt-sweetalert2": "^1.0.0",

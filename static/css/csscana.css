@@ -12,18 +12,17 @@ body {
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   line-height: 1.4!important;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 a {
   text-decoration: none !important;
-  color: #3D3D3D!important;
+  color: #3D3D3D;
 }
 
 
 h1,
 .h1 {
-  font-size: 1.75rem !important;
+  font-size: 1.75rem;
 }
 
 h2,
