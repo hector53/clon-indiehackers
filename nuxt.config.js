@@ -6,9 +6,9 @@ export default {
     baseUrl: process.env.BASE_URL || 'https://canalizados.com'
    },
    //activar para test
-  server: {
+ /* server: {
     port: 8000 // default: 3000
-  },
+  },*/
   target: 'server',
   loading: {
     color: 'blue',
@@ -38,13 +38,7 @@ export default {
           src: 'https://apis.google.com/js/platform.js',
           async: true
       }, 
-      { src: '/js/histats.js' }, // customscript.js located in "static/" directory, 
-
-         {  
-          src: 'https://cdn.volument.com/v1/volument.js',
-          async: true, 
-          onload: "volument('76a861b68e')"
-      }, 
+    
     
   ]
   },
@@ -143,8 +137,8 @@ export default {
  
   robots: {
     UserAgent: '*',
-    //Allow: '/'
-    Disallow: '/' // activar para test
+    Allow: '/'
+   // Disallow: '/' // activar para test
   },
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',

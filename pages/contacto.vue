@@ -55,15 +55,29 @@
       <div>
         <label for="message" class="sr-only">Message</label>
         <div class="cubreInputContacto">
-          <textarea
-            required
-            v-model="message"
-            name="message"
-            id="message"
-            rows="4"
-            class="group-admin__input"
-            placeholder="Mensaje*"
-          ></textarea>
+           <client-only>
+         <Editor
+        v-model="message"
+       api-key="idqg8ff4sgvmj2hgpcq8f8j5rp3zf2kt238cppa5qi2glwv3"
+       :init="{
+         height: 500,
+         menubar: false,
+          language_url: '/es_MX.js',
+                 font_formats: 'Montserrat', 
+                  content_style:
+    '@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);', 
+    content_css: '/css/csseditor.css',
+         plugins: [
+           ' link'
+         ],
+         toolbar:
+           'undo redo | formatselect | bold italic backcolor forecolor | \
+           alignleft aligncenter alignright alignjustify | link \
+           ', 
+           
+       }"
+     />
+  </client-only>
         </div>
       </div>
       <div class="">
@@ -84,7 +98,7 @@ import loader from '~/components/loader/loader.vue';
 export default {
   components: { loader },
   name: "contacto",
-  layout: " ",
+  layout: "perfilEditCanalizados",
 
     head(){
     return {

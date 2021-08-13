@@ -2700,6 +2700,8 @@ input[type="button"] {
 .search-page .search-page__filters {
   display: flex;
   padding: 0 16px;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
 .search-page .search-page__filter {
@@ -4128,6 +4130,9 @@ text-decoration:underline!important;
 
 
 @media screen and (max-width:650px) {
+  .search-page .search-page__results-content{
+    grid-template-columns: auto;
+  }
   .wp-caption.alignright{
     float: none;
     padding-left: 0;
