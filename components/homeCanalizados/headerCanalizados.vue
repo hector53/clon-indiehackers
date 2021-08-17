@@ -14,11 +14,11 @@
                 role="button"
               >
               
-                <nuxt-link  to="/">
+                <nuxt-link  to="/comunidad">
                 <img src="/images/logo/logo.svg" class="tamaLogoL" />
                 </nuxt-link>
 
-                <nuxt-link  to="/">
+                <nuxt-link  to="/comunidad">
                 <img src="/images/logo/isotipo_1.svg" class="tamaLogoP" />
                 </nuxt-link>
 

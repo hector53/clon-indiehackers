@@ -12,6 +12,7 @@
                 placeholder="Escribe tu comentario aqui…"
                 maxlength="12000"
                 v-model="commentText"
+                @focus="handleAlert"
                 class="ember-text-area comment-box__textarea ember-auto-resize ember-view"
                 style="height: 127.969px; overflow: hidden; resize: none;"
               ></textarea>
@@ -207,6 +208,16 @@ export default {
     }
   },
   methods: {
+    handleAlert() {
+      if(!this.$store.state.cookieLogin){
+        this.$swal({
+          type: 'error',
+          title: 'No estas loggeado',
+          text: 'Se necesita estar loggeado para poder comentar publicaciones',
+          footer: '<a href="/iniciar-sesion" style="color:#59b1ff">Iniciar Sesion</a>'
+        })
+      }
+    },
    async   EliminarComment(id){
             let formData = new FormData();
             formData.append("p", this.idP);
