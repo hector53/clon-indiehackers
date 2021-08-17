@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 ul, li {
   padding: 0;
@@ -15,7 +16,6 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background-color: #fff;
   font-size: 16px;
@@ -84,7 +84,7 @@ a.main-button-slider {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #fba70b;
+  background-color: #435282;
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -103,7 +103,7 @@ a.main-button {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #f4813f;
+  background-color: #435282;
   text-transform: uppercase;
   color: #fff !important;
   font-weight: 600;
@@ -125,7 +125,7 @@ button.main-button {
   font-size: 14px;
   border-radius: 25px;
   padding: 15px 25px;
-  background-color: #f4813f;
+  background-color: #435282;
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
@@ -188,11 +188,11 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fba70b!important;
+  color: #435282!important;
 }
 
 .background-header .nav li a.active {
-  color: #fba70b!important;
+  color: #435282!important;
 }
 
 .header-area {
@@ -262,14 +262,21 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  height: 20px;
-  line-height: 40px;
-  border: transparent;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  height: 30px;
+  border: 1px solid #000;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  padding: 1px 5px;
   letter-spacing: 1px;
+  border: 0.20000000298023224px solid #95989A;
+  border-radius: 20px;
 }
 
 .header-area .main-nav .nav li:hover a {
-  color: #fba70b;
+  color: #435282;
 }
 
 .header-area .main-nav .nav li.submenu {
@@ -334,12 +341,12 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  background: #fba70b;
+  background: #435282;
 }
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #fba70b!important;
+  color: #435282!important;
   padding-left: 25px;
 }
 
@@ -543,7 +550,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #fba70b!important;
+    color: #435282!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -594,9 +601,14 @@ welcome
   width: 100%;
   height: 70vh;
   min-height: 793px;
-  background-image: url(../images/mockupcana.jpg);
+  background-image: url(../images/2002.i039.010_chatbot_messenger_ai_isometric_set-15.jpg);
   background-repeat: no-repeat;
-  background-position: right top;
+  background-position: right;
+  background-size: 40%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+.main-title {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .welcome-area .header-text .left-text {
@@ -607,12 +619,12 @@ welcome
 }
 
 .welcome-area .header-text .main-title {
-  font-weight: 900;
-  font-size: 52px;
-  line-height: 80px;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  color: #191a20;
+  font-weight: 900 !important;
+  font-size: 52px !important;
+  line-height: 80px !important;
+  letter-spacing: 1px !important;
+  margin-bottom: 30px !important;
+  color: #191a20 !important;
 }
 
 .welcome-area .header-text h1 em {
@@ -621,7 +633,7 @@ welcome
 }
 
 .welcome-area .header-text p {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
   color: #7a7a7a;
   line-height: 30px;
@@ -707,6 +719,19 @@ about
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 
+.features-item:hover {
+  transition: .5s all;
+  transform: scale(1.1);
+  cursor: pointer
+}
+
+.features-item-special{
+  border-radius: 5px;
+  padding: 60px 30px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
 .features-item h2 {
   z-index: 9;
   position: absolute;
@@ -744,7 +769,6 @@ promotion
 */
 
 .left-image-decor {
-  background-image: url(../images/left-bg-decor.png);
   background-repeat: no-repeat;
   position: absolute;
   width: 100%;
@@ -795,11 +819,63 @@ testimonials
 --------------------------------------------
 */
 
-.centrado {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.glider-contain {
+  position: relative;
+}
+
+.icono-main {
+  margin-left: -20px;
+}
+
+.glider-prev,
+.glider-next {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  top: calc(50% - 35px);
+  cursor: pointer;
+  line-height: 30px;
   text-align: center;
+  background: none;
+  color: #fff;
+  opacity: 20%;
+}
+
+.glider-prev:hover,
+.glider-next:hover {
+  opacity: 1;
+}
+
+.glider-prev {
+  left: -20px
+}
+
+.glider {
+  overflow: hidden;
+}
+
+.dots .glider-dot:hover {
+  opacity: .5;
+}
+
+.dots .glider-dot.active {
+  opacity: 1;
+  background: #435282;
+}
+
+.dots .glider-dot {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #000;
+  opacity: .2;
+  border-radius: 0;
+}
+
+.glider-dot.active {
+  background: #fff;
 }
 
 /* 
@@ -826,8 +902,9 @@ footer
 
 footer {
   margin-top: 200px;
-  padding-top: 120px;
-  background-image: linear-gradient(145deg, #435282 0%, #435282 100%);;
+  background: #F3904F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #435282, #ccc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #435282, #ccc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -907,7 +984,7 @@ footer .right-content {
 
 .footer-content .right-content h2 em {
   font-style: normal;
-  color: #fba70b;
+  color: #435282;
 }
 
 .footer-content .right-content p {
@@ -954,8 +1031,8 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-  background-color: #fba70b;
-  border-color: #fba70b;
+  background-color: #435282;
+  border-color: #435282;
   color: #fff;
 }
 
@@ -969,7 +1046,7 @@ footer .copyright {
 }
 
 footer .sub-footer {
-  padding-top: 5px;
+  padding: 30px 0px;
   border-top: 1px solid rgba(250,250,250,0.3);
   text-align: center;
 }
@@ -979,7 +1056,7 @@ footer .sub-footer a {
 }
 
 footer .sub-footer a:hover {
-	color: #FC3;
+	color: #fff;
 }
 
 footer .sub-footer p {
