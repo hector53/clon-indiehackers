@@ -11,17 +11,42 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky" style="height: 20px; widht: 20px">
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="#" class="logo" style="margin-top: 20px">
+                            <img src="images/canalizados-logo.png" alt="" width="200" height="30">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Inicio</a></li>
+                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonios</a></li>
+                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contáctanos</a></li>
+                            <li class="scroll-to-section"><NuxtLink to="/iniciar-sesion" class="menu-item">Iniciar Sesion</NuxtLink></li>
+                            <li class="scroll-to-section"><NuxtLink to="/registro" class="menu-item">Registrarse</NuxtLink></li>
+                        </ul>
+                        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- <header class="header-area header-sticky" style="height: 20px; widht: 20px">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="index.html" class="logo">
-                Canalizados
+              <a href="#" class="logo">
+                <img src="assets/images/canalizados-logo.png" alt="" width="200" height="30">
               </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
               <ul class="nav">
                 <li class="scroll-to-section">
                   <a href="#welcome" class="menu-item">Inicio</a>
@@ -31,61 +56,108 @@
                 </li>
                 <li class="scroll-to-section">
                   <a href="#testimonials" class="menu-item">Testimonios</a>
-                </li>
+                </li> 
                 <li class="submenu">
                   <a href="javascript:;">Participá</a>
                   <ul>
-                    <li><NuxtLink to="/login"><a href="" class="menu-item">Iniciá sesión</a></NuxtLink></li>
-                    <li><NuxtLink to="/registro"><a href="" class="menu-item">Regístrate</a></NuxtLink></li>
-                    <li><NuxtLink to="/faqs"><a href="" class="menu-item">FAQ'S</a></NuxtLink></li>
-                    <li><NuxtLink to="/comunidad"><a href="" class="menu-item">Comunidad</a></NuxtLink></li>
+                    <NuxtLink to="/login"><li><a class="menu-item">Iniciá sesión</a></li></NuxtLink>
+                    <NuxtLink to="/registro"><li><a class="menu-item">Regístrate</a></li></NuxtLink>
+                    <NuxtLink to="/faqs"><li><a class="menu-item">FAQ'S</a></li></NuxtLink>
+                    <NuxtLink to="/comunidad"><li><a class="menu-item">Comunidad</a></li></NuxtLink>
                   </ul>
-                </li>
                 <li class="scroll-to-section">
                   <a href="#contact-us" class="menu-item">Contáctanos</a>
+                </li>
+                <li>
+                  <NuxtLink to="/iniciar-sesion">Iniciá sesión</NuxtLink>
                 </li>
               </ul>
               <a class="menu-trigger">
                 <span>Menu</span>
               </a>
-              <!-- ***** Menu End ***** -->
             </nav>
           </div>
         </div>
       </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </header> -->
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
-      <!-- ***** Header Text Start ***** -->
-      <div class="header-text">
-        <div class="container">
-          <div class="row">
-            <div
-              class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
-              data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
-            >
-              <h1 class="main-title">
-                El mejor medio digital para tu <br /><em>START UP</em>
-              </h1>
-              <p>
-                <a href="#">Canalizados</a> es un medio digital que puede
-                ofrecerle numerosos beneficios a tu Start up. Para conocer
-                algunos de esos numerosos beneficios sigue navegando nuestra
-                página y te informarás de todos ellos.
-              </p>
-              <NuxtLink to="/comunidad"><a href="#about" class="main-button-slider">Conócenos mejor</a></NuxtLink>
+
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1 class="main-title" style="font-family: 'Space Grotesk' !important;">El mejor medio digital para tu <em>START UP</em></h1>
+                        <p><a href="#">Canalizados</a> es un medio digital que puede ofrecerle numerosos beneficios a tu Start up.
+                           Para conocer algunos de esos numerosos beneficios sigue navegando nuestra página y te informarás de todos ellos.</p> 
+                        <a href="#about" class="main-button-slider">Conócenos mejor</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- ***** Header Text End ***** -->
+        <!-- ***** Header Text End ***** -->
     </div>
     <!-- ***** Welcome Area End ***** -->
 
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>01</h2>
+                            <img src="images/Add_apps_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <h4>Crea tu Startup</h4>
+                            <p>Piensa una idea revolucionaria y única. Luego de eso súbelo a nuestra página</p>
+                            <NuxtLink to="/startups">
+                              <a href="#testimonials" class="main-button">
+                                Crear Start Up
+                              </a>
+                            </NuxtLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>02</h2>
+                            <img src="images/User_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <h4>Formá un equipo</h4>
+                            <p>Crea una sociedad con un grupo de personas que sepas que te desempeñas bien.</p>
+                            <NuxtLink to="/grupo-nuevo">
+                              <a href="#testimonials" class="main-button">
+                                Creá un grupo
+                              </a>
+                            </NuxtLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <h2>03</h2>
+                            <img src="images/perspaleta2_0043.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <h4>Sube tu Startup</h4>
+                            <p>¡Sube tu startup y revoluciona el mercado! Nosotros te apoyaremos en lo que podamos</p>
+                            <NuxtLink to="/startups">
+                              <a href="#testimonials" class="main-button">
+                                Subir Start up
+                              </a>
+                            </NuxtLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="section" id="about">
       <div class="container">
         <div class="row">
           <div
@@ -153,69 +225,46 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ***** Features Big Item End ***** -->
 
     <div class="left-image-decor"></div>
 
     <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="promotion">
-      <div class="container">
-        <div class="row">
-          <div
-            class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
-            data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
-          >
-            <img
-              src="assets/images/left-image.png"
-              class="rounded img-fluid d-block mx-auto"
-              alt="App"
-            />
-          </div>
-          <div
-            class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix"
-          >
-            <ul>
-              <li
-                data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
-              >
-                <img src="assets/images/about-icon-01.png" alt="" />
-                <div class="text">
-                  <h4>Lorem ipsum dolor sit.</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Cum distinctio, laboriosam iusto eius.
-                  </p>
+        <div class="container">
+            <div class="row">
+                <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="images/2002.i039.010_chatbot_messenger_ai_isometric_set-09.jpg" class="img-fluid rounded d-block mx-auto" alt="App">
                 </div>
-              </li>
-              <li
-                data-scroll-reveal="enter right move 30px over 0.6s after 0.5s"
-              >
-                <img src="assets/images/about-icon-02.png" alt="" />
-                <div class="text">
-                  <h4>Lorem ipsum dolor sit.</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni explicabo saepe illo et, amet harum.
-                  </p>
+                <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <ul>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                            <img src="images/Chart_perspective_matte_s.png" alt="" style="height: 100px; width: 100px;">
+                            <div class="text">
+                                <h4>Espacio</h4>
+                                <p>Nosotros te brindamos el espacio y el momento para poder llevar a cabo tu emprendimiento.</p>
+                            </div>
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
+                            <img src="images/Message_perspective_matte_s.png" alt="" height="100px" width="100px">
+                            <div class="text">
+                                <h4>Gente</h4>
+                                <p>Te brindamos una comunidad de emprendedores en la cual puedas reclutar gente o hacer amigos.</p>
+                            </div>
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
+                            <img src="images/FAQ_perspective_matte_s.png" alt="" height="100px" width="100px">
+                            <div class="text">
+                                <h4>Informacion</h4>
+                                <p>Te brindamos una seccion de informacion sobre los startups que mas destacan en el mundo.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-              </li>
-              <li
-                data-scroll-reveal="enter right move 30px over 0.6s after 0.6s"
-              >
-                <img src="assets/images/about-icon-03.png" alt="" />
-                <div class="text">
-                  <h4>Lorem ipsum dolor sit.</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Harum pariatur, libero odit dolor quae laudantium.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </div>
     </section>
     <!-- ***** Features Big Item End ***** -->
 
@@ -223,6 +272,76 @@
 
     <!-- ***** Testimonials Starts ***** -->
     <section class="section" id="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="center-heading">
+                        <h2>¿Qué Dicen De <em>Nosotros?</em></h2>
+                        <p>
+                          "La fuente del éxito es escuchar la opinión del resto, siempre
+                          siendo cuidadosos". ~ Pepe Suarez
+                        </p>
+                      </div>
+                    </div>
+                    <div class="glider-contain">
+                        <div class="glider">
+                          <div>
+                            <template>
+                              <Tweet
+                                tweet-id="463440424141459456"
+                                cards="visible"
+                                conversation="all"
+                                lang="en"
+                                theme="light"
+                                align="left"
+                                :width="400"
+                                :dnt="false"
+                                @tweet-load-error="onTweetLoadError"
+                                @tweet-load-success="onTweetLoadSuccess"
+                              >
+                                <template v-slot:loading>
+                                  <span>Loading...</span>
+                                </template>
+                            
+                                <template v-slot:error>
+                                  <span>Sorry, that tweet doesn’t exist!</span>
+                                </template>
+                              </Tweet>
+                            </template>
+                          </div>
+                            <div>
+
+                              <!-- <template>
+                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr">¡Gracias por compartir nuestra historia!
+                                Seguiremos trabajando para llevar el talento techde Latam al mundo</p>mdash; Talently (@TalentlyTech) <a href="https://twitter.com/TalentlyTech/status/1423678097451257860">6 de Agosto de 2021</a><blockquote>
+                              </template>
+                              </div>
+                              <div>
+                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Estos señores de donde sacarán tanta plata?Dinero con alasBolsa de dinero?</p>mdash; COVIDNA ESTHER (@Elsa_Ala58) <a href="https://twitter.com/Elsa_Ala58/status/1417822244303216644">21 de julio de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
+                              </div>
+                              <div>
+                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr"></p>mdash; AYURE (@AYURE_MX) <a href="https://twitter.com/AYURE_MX/status/1423070920676155392">4 de Agosto de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
+                              </div>
+                              <div>
+                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr"></p>mdash; notcous (@notcous) <a href="https://twitter.com/notcous/status/1422607734579544071">6 de Agosto de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
+                              </div> -->
+                            </div>
+                        </div>
+                      
+                        
+                        <button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left icono-main"></i></button>
+                        <button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right icono-main"></i></button>
+                        <div role="tablist" class="dots"></div>
+                      </div>                     
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big centrado"
+                      data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="section" id="testimonials">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
@@ -258,15 +377,74 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ***** Testimonials Ends ***** -->
 
     <!-- ***** Footer Start ***** -->
     <footer id="contact-us">
+        <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>        
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <!-- ***** Contact Form Start ***** -->
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="contact-form">
+                            <form id="contact">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="name" type="text" id="name" placeholder="Nombre Completo" required
+                                                style="background-color: rgba(250,250,250,0.3);">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <fieldset>
+                                            <input name="email" type="text" id="email" placeholder="Direccion Email"
+                                                required="" style="background-color: rgba(250,250,250,0.3);">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <textarea name="message" rows="6" id="message" placeholder="Tu mensaje" style="background-color: rgba(250,250,250,0.3);"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="submit" id="form-submit" class="main-button">Enviar Mensaje</button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- ***** Contact Form End ***** -->
+                    <div class="right-content col-lg-6 col-md-12 col-sm-12">
+                        <h2>Saber mas sobre <em>Canalizados</em></h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eveniet cupiditate nisi necessitatibus sequi ullam.
+                            <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, in eos similique labore ab voluptatibus.<a
+                                rel="nofollow" href="#" target="_parent">contact</a> page
+                            for more detail.</p>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; 2021 - Canalizados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- <footer id="contact-us">a
       <div class="container">
         <div class="footer-content">
           <div class="row">
-            <!-- ***** Contact Form Start ***** -->
             <div class="col-lg-6 col-md-12 col-sm-12">
               <div class="contact-form">
                 <form id="contact" action="" method="post">
@@ -313,6 +491,7 @@
                           type="submit"
                           id="form-submit"
                           class="main-button"
+                          @click="handleAlert"
                         >
                           Enviar Mensaje
                         </button>
@@ -322,7 +501,6 @@
                 </form>
               </div>
             </div>
-            <!-- ***** Contact Form End ***** -->
             <div class="right-content col-lg-6 col-md-12 col-sm-12">
               <h2>Saber mas sobre <em>Canalizados</em></h2>
               <p>
@@ -359,12 +537,28 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
 <script>
+import Tweet from "vue-tweet";
+
 export default {
+  components: {
+    Tweet,
+  },
+  setup() {
+    function onTweetLoadSuccess(embedNode) {
+      console.log(embedNode);
+    }
+
+    function onTweetLoadError() {
+      console.log("Ops... an error has occurred");
+    }
+
+    return { onTweetLoadSuccess, onTweetLoadError };
+  },
   head: {
     title: "Canalizados",
     meta: [
@@ -390,7 +584,15 @@ export default {
         type: "text/css",
         href: "assets/css/font-awesome.css"
       },
-      { rel: "stylesheet", href: "assets/css/owl-carousel.css" },
+      { 
+        rel: "stylesheet", 
+        href: "assets/css/owl-carousel.css" 
+      },
+      { 
+        rel: "stylesheet", 
+        href: "https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" 
+      },
+      
       {
         rel: "icon",
         type: "image/x-icon",
@@ -432,8 +634,26 @@ export default {
 
       {
         src: "assets/js/custom.js"
+      },
+      {
+        src: "https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"
+      },
+      {
+        src: "https://kit.fontawesome.com/123aef3e32.js",
+        crossorigin: "anonymous"
       }
     ]
+  },
+  methods: {
+    handleAlert() {
+      if(!this.$store.state.cookieLogin){
+        this.$swal({
+          type: 'success',
+          title: 'Mensaje enviado',
+          text: 'El mensaje ha sido enviado. Estate atento al mail'
+        })
+      }
+    },
   },
 
   layout: "landing"

@@ -201,7 +201,7 @@ header
   left: 0px;
   right: 0px;
   z-index: 100;
-  height: 100px;
+  height: 50px;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
@@ -262,7 +262,7 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  height: 40px;
+  height: 20px;
   line-height: 40px;
   border: transparent;
   letter-spacing: 1px;
@@ -668,6 +668,7 @@ welcome
 @media (max-width: 810px) {
   .welcome-area {
     background-size: contain;
+    background-image: none;
   }
 
   .welcome-area .header-text {
@@ -826,7 +827,7 @@ footer
 footer {
   margin-top: 200px;
   padding-top: 120px;
-  background-image: url(../images/footer-bg.png);
+  background-image: linear-gradient(145deg, #435282 0%, #435282 100%);;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -968,7 +969,7 @@ footer .copyright {
 }
 
 footer .sub-footer {
-  padding: 60px 0px;
+  padding-top: 5px;
   border-top: 1px solid rgba(250,250,250,0.3);
   text-align: center;
 }

@@ -14,11 +14,11 @@
                 role="button"
               >
               
-                <nuxt-link  to="/">
+                <nuxt-link  to="/comunidad">
                 <img src="/images/logo/logo.svg" class="tamaLogoL" />
                 </nuxt-link>
 
-                <nuxt-link  to="/">
+                <nuxt-link  to="/comunidad">
                 <img src="/images/logo/isotipo_1.svg" class="tamaLogoP" />
                 </nuxt-link>
 
@@ -92,18 +92,18 @@
         <ul role="list" class="list-8">
           <nuxt-link
             :to="{ name: 'iniciar-sesion' }"
-            class="botonCanalizados btnLogin"
+            class="button-init"
             v-if="$store.state.cookieLogin == false"
           >
-            <li class="list-item-3" style="border-radius: 20px">Iniciar Sesión</li>
+            Iniciar Sesión
           </nuxt-link>
 
           <nuxt-link
-          class="botonCanalizados btnLogin "
+          class="button-init-register"
             :to="{ name: 'registro' }"
             v-if="$store.state.cookieLogin == false"
           >
-            <li class="list-item-3">Registrarse</li>
+            Registrarse
           </nuxt-link>
           <li class="list-item-3" v-if="$store.state.cookieLogin">
             <nuxt-link class="botonCanalizados " to="/post-nuevo">Publicar</nuxt-link>
