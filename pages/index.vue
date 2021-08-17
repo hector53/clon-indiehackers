@@ -434,6 +434,12 @@
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="contact-form">
                             <form id="contact" @submit="checkForm" method="post" novalidate="true">
+                                <p v-if="errors.length">
+                                  <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+                                  <ul>
+                                    <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                                  </ul>
+                                </p>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
