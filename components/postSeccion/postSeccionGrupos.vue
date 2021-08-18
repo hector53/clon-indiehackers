@@ -187,7 +187,7 @@ export default {
        await this.$axios
         .$get("/getpost/groupid?p="+this.pGroup)
         .then((response) => {
-          console.log(response)
+      //    console.log(response)
           if(response.status == 0){
               //algun mensaje
           }else{
