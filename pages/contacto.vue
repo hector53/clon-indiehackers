@@ -45,6 +45,7 @@
         <div class="cubreInputContacto">
           <input
             v-model="phone"
+            required
             name="phone"
             id="phone"
             class="group-admin__input"
@@ -78,6 +79,9 @@
        }"
      />
   </client-only>
+ <b-form-invalid-feedback :state="validateMessage">
+        Your user ID must be 5-12 characters long.
+      </b-form-invalid-feedback>
         </div>
       </div>
       <div class="">
@@ -121,11 +125,25 @@ export default {
       email: "",
       phone: "",
       message: "",
+      validateMessage: null
     };
+  },
+  watch: {
+     message(valNew, ValOld){
+   //    console.log("validatemessage", valNew)
+      if(valNew.length > 0){
+          this.validateMessage = true
+      }
+    }
   },
   methods: {
   
    async sendMessage() {
+     if(this.message == ""){
+       this.validateMessage = false
+       return false
+
+     }
       this.loading = true;
        let formData = new FormData();
             
@@ -154,6 +172,7 @@ export default {
         });
     },
   },
+
   mounted() {
   },
 };

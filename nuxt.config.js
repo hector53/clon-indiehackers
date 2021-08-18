@@ -131,7 +131,7 @@ export default {
       'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
       'FormDatepickerPlugin'
     ],
-    components: ['BButton'],
+    components: ['BButton', 'BFormInvalidFeedback'],
     directivePlugins: []
   },
  
