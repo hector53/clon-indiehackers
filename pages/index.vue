@@ -12,12 +12,12 @@
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
-        <div class="container">
+        <div>
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="#" class="logo" style="margin-top: 20px">
+                        <a href="#" class="logo" style="margin-top: 20px; margin-left: 17%;">
                             <img src="images/canalizados-logo.png" alt="" width="200" height="30">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -26,9 +26,111 @@
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Inicio</a></li>
                             <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonios</a></li>
                             <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contáctanos</a></li>
-                            <li class="scroll-to-section"><NuxtLink to="/iniciar-sesion" class="menu-item">Iniciar Sesion</NuxtLink></li>
-                            <li class="scroll-to-section"><NuxtLink to="/registro" class="menu-item">Registrarse</NuxtLink></li>
+                        <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" style="height: 30px" >
+                          <input
+                            type="search"
+                            class="probando"
+                            maxlength="256"
+                            name="q"
+                            placeholder="Buscá temas, grupos, usuarios…"
+                            style="padding-left: 30px; margin-left: 5px;"
+                          /><input
+                            type="submit"
+                            value="Search"
+                            class="search-button w-button"
+                          />
+                        </form>
+                          <li class="scroll-to-section" v-if="$store.state.cookieLogin == false">
+                            <nuxt-link 
+                              :to="{ name: 'iniciar-sesion' }"
+                              class="menu-item"
+                              v-if="$store.state.cookieLogin == false"
+                            >
+                              Iniciar Sesion
+                            </nuxt-link>
+                          </li>
+                          <li class="scroll-to-section" v-if="$store.state.cookieLogin == false">
+                            <nuxt-link 
+                              :to="{ name: 'registro' }"
+                              class="menu-item"
+                              v-if="$store.state.cookieLogin == false"
+                            >
+                              Registrarse
+                            </nuxt-link>
+                          </li>
+                          <li class="list-item-3" v-if="$store.state.cookieLogin">
+                            <div data-hover="" data-delay="0" class="w-dropdown" style="">
+                              <div
+                                class="dropdown-toggle-3 w-dropdown-toggle"
+                                style="padding: 0px !important;"
+                                id="w-dropdown-toggle-1"
+                                aria-controls="w-dropdown-list-1"
+                                aria-haspopup="menu"
+                                aria-expanded="false"
+                                role="button"
+                                tabindex="0"
+                                @click="dropDownPerfilClic"
+                              >
+                              <nuxt-link
+                                :to="{
+                                  name: 'u-username',
+                                  params: { username: $store.state.username },
+                                }"
+                              >
+                                <img
+                                  :src="$store.state.img_perfil"
+                                  loading="lazy"
+                                  sizes="32px"
+                                  alt=""
+                                  class="image-12"
+                                />
+                              </nuxt-link>
+                              </div>
+                              <nav
+                                v-if="dropDownPerfil"
+                                v-click-outside="outDrop"
+                                class="dropdown-list-2 w-dropdown-list w--open"
+                                id="w-dropdown-list-1"
+                                aria-labelledby="w-dropdown-toggle-1"
+                              >
+                                <nuxt-link
+                                  class="w-dropdown-link"
+                                  :to="{
+                                    name: 'u-username',
+                                    params: { username: $store.state.username },
+                                  }"
+                                  >Perfil</nuxt-link
+                                >
+                                <nuxt-link
+                                  class="w-dropdown-link"
+                                  tabindex="0"
+                                  :to="{
+                                    name: 'u-username-notificaciones',
+                                    params: { username: $store.state.username },
+                                  }"
+                                  >Notificaciones</nuxt-link
+                                >
+                                <nuxt-link
+                                  class="w-dropdown-link"
+                                  tabindex="0"
+                                  :to="{
+                                    name: 'u-username-configuracion',
+                                    params: { username: $store.state.username },
+                                  }"
+                                  >Configuracion</nuxt-link
+                                ><a
+                                  href="#"
+                                  class="w-dropdown-link"
+                                  @click.prevent="cerrarSesion"
+                                  tabindex="0"
+                                  >Salir</a
+                                >
+                              </nav>
+                            </div>
+                          </li>
                         </ul>
+
+
                         
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -593,20 +695,23 @@
 
 <script>
 import { Tweet } from 'vue-tweet-embed';
+import ClickOutside from "vue-click-outside";
 
 export default {
+  directives: {
+    ClickOutside,
+  },
   components: { Tweet },
     data() {
     return {
-        errors: [],
-    name: "",
-    email: "",
-    message: "", 
-  
-
+      errors: [],
+      name: "",
+      email: "",
+      message: "", 
+      dropDownPerfil: false,
+      contadorOut: 0,
     };
   },
-
     
   head: {
     title: "Canalizados",
@@ -676,11 +781,9 @@ export default {
       {
         src: "assets/js/imgfix.min.js"
       },
-
       {
         src: "assets/js/alerts.js"
       },
-
       {
         src: "assets/js/custom.js"
       },
@@ -693,7 +796,45 @@ export default {
       }
     ]
   },
+  mounted() {
+    this.getCountNotify();
+  },
   methods: {
+    async getCountNotify() {
+      if(this.$store.state.cookieLogin){
+          await this.$axios
+        .$get("/perfil/getcountnotify?p=" + this.$store.state.p)
+        .then((response) => {
+          this.$store.commit("setnotifyCount", response);
+        });
+      }
+    
+    },
+    cerrarSesion() {
+      this.$cookies.remove("access_token_");
+      this.$cookies.remove("user_data_");
+      
+      location.href = "/";
+    },
+    dropDownPerfilClic() {
+      if (this.dropDownPerfil == false) {
+        this.dropDownPerfil = true;
+      } else {
+        this.dropDownPerfil = false;
+        this.contadorOut = 0;
+      }
+    },
+    outDrop() {
+      if (this.contadorOut > 0) {
+        this.dropDownPerfil = false;
+        this.contadorOut = 0;
+      } else {
+        this.contadorOut++;
+      }
+    },
+    clicLogoInicio() {
+      this.$router.push("/");
+    },
     handleAlert() {
       if(!this.$store.state.cookieLogin){
         this.$swal({
@@ -708,7 +849,6 @@ export default {
       console.log("errores", this.errors)
       e.preventDefault();
       this.errors = []
-
       if (this.name=="") {
         console.log("name esta vacio")
         this.errors.push("El nombre es obligatorio.");
@@ -718,11 +858,12 @@ export default {
       } else if (!this.validEmail(this.email)) {
         this.errors.push('El correo electrónico debe ser válido.');
       }
-
       if (this.message=="") {
         this.errors.push("El mensaje es obligatorio.");
       }
-
+      if(this.message.length > 200) {
+        this.errors.push("El mensaje no puede ser superior a 200 caracteres.");
+      }
     if(this.errors.length == 0){
       this.handleToastAlert()
     }
@@ -736,11 +877,10 @@ export default {
       this.$swal({
           type: 'success',
           title: 'Mensaje enviado',
-          text: 'El mensaje ha sido enviado. Estate atento al mail' + this.name
+          text: `¡Perfecto, ${this.name}! El mensaje fue mandado exitosamente`
         })
     }
   },
-
   layout: "landing"
 };
 </script>
