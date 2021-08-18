@@ -1,94 +1,78 @@
 <template>
-<div>
-   
-    <headerGrupoSlug :imagenGrupo="imagenGrupo" :tituloGrupo="tituloGrupo" :excerptGrupo="excerptGrupo"
-    :rolUser="rolUser" :rolName="rolName" @getGrupoNow="refreshGroups" :pGroup="pGroup"
-    ></headerGrupoSlug>
+  <div>
+     <div class="text-block-31">Moderadores</div>
+                    <div class="div-block-462" v-for="(item, index) in arrayMiembros"
+                :key="index">
+                        
+                      
+                            <nuxt-link class="link_miembros" :to="{name:'u-username',
+                             params: {username: item.username}}" >
+                            <img 
+                            :src="item.icono"
+                            loading="lazy"
+                            sizes="32px"
+                            alt=""
+                            class="imageMiembros"
+                            />
+                           <span class="nombresMiembros">@{{item.username}} {{item.nombres}} </span> 
+                            </nuxt-link>
+                        
+                    </div>
 
-  
-
-
-
-
-
-
-
-  
-</div>
-  
+                  
+  </div>
 </template>
 
+
 <script>
-import headerGrupoSlug from '~/components/gruposlug/headerGrupoSlug.vue';
+import likeCanalizados from '~/components/likes/likeCanalizados.vue';
 export default {
-  layout: "grupo",
-  name: "miembrosGrupos",
-  components: {headerGrupoSlug},
-   async fetch() {
-
-        
-
-
-  await this.$axios
-        .$get("/grupos/getslug?slug="+this.$route.params.slug+"&token="+this.$store.state.tokenUser)
-        .then((response) => {
-          console.log(response)
-            if (response.status == 0) {
-            return app.redirect("/");
-            } else {
-            var rolName = 0;
-            if (response.grupo[0].rolUser == 1) {
-            rolName = "Owner";
-            }
-            if (response.grupo[0].rolUser == 2) {
-            rolName = "Moderador";
-            }
-            if (response.grupo[0].rolUser == 3) {
-            rolName = "Miembro";
-            }
-
-            this.responseGrupo= response
-            this.pGroup= response.grupo[0].id
-            this.tituloGrupo= response.grupo[0].titulo
-            this.excerptGrupo= response.grupo[0].excerpt
-            this.imagenGrupo= response.grupo[0].imagen
-            this.contenido= response.grupo[0].contenido
-            this.miembros= response.grupo[0].miembros
-            this.moderadores= response.grupo[0].moderadores
-            this.rolName= rolName
-            this.rolUser= response.grupo[0].rolUser
-            this.miembrosO = response.grupo[0].miembrosO
-
-            }
-        })
-
-    },
+  components: { likeCanalizados },
+  name: "grupo-slug-miembros",
+  layout: "grupoCanalizados",
+  head(){
+    return {
+                 link: [
+        {
+          rel: 'canonical',
+          href: 'https://canalizados.com/g/' + this.$route.params.slug+'/miembros'
+        }
+      ]
+     
+    }
+  },
   data() {
     return {
-        
-       miembrosO: '',
-        pGroup:'',
-        tituloGrupo: '',
-        excerptGrupo: '',
-        imagenGrupo: '',
-        contenido: '',
-        miembros: '',
-        moderadores:'',
-        rolName: '',
-        rolUser: ''
+      arrayMiembros: [],
     };
   },
-  watch: {
-  },
-  methods: {
-       refreshGroups() {
-      this.$fetch()
-    }
-  
-  },
-  mounted() {
-      console.log(this.$route)
+  async fetch() {
+      
+  await this.$axios
+        .$get("/grupos/getmembers?p="+this.$route.params.slug)
+        .then((response) => {
+           // console.log(response)
+          this.arrayMiembros = response.miembros
+        })
   },
 };
 </script>
-
+<style >
+.miembrosLoop{
+    width: 100%;
+}
+.imageMiembros{
+    width: 50px;
+}
+.link_miembros{
+    display: flex;
+}
+.nombresMiembros{
+        margin-top: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.div-block-462{
+    margin-top: 15px;
+}
+</style>
