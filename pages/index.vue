@@ -629,23 +629,28 @@ export default {
 
       if (!this.name) {
         this.errors.push("El nombre es obligatorio.");
+        return false;
       }
       if (!this.email) {
         this.errors.push('El correo electrónico es obligatorio.');
+        return false;
       } else if (!this.validEmail(this.email)) {
         this.errors.push('El correo electrónico debe ser válido.');
+        return false;
       }
 
       if (!this.message.length) {
         this.errors.push('No se puede enviar un mensaje vacio')
+        return false;
       }
 
       if(this.message.length > 200) {
         this.errors.push('El mensaje es demasiado largo')
+        return false;
       }
 
       alert('enviado');
-
+      return true
     },
     validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
