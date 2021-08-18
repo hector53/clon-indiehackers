@@ -434,7 +434,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="contact-form">
                             <form id="contact" @submit="checkForm" method="post" novalidate="true">
-                                <p v-if="errors.length">
+                                <p v-if="errors.length >0">
                                   <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
                                   <ul>
                                     <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -443,19 +443,19 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Nombre Completo" required
+                                            <input v-model="name" type="text" id="name" placeholder="Nombre Completo" required
                                                 style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="Direccion Email"
+                                            <input v-model="email" type="text" id="email" placeholder="Direccion Email"
                                                 required="" style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Tu mensaje" style="background-color: rgba(250,250,250,0.3);"></textarea>
+                                            <textarea v-model="message" rows="6" id="message" placeholder="Tu mensaje" style="background-color: rgba(250,250,250,0.3);"></textarea>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
@@ -596,12 +596,18 @@ import { Tweet } from 'vue-tweet-embed';
 
 export default {
   components: { Tweet },
-  data: {
-    errors: [],
-    name: null,
-    email: null,
-    message: null
+    data() {
+    return {
+        errors: [],
+    name: "",
+    email: "",
+    message: "", 
+  
+
+    };
   },
+
+    
   head: {
     title: "Canalizados",
     meta: [
@@ -697,23 +703,30 @@ export default {
         })
       }
     },
-    checkForm: function (e) {
-      this.errors = [];
+    checkForm(e) {
+      console.log("asasasdads")
+      console.log("errores", this.errors)
+      e.preventDefault();
+      this.errors = []
 
-      if (!this.name) {
+      if (this.name=="") {
+        console.log("name esta vacio")
         this.errors.push("El nombre es obligatorio.");
       }
-      if (!this.email) {
+      if (this.email=="") {
         this.errors.push('El correo electrónico es obligatorio.');
       } else if (!this.validEmail(this.email)) {
         this.errors.push('El correo electrónico debe ser válido.');
       }
 
-      if (!this.message.length) {
-        return true;
+      if (this.message=="") {
+        this.errors.push("El mensaje es obligatorio.");
       }
 
-      e.preventDefault();
+    if(this.errors.length == 0){
+      this.handleToastAlert()
+    }
+      
     },
     validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
