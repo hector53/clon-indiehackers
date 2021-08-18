@@ -80,7 +80,7 @@
      />
   </client-only>
  <b-form-invalid-feedback :state="validateMessage">
-        Your user ID must be 5-12 characters long.
+        Mensaje obligatorio
       </b-form-invalid-feedback>
         </div>
       </div>
