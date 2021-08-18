@@ -12,12 +12,12 @@
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
-        <div class="container">
+        <div>
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="#" class="logo" style="margin-top: 20px">
+                        <a href="#" class="logo" style="margin-top: 20px; margin-left: 17%;">
                             <img src="images/canalizados-logo.png" alt="" width="200" height="30">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -26,9 +26,26 @@
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Inicio</a></li>
                             <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonios</a></li>
                             <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contáctanos</a></li>
-                            <li class="scroll-to-section"><NuxtLink to="/iniciar-sesion" class="menu-item">Iniciar Sesion</NuxtLink></li>
-                            <li class="scroll-to-section"><NuxtLink to="/registro" class="menu-item">Registrarse</NuxtLink></li>
+                        <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" >
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                          <input
+                            type="search"
+                            class="probando"
+                            maxlength="256"
+                            name="q"
+                            placeholder="Buscá temas, grupos, usuarios…"
+                            style="padding-left: 10px; margin-left: 20px;"
+                          /><input
+                            type="submit"
+                            value="Search"
+                            class="search-button w-button"
+                          />
+                        </form>
+                          <li class="scroll-to-section"><NuxtLink to="/iniciar-sesion" class="menu-item">Iniciar Sesion</NuxtLink></li>
+                          <li class="scroll-to-section"><NuxtLink to="/registro" class="menu-item">Registrarse</NuxtLink></li>
                         </ul>
+
+
                         
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -433,7 +450,7 @@
                     <!-- ***** Contact Form Start ***** -->
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="contact-form">
-                            <form id="contact" @submit="checkForm" method="post" novalidate="true">
+                            <form id="contact" @submit="checkForm" method="post" v-on:submit.prevent>
                                 <p v-if="errors.length">
                                   <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
                                   <ul>
@@ -596,11 +613,60 @@ import { Tweet } from 'vue-tweet-embed';
 
 export default {
   components: { Tweet },
-  data: {
-    errors: [],
-    name: null,
-    email: null,
-    message: null
+  data() {
+    return {
+      errors: [],
+      name: null,
+      email: null,
+      message: null
+    }
+  },
+  methods: {
+    checkForm (e) {
+      e.preventDefault();
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push("El nombre es obligatorio.");
+      }
+      if (!this.email) {
+        this.errors.push('El correo electrónico es obligatorio.');
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push('El correo electrónico debe ser válido.');
+      }
+
+      if (!this.message.length) {
+        this.errors.push('No se puede enviar un mensaje vacio')
+      }
+
+      if(this.message.length > 200) {
+        this.errors.push('El mensaje es demasiado largo')
+      }
+
+      alert('enviado');
+
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    handleToastAlert() {
+      this.$swal({
+          type: 'success',
+          title: 'Mensaje enviado',
+          text: 'El mensaje ha sido enviado. Estate atento al mail' + this.name
+        })
+    },
+    handleAlert() {
+      if(!this.$store.state.cookieLogin){
+        this.$swal({
+          type: 'success',
+          title: 'Mensaje enviado',
+          text: 'El mensaje ha sido enviado. Estate atento al mail'
+        })
+      }
+    },
   },
   head: {
     title: "Canalizados",
@@ -687,47 +753,8 @@ export default {
       }
     ]
   },
-  methods: {
-    handleAlert() {
-      if(!this.$store.state.cookieLogin){
-        this.$swal({
-          type: 'success',
-          title: 'Mensaje enviado',
-          text: 'El mensaje ha sido enviado. Estate atento al mail'
-        })
-      }
-    },
-    checkForm: function (e) {
-      this.errors = [];
-
-      if (!this.name) {
-        this.errors.push("El nombre es obligatorio.");
-      }
-      if (!this.email) {
-        this.errors.push('El correo electrónico es obligatorio.');
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push('El correo electrónico debe ser válido.');
-      }
-
-      if (!this.message.length) {
-        return true;
-      }
-
-      e.preventDefault();
-    },
-    validEmail: function (email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    },
-    handleToastAlert() {
-      this.$swal({
-          type: 'success',
-          title: 'Mensaje enviado',
-          text: 'El mensaje ha sido enviado. Estate atento al mail' + this.name
-        })
-    }
-  },
 
   layout: "landing"
 };
 </script>
+
