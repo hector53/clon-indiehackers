@@ -1,8 +1,10 @@
 import cookieparser from "cookieparser";
 export const state = () => ({
  cookieLogin: false, 
- urlApi: 'https://indiehackersapi.hectoracosta.site/api',
+ urlApi: 'http://acceso.canalizados.com/api/',
+ siteUrlSeo: 'https://canalizados.com', 
  img_perfil: '/images/avatar.png',
+ social: 0,
  tokenUser: '',
  p: '',
  username: '',
@@ -13,9 +15,12 @@ export const state = () => ({
  ciudad: '', 
  twitter: '', 
  email: '', 
+ emailU: '',
  bio: '',
  loader: true,
  notifyCount: 0,
+ indexObj: {},
+ indexData: false,
  Meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
 'Octubre', 'Noviembre', 'Diciembre' ], 
 
@@ -29,8 +34,15 @@ export const getters = {
 }
 
 export const mutations = {
+  SetindexObj(state, val){
+    state.indexObj = val;
+    state.indexData = true;
+  }, 
   setLoader(state, val){
     state.loader = val;
+  }, 
+  setEmailU(state, val){
+    state.emailU = val;
   }, 
   setnotifyCount(state, val){
     state.notifyCount = val;
@@ -73,14 +85,26 @@ export const mutations = {
   },
   setCookieP(state, val){
     state.p = val;
-  }
+  }, 
+  setCookieSocial(state, val){
+    state.social = val;
+  }, 
+  
 
 }
 
 
 
 export const actions = {
-    nuxtServerInit({ commit }, { req }) {
+ async   nuxtServerInit({ commit }, { req }) {
+ /*    if(req._parsedOriginalUrl.path=='/'){
+      await     this.$axios.$get("https://acceso.canalizados.com/api/getpost/index")
+      .then(response =>{
+        commit("SetindexObj", response );
+      })
+     }
+*/
+
       if (process.server && process.static) return;
       if (!req.headers.cookie) return;
   
@@ -99,8 +123,11 @@ export const actions = {
       commit("setCookieUsername", DataUser.username );
       commit("setCookieDateUser", DataUser.date );
       commit("setCookieP", DataUser.p );
+      commit("setEmailU", DataUser.emailU );
       commit("setCookieToken", accessTokenCookie );
-      
+      if(DataUser.social){
+        commit("setCookieSocial", DataUser.social );
+      }
       if(DataUser.edad){
         commit("setCookieEdad", DataUser.edad );
       }
@@ -134,6 +161,10 @@ export const actions = {
       
 
 
-    }
+    }, 
+
+
+
+    
   };
 

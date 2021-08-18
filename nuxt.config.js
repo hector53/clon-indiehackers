@@ -10,8 +10,8 @@ export default {
   },
   target: 'server',
   loading: {
-    color: 'blue',
-    height: '5px',
+    color: '#435282',
+    height: '3px',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -35,25 +35,14 @@ export default {
     ], 
     script: [
       {  
-          src: 'https://apis.google.com/js/platform.js',
-          async: true
-      }, 
-     
-
-         {  
-          src: 'https://cdn.volument.com/v1/volument.js',
-          async: true, 
-          onload: "volument('76a861b68e')"
-      }, 
-    
+        src: 'https://apis.google.com/js/platform.js',
+        async: true
+      },
   ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/static/css/canalizados.css',
-    '~/static/css/csscana.css',
-  ],
+
 
   serverMiddleware: [
     redirectSSL.create({
@@ -67,12 +56,13 @@ export default {
     //{ src: "~/plugins/bootstrap-vue", ssr: true }, 
    { src: "~/plugins/editortiny", ssr: false }, 
    { src: "~/plugins/vuegtag", ssr: false }, 
-    
-    
 
   ],
 
-  
+  css: [
+    '~/static/css/canalizados.css',
+    '~/static/css/csscana.css',
+  ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   //components: true,
 
