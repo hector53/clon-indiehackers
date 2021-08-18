@@ -32,7 +32,6 @@
     "nuxt": "^2.14.12",
     "nuxt-sweetalert2": "^1.0.0",
     "redirect-ssl": "^2.0.1",
-    "twitter-widgets": "^2.0.0",
     "vue-click-outside": "^1.1.0",
     "vue-google-login": "^2.0.5",
     "vue-gtag": "^1.16.1",
@@ -40,7 +39,6 @@
     "vue-scrollto": "^2.20.0",
     "vue-slick-carousel": "^1.0.6",
     "vue-tinymce-editor": "^1.6.2",
-    "vue-tweet": "^1.0.3",
     "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
