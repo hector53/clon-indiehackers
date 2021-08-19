@@ -12,7 +12,7 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="#" class="logo" style="margin-top: 20px; margin-left: 17%;">
-                            <img src="images/canalizados-logo.png" alt="" width="200" height="30">
+                            <img src="/assets/images/canalizados-logo.png" alt="" width="200" height="30">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -213,7 +213,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="images/Add_apps_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/Add_apps_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Crea tu Startup</h4>
                             <p>Piensa una idea revolucionaria y única. Luego de eso súbelo a nuestra página</p>
                             <NuxtLink to="/startups">
@@ -229,7 +229,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>02</h2>
-                            <img src="images/User_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/User_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Formá un equipo</h4>
                             <p>Crea una sociedad con un grupo de personas que sepas que te desempeñas bien.</p>
                             <NuxtLink to="/grupo-nuevo">
@@ -245,7 +245,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="images/perspaleta2_0043.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/perspaleta2_0043.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Sube tu Startup</h4>
                             <p>¡Sube tu startup y revoluciona el mercado! Nosotros te apoyaremos en lo que podamos</p>
                             <NuxtLink to="/startups">
@@ -338,26 +338,26 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="images/2002.i039.010_chatbot_messenger_ai_isometric_set-09.jpg" class="img-fluid rounded d-block mx-auto" alt="App">
+                    <img src="/assets/images/2002.i039.010_chatbot_messenger_ai_isometric_set-09.jpg" class="img-fluid rounded d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                            <img src="images/Chart_perspective_matte_s.png" alt="" style="height: 100px; width: 100px;">
+                            <img src="/assets/images/Chart_perspective_matte_s.png" alt="" style="height: 100px; width: 100px;">
                             <div class="text">
                                 <h4>Espacio</h4>
                                 <p>Nosotros te brindamos el espacio y el momento para poder llevar a cabo tu emprendimiento.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
-                            <img src="images/Message_perspective_matte_s.png" alt="" height="100px" width="100px">
+                            <img src="/assets/images/Message_perspective_matte_s.png" alt="" height="100px" width="100px">
                             <div class="text">
                                 <h4>Gente</h4>
                                 <p>Te brindamos una comunidad de emprendedores en la cual puedas reclutar gente o hacer amigos.</p>
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="images/FAQ_perspective_matte_s.png" alt="" height="100px" width="100px">
+                            <img src="/assets/images/FAQ_perspective_matte_s.png" alt="" height="100px" width="100px">
                             <div class="text">
                                 <h4>Informacion</h4>
                                 <p>Te brindamos una seccion de informacion sobre los startups que mas destacan en el mundo.</p>
@@ -755,37 +755,16 @@ export default {
     ],
     script: [
       {
-        src: "assets/js/jquery-2.1.0.min.js"
-      },
-      {
-        src: "assets/js/popper.js"
-      },
-      {
         src: "assets/js/bootstrap.min.js"
       },
       {
         src: "//cdn.jsdelivr.net/npm/sweetalert2@11"
       },
       {
-        src: "assets/js/owl-carousel.js"
-      },
-      {
         src: "assets/js/scrollreveal.min.js"
       },
       {
-        src: "assets/js/waypoints.min.js"
-      },
-      {
-        src: "assets/js/jquery.counterup.min.js"
-      },
-      {
-        src: "assets/js/imgfix.min.js"
-      },
-      {
         src: "assets/js/alerts.js"
-      },
-      {
-        src: "assets/js/custom.js"
       },
       {
         src: "https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"
