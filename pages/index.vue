@@ -23,9 +23,11 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#welcome" class="menu-item">Inicio</a></li>
-                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonios</a></li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contáctanos</a></li>
+                            <li class="scroll-to-section"><NuxtLink to="/comunidad" class="menu-item">Comunidad</NuxtLink></li>
+                            <li class="scroll-to-section"><NuxtLink to="/staffpicks" class="menu-item">Staff Picks</NuxtLink></li>
+                            <li class="scroll-to-section"><NuxtLink to="/startups" class="menu-item">Startups</NuxtLink></li>
+                            <li class="scroll-to-section"><NuxtLink to="/ecosistema" class="menu-item">Ecosistema</NuxtLink></li>
+                            <li class="scroll-to-section"><NuxtLink to="/grupos" class="menu-item">Grupos</NuxtLink></li>
                         <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" style="height: 30px" >
                           <input
                             type="search"
