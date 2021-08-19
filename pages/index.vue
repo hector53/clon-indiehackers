@@ -1,13 +1,7 @@
 <template>
   <div>
     <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-      <div class="jumper">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
@@ -64,7 +58,7 @@
                             <div data-hover="" data-delay="0" class="w-dropdown" style="">
                               <div
                                 class="dropdown-toggle-3 w-dropdown-toggle"
-                                style="padding: 0px !important;"
+                                style="padding: 0px !important; display: flex !important;"
                                 id="w-dropdown-toggle-1"
                                 aria-controls="w-dropdown-list-1"
                                 aria-haspopup="menu"
@@ -73,11 +67,13 @@
                                 tabindex="0"
                                 @click="dropDownPerfilClic"
                               >
+                              <div style="border: 0.20000000298023224px solid #95989A; display: flex; padding: 5px; border-radius: 20px;">
                               <nuxt-link
                                 :to="{
                                   name: 'u-username',
                                   params: { username: $store.state.username },
                                 }"
+                                style="height: 37px !important; border: none !important;"
                               >
                                 <img
                                   :src="$store.state.img_perfil"
@@ -87,6 +83,8 @@
                                   class="image-12"
                                 />
                               </nuxt-link>
+                              <i class="fas fa-chevron-down" style="padding-top: 18%;"></i>
+                              </div>
                               </div>
                               <nav
                                 v-if="dropDownPerfil"
@@ -396,7 +394,7 @@
                                 :options="{
                                   cards: 'visible',
                                   conversation: 'all',
-                                  lang: 'en',
+                                  lang: 'es',
                                   theme: 'light',
                                   align: 'right',
                                 }"
@@ -413,7 +411,7 @@
                                 :options="{
                                   cards: 'visible',
                                   conversation: 'all',
-                                  lang: 'en',
+                                  lang: 'es',
                                   theme: 'light',
                                   align: 'left',
                                 }"
@@ -430,7 +428,7 @@
                                 :options="{
                                   cards: 'visible',
                                   conversation: 'all',
-                                  lang: 'en',
+                                  lang: 'es',
                                   theme: 'light',
                                   align: 'right',
                                 }"
@@ -447,7 +445,7 @@
                                 :options="{
                                   cards: 'visible',
                                   conversation: 'all',
-                                  lang: 'en',
+                                  lang: 'es',
                                   theme: 'light',
                                   align: 'left',
                                 }"
@@ -886,4 +884,3 @@ export default {
   layout: "landing"
 };
 </script>
-
