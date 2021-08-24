@@ -224,7 +224,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>01</h2>
-                            <img src="images/Add_apps_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/Add_apps_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Crea tu Startup</h4>
                             <p>Piensa una idea revolucionaria y única. Luego de eso súbelo a nuestra página</p>
                             <NuxtLink to="/startups">
@@ -240,7 +240,7 @@
                     <div class="features-item" style="transform: scale(1.1);">
                         <div class="features-icon">
                             <h2>02</h2>
-                            <img src="images/User_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/User_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Formá un equipo</h4>
                             <p>Crea una sociedad con un grupo de personas que sepas que te desempeñas bien.</p>
                             <NuxtLink to="/grupo-nuevo">
@@ -256,7 +256,7 @@
                     <div class="features-item">
                         <div class="features-icon">
                             <h2>03</h2>
-                            <img src="images/perspaleta2_0043.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
+                            <img src="/assets/images/perspaleta2_0043.png" alt="" style="height: 100px; width: 100px; display: block; margin: auto;">
                             <h4>Sube tu Startup</h4>
                             <p>¡Sube tu startup y revoluciona el mercado! Nosotros te apoyaremos en lo que podamos</p>
                             <NuxtLink to="/startups">
@@ -349,12 +349,12 @@
             <div class="row">
                 <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="images/2002.i039.010_chatbot_messenger_ai_isometric_set-09.jpg" class="img-fluid rounded d-block mx-auto" alt="App">
+                    <img src="/assets/images/2002.i039.010_chatbot_messenger_ai_isometric_set-09.jpg" class="img-fluid rounded d-block mx-auto" alt="App">
                 </div>
                 <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
                     <ul>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s" class="testing">
-                            <img src="images/Chart_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; padding: 5px;">
+                            <img src="/assets/images/Chart_perspective_matte_s.png" alt="" style="height: 100px; width: 100px; padding: 5px;">
                             <div class="text testing" style="border: 1px solid;border-radius: 10px;box-shadow: 0 0 10px;">
                                 <h4>Espacio</h4>
                                 <p>Nosotros te brindamos el espacio y el momento para poder llevar a cabo tu emprendimiento.</p>
@@ -368,7 +368,7 @@
                             </div>
                         </li>
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
-                            <img src="images/FAQ_perspective_matte_s.png" alt="" height="100px" width="100px" style="padding: 5px;">
+                            <img src="/assets/images/FAQ_perspective_matte_s.png" alt="" height="100px" width="100px" style="padding: 5px;">
                             <div class="text" style="border: 1px solid;border-radius: 10px;box-shadow: 0 0 10px;">
                                 <h4>Informacion</h4>
                                 <p>Te brindamos una seccion de informacion sobre los startups que mas destacan en el mundo.</p>
