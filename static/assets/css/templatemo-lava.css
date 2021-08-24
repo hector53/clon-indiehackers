@@ -166,6 +166,15 @@ button.main-button:hover {
   text-align: center;
 }
 
+.center-heading a {
+  text-align: center;
+}
+
+.icono {
+  font-size: 25px !important;
+  color: #435282;
+}
+
 
 /* 
 ---------------------------------------------
@@ -185,7 +194,7 @@ header
   border-radius: 20px;
   display: block;
   width: 100%;
-  height: 38px;
+  height: 31px;
   padding: 8px 12px;
   margin-bottom: 10px;
   font-size: 14px;
@@ -258,12 +267,17 @@ header
   margin-right: 0px;
   background-color: #fff;
   padding: 0px 20px;
+  margin-left: 9%;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   position: relative;
   z-index: 999;
+}
+
+.isActive {
+  margin-left: 0 !important;
 }
 
 .header-area .main-nav .nav li {
@@ -273,6 +287,7 @@ header
 
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
+  padding-left: 0px;
 }
 
 .header-area .main-nav .nav li a {
@@ -693,7 +708,6 @@ welcome
   }
   .welcome-area .header-text {       
     width: 92%;
-    padding-top: 793px;
   }
   .welcome-area .header-text .left-text {
     margin-top: 5%;
@@ -740,12 +754,6 @@ about
   padding: 60px 30px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-
-.features-item:hover {
-  transition: .5s all;
-  transform: scale(1.1);
-  cursor: pointer
 }
 
 .features-item-special{
@@ -833,6 +841,9 @@ promotion
   color: #1e1e1e;
   margin-bottom: 15px;
   margin-top: 3px;
+}
+
+.testing {
 }
 
 
@@ -925,9 +936,9 @@ footer
 
 footer {
   margin-top: 200px;
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #435282, #ccc);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #435282, #ccc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #FFA17F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1179,5 +1190,41 @@ preloader
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 1365px) {
+  .header-area .main-nav .nav {
+    margin-left: 0px;
+  }
+
+  .logo {
+    margin-left: 6% !important;
+  }
+}
+
+@media (max-width: 1153px) {
+  .header-area .main-nav .nav {
+    margin-left: 0px;
+  }
+
+  .logo {
+    margin-left: 6% !important;
+  }
+}
+
+@media (max-width: 1117px) {
+  .header-area .main-nav .nav {
+    margin-left: 4px;
+  }
+
+  .welcome-area .header-text {
+    padding-top: 30px !important;
+  }
+}
+
+@media (max-width: 1041px) {
+  .logo {
+    margin-left: 0% !important;
   }
 }
