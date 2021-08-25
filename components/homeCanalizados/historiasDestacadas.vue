@@ -67,9 +67,11 @@ export default {
     await this.$axios
       .$get("/getpost/getnoticias?fin=12&ini=0&xPag=12")
       .then((response) => {
-        // console.log(response);
+         console.log(response);
         this.arrayNoticias = response.noticias;
         this.btnVerMas = true;
+        console.log("ya cargo las historias ")
+        this.$emit("cargaCompleta")
       });
   },
 };

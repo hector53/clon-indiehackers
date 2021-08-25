@@ -11,10 +11,15 @@
         <b-col lg="10">
           <b-row>
             <b-col lg="8">
-              <seccion-discusion></seccion-discusion>
-              <LazyHydrate when-visible>
-                <historias-destacadas ref="historiasDes"></historias-destacadas>
-              </LazyHydrate>
+              <loader v-show="loading"></loader>
+              
+                <historias-destacadas @cargaCompleta="cargaCompleta" v-show="loading==false" style="    margin-bottom: 20px;" ref="historiasDes"></historias-destacadas>
+              
+               
+                <seccion-discusion v-show="loading==false"></seccion-discusion>
+              
+              
+              
             </b-col>
             <b-col lg="4">
               <LazyHydrate when-visible>
@@ -43,6 +48,7 @@ import SidebarDerecho from "./sidebarDerecho.vue";
 import sidebarLeft from "./sidebarLeft.vue";
 import UsuariosDestacados from "./usuariosDestacados.vue";
 import LazyHydrate from "vue-lazy-hydration";
+import Loader from '../loader/loader.vue';
 
 export default {
   components: {
@@ -53,11 +59,13 @@ export default {
     UsuariosDestacados,
     HistoriasDestacadas,
     SidebarDerecho,
+    Loader,
   },
   name: "bodyCanalizados",
 
   data() {
     return {
+      loading: true,
       arrayPopulares: [],
       gruposRecomendados: [],
       arraySidebar: [],
@@ -66,6 +74,9 @@ export default {
     };
   },
   methods: {
+    cargaCompleta(){
+      this.loading = false
+    },
     cambiarColumnas() {
       this.columnaDiscusionG = true;
     },
