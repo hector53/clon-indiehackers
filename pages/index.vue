@@ -16,7 +16,7 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-                        <ul class="nav" v-bind:class="{active: isActive}">
+                        <ul class="nav" v-bind:class="{'active': isActive}">
                             <li class="scroll-to-section"><NuxtLink to="/p-nuevo" class="menu-item w-dropdown-link"><i class="fas fa-rocket"></i> Startups</NuxtLink></li>
                             <li class="scroll-to-section"><NuxtLink to="/comunidad" class="menu-item w-dropdown-link"><i class="fas fa-money-bill-wave"></i> Rondas de Inversion</NuxtLink></li>
                         <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" style="height: 30px" >
@@ -137,9 +137,9 @@
                         <a 
                           class='menu-trigger' 
                           @click="showMobileMenu = !showMobileMenu" 
-                          :class="{ active: showMobileMenu }">
+                          :class="{ 'active': showMobileMenu }">
                           <span>Menu</span>
-                          <h7>Menu</h7>
+                          <h1>Menu</h1>
                           <ul>
                             <li>Test 1</li>
                             <li>Test 2</li>
