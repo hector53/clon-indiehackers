@@ -182,6 +182,10 @@ header
 --------------------------------------------- 
 */
 
+.collapsable {
+  display: none;
+}
+
 .fa-search{
   position: absolute;
   right: 56.5%;
@@ -267,7 +271,6 @@ header
   margin-right: 0px;
   background-color: #fff;
   padding: 0px 20px;
-  margin-left: 9%;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -413,6 +416,60 @@ header
   display: none;
 }
 
+.icono-hamburguesa {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 23px;
+  width: 32px;
+  height: 40px;
+  z-index: 99;
+  right: 40px;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #435282; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 30px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 .header-area .main-nav .menu-trigger span,
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
@@ -537,9 +594,10 @@ header
   .logo {
     text-align: center;
     float: none!important;
+    margin-top: 3%;
   }
   .header-area {
-    background-color: #f7f7f7;
+    background-color: #fff;
     padding: 0px 15px;
     height: 80px;
     box-shadow: none;
@@ -620,6 +678,10 @@ header
   }
   .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
+  }
+
+  .collapsable {
+    display: block;
   }
 }
 
@@ -1226,5 +1288,11 @@ preloader
 @media (max-width: 1041px) {
   .logo {
     margin-left: 0% !important;
+  }
+}
+
+@media (max-width: 966px) {
+  .glider-contain {
+    
   }
 }
