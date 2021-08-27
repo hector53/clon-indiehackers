@@ -38,6 +38,10 @@ export default {
         src: 'https://apis.google.com/js/platform.js',
         async: true
       },
+      {
+        src: 'https://kit.fontawesome.com/123aef3e32.js',
+        crossorigin: 'anonymous'
+      }
   ]
   },
 
