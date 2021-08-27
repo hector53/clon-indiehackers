@@ -132,9 +132,38 @@
                           </li>
                         </ul>
 
+                        <!-- Use any element to open the sidenav -->
+                        <span onclick="openNav()" class="collapsable"><i class="fas fa-bars icono-hamburguesa"></i></span>
+                        <!--Content from sidenav here-->
+                         <div id="mySidenav" class="sidenav">
+                          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                          <div style="display: flex;">
+                            <img
+                              :src="$store.state.img_perfil"
+                              loading="lazy"
+                              class="image-12"
+                              style="margin-left: 20px; margin-top: 12px; margin-right: 10px;"
+                            />
+                            <div>
+                              <h4 style="color: #fff;">Pepe rodriguez</h4>
+                              <p>@peperodriguez</p>
+                            </div>
+                          </div>
+                          <hr style="background-color: #000">
+                          <div style="text-align: left;">
+                            <nuxt-link to="/comunidad" style="font-size: 20px;"><i class="fas fa-home"></i> Inicio</nuxt-link>
+                            <nuxt-link to="/startups" style="font-size: 20px;"><i class="fas fa-rocket"></i> Startups</nuxt-link>
+                            <nuxt-link to="/staffpicks" style="font-size: 20px;"><i class="fas fa-star"></i> Staff Picks</nuxt-link>
+                            <nuxt-link to="/grupos" style="font-size: 20px;"><i class="fas fa-comments"></i> Grupos</nuxt-link>
+                            <nuxt-link to="/ecosistema" style="font-size: 20px;"><i class="fas fa-users"></i> Ecosistema</nuxt-link>
+                          </div>
+                          <hr style="background-color: #000">
+                          <div>
+                            <div style="position: absolute; bottom: 0; text-aling: center;">Copyright © 2021 Canalizados. Todos los derechos reservados.</div>
+                            </div>
+                          </div>
 
-                        
-                        <a 
+                        <!-- <a 
                           class='menu-trigger' 
                           @click="showMobileMenu = !showMobileMenu" 
                           :class="{ active: showMobileMenu }">
@@ -145,7 +174,7 @@
                             <li>Test 2</li>
                             <li>Test 3</li>
                           </ul>
-                        </a>
+                        </a> -->
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
@@ -201,7 +230,7 @@
         <div class="header-text">
             <div class="container">
                 <div class="row">
-                    <div class="left-text col-lg-12 col-md-8 col-sm-6 col-xs-12"
+                    <div class="left-text col-lg-8 col-md-8 col-sm-6 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1 class="main-title" style="font-family: 'Space Grotesk' !important;">El mejor medio digital para tu <em>START UP</em></h1>
                         <p><a href="#">Canalizados</a> es un medio digital que puede ofrecerle numerosos beneficios a tu Start up.
@@ -414,7 +443,7 @@
                                   theme: 'light',
                                   align: 'right',
                                 }"
-                                :width="600"
+                                :width="500"
                                 :dnt="false"
                               >
                               </Tweet>
@@ -431,7 +460,7 @@
                                   theme: 'light',
                                   align: 'left',
                                 }"
-                                :width="600"
+                                :width="500"
                                 :dnt="true"
                               >
                               </Tweet>
@@ -448,7 +477,7 @@
                                   theme: 'light',
                                   align: 'right',
                                 }"
-                                :width="600"
+                                :width="500"
                                 :dnt="false"
                               >
                               </Tweet>
@@ -465,34 +494,17 @@
                                   theme: 'light',
                                   align: 'left',
                                 }"
-                                :width="600"
-                                :dnt="true"
+                                :width="500"
+                                :dnt="false"
                               >
                               </Tweet>
                             </no-ssr>
                           </div>
-                            <div>
-
-                              <!-- <template>
-                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr">¡Gracias por compartir nuestra historia!
-                                Seguiremos trabajando para llevar el talento techde Latam al mundo</p>mdash; Talently (@TalentlyTech) <a href="https://twitter.com/TalentlyTech/status/1423678097451257860">6 de Agosto de 2021</a><blockquote>
-                              </template>
-                              </div>
-                              <div>
-                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Estos señores de donde sacarán tanta plata?Dinero con alasBolsa de dinero?</p>mdash; COVIDNA ESTHER (@Elsa_Ala58) <a href="https://twitter.com/Elsa_Ala58/status/1417822244303216644">21 de julio de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
-                              </div>
-                              <div>
-                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr"></p>mdash; AYURE (@AYURE_MX) <a href="https://twitter.com/AYURE_MX/status/1423070920676155392">4 de Agosto de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
-                              </div>
-                              <div>
-                                <blockquote class="twitter-tweet"><p lang="es" dir="ltr"></p>mdash; notcous (@notcous) <a href="https://twitter.com/notcous/status/1422607734579544071">6 de Agosto de 2021</a><blockquote> <script async src="https://platformtwitter.com/widgets.js" charset="utf-8"></script>
-                              </div> -->
-                            </div>
                         </div>
                       
                         
-                        <button aria-label="Previous" class="glider-prev"><i class="fas fa-chevron-left icono-main"></i></button>
-                        <button aria-label="Next" class="glider-next"><i class="fas fa-chevron-right icono-main"></i></button>
+                        <button aria-label="Previous" class="glider-prev" style="margin-left: 20px;"><i class="fas fa-chevron-left icono-main"></i></button>
+                        <button aria-label="Next" class="glider-next" style="margin-left: 20px;"><i class="fas fa-chevron-right icono-main"></i></button>
                         <div role="tablist" class="dots"></div>
                       </div>                     
                     <div
@@ -664,10 +676,10 @@
                         <div class="contact-form">
                         <h2>Muchas gracias por ser parte de la comunidad de <em style="font-style: inherit; color: #7986cb;">Canalizados</em></h2>
                           <div class="row">
-                            <h4>Actualmente posees de los siguientes beneficios:</h4>
-                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Puedes publicar tu startup y asi darte a conocer</p>
-                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Puedes comentar y participar de los distintos grupos</p>
-                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Recibes a menudo libros y reuniones via meet sobre finanzas</p>
+                            <h4>Actualmente posees de los siguientes beneficios: <br></h4><br>
+                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Puedes publicar tu startup y asi darte a conocer</p><br>
+                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Puedes comentar y participar de los distintos grupos</p><br>
+                            <p><i class="fas fa-check-circle" style="color: #3ACF39"></i> Recibes a menudo libros y reuniones via meet sobre finanzas</p><br>
                           </div>
                         </div>
                     </div>
@@ -691,10 +703,10 @@
                 <div class="w-container">
                   <div style="color: #fff">Copyright © 2021 Canalizados. Todos los derechos reservados.</div>
                    <div class="menuPoliticas">
-                                  <nuxt-link to="/quienes-somos" style="color: #fff">Quienes Somos </nuxt-link> <a>·</a>
-                                   <nuxt-link to="/politica-de-privacidad" style="color: #fff" >Privacidad </nuxt-link> <a>·</a>
-                                   <nuxt-link to="/contacto" style="color: #fff" >Contacto </nuxt-link>
-                                </div>
+                      <nuxt-link to="/quienes-somos" style="color: #fff">Quienes Somos </nuxt-link> <a>·</a>
+                      <nuxt-link to="/politica-de-privacidad" style="color: #fff" >Privacidad </nuxt-link> <a>·</a>
+                      <nuxt-link to="/contacto" style="color: #fff" >Contacto </nuxt-link>
+                    </div>
                 </div>
               </div>
         </div>
@@ -975,7 +987,7 @@ export default {
   components: { 
     Tweet,
     GoogleLogin,
-    Loader
+    Loader,
   },
   async asyncData({ route, app, redirect }) {
       var token = route.query.t
