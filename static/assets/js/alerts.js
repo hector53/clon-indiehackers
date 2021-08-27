@@ -61,6 +61,15 @@ window.addEventListener('load', () => {
   alert1()
 })
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
+
 window.addEventListener('load', function() {
 new Glider(document.querySelector('.glider'), {
   // Mobile-first defaults
@@ -96,37 +105,4 @@ new Glider(document.querySelector('.glider'), {
     }
   ]
 });
-});
-
-$("#contact").on('submit', function(evt){
-evt.preventDefault();
-const nameForm = document.getElementById('name').value;
-const emailForm = document.getElementById('email').value;
-const messageForm = document.getElementById('message').value;
-
-if(!(/\S+@\S+\.\S+/.test(emailForm))){
-  return false;
-}
-
-if(messageForm.length >= 140) {
-  return false;
-}
-
-const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-end',
-  showConfirmButton: false,
-  timer: 5000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.addEventListener('mouseenter', Swal.stopTimer)
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
-  }
-})
-
-Toast.fire({
-  icon: 'success',
-  title: `¡Genial, ${nameForm}! Mensaje Enviado`,
-})
-
 });

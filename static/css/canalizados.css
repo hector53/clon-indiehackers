@@ -465,8 +465,7 @@ input[type=reset] {
   line-height: 1.42857143;
   color: #333;
   vertical-align: middle;
-  background-color: #fff;
-  border: 1px solid #ccc
+  background: #F3F3F3 0% 0% no-repeat padding-box;
 }
 
 .w-input:-moz-placeholder,
@@ -4918,6 +4917,14 @@ figcaption {
   align-items: center
 }
 
+.list-item-9.active { 
+  transform: scale(1.15);
+}
+
+.list-item-9 i .active {
+  color: #FE8A65;
+}
+
 .text-block-21 {
   color: #435282;
   font-weight: 600; 
@@ -5035,7 +5042,6 @@ figcaption {
 }
 
 .search-input:focus {
-  border: 1px solid #7986CB;
   box-shadow: 0 1px 0 1px #7986CB
 }
 

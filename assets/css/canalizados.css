@@ -4816,10 +4816,6 @@ textarea.w-select {
   font-weight: 700
 }
 
-.text-block-21.active {
-  border-bottom: 1px solid #3e64db
-}
-
 .text-block-22,
 .text-block-23 {
   color: #bebebe;
@@ -4931,7 +4927,6 @@ textarea.w-select {
 }
 
 .search-input:focus {
-  border: 1px solid #3e64db;
   box-shadow: 0 1px 0 1px #3e64db
 }
 

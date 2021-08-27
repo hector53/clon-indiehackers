@@ -45,7 +45,8 @@
       </div>
       <div class="div-block-414">
         <form action="/buscar" class="search-2 w-form buscadorHeader" method="GET" >
-          <svg
+          <i class="fas fa-search input-search-header" style="position: absolute; top: 10px; left: 443px; width: 20px; height: 20px"></i>
+          <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             id="ember8"
@@ -60,14 +61,14 @@
             >
 
             </path>
-          </svg>
+          </svg> -->
           <input
             type="search"
             class="search-input w-input"
             maxlength="256"
             name="q"
             placeholder="Buscá temas, grupos, usuarios…"
-            style="padding-left: 45px;"
+            style="padding-left: 45px; background: #F3F3F3 0% 0% no-repeat padding-box; border: none;"
           /><input
             type="submit"
             value="Search"

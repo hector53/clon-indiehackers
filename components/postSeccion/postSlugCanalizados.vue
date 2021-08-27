@@ -1,8 +1,12 @@
 <template>
 
-
-
  <div >
+   <p class="link_post_titulo_preview" v-if="readMoreActivated">
+              {{contenido.slice(0, 200)}}
+            </p>
+            <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
+              read more...
+            </a>
    <article>
    <div class="div-block-425" >
                 <div class="div-block-432">
@@ -85,9 +89,12 @@
           <div >
             <!---->
             <!---->
-            <p class="link_post_titulo_preview">
-              {{ contenido }}
+            <p class="link_post_titulo_preview" v-if="readMoreActivated">
+              {{contenido.slice(0, 200)}}
             </p>
+            <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
+              read more...
+            </a>
           </div>
         </a>
       </div>
@@ -182,9 +189,14 @@ export default {
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
+  methods: {
+    activateReadMore(){
+      this.readMoreActivated = true;
+    },
+  },
   data() {
     return {
-
+      readMoreActivated: false,
         idP: 0,
       tituloPost: "",
       username: "",
