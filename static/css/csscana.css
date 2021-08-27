@@ -136,6 +136,7 @@ h6,
   display: initial;
   width: 100%;
   margin-bottom: 20px;
+  border-radius: 20px;
 }
 
 .link_post_titulo_preview {
@@ -2518,7 +2519,6 @@ input[type="button"] {
 }
 
 .list-item-9 a{
-  border: 0.20000000298023224px solid #95989A;
   border-radius: 20px;
   padding-left: 15px;
   padding-right: 15px;
@@ -4210,4 +4210,13 @@ text-decoration:underline!important;
   letter-spacing: 0.24px;
   color: #435282 !important;
   opacity: 1;
+}
+
+.icono-sidebarleft {
+  font-size: 20px;
+  color: #435282;
+}
+
+.icono-sidebarleft.active {
+  color: #FE8A65;
 }
