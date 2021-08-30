@@ -39,11 +39,6 @@
                :username="arrayPost[0].username"></follow-seccion>
                  <mas-populares></mas-populares>
                 <grupos-recomendados></grupos-recomendados>
-                <div>
-                  <div class="text-block-20">
-                    @canalizados<br />FAQ · Terminos · Privacidad
-                  </div>
-                </div>
               </div>
               </LazyHydrate>  
                 </b-col>
@@ -211,6 +206,10 @@ property:"og:image:height", content:"630"
     
   },
   methods: {
+
+    alerts(){
+      alert('works')
+    },
 
       async getpost(){
         
