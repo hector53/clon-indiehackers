@@ -200,10 +200,6 @@ export default {
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
-<<<<<<< HEAD
-  
-=======
->>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
   data() {
     return {
       readMoreActivated: false,
@@ -254,11 +250,6 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-     activateReadMore(){
-      this.readMoreActivated = true;
-    },
-=======
     
     alerts(){
       this.$swal({
@@ -276,7 +267,6 @@ export default {
     activateReadLess(){
       this.readMoreActivated = false;
     },
->>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
     async previewUrlPost(url) {
    //   console.log("enviar url: ", url)
       await this.$axios.$get("/link/preview/?url=" + url).then((response) => {
