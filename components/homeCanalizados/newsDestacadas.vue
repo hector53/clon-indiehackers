@@ -1,16 +1,32 @@
 <template>
-  <div>
-    <div style="margin-bottom: 20px;" class="container-noticias">
+  <div v-bind="settings" v-if="mostrar">
+    <div style="margin-bottom: 20px;" class="container-noticias" v-for="(item, index) in arrayNoticias.slice(0, 2)" :key="index">
       <b-row>
         <b-col cols="9">
-          <h3 class="main-title">Marcha atrás con la anulación de la cuarentena a los que viajaron por trabajo: recién se aplicará desde el 20 de septiembre</h3>
+          <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
+            <h3 class="main-title">{{ item.titulo }}</h3>
+          </nuxt-link>
         </b-col>
         <b-col cols="3">
-          <img src="https://resizer.glanacion.com/resizer/8GRtYaqPGIcCi8d9-l8T_8hMl8Q=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7LCQRWUZ3FBMBD3XTCD3M46W4M.jpeg" />
+          <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
+            <img 
+              :src="item.imagen" 
+              loading="lazy" alt="" 
+            />
+          </nuxt-link>
         </b-col>
         <div class="d-flex">
-          <p class="infoAdicional" style="margin-left: 15px;">La Nacion ·</p>
-          <p class="infoAdicional">Hace 2 horas</p>
+          <nuxt-link
+            class="userStaffpick2"
+            :to="{
+              name: 'u-username',
+              params: { username: item.username },
+            }"
+          >
+            <p class="infoAdicional" style="margin-left: 15px;">{{item.username}} </p>
+            <p> · </p>
+            <p class="infoAdicional">{{ item.fecha }}</p>
+          </nuxt-link>
         </div>  
         <div>
           <ul>
@@ -45,7 +61,9 @@
           </ul>
         </div>
         <div>
-          <b-button variant="outline-primary" style="margin-left: 15px;">Ver Nota Completa</b-button>
+          <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }"> 
+            <b-button variant="outline-primary" style="margin-left: 15px;">Ver Nota Completa</b-button>
+          </nuxt-link>
           <i class="fas fa-chevron-down" @click="showComplete = !showComplete" :class="{ active: showComplete }" style="position: absolute; right: 40px;"></i>
         </div>
       </b-row>

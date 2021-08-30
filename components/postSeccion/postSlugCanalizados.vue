@@ -1,18 +1,6 @@
 <template>
 
  <div>
-            <p class="link_post_titulo_preview" v-html="contenido" v-if="!readMoreActivated" @click="alerts">
-              {{contenido.slice(0, 10) | etiquetasFiltro }}
-            </p>
-            <p class="link_post_titulo_preview" v-html="contenido" v-if="readMoreActivated">
-              {{contenido}}
-            </p>
-            <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
-              read more...
-            </a>
-            <a class="" v-if="readMoreActivated" @click="activateReadLess" href="#">
-              read less...
-            </a>
             
    <article>
    <div class="div-block-425" >
@@ -34,7 +22,7 @@
                         params: { slug: arrayGrupo[0].slug },
                         }">{{arrayGrupo[0].titulo}}</nuxt-link>
                     </div>
-                    <div class="div-block-427">
+                    <!-- <div class="div-block-427">
                       <div class="text-block-6">•</div>
                           <nuxt-link
                           :to="{
@@ -59,7 +47,7 @@
                     <div class="div-block-427">
                       <div class="text-block-6">•</div>
                       {{fecha}}
-                    </div>
+                    </div> -->
                   </div>
                   
                    <iframe v-if="audio != 0 && audioActivo==1" :src="'https://play.ht/embed/?article_url=https://canalizados.com/c/'+$route.params.slug+'&voice=es-MX-DaliaNeural'" 
@@ -78,6 +66,30 @@
                           />
                           </div>
                     
+                    <div>
+                      <nuxt-link
+                          :to="{
+                          name: 'u-username',
+                          params: { username: username },
+                          }" >
+                        <img
+                        :src="avatar"
+                        loading="lazy"
+                        sizes="24px"
+                        style="float:left"
+                        alt=""
+                        class="image-19"
+                      />
+                        {{username}}
+                        <p>{{fecha}}</p>
+                      </nuxt-link>
+                      <div style="position: absolute; right: 20px; top: 10%;">
+                        <i class="fas fa-bookmark icono-share"></i>
+                        <i class="fas fa-comment icono-share"></i>
+                        <i class="fas fa-share icono-share"></i>
+                      </div>
+                    </div>
+                    <hr>
                    <div class="contenidoFull" v-html="contenido"   v-if="esLink == 0"></div>
 
 

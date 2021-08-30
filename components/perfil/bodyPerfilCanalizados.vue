@@ -27,17 +27,42 @@
                     <ul role="list" class="list-13">
                         <li class="list-item-14">
                             <a class="text-block-33" href="#"  @click.prevent="followUser">
-                                <span v-if="arrayDataUser.yalosigo == 0">Seguir</span>
-                                 <span v-else>Dejar de Seguir</span>
+                                <span v-if="$store.state.cookieLogin == true">Editar Perfil</span>
+                                <span v-else-if="arrayDataUser.yalosigo == 0">Seguir</span>
+                                <span v-else>Dejar de Seguir</span>
                             </a>
-                        </li>
-                        <li class="list-item-15">
-                             <div class="text-block-34">...</div>
                         </li>
                      </ul>
                 </div>
               </div>
-              <div class="w-col w-col-9">
+              <div class="w-col w-col-4">
+                <h1>{{$store.state.nombres}}</h1>
+                <h5>{{$store.state.username}}</h5>
+                <p><i class="fas fa-map-marker-alt" style="color: red;"></i> {{ $store.state.ciudad }}</p>
+              </div>
+              <div class="w-col w-col-6 d-flex" style="justify-content: center; margin-top: 20px;">
+                <div>
+                  <p style="text-align: center; font-weight: 800; margin: 0 2px;">  {{ arrayDataUser.seguidosCant }}</p>
+                  <p>Seguidos</p>
+                </div>
+                <div style="margin: 0 20px;">
+                  <p style="text-align: center; font-weight: 800; margin: 0 20px;">{{ arrayDataUser.seguidoresCant }}</p>
+                  <p>Seguidores</p>
+                </div>
+                <div>
+                  <p style="text-align: center; font-weight: 800; margin: 0 2px;">8</p>
+                  <p>Publicaciones</p>
+                </div>
+              </div>
+              <nuxt-link
+                :to="{
+                  name: 'u-username-configuracion',
+                  params: { username: $route.params.username },
+                }"
+                >
+                <i class="fas fa-cog"></i>
+              </nuxt-link>
+              <!--<div class="w-col w-col-9">
                 <h1 class="h1user">
                  <span>@{{ $store.state.username }} </span> <span>- {{ $store.state.nombres }}</span>
                   <nuxt-link
@@ -47,12 +72,12 @@
                   }" class="ember-view user-header__header-button user-header__header-button--edit">
                   <div class="header-button__content">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="ember559" class="ember-view header-button__icon"><path d="M1.438 16.872l-1.438 7.128 7.127-1.438 12.642-12.64-5.69-5.69-12.641 12.64zm2.271 2.253l-.85-.849 11.141-11.125.849.849-11.14 11.125zm20.291-13.436l-2.817 2.819-5.69-5.691 2.816-2.817 5.691 5.689z">
-<!----></path>
-</svg>
+                      </path>
+                      </svg>
                   </div>
                   </nuxt-link>
                 </h1>
-                <div>{{ $store.state.bio }}</div>
+                 <div>{{ $store.state.bio }}</div>
 
                 <ul role="list" class="list-11">
                   <li class="list-item-12">
@@ -89,9 +114,9 @@
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
-            <ul role="list" class="list-12">
+            <!-- <ul role="list" class="list-12">
               <li>
                 <nuxt-link
                   class="list-item-13"
@@ -151,7 +176,7 @@
                 <div class="text-block-29">  {{ arrayDataUser.seguidoresCant }}</div>
                 <div class="text-block-30">Seguidores</div>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
 
