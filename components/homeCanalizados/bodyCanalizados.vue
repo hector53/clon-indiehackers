@@ -13,7 +13,7 @@
             <b-col lg="8">
               <!-- <historias-destacadas ref="historiasDes"></historias-destacadas> -->
               <div>
-                <SliderDestacadas />
+                <newsDestacadas />
               </div>
 
               <LazyHydrate when-visible>
@@ -50,7 +50,7 @@ import SidebarDerecho from "./sidebarDerecho.vue";
 import sidebarLeft from "./sidebarLeft.vue";
 import UsuariosDestacados from "./usuariosDestacados.vue";
 import LazyHydrate from "vue-lazy-hydration";
-import SliderDestacadas from './sliderDestacadas.vue';
+import newsDestacadas from './newsDestacadas.vue';
 
 export default {
   components: {
@@ -61,7 +61,7 @@ export default {
     UsuariosDestacados,
     HistoriasDestacadas,
     SidebarDerecho,
-    SliderDestacadas
+    newsDestacadas
   },
   name: "bodyCanalizados",
 
