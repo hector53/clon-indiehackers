@@ -189,11 +189,7 @@ export default {
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
-  methods: {
-    activateReadMore(){
-      this.readMoreActivated = true;
-    },
-  },
+  
   data() {
     return {
       readMoreActivated: false,
@@ -237,7 +233,9 @@ export default {
     };
   },
   methods: {
-     
+     activateReadMore(){
+      this.readMoreActivated = true;
+    },
     async previewUrlPost(url) {
    //   console.log("enviar url: ", url)
       await this.$axios.$get("/link/preview/?url=" + url).then((response) => {
