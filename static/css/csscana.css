@@ -4220,3 +4220,42 @@ text-decoration:underline!important;
 .icono-sidebarleft.active {
   color: #FE8A65;
 }
+
+.showComplete {
+  height: 30px;
+  width: 30px;
+  transition: .5s all;
+  rotate: 300deg;
+}
+
+.main-title {
+  font-size: 17px !important;
+  font-weight: 600;
+}
+
+.main-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.infoAdicional {
+  font-size: 13px;
+  color: #ccc
+}
+
+.tituloRelacionado {
+  font-weight: 600;
+}
+
+.tituloRelacionado:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.container-noticias {
+  padding: 20px;
+  margin: 1.5px;
+  margin-bottom: 20px;
+  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+  border-radius: 20px;
+}
