@@ -4259,3 +4259,8 @@ text-decoration:underline!important;
   box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
   border-radius: 20px;
 }
+
+.icono-share {
+  color: #7986CB;
+  font-size: 25px;
+}
