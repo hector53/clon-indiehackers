@@ -166,12 +166,25 @@ button.main-button:hover {
   text-align: center;
 }
 
+.center-heading a {
+  text-align: center;
+}
+
+.icono {
+  font-size: 25px !important;
+  color: #435282;
+}
+
 
 /* 
 ---------------------------------------------
 header
 --------------------------------------------- 
 */
+
+.collapsable {
+  display: none;
+}
 
 .fa-search{
   position: absolute;
@@ -185,7 +198,7 @@ header
   border-radius: 20px;
   display: block;
   width: 100%;
-  height: 38px;
+  height: 31px;
   padding: 8px 12px;
   margin-bottom: 10px;
   font-size: 14px;
@@ -255,7 +268,6 @@ header
 .header-area .main-nav .nav {
   float: left;
   margin-top: 27px;
-  margin-left: 9%;
   margin-right: 0px;
   background-color: #fff;
   padding: 0px 20px;
@@ -267,6 +279,10 @@ header
   z-index: 999;
 }
 
+.isActive {
+  margin-left: 0 !important;
+}
+
 .header-area .main-nav .nav li {
   padding-left: 20px;
   padding-right: 20px;
@@ -274,6 +290,7 @@ header
 
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
+  padding-left: 0px;
 }
 
 .header-area .main-nav .nav li a {
@@ -397,6 +414,60 @@ header
   z-index: 99;
   right: 40px;
   display: none;
+}
+
+.icono-hamburguesa {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 23px;
+  width: 32px;
+  height: 40px;
+  z-index: 99;
+  right: 40px;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #435282; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 30px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .header-area .main-nav .menu-trigger span,
@@ -523,9 +594,10 @@ header
   .logo {
     text-align: center;
     float: none!important;
+    margin-top: 3%;
   }
   .header-area {
-    background-color: #f7f7f7;
+    background-color: #fff;
     padding: 0px 15px;
     height: 80px;
     box-shadow: none;
@@ -606,6 +678,10 @@ header
   }
   .header-area .main-nav .nav li.submenu:hover ul, .header-area .main-nav .nav li.submenu:focus ul {
     height: 0px;
+  }
+
+  .collapsable {
+    display: block;
   }
 }
 
@@ -694,7 +770,6 @@ welcome
   }
   .welcome-area .header-text {       
     width: 92%;
-    padding-top: 793px;
   }
   .welcome-area .header-text .left-text {
     margin-top: 5%;
@@ -741,12 +816,6 @@ about
   padding: 60px 30px;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-
-.features-item:hover {
-  transition: .5s all;
-  transform: scale(1.1);
-  cursor: pointer
 }
 
 .features-item-special{
@@ -834,6 +903,9 @@ promotion
   color: #1e1e1e;
   margin-bottom: 15px;
   margin-top: 3px;
+}
+
+.testing {
 }
 
 
@@ -926,9 +998,9 @@ footer
 
 footer {
   margin-top: 200px;
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #435282, #ccc);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #435282, #ccc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #FFA17F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #00223E, #FFA17F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #00223E, #FFA17F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1180,5 +1252,47 @@ preloader
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 1365px) {
+  .header-area .main-nav .nav {
+    margin-left: 0px;
+  }
+
+  .logo {
+    margin-left: 6% !important;
+  }
+}
+
+@media (max-width: 1153px) {
+  .header-area .main-nav .nav {
+    margin-left: 0px;
+  }
+
+  .logo {
+    margin-left: 6% !important;
+  }
+}
+
+@media (max-width: 1117px) {
+  .header-area .main-nav .nav {
+    margin-left: 4px;
+  }
+
+  .welcome-area .header-text {
+    padding-top: 30px !important;
+  }
+}
+
+@media (max-width: 1041px) {
+  .logo {
+    margin-left: 0% !important;
+  }
+}
+
+@media (max-width: 966px) {
+  .glider-contain {
+    
   }
 }
