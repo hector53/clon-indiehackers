@@ -1,12 +1,19 @@
 <template>
 
- <div >
-   <p class="link_post_titulo_preview" v-if="readMoreActivated">
-              {{contenido.slice(0, 200)}}
+ <div>
+            <p class="link_post_titulo_preview" v-html="contenido" v-if="!readMoreActivated" @click="alerts">
+              {{contenido.slice(0, 10) | etiquetasFiltro }}
+            </p>
+            <p class="link_post_titulo_preview" v-html="contenido" v-if="readMoreActivated">
+              {{contenido}}
             </p>
             <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
               read more...
             </a>
+            <a class="" v-if="readMoreActivated" @click="activateReadLess" href="#">
+              read less...
+            </a>
+            
    <article>
    <div class="div-block-425" >
                 <div class="div-block-432">
@@ -89,11 +96,14 @@
           <div >
             <!---->
             <!---->
-            <p class="link_post_titulo_preview" v-if="readMoreActivated">
-              {{contenido.slice(0, 200)}}
+            <p class="link_post_titulo_preview" v-if="!readMoreActivated">
+              {{contenido.slice(0, 1000)}}
             </p>
             <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
               read more...
+            </a>
+            <a class="" v-if="readMoreActivated" @click="activateReadLess" href="#">
+              read less...
             </a>
           </div>
         </a>
@@ -151,7 +161,7 @@
           </div>
           </a>
          
-         
+          <h6>Votos</h6>
         </div>
               </div>
    </article>
@@ -186,10 +196,14 @@ import TrendingPosts from './trendingPosts.vue';
 import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
+
   components: { encuestaPost, ComentariosPost, TrendingPosts, LazyHydrate },
   name: "postSlugCanalizados",
   props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
+<<<<<<< HEAD
   
+=======
+>>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
   data() {
     return {
       readMoreActivated: false,
@@ -207,7 +221,7 @@ export default {
       votos: 0,
       comentarios: [],
       favPost: 0,
- 
+  
       meses: [
         "Enero",
         "Febrero",
@@ -232,10 +246,37 @@ export default {
      
     };
   },
+  filters: {
+    etiquetasFiltro: function (value) {
+      if (!value) return 'Not found'
+      value = value.toString()
+      return value.replace('h1', '')
+    }
+  },
   methods: {
+<<<<<<< HEAD
      activateReadMore(){
       this.readMoreActivated = true;
     },
+=======
+    
+    alerts(){
+      this.$swal({
+        type: 'info',
+        title: 'Genial Publicacion',
+        text: 'Aparentemente estuviste mucho tiempo viendo la publicacion. Te gusta? Puedes votar',
+        confirmButtonText: `Votar`,
+        denyButtonText: `Seguir viendo`
+      })
+    },
+
+    activateReadMore(){
+      this.readMoreActivated = true;
+    },
+    activateReadLess(){
+      this.readMoreActivated = false;
+    },
+>>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
     async previewUrlPost(url) {
    //   console.log("enviar url: ", url)
       await this.$axios.$get("/link/preview/?url=" + url).then((response) => {
@@ -249,6 +290,7 @@ export default {
     },
       },
   mounted() {
+    setTimeout(() => this.alerts(), 20000)
     console.log(this.arrayPost)
     if(this.status == 0){
      this.$router.push('/')

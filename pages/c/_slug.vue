@@ -207,6 +207,10 @@ property:"og:image:height", content:"630"
   },
   methods: {
 
+    alerts(){
+      alert('works')
+    },
+
       async getpost(){
         
     

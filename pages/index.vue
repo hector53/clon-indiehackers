@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- ***** Preloader Start ***** -->
-    
-    <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
@@ -16,17 +13,34 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
+<<<<<<< HEAD
                         <ul class="nav" v-bind:class="{'active': isActive}">
                             <li class="scroll-to-section"><NuxtLink to="/p-nuevo" class="menu-item w-dropdown-link"><i class="fas fa-rocket"></i> Startups</NuxtLink></li>
                             <li class="scroll-to-section"><NuxtLink to="/comunidad" class="menu-item w-dropdown-link"><i class="fas fa-money-bill-wave"></i> Rondas de Inversion</NuxtLink></li>
+=======
+                        <ul class="nav" v-bind:class="{active: isActive}">
+                            <li class="scroll-to-section">
+                              <nuxt-link to="/p-nuevo" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
+                                <i class="fas fa-rocket"></i> 
+                                Startups
+                              </nuxt-link>
+                            </li>
+                            <li class="scroll-to-section">
+                              <nuxt-link to="/comunidad" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
+                                <i class="fas fa-money-bill-wave"></i> 
+                                Rondas de Inversion
+                              </nuxt-link>
+                            </li>
+>>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
                         <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" style="height: 30px" >
+                          <i class="fas fa-search input-search-header" style="position: absolute; top: 7px; left: 417px; width: 20px; height: 20px"></i>
                           <input
                             type="search"
-                            class="probando"
+                            class="search-input w-input"
                             maxlength="256"
                             name="q"
                             placeholder="Buscá temas, grupos, usuarios…"
-                            style="padding-left: 30px; margin-left: 5px;"
+                            style="padding-left: 45px; background: #F3F3F3 0% 0% no-repeat padding-box; border: none; height: 30px;"
                           /><input
                             type="submit"
                             value="Search"
