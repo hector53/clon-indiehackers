@@ -13,11 +13,6 @@
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
-<<<<<<< HEAD
-                        <ul class="nav" v-bind:class="{'active': isActive}">
-                            <li class="scroll-to-section"><NuxtLink to="/p-nuevo" class="menu-item w-dropdown-link"><i class="fas fa-rocket"></i> Startups</NuxtLink></li>
-                            <li class="scroll-to-section"><NuxtLink to="/comunidad" class="menu-item w-dropdown-link"><i class="fas fa-money-bill-wave"></i> Rondas de Inversion</NuxtLink></li>
-=======
                         <ul class="nav" v-bind:class="{active: isActive}">
                             <li class="scroll-to-section">
                               <nuxt-link to="/p-nuevo" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
@@ -31,7 +26,6 @@
                                 Rondas de Inversion
                               </nuxt-link>
                             </li>
->>>>>>> bb2ca87260da4af6c858bf64ddfc92a3dd73fae0
                         <form action="/buscar" class="search-2 w-form buscadorHeader form-header" method="GET" style="height: 30px" >
                           <i class="fas fa-search input-search-header" style="position: absolute; top: 7px; left: 417px; width: 20px; height: 20px"></i>
                           <input
@@ -180,9 +174,9 @@
                         <!-- <a 
                           class='menu-trigger' 
                           @click="showMobileMenu = !showMobileMenu" 
-                          :class="{ 'active': showMobileMenu }">
+                          :class="{ active: showMobileMenu }">
                           <span>Menu</span>
-                          <h1>Menu</h1>
+                          <h7>Menu</h7>
                           <ul>
                             <li>Test 1</li>
                             <li>Test 2</li>
