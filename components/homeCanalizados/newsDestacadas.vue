@@ -28,44 +28,7 @@
             <p class="infoAdicional">{{ item.fecha }}</p>
           </nuxt-link>
         </div>  
-        <div>
-          <ul>
-            <li>
-              <p class="tituloRelacionado">El gobierno posterga la anulacion de la cuarentena para los argentinos que viajaron al exterior por trabajo</p>
-              <div class="d-flex">
-                <p class="infoAdicional">infobae ·</p>
-                <p class="infoAdicional">Hace 3 horas</p>
-              </div>
-            </li>
-            <li v-if="showComplete">
-              <p class="tituloRelacionado">El Gobierno postergó hasta el 20 de septiembre el levantamiento de la cuarentena para los argentinos que regresen de viajes laborales</p>
-              <div class="d-flex">
-                <p class="infoAdicional">TN - Todo Noticias ·</p>
-                <p class="infoAdicional">Hace 3 horas</p>
-              </div>
-            </li>
-            <li v-if="showComplete">
-              <p class="tituloRelacionado">Quienes viajen por trabajo deberán hacer cuarentena</p>
-              <div class="d-flex">
-                <p class="infoAdicional">Cadena 3 ·</p>
-                <p class="infoAdicional">Hace 1 hora</p>
-              </div>
-            </li>
-            <li v-if="showComplete">
-              <p class="tituloRelacionado">Marcha atrás del Gobierno: los argentinos que regresen de viajes laborales deberán seguir cumpliendo con la cuarentena</p>
-              <div class="d-flex">
-                <p class="infoAdicional">Clarin ·</p>
-                <p class="infoAdicional">Hace 2 horas</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }"> 
-            <b-button variant="outline-primary" style="margin-left: 15px;">Ver Nota Completa</b-button>
-          </nuxt-link>
-          <i class="fas fa-chevron-down" @click="showComplete = !showComplete" :class="{ active: showComplete }" style="position: absolute; right: 40px;"></i>
-        </div>
+       <sub-item-destacada :relacionados="item.relacionados" :slug="item.slug" ></sub-item-destacada>
       </b-row>
     </div>
     <!-- <VueSlickCarousel v-bind="settings" style="margin-bottom: 50px;" v-if="mostrar" class="slider">
@@ -113,8 +76,9 @@ import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import SubItemDestacada from './newDestacadaComp/subItemDestacada.vue';
 export default {
-  components: { VueSlickCarousel },
+  components: { VueSlickCarousel,SubItemDestacada },
   data() {
     return {
       showComplete: false,
@@ -169,7 +133,7 @@ export default {
   },
   async mounted() {
     await this.$axios
-      .$get("/getpost/getnoticias?fin=12&ini=0&xPag=9")
+      .$get("/noticias/destacada-relacionada")
       .then((response) => {
         console.log(response);
         this.arrayNoticias = response.noticias;
