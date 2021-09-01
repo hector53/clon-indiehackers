@@ -44,6 +44,15 @@
       </ul>
 
       <div class="search-page__field-wrapper">
+        
+        <input
+          autocomplete="off"
+          placeholder="Escribe algo para buscar aquí..."
+          class="ember-text-field ember-view search-page__field"
+          bubbles=""
+          type="text"
+          v-model="q"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -56,14 +65,6 @@
             <!---->
           </path>
         </svg>
-        <input
-          autocomplete="off"
-          placeholder="Escribe algo para buscar aquí..."
-          class="ember-text-field ember-view search-page__field"
-          bubbles=""
-          type="text"
-          v-model="q"
-        />
       </div>
 
       <div

@@ -120,7 +120,7 @@
             
             <ShareNetwork
             network="twitter"
-            :url="urlActual"
+            :url="'https://canalizados.com/c/'+$route.params.slug"
             :title="tituloPost"
             >
             <div class="html-embed-8 w-embed">
