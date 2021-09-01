@@ -84,7 +84,8 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     '@nuxtjs/google-analytics', 
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
+    'vue-social-sharing/nuxt'
   ],
   feed: {
     // Your feeds here

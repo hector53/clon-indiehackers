@@ -2741,7 +2741,7 @@ input[type="button"] {
   width: 100%;
   font-size: 26px;
   height: 104px;
-  padding: 0 39px 0 85px;
+  padding: 0 85px 0 39px;
   box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
   border: none;
   outline: none;
@@ -2755,11 +2755,21 @@ input[type="button"] {
   position: absolute;
   height: 26px;
   width: 26px;
-  left: 39px;
   top: 39px;
   transition: all 180ms;
+  right: 39px;
+  cursor: pointer;
 }
-
+.iconSearchHeader{
+  fill: #4799eb;
+  pointer-events: none;
+  height: 26px;
+  width: 26px;
+  top: 39px;
+  margin-top: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
 .search-page .search-page__results {
   grid-area: results;
   margin: 0 auto;

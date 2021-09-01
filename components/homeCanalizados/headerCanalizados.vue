@@ -44,19 +44,29 @@
             </div>
       </div>
       <div class="div-block-414">
-        <form action="/buscar" class="search-2 w-form buscadorHeader" method="GET" >
+        <form action="/buscar" ref="formBuscar" class="search-2 w-form buscadorHeader" method="GET" >
           <input
             type="search"
             class="search-input w-input"
             maxlength="256"
             name="q"
             placeholder="Buscá temas, grupos, usuarios…"
-          /><input
-            type="submit"
-            value="Search"
-            class="search-button w-button"
           />
+          
         </form>
+        <nuxt-link to="/buscar" >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+           class="iconSearchHeader" 
+          >
+            <path
+              d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"
+            >
+              <!---->
+            </path>
+          </svg>
+        </nuxt-link>
         <nuxt-link to="/buscar" class="buscadorHeaderMovil" >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -193,6 +203,9 @@ export default {
     };
   },
   methods: {
+    submitFormBuscar(){
+          this.$refs.formBuscar.submit()
+    },
     async getCountNotify() {
       if(this.$store.state.cookieLogin){
           await this.$axios
