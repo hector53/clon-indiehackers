@@ -85,7 +85,8 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/google-analytics', 
     '@nuxtjs/feed',
-    'vue-social-sharing/nuxt'
+    'vue-social-sharing/nuxt',
+    '@miyaoka/nuxt-twitter-widgets-module',
   ],
   feed: {
     // Your feeds here
