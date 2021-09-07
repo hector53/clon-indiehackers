@@ -57,6 +57,22 @@
 
         <li 
           class="list-item-9"
+          :class="{ active: $route.name == 'ecosistema' }"
+        >
+          <nuxt-link to="/rondas-inversion" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+            <div class="html-embed-9 w-embed">
+              <i class="fas fa-money-bill-wave-alt icono-sidebarleft" :class="{ active: $route.name == 'rondas-inversion' }"></i>
+            </div>
+            <div
+              class="text-block-21"
+              :class="{ active: $route.name == 'rondas-inversion' }"
+            >
+              Inversiones
+            </div>
+          </nuxt-link>
+        </li>
+        <li 
+          class="list-item-9"
           :class="{ active: $route.name == 'grupos' }"
         >
           <nuxt-link to="/grupos" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
@@ -72,24 +88,13 @@
           </nuxt-link>
         </li>
 
-        <li 
-          class="list-item-9"
-          :class="{ active: $route.name == 'ecosistema' }"
-        >
-          <nuxt-link to="/ecosistema" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
-            <div class="html-embed-9 w-embed">
-              <i class="fas fa-users icono-sidebarleft" :class="{ active: $route.name == 'ecosistema' }"></i>
-            </div>
-            <div
-              class="text-block-21"
-              :class="{ active: $route.name == 'ecosistema' }"
-            >
-              Ecosistema
-            </div>
-          </nuxt-link>
-        </li>
       </ul>
     </div>
+    <b-dropdown id="dropdown-left" text="+" class="m-2">
+      <b-dropdown-item href="#"><nuxt-link to="/post-nuevo">Publicar un Post</nuxt-link></b-dropdown-item>
+      <b-dropdown-item href="#"><nuxt-link to="/p-nuevo">Publicar un Startup</nuxt-link></b-dropdown-item>
+      <b-dropdown-item href="#"><nuxt-link to="/grupo-nuevo">Publicar un Grupo</nuxt-link></b-dropdown-item>
+    </b-dropdown>
     <footer>
       <p style="display:flex; justify-content:space-between">
         <span><a href="https://twitter.com/Canalizados_" class="link"><i class="fa fa-twitter" style="margin-left: 20px; font-size: 20px; color: #00acee" aria-hidden="true"></i></a></span>
@@ -119,6 +124,8 @@ export default {
     return {
       yMas: false,
     };
+  },
+  methods: {
   },
   updated() {
     // console.log("cantidad comentarios", this.cantidadComentarios)

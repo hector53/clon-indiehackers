@@ -1,6 +1,6 @@
 <template>
   <header id="nav" class="sticky-nav" style="padding: 0 !important;">
-    <nav class="container nav-bar w-container">
+    <nav class="container nav-bar w-container padding" :class="{'menosPadding': this.$store.state.cookieLogin}">
       <div class="div-block-413">
         <div
               data-hover=""
@@ -44,8 +44,8 @@
             </div>
       </div>
       <div class="div-block-414">
-        <form action="/buscar" class="search-2 w-form buscadorHeader" method="GET" >
-          <i class="fas fa-search input-search-header" style="position: absolute; top: 10px; left: 443px; width: 20px; height: 20px"></i>
+        <form action="/buscar" class="search-2 w-form buscadorHeader" method="GET" style="position: relative;">
+          <i class="fas fa-search input-search-header" style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px"></i>
           <!-- <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

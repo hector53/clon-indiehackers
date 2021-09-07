@@ -1,6 +1,31 @@
 <template>
   <div v-bind="settings" v-if="mostrar">
+    <!-- <h1>{{arrayNoticias[0].excerpt.slice(0, 10)}}</h1> -->
+    <!-- <b-card>
+    <div v-for="(item, index) in arrayNoticias.slice(0, 1)" :key="index">
+      <b-row>
+        <b-col cols="12">
+          <img :src="item.imagen">
+        </b-col>
+        <b-col cols="7">
+          <h3 class="main-title">{{ item.titulo }}</h3>
+          <nuxt-link
+            class="userStaffpick2"
+            :to="{
+              name: 'u-username',
+              params: { username: item.username },
+            }"
+          >
+            <p class="infoAdicional" style="margin-left: 15px;">{{item.username}} </p>
+            <p> · </p>
+            <p class="infoAdicional">{{ item.fecha }}</p>
+          </nuxt-link>
+        </b-col>
+      </b-row>
+    </div>
+    </b-card> -->
     <div style="margin-bottom: 20px;" class="container-noticias" v-for="(item, index) in arrayNoticias.slice(0, 2)" :key="index">
+      <!-- <h2>Estas son las nuevas novedades sobre <span color="#ccc">{{item.slugGrupo}}</span></h2> -->
       <b-row>
         <b-col cols="9">
           <nuxt-link :to="{ name: 'c-slug', params: { slug: item.slug } }">
@@ -16,6 +41,8 @@
           </nuxt-link>
         </b-col>
         <div class="d-flex">
+          <ContentItem :content="item.excerpt" :slug="item.slug" :nombre="item.username" :fecha="item.fecha"/>
+          <!-- <p>{{arrayNoticias[0].excerpt.slice(0, 10)}}</p> --><!-- 
           <nuxt-link
             class="userStaffpick2"
             :to="{
@@ -26,8 +53,9 @@
             <p class="infoAdicional" style="margin-left: 15px;">{{item.username}} </p>
             <p> · </p>
             <p class="infoAdicional">{{ item.fecha }}</p>
-          </nuxt-link>
-        </div>  
+          </nuxt-link> -->
+        </div>
+        <h4 style="color: #9c9c9c; margin-left: 20px;">Novedades sobre <span style="font-weight: 700">{{item.slugGrupo}}</span></h4>
        <sub-item-destacada :relacionados="item.relacionados" :slug="item.slug" ></sub-item-destacada>
       </b-row>
     </div>
@@ -77,8 +105,9 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import SubItemDestacada from './newDestacadaComp/subItemDestacada.vue';
+import ContentItem from './newDestacadaComp/contentItem.vue';
 export default {
-  components: { VueSlickCarousel,SubItemDestacada },
+  components: { VueSlickCarousel,SubItemDestacada, ContentItem },
   data() {
     return {
       showComplete: false,

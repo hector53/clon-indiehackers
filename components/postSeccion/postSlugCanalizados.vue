@@ -1,9 +1,9 @@
 <template>
 
  <div>
-            
+          
    <article>
-   <div class="div-block-425" >
+   <div class="div-block-425">
                 <div class="div-block-432">
                   <h1>
                     
@@ -66,32 +66,36 @@
                           />
                           </div>
                     
-                    <div>
-                      <nuxt-link
-                          :to="{
-                          name: 'u-username',
-                          params: { username: username },
-                          }" >
-                        <img
-                        :src="avatar"
-                        loading="lazy"
-                        sizes="24px"
-                        style="float:left"
-                        alt=""
-                        class="image-19"
-                      />
-                        {{username}}
-                        <p>{{fecha}}</p>
-                      </nuxt-link>
-                      <div style="position: absolute; right: 20px; top: 10%;">
-                        <i class="fas fa-bookmark icono-share"></i>
-                        <i class="fas fa-comment icono-share"></i>
-                        <i class="fas fa-share icono-share"></i>
+                    <div style="display: flex;">
+                      <div>
+                        <nuxt-link
+                            :to="{
+                            name: 'u-username',
+                            params: { username: username },
+                            }" >
+                          <img
+                          :src="avatar"
+                          loading="lazy"
+                          sizes="24px"
+                          style="float:left"
+                          alt=""
+                          class="image-19"
+                        />
+                          {{username}}
+                          <p>{{fecha}}</p>
+                        </nuxt-link>
+                      </div>
+                      <div style="display: flex; position: absolute; right: 20px;">
+                        <p @click.prevent="votoLike"><i class="fas fa-chevron-up icono-share"></i> {{votos}}</p>
+                        <p><i class="fas fa-comment icono-share"></i> {{cantidadComentarios}}</p>
                       </div>
                     </div>
                     <hr>
-                   <div class="contenidoFull" v-html="contenido"   v-if="esLink == 0"></div>
-
+                    <div v-if="showExcerpt">
+                      <p style="background: -webkit-linear-gradient(#000,#fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; ">{{excerpt}}</p>
+                      <b-button @click="showExcerpt = !showExcerpt" variant="outline-primary">Ver mas</b-button>  
+                    </div>
+                    <div class="contenidoFull" v-html="contenido"   v-if="esLink == 0 && !showExcerpt"></div>
 
 
                     <div
@@ -109,7 +113,7 @@
             <!---->
             <!---->
             <p class="link_post_titulo_preview" v-if="!readMoreActivated">
-              {{contenido.slice(0, 1000)}}
+              {{excerpt}}
             </p>
             <a class="" v-if="!readMoreActivated" @click="activateReadMore" href="#">
               read more...
@@ -173,7 +177,7 @@
           </div>
           </a>
          
-          <h6>Votos</h6>
+          <h6>Votos {{voto}}</h6>
         </div>
               </div>
    </article>
@@ -214,8 +218,13 @@ export default {
   props: ['status', 'arrayPost',  'previewUrl', 'audio', 'audioActivo'],
   data() {
     return {
+      status: 0,
+      voto: this.votos,
+      borrarPostActive: false,
+      showExcerpt: true,
       readMoreActivated: false,
         idP: 0,
+        excerpt: "",
       tituloPost: "",
       username: "",
       contenido: "",
@@ -262,7 +271,57 @@ export default {
     }
   },
   methods: {
-    
+    async borrarPost() {
+      let formData = new FormData();
+      formData.append("id", this.idP);
+      formData.append("token", this.$store.state.tokenUser);
+
+      const response = await this.$axios.$post("/post/delete/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      if (response.status == 1) {
+        this.$router.push({ name: "index" });
+      }
+    },
+      
+     async votoLike(){
+       if(this.$store.state.tokenUser == ''){
+          this.$router.push("/iniciar-sesion")
+          return false
+       }
+          
+           let formData = new FormData();
+        
+             formData.append('token', this.$store.state.tokenUser);
+            formData.append('p', this.idP);
+
+         const response = await this.$axios.$post('/post/votolike/',
+                formData,
+                {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+              }
+            )
+         //  console.log(response)
+          this.status = response.status
+          this.voto = response.votos
+      },
+        async getsiVote() {
+      await this.$axios
+        .$get(
+          "/votos/getsivote/?token=" +
+            this.$store.state.tokenUser +
+            "&p=" +
+            this.idP
+        )
+        .then((response) => {
+        //  console.log(response)
+          this.status = response.status;
+        });
+    },
     alerts(){
       this.$swal({
         type: 'info',
@@ -291,38 +350,38 @@ export default {
           this.$emit("CantidadComentarios", val);
     },
       },
-  mounted() {
-    setTimeout(() => this.alerts(), 20000)
+  async mounted() {
     console.log(this.arrayPost)
     if(this.status == 0){
-     this.$router.push('/')
+     this.$router.push('/comunidad')
     }else{
-       this.tituloPost = this.arrayPost[0].titulo;
-          this.username = this.arrayPost[0].username;
-          this.avatar = this.arrayPost[0].avatar;
-          this.contenido = this.arrayPost[0].contenido;
-          this.fecha = this.arrayPost[0].fecha;
-          this.p = this.arrayPost[0].p;
-          this.idP = this.arrayPost[0].id;
-          this.imagenPost = this.arrayPost[0].imagen;
-          this.arrayGrupo = this.arrayPost[0].grupo;
-          this.esLink = this.arrayPost[0].esLink;
-          this.votos = this.arrayPost[0].votos;
-          this.favPost = this.arrayPost[0].fav
-          this.idE = this.arrayPost[0].idE
-          this.arrayEncuesta = this.arrayPost[0].encuesta
-          this.cantidadComentarios = this.arrayPost[0].cantCommentarios
-         
-          if (this.arrayPost[0].esLink == 1) {
-            if (this.previewUrl == 0) {
-          //    console.log("es cero la pre")
-              //enviar a q se busque el preview de la url
-              this.previewUrlPost(this.arrayPost[0].contenido);
-            } else {
-              //mostrar los datos
-              this.previewUrlBo = true;
-              this.arrayPreviewUrl = this.previewUrl;
-            }
+      this.tituloPost = this.arrayPost[0].titulo;
+      this.excerpt = this.arrayPost[0].excerpt
+      this.username = this.arrayPost[0].username;
+      this.avatar = this.arrayPost[0].avatar;
+      this.contenido = this.arrayPost[0].contenido;
+      this.fecha = this.arrayPost[0].fecha;
+      this.p = this.arrayPost[0].p;
+      this.idP = this.arrayPost[0].id;
+      this.imagenPost = this.arrayPost[0].imagen;
+      this.arrayGrupo = this.arrayPost[0].grupo;
+      this.esLink = this.arrayPost[0].esLink;
+      this.votos = this.arrayPost[0].votos;
+      this.favPost = this.arrayPost[0].fav
+      this.idE = this.arrayPost[0].idE
+      this.arrayEncuesta = this.arrayPost[0].encuesta
+      this.cantidadComentarios = this.arrayPost[0].cantCommentarios
+      
+      if (this.arrayPost[0].esLink == 1) {
+        if (this.previewUrl == 0) {
+      //    console.log("es cero la pre")
+          //enviar a q se busque el preview de la url
+          this.previewUrlPost(this.arrayPost[0].contenido);
+        } else {
+          //mostrar los datos
+          this.previewUrlBo = true;
+          this.arrayPreviewUrl = this.previewUrl;
+        }
           }
 
         
@@ -330,6 +389,12 @@ export default {
           this.loader = false
     }
   },
+  beforeMount () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 };
 </script>
 

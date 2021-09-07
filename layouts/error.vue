@@ -53,7 +53,7 @@ import SideBar from '../components/homeCanalizados/sidebarLeft.vue';
 import Header from '../components/homeCanalizados/headerCanalizados.vue';
 export default {
   props: ["error"],
-  layout: "perfilEditCanalizados", // you can set a custom layout for the error page
+  layout: "error", // you can set a custom layout for the error page
   components: {
     SideBar,
     Header,

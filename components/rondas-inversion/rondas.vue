@@ -11,25 +11,23 @@
         <b-col lg="10">
           <b-row>
             <b-col lg="8">
-              <!-- <historias-destacadas ref="historiasDes"></historias-destacadas> -->
-              <div>
-                <StartupSemanal />
-              </div>
-              <div>
-                <newsDestacadas />
-              </div>
+              <h1 style="color: #7986CB; font-weight: 700; margin-top: 0;">Rondas de Inversión</h1>
+                <Publicaciones />
 
-              <LazyHydrate when-visible>
-                <seccion-discusion></seccion-discusion>
-              </LazyHydrate>
-              <LazyHydrate when-visible>
-                <historias-destacadas ref="historiasDes"></historias-destacadas>
-              </LazyHydrate>
+                <LazyHydrate when-visible>
+                   <RondasDestacadas ref="historiasDes"/>
+                </LazyHydrate>
+
             </b-col>
-
             <b-col lg="4">
               <LazyHydrate when-visible>
                 <sidebar-derecho> </sidebar-derecho>
+              </LazyHydrate>
+              <LazyHydrate when-visible>
+                <columna-derecha-discusion
+                  ref="columDere"
+                  :msjBienvenidaInit="msjBienvenida"
+                ></columna-derecha-discusion>
               </LazyHydrate>
             </b-col>
           </b-row>
@@ -40,19 +38,21 @@
 </template>
 
 <script>
-import StartupSemanal from './startup-semanal.vue';
-import ColumnaDerechaDiscusion from "./columnaDerechaDiscusion.vue";
-import HistoriasDestacadas from "./historiasDestacadas.vue";
-import SeccionDiscusion from "./seccionDiscusion.vue";
-import SidebarDerecho from "./sidebarDerecho.vue";
-import sidebarLeft from "./sidebarLeft.vue";
-import UsuariosDestacados from "./usuariosDestacados.vue";
+import Publicaciones from './publicaciones.vue';
+import RondasDestacadas from './rondas-destacadas.vue';
+import ColumnaDerechaDiscusion from "../homeCanalizados/columnaDerechaDiscusion.vue";
+import HistoriasDestacadas from "../homeCanalizados/historiasDestacadas.vue";
+import SeccionDiscusion from "../homeCanalizados/seccionDiscusion.vue";
+import SidebarDerecho from "../homeCanalizados/sidebarDerecho.vue";
+import sidebarLeft from "../homeCanalizados/sidebarLeft.vue";
+import UsuariosDestacados from "../homeCanalizados/usuariosDestacados.vue";
 import LazyHydrate from "vue-lazy-hydration";
-import newsDestacadas from './newsDestacadas.vue';
+import newsDestacadas from '../homeCanalizados/newsDestacadas.vue';
 
 export default {
   components: {
-    StartupSemanal,
+    RondasDestacadas,
+    Publicaciones,
     sidebarLeft,
     LazyHydrate,
     SeccionDiscusion,
