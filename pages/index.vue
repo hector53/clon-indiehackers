@@ -15,13 +15,13 @@
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav" v-bind:class="{active: isActive}">
                             <li class="scroll-to-section">
-                              <nuxt-link to="/p-nuevo" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
+                              <nuxt-link to="/startups" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
                                 <i class="fas fa-rocket"></i> 
                                 Startups
                               </nuxt-link>
                             </li>
                             <li class="scroll-to-section">
-                              <nuxt-link to="/comunidad" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
+                              <nuxt-link to="/rondas-inversion" class="menu-item w-dropdown-link" style="box-shadow: 0px 3px 6px #45454524; border: none">
                                 <i class="fas fa-money-bill-wave"></i> 
                                 Rondas de Inversion
                               </nuxt-link>

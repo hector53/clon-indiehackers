@@ -6,7 +6,7 @@
 
 
 
-<b-container  >
+<b-container  v-scroll="handleScroll">
   
 
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
@@ -207,8 +207,14 @@ property:"og:image:height", content:"630"
   },
   methods: {
 
-    alerts(){
-      alert('works')
+    /* handleScroll (evt, el) {
+      if (window.scrollY > 50) {
+        alert('scroll superior a 50')
+      }
+    }, */
+
+    handleScroll(){
+      console.log(window.scrollY)
     },
 
       async getpost(){
@@ -256,7 +262,6 @@ property:"og:image:height", content:"630"
   beforeMount() {
   },
   mounted() {
-
    //this.getpost()
   },
 

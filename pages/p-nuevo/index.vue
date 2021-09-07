@@ -3,7 +3,8 @@
       <h1>Producto Nuevo</h1>
       <hr />
    <div class="edit-form">
-        <div class="edit-form__fieldset">
+     <div class="row">
+        <div class="edit-form__fieldset col-6">
           <label class="edit-form__label">Nombre del Producto</label>
           <input 
           ref="nombreProducto"
@@ -12,10 +13,11 @@
             v-model="nombreProducto"
             class="edit-form__field ember-text-field"
             type="text" 
+            required
           />
         </div>
 
-        <div class="edit-form__fieldset">
+        <div class="edit-form__fieldset col-6">
           <label class="edit-form__label">Descripción corta</label>
           <input
            ref="descripcionCorta"
@@ -24,9 +26,24 @@
             v-model="descripcionCorta"
             class="edit-form__field ember-text-field "
             type="text" 
+            required
           />
         </div>
-        <div class="edit-form__fieldset">
+      </div>
+      <div class="row">
+        <div class="edit-form__fieldset col-6">
+          <label class="edit-form__label">Tag del Startup (Maximo 3 palabras)</label>
+          <input
+           ref="tag"
+            :disabled="disableAll"
+            maxlength="300"
+            v-model="tag"
+            class="edit-form__field ember-text-field "
+            type="text"
+            required 
+          />
+        </div>
+        <div class="edit-form__fieldset col-6">
           <label class="edit-form__label">Url del producto</label>
           <input
            ref="urlProducto"
@@ -35,8 +52,10 @@
             v-model="urlProducto"
             class="edit-form__field ember-text-field "
             type="text" 
+            required
           />
         </div>
+      </div>
 
         
 
@@ -79,6 +98,7 @@ export default {
     return {
         nombreProducto: '', 
         descripcionCorta: '', 
+        tag: '',
         urlProducto: '', 
         disableAll: false
     };
