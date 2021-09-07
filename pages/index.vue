@@ -165,14 +165,22 @@ export default {
   },
   async fetch() {
           await this.$axios.$get("/getpost2/hoy/?filtro=semanal").then((response) => {
-    //  console.log(response);
+      console.log(response);
      
   this.arrayPostHoy = response.posts;
       
     
     });
   },
-  mounted() {
+ async mounted() {
+
+      await this.$axios.$get("/noticias/grupos-inversion").then((response) => {
+      console.log(response);
+     
+
+      
+    
+    });
   },
 };
 </script>
