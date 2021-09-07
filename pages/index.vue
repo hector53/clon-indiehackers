@@ -174,13 +174,7 @@ export default {
   },
  async mounted() {
 
-      await this.$axios.$get("/noticias/grupos-inversion").then((response) => {
-      console.log(response);
-     
-
       
-    
-    });
   },
 };
 </script>
