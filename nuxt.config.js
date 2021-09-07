@@ -84,7 +84,7 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     '@nuxtjs/google-analytics', 
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
   ],
   feed: {
     // Your feeds here
@@ -129,7 +129,7 @@ export default {
   bootstrapVue: {
     componentPlugins: [
       'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
-      'FormDatepickerPlugin', 'CarouselPlugin'
+      'FormDatepickerPlugin', 'CarouselPlugin', 'DropdownPlugin'
     ],
     components: ["BButton"],
     directivePlugins: []

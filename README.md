@@ -1,4 +1,4 @@
-# Canalizados
+# clon-indiehackers
 
 ## Build Setup
 
