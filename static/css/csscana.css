@@ -4264,3 +4264,76 @@ text-decoration:underline!important;
   color: #7986CB;
   font-size: 25px;
 }
+
+.sidebar-box {
+  max-height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-box .read-more { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  text-align: center; 
+  margin: 0; padding: 30px 0; 
+	
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: linear-gradient(to bottom, transparent, black);
+}
+
+.menosPadding {
+  padding: 0;
+}
+
+.container .nav-bar .w-container .menosPadding {
+  padding: 0;
+}
+
+.padding {
+  padding: 10px 0;
+}
+
+.container-rondas {
+  background: #F7F9FA 0% 0% no-repeat padding-box;
+  border-radius: 25px;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+.imagen-rondas {
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.title-rondas {
+  background: #7986CB 0% 0% no-repeat padding-box;
+  border-radius: 34px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  right: 18%;
+  color: #fff;
+  padding: 6px;
+}
+
+.imagen-startup-semanal {
+  height: 70px;
+  width: 70px;
+}
+
+.titulo-startup-semanal {
+  font-size: 20px !important;
+}
+
+.fundador-startup-semanal {
+  font-size: 10px !important;
+}
+
+.title-sidebarderecho {
+  text-align: left; 
+  font: normal normal normal 15px/19px Poppins; 
+  letter-spacing: 1.5px; 
+  color: #33558B; 
+  font-size: 18px !important;
+}
