@@ -61,7 +61,20 @@
 
       
     
-
+ <div class="edit-form__fieldset">
+          <label class="edit-form__label">Etiquetas</label>
+     <client-only>      <b-form-group
+          label="¿Que etiqueta describe mejor tu producto?"
+          >
+                <b-form-checkbox-group
+                v-model="etiquetasSelect"
+                :options="etiquetas"
+                buttons
+                button-variant="primary"
+                ></b-form-checkbox-group>
+              </b-form-group>  </client-only>
+         
+        </div>
         
         
 
@@ -100,7 +113,11 @@ export default {
         descripcionCorta: '', 
         tag: '',
         urlProducto: '', 
-        disableAll: false
+        disableAll: false,
+        etiquetasSelect: [],
+        etiquetas: [
+  
+        ],
     };
   },
   head(){
@@ -157,6 +174,7 @@ validURL(str) {
                 formData.append('nombreProducto', this.nombreProducto);
                 formData.append('descripcionCorta', this.descripcionCorta);
                 formData.append('urlProducto', this.urlProducto);
+                formData.append('tag', this.etiquetasSelect);
                 const response = await this.$axios.$post('/productos/addproducto/',
                 formData,
                 {
@@ -168,15 +186,24 @@ validURL(str) {
 
               //  console.log(response)
                 if(response.status == 1){
-                    this.$router.push({name: 'producto-slug', params: {slug: response.slug}})
+                    this.$router.push({name: 'p-slug', params: {slug: response.slug}})
                 }else{
                         alert("Error desconocido")
                     return false
                 }
             }
-        }
+        }, 
+        async  getTags(){
+             await this.$axios
+        .$get("/productos/gettagsonly/")
+        .then((response) => {
+               console.log(response)
+               this.etiquetas = response
+        })
+      }, 
  },
   mounted() {
+    this.getTags();
   }
 };
 </script>

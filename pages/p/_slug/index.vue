@@ -23,7 +23,7 @@ export default {
      const response = await axios.get(
       `https://acceso.canalizados.com/api/productos/getdetailproducto?slug=${params.slug}&token=${store.state.tokenUser}`
     );
-   // console.log(response.data)
+    console.log(response.data)
       if(response.data.status == 2){
         return redirect('/')
       }else{

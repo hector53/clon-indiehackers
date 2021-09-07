@@ -234,7 +234,7 @@ export default {
     },
   },
   mounted() {
-  //  console.log(this.arrayProducto);
+    console.log(this.arrayProducto);
   },
 };
 </script>
