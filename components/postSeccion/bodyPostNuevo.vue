@@ -689,6 +689,11 @@ export default {
   directives: {
     ClickOutside,
   },
+  watch:{
+    selectGroupLabel(val1, val2){
+      console.log(val1)
+    }
+  },
   data() {
     return {
         options: {
