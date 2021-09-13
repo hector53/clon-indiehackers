@@ -1,8 +1,6 @@
 <template>
   <div>
     <loader v-show="loader"></loader>
-
-
 <b-row align-v="stretch">
     <b-col   md="4" class="mb-4"   v-for="(item, index) in arrayNoticias"
         :key="index" >
@@ -95,7 +93,7 @@
 import LikeCanalizados from "~/components/likes/likeCanalizados.vue";
 import Loader from "~/components/loader/loader.vue";
 export default {
-  layout: "perfilEditCanalizados",
+  layout: "staffpicks",
   name: "staffpicks",
   components: { Loader, LikeCanalizados },
   async fetch() {},

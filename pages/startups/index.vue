@@ -6,7 +6,7 @@
     
     
 
-      <div class="search-page__field-wrapper">
+      <!-- <div class="search-page__field-wrapper">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -16,7 +16,6 @@
           <path
             d="M13 8h-8v-1h8v1zm0 2h-8v-1h8v1zm-3 2h-5v-1h5v1zm11.172 12l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"
           >
-            <!---->
           </path>
         </svg>
         <input
@@ -27,7 +26,7 @@
           type="text"
           v-model="q"
         />
-      </div>
+      </div> -->
 
       <div
         class="search-page__results"
@@ -78,40 +77,33 @@
 
           
         </div>
+        <loader v-show="loader"></loader>
+        <b-container v-show="loader==false"  >
       <div class="row">
-        <div class="col-4" v-for="(item, index) in arrayStartups.slice(0,1)" :key="index">
+        <div class="col-4 mb-4" v-for="(item, index) in arrayStartups" :key="index">
+          <nuxt-link
+            :to="{
+            name: 'p-slug',
+            params: { slug: item.slug },
+            }"
+          >
           <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-            <img :src="item.imagen" style="margin: auto;" />
+            <img :src="item.imagen" style="margin: auto; height: 100px; border-radius: 50px;" />
             <h3 class="fontW500" v-html="item.titulo"></h3>
             <div class="result__snippet">
-              <p v-html="item.contenido"></p>
+              <p v-html="item.contenido" v-if="item.contenido"></p>
+              <p v-if="item.informacion && !item.contenido" v-html="item.informacion"></p>
+              <p style="color: #FF8A65; font-weight: bold;">{{item.tags[0]}}</p>
             </div>
           </div>
-        </div>
-        <div class="col-4" v-for="(item, index) in arrayStartups.slice(1,2)" :key="index">
-          <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-            <img :src="item.imagen" style="margin: auto;" />
-            <h3 class="fontW500" v-html="item.titulo"></h3>
-            <div class="result__snippet">
-              <p v-html="item.contenido"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4" v-for="(item, index) in arrayStartups.slice(2,3)" :key="index">
-          <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-            <img :src="item.imagen" style="margin: auto;" />
-            <h3 class="fontW500" v-html="item.titulo"></h3>
-            <div class="result__snippet">
-              <p v-html="item.contenido"></p>
-            </div>
-          </div>
+          </nuxt-link>
         </div>
       </div>
+      </b-container>
 
 
- <loader v-show="loader"></loader>
+ <!-- <loader v-show="loader"></loader>
 <b-container v-show="loader==false"  >
-  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <b-row>
     <b-col md="6" class="mb-3" v-for="(item, index) in arrayStartups" :key="index" >
     <div class="card-resultados">
@@ -150,7 +142,7 @@
 
   </b-row>
 
-</b-container>
+</b-container> -->
         
         
         
