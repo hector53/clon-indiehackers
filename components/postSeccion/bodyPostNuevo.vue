@@ -123,7 +123,7 @@
               <!---->
             </path>
           </svg>
-          <span class="post-page__action-label">Agregar ENcuesta</span>
+          <span class="post-page__action-label">Agregar Encuesta</span>
         </div>
       </button>
 
@@ -254,6 +254,8 @@
           </div>
         </div>
       </div>
+
+      <input type="number" class="form-control col-5" required v-if="mostrarInputInversion" placeholder="¿Cuánto dinero se manejó durante esta inversión?" />
 
       <!---->
     </div>
@@ -698,6 +700,7 @@ export default {
     '@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");', 
     content_css: "/css/csseditor.css"
     }, 
+      mostrarInputInversion: false,
       picked: '',
       tituloPost: "",
       tabSelected: 2,
@@ -756,6 +759,10 @@ export default {
       }
     },
 
+    grupoTraido: function(value) {
+      console.log(this.selectGroupLabel)
+    },
+
     content: function (value) {
       if (value.length > 0) {
         this.botonDisable = false;
@@ -807,6 +814,10 @@ export default {
       this.iconSelectGroup = icono;
       this.selectGrupo = false;
       this.contadorOutsideGrupo = 0;
+
+      if(this.selectGroupLabel == "Inversiones" || "Inversores") {
+        this.mostrarInputInversion = true
+      }
     },
     async getMyGroups() {
     //  console.log("/grupos/byuser/?token=" + this.$store.state.tokenUser);

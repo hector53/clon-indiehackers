@@ -3,8 +3,9 @@
       <div class="div-block-447">
         <div style="text-align: left; letter-spacing: 1.5px; color: #33558B; font-size: 18px !important; font-family: 'Space Grotesk'"><i class="far fa-star"></i> Más populares</div>
       </div>
+      <div v-if="$route.name != 'rondas-inversion'">
       <div class="div-block-445"  v-for="(item, index) in arrayPopulares.slice(0,1)" :key="index">
-        <div class="div-block-446" v-if="$route.name != 'rondas-inversion'">
+        <div class="div-block-446">
          <div class="text-block-19">
              <nuxt-link  
               to ='/rondas-inversion'  class="link-inline-black"> Las rondas de inversion mas interesantes </nuxt-link>
@@ -38,6 +39,7 @@
                 name: 'c-slug',
                 params: { slug: item.slug }
               }"  class="link-inline-black fechaPostPopular"> 31 Ago </nuxt-link></div></div>
+      </div>
       </div>
       <div class="div-block-445" v-for="(item, index) in arrayPopulares" :key="index">
         <div class="div-block-446">

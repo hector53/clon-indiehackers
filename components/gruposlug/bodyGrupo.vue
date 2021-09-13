@@ -29,7 +29,7 @@
                       </a>
                       <a class="text-block-33" href="#" v-if="rolUser == 3">
                         <span>Dejar Grupo</span>
-                      </a>
+                      </a>  
                     </li>
                   </ul>
                 </div>
@@ -330,7 +330,7 @@ export default {
               
             }
       }else{
-        this.$router.push({name: 'login'})
+        this.$router.push({name: 'iniciar-sesion'})
       }
 
        }
@@ -339,7 +339,7 @@ export default {
     },
     async followUser() {
       if (this.$store.state.cookieLogin == false) {
-        this.$router.push("/login");
+        this.$router.push("/iniciar-sesion");
         return false;
       }
       await this.$axios
