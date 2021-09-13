@@ -8,7 +8,7 @@
     @getGrupoNow="getGrupoNow"
     ></body-grupo>    
 
-     
+    
 
 
      <footer-canalizados></footer-canalizados>

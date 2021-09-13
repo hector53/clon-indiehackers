@@ -5,7 +5,7 @@
       <h2 class="mailing-list-form__title" v-if="error.statusCode === 404">404, Pagina no encontrada 😭</h2>
       <h4 class="mailing-list-form__title" v-if="error.statusCode === 404">¡Infórmate sobre este error! ➡️<a href="#" class="link"> Soporte</a></h4>
       <h2 class="mailing-list-form__title" v-else>Algo salió mal</h2>
-      <h2 class="mailing-list-form__title" > <NuxtLink  to="/"><b-button variant="outline-dark">Volver a la página principal</b-button></NuxtLink> </h2>
+      <h2 class="mailing-list-form__title" > <NuxtLink  to="/comunidad"><b-button variant="outline-dark">Volver a la página principal</b-button></NuxtLink> </h2>
     </div>
 
     <!-- <header>
