@@ -3,6 +3,13 @@
       <h1>Producto Nuevo</h1>
       <hr />
    <div class="edit-form">
+      <p v-if="errors.length">
+        <b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+        <ul>
+          <li v-for="error in errors" :key="error">{{ error }}</li>
+        </ul>
+      </p>
+       <form action="" @submit="checkForm">
      <div class="row">
         <div class="edit-form__fieldset col-6">
           <label class="edit-form__label">Nombre del Producto</label>
@@ -14,6 +21,7 @@
             class="edit-form__field ember-text-field"
             type="text" 
             required
+            focus
           />
         </div>
 
@@ -31,19 +39,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="edit-form__fieldset col-6">
-          <label class="edit-form__label">Tag del Startup (Maximo 3 palabras)</label>
-          <input
-           ref="tag"
-            :disabled="disableAll"
-            maxlength="300"
-            v-model="tag"
-            class="edit-form__field ember-text-field "
-            type="text"
-            required 
-          />
-        </div>
-        <div class="edit-form__fieldset col-6">
+        <div class="edit-form__fieldset col-12">
           <label class="edit-form__label">Url del producto</label>
           <input
            ref="urlProducto"
@@ -56,6 +52,7 @@
           />
         </div>
       </div>
+      </form>
 
         
 
@@ -69,6 +66,7 @@
                 <b-form-checkbox-group
                 v-model="etiquetasSelect"
                 :options="etiquetas"
+                required
                 buttons
                 button-variant="primary"
                 ></b-form-checkbox-group>
@@ -110,6 +108,7 @@ export default {
   data() {
     return {
         nombreProducto: '', 
+        errors: [],
         descripcionCorta: '', 
         tag: '',
         urlProducto: '', 
@@ -131,8 +130,39 @@ export default {
      
     }
   },
-  watch: {},
+  watch: {
+    etiquetasCheck() {
+      console.log(this.etiquetasSelect)
+    },
+  },
+  computed: {
+  },
   methods: {
+    checkForm: function (e) {
+      if (this.nombreProducto && this.descripcionCorta && this.tag) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.nombreProducto) {
+        this.errors.push('El nombre del producto es obligatorio.');
+      }
+      if (!this.descripcionCorta) {
+        this.errors.push('La descripcion es obligatoria');
+      }
+
+      if (!this.urlProducto) {
+        this.errors.push('La url del producto es erronea');
+      }
+
+      
+
+      e.preventDefault();
+    },
+    etiquetasCheck() {
+      console.log(this.etiquetasSelect)
+    },
 validURL(str) {
   var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
@@ -144,22 +174,18 @@ validURL(str) {
 },
       validate(){
           if(this.nombreProducto == ''){
-              alert("Nombre de producto vacio")
               this.$refs.nombreProducto.focus()
               return false
           }
            if(this.descripcionCorta == ''){
-              alert("Descripcion de producto vacia")
               this.$refs.descripcionCorta.focus()
               return false
           }
            if(this.urlProducto == ''){
-              alert("Url de producto vacia")
               this.$refs.urlProducto.focus()
               return false
           }else{
            if(this.validURL(this.urlProducto) == false){
-               alert("Url incorrecta")
               this.$refs.urlProducto.focus()
               return false
            }   
@@ -188,7 +214,6 @@ validURL(str) {
                 if(response.status == 1){
                     this.$router.push({name: 'p-slug', params: {slug: response.slug}})
                 }else{
-                        alert("Error desconocido")
                     return false
                 }
             }
@@ -203,6 +228,7 @@ validURL(str) {
       }, 
  },
   mounted() {
+    this.$refs.nombreProducto.focus()
     this.getTags();
   }
 };

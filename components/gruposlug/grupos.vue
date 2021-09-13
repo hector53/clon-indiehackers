@@ -1,14 +1,7 @@
 <template>
-   <div>
-        <header class="mt-1 headerGrupo">
-        <h1>Top Grupos</h1>
-        <nuxt-link to="/grupo-nuevo" class="botonCanalizados aliD">Crear Grupo</nuxt-link>
-           
-        </header>
-        <b-row>
-          <b-col v-for="(item, index) in arrayGrupos" :key="index" cols="4" class="mt-3" style="position: relative">
-           <client-only> 
-    <div>
+  <div>
+    <client-only> 
+    <div v-for="(item, index) in arrayGrupos" :key="index">
         <nuxt-link :to="{name: 'g-slug', params: {slug: item.slug}}">
            <div style="padding: 30px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
            <div @click="joinGroup">
@@ -19,7 +12,6 @@
                <i class="fas fa-grip-lines"></i>
              </b-button>
            </div>
-           <img v-if="item.icono" :src="item.icono" style="margin: auto; height: 100px; border-radius: 50px;" />
              <h2>{{item.titulo}}</h2>
              <p v-text="item.excerpt" v-if="item.excerpt"></p>
              <h4 class="cantPubliGrupo" v-if="item.cantPubli">{{item.cantPubli}} publicaciones </h4>
@@ -27,28 +19,31 @@
          </nuxt-link>
          </div>
     </client-only>
-
-          </b-col>
-        </b-row>
-   
-   
-   </div>
+  </div>
 </template>
 
-<script>
-import Grupos from '~/components/gruposlug/grupos.vue';
-export default {
-  layout: "perfilEditCanalizados",
-  name: "grupos",
-  components: {Grupos},
- async fetch() {
 
-   await this.$axios
+<script>
+
+export default {
+  components: { },
+  name: "grupos",
+          async fetch() {
+       
+         await this.$axios
+               .$get("/grupos/getgrupostop")
+               .then((response) => {
+                   console.log(response)
+                 this.arrayGrupos = response
+               })
+       
+       
+         await this.$axios
                .$get("/grupos/getslug?slug="+this.$route.params.slug+"&token="+this.$store.state.tokenUser)
                .then((response) => {
                  console.log(response)
                    if (response.status == 0) {
-                   
+                   return app.redirect("/");
                    } else {
                    var rolName = 0;
                    if (response.grupo[0].rolUser == 1) {
@@ -76,17 +71,11 @@ export default {
        
                    }
                })
-      
-  await this.$axios
-        .$get("/grupos/getgrupostop")
-        .then((response) => {
-            console.log(response)
-          this.arrayGrupos = response
-        })
-  },
-  data() {
+       
+         },
+      data() {
     return {
-        miembrosO: '',
+       miembrosO: '',
         pGroup:'',
         fechaM: '',
         tituloGrupo: '',
@@ -102,22 +91,6 @@ export default {
         arrayGrupos: []
     };
   },
-   head(){
-    return {
-      title: 'Grupos - Canalizados',
-       meta: [
-      { hid: 'description', name: 'description', content: 'Canalizados comunidad de emprendedores - Grupos' }
-    ],
-             link: [
-        {
-          rel: 'canonical',
-          href: 'https://canalizados.com/grupos'
-        }
-      ]
-     
-    }
-  },
-  watch: {},
   methods: {
       async  joinGroup(){
        if(this.rolUser == 2 || this.rolUser == 1){
@@ -210,9 +183,6 @@ export default {
   },
   mounted() {
   },
-  created() {
-    
-  },
 };
 </script>
-
+ */

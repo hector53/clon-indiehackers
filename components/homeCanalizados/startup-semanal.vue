@@ -11,12 +11,14 @@
             </div>
           </div>
         </div>
-        <div class="col-6" v-for="(item, index) in arrayStartups.slice(0,1)" :key="index">
+        <div class="col-6" v-for="(item, index) in arrayStartups.slice(2,3)" :key="index">
           <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-            <img :src="item.imagen" style="margin: auto;" />
+            <img :src="item.imagen" style="margin: auto; height: 100px; border-radius: 50px;" />
             <h3 class="fontW500" v-html="item.titulo"></h3>
             <div class="result__snippet">
-              <p v-html="item.contenido"></p>
+              <p v-html="item.contenido" v-if="item.contenido"></p>
+              <p v-if="item.informacion && !item.contenido" v-html="item.informacion"></p>
+              <p style="color: #FF8A65; font-weight: bold;">{{item.tags[0]}}</p>
             </div>
           </div>
         </div>

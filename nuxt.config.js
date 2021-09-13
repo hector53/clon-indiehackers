@@ -129,7 +129,7 @@ export default {
   bootstrapVue: {
     componentPlugins: [
       'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
-      'FormDatepickerPlugin', 'CarouselPlugin', 'DropdownPlugin'
+      'FormDatepickerPlugin', 'CarouselPlugin', 'DropdownPlugin', 'PopoverPlugin'
     ],
     components: ["BButton"],
     directivePlugins: []

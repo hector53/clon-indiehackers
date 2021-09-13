@@ -2,7 +2,7 @@
   <div>
     <loader v-show="loader"></loader>
 <b-row align-v="stretch">
-    <b-col   md="4" class="mb-4"   v-for="(item, index) in arrayNoticias"
+    <b-col   md="6" class="mb-4"   v-for="(item, index) in arrayNoticias"
         :key="index" >
        
 
