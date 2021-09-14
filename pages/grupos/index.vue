@@ -17,6 +17,7 @@
              <b-button v-if="rolUser == 1  && item.perteneceAlGrupo == 0" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-grip-lines"></i>
              </b-button>
+             <span v-if="item.perteneceAlGrupo == 1">Unido</span>
            </div>
            <img v-if="item.icono" :src="item.icono" style="margin: auto; height: 100px; border-radius: 50px;" />
              <h2>{{item.titulo}}</h2>
