@@ -23,12 +23,6 @@
               <LazyHydrate when-visible>
                 <sidebar-derecho> </sidebar-derecho>
               </LazyHydrate>
-              <LazyHydrate when-visible>
-                <columna-derecha-discusion
-                  ref="columDere"
-                  :msjBienvenidaInit="msjBienvenida"
-                ></columna-derecha-discusion>
-              </LazyHydrate>
             </b-col>
           </b-row>
         </b-col>
