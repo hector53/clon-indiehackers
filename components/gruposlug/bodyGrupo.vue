@@ -306,11 +306,9 @@ export default {
        if(this.rolUser == 2 || this.rolUser == 1){
           this.$router.push({ name: 'g-slug-configuracion-moderadores',  params: { slug: this.$route.params.slug }})
        }else{
-
       if(this.$store.state.cookieLogin){
    // console.log("hola join o leave")
           let formData = new FormData();
-            
             formData.append('token', this.$store.state.tokenUser);
             formData.append('pGroup', this.pGroup);
             const response = await this.$axios.$post('/grupos/join/',
@@ -321,13 +319,9 @@ export default {
                 }
               }
             )
-
-      
             if(response.status == 0){
-                
             }else{
                this.$emit("getGrupoNow");
-              
             }
       }else{
         this.$router.push({name: 'iniciar-sesion'})

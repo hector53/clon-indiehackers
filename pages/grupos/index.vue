@@ -10,7 +10,7 @@
            <client-only> 
     <div>
            <div style="padding: 30px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-           <div @click="joinGroup(item.id)">
+           <div @click="joinGroup(item.id, item.slug)">
              <b-button v-if="rolUser == 0 && item.perteneceAlGrupo == 0" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-plus-circle"></i>
              </b-button>
