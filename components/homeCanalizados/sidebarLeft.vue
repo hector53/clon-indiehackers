@@ -15,7 +15,7 @@
           class="list-item-9"
           :class="{ active: $route.name == 'comunidad' }"
         >
-          <nuxt-link to="/comunidad" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+          <nuxt-link to="/comunidad" style="display: flex; box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px;">
             <div class="html-embed-3 w-embed" >
               <i class="fas fa-home icono-sidebarleft" :class="{ active: $route.name == 'comunidad' }"></i>
             </div>
@@ -29,7 +29,7 @@
         </li>
 
         <li class="list-item-9" :class="{ active: $route.name == 'startups' }">
-          <nuxt-link to="/startups" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+          <nuxt-link to="/startups" style="display: flex; box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px;">
             <div class="html-embed-7 w-embed">
               <i class="fas fa-rocket icono-sidebarleft" :class="{ active: $route.name == 'startups' }"></i>
             </div>
@@ -42,7 +42,7 @@
           </nuxt-link>
         </li>
         <li class="list-item-9" :class="{ active: $route.name == 'staffpicks-pag' }">
-          <nuxt-link to="/staffpicks" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+          <nuxt-link to="/staffpicks" style="display: flex; box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px;">
             <div class="html-embed-9 w-embed">
               <i class="fas fa-star icono-sidebarleft" :class="{ active: $route.name == 'staffpicks-pag' }"></i>
             </div>
@@ -59,7 +59,7 @@
           class="list-item-9"
           :class="{ active: $route.name == 'rondas-inversion' }"
         >
-          <nuxt-link to="/rondas-inversion" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+          <nuxt-link to="/rondas-inversion" style="display: flex; box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px;">
             <div class="html-embed-9 w-embed">
               <i class="fas fa-money-bill-wave-alt icono-sidebarleft" :class="{ active: $route.name == 'rondas-inversion' }"></i>
             </div>
@@ -75,7 +75,7 @@
           class="list-item-9"
           :class="{ active: $route.name == 'grupos' }"
         >
-          <nuxt-link to="/grupos" style="display: flex; box-shadow: 0px 3px 6px #45454524;">
+          <nuxt-link to="/grupos" style="display: flex; box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px;">
             <div class="html-embed-9 w-embed">
               <i class="fas fa-comments icono-sidebarleft" :class="{ active: $route.name == 'grupos' }"></i>
             </div>
