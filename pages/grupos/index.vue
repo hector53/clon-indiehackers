@@ -78,9 +78,9 @@ export default {
                })
       
   await this.$axios
-        .$get("/grupos/getgrupostop")
+        .$get("/grupos/getgrupostop?p="+this.$store.state.p)
         .then((response) => {
-            console.log(response)
+            console.log("array grupos", response)
           this.arrayGrupos = response
         })
   },
@@ -119,6 +119,14 @@ export default {
   },
   watch: {},
   methods: {
+    async getGruposTop(){
+       await this.$axios
+        .$get("/grupos/getgrupostop?p="+this.$store.state.p)
+        .then((response) => {
+            console.log("array grupos", response)
+          this.arrayGrupos = response
+        })
+    },
       async  joinGroup(){
        if(this.rolUser == 2 || this.rolUser == 1){
           this.$router.push({ name: 'g-slug-configuracion-moderadores',  params: { slug: this.$route.params.slug }})
@@ -143,7 +151,7 @@ export default {
             if(response.status == 0){
                 
             }else{
-               this.$emit("getGrupoNow");
+               this.getGrupoNow
               
             }
       }
