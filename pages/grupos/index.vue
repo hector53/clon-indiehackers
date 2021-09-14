@@ -1,7 +1,7 @@
 <template>
    <div>
         <header class="mt-1 headerGrupo">
-        <h1>Top Grupos</h1>
+        <h2 style="color: #7986CB; font-weight: 700; margin-top: 0;">Top Grupos</h2 >
         <nuxt-link to="/grupo-nuevo" class="botonCanalizados aliD">Crear Grupo</nuxt-link>
            
         </header>
@@ -9,13 +9,12 @@
           <b-col v-for="(item, index) in arrayGrupos" :key="index" cols="4" class="mt-3" style="position: relative">
            <client-only> 
     <div>
-        <nuxt-link :to="{name: 'g-slug', params: {slug: item.slug}}">
            <div style="padding: 30px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
-           <div @click="joinGroup">
+           <div @click="joinGroup(item.id)">
              <b-button v-if="rolUser == 0" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-plus-circle"></i>
              </b-button>
-             <b-button v-if="rolUser == 3" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
+             <b-button v-if="rolUser == 1" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-grip-lines"></i>
              </b-button>
            </div>
@@ -24,7 +23,6 @@
              <p v-text="item.excerpt" v-if="item.excerpt"></p>
              <h4 class="cantPubliGrupo" v-if="item.cantPubli">{{item.cantPubli}} publicaciones </h4>
            </div>
-         </nuxt-link>
          </div>
     </client-only>
 
@@ -42,7 +40,6 @@ export default {
   name: "grupos",
   components: {Grupos},
  async fetch() {
-
    await this.$axios
                .$get("/grupos/getslug?slug="+this.$route.params.slug+"&token="+this.$store.state.tokenUser)
                .then((response) => {
@@ -119,18 +116,18 @@ export default {
   },
   watch: {},
   methods: {
-      async  joinGroup(){
+      async  joinGroup(id){
        if(this.rolUser == 2 || this.rolUser == 1){
           this.$router.push({ name: 'g-slug-configuracion-moderadores',  params: { slug: this.$route.params.slug }})
        }else{
-
       if(this.$store.state.cookieLogin){
+        this.rolUser == 1;
    // console.log("hola join o leave")
           let formData = new FormData();
             
             formData.append('token', this.$store.state.tokenUser);
-            formData.append('pGroup', this.pGroup);
-            const response = await this.$axios.$post('/grupos/join/',
+            formData.append('pGroup', id);
+            const response = await this.$axios.$post(`/grupos/join/`,
                 formData,
                 {
                 headers: {
@@ -138,16 +135,15 @@ export default {
                 }
               }
             )
-
+            this.rolUser = response.status;
       
-            if(response.status == 0){
-                
+            if(response.status != 0){
+                alert('unido')
             }else{
                this.$emit("getGrupoNow");
               
             }
       }
-
        }
        
      
@@ -215,4 +211,3 @@ export default {
   },
 };
 </script>
-

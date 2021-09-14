@@ -33,7 +33,7 @@
       
       >
         <div class="search-page__results-header">
-          <h2 class="search-page__results-label">
+          <h2 style="color: #7986CB; font-weight: 700; margin-top: 0;">
             {{ totalStartups }} Startups
           </h2>
 
