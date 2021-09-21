@@ -145,7 +145,11 @@
                         <!--Content from sidenav here-->
                          <div id="mySidenav" class="sidenav">
                           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                          <div style="display: flex;">
+                          <div style="display: flex" v-if="!$store.state.img_perfil && !$store.state.username && !$store.state.nombres">
+                            <nuxt-link to="/inciar-sesion">Iniciar Sesion</nuxt-link>
+                            <nuxt-link to="/registro">Registrarse</nuxt-link>
+                          </div>
+                          <div style="display: flex;" v-if="$store.state.img_perfil && $store.state.username && $store.state.nombres">
                             <img
                               :src="$store.state.img_perfil"
                               loading="lazy"
@@ -153,8 +157,8 @@
                               style="margin-left: 20px; margin-top: 12px; margin-right: 10px;"
                             />
                             <div>
-                              <h4 style="color: #fff;">Pepe rodriguez</h4>
-                              <p>@peperodriguez</p>
+                              <h4 style="color: #fff;">{{store.state.nombres}}</h4>
+                              <p>{{$store.state.username}}</p>
                             </div>
                           </div>
                           <hr style="background-color: #000">
@@ -1054,6 +1058,8 @@ export default {
       isActive: true,
       dropDownPerfil: false,
       contadorOut: 0,
+      arrayDataUser: {},
+      gruposRecomendados: [], 
     };
   },
   async fetch() {},
@@ -1076,11 +1082,20 @@ export default {
       }
     }
   },
-    
-  mounted() {
-    this.getCountNotify();
-  },
   methods: {
+     recargarDataUser(){
+       this.getDatosUser()
+      }, 
+
+    async  getDatosUser(){
+              this.arrayDataUser = {}
+           await this.$axios
+        .$get("/perfil/getdatainicial?username=" + this.$route.params.username+"&token="+this.$store.state.tokenUser)
+        .then((response) => {
+            console.log(response)
+            this.arrayDataUser = response
+        });
+      },
     onSuccessGoogle(data){
       var datos = data.getBasicProfile()
       var datosToArray = Object.values(datos)
@@ -1286,6 +1301,8 @@ export default {
     }
   },
   mounted() {
+    this.getCountNotify();
+    this.getDatosUser();
     if(this.errorTwitter){
       alert("error con usuario de twitter")
     }

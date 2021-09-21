@@ -14,7 +14,7 @@
              <b-button v-if="rolUser == 0 && item.perteneceAlGrupo == 0" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-plus-circle"></i>
              </b-button>
-             <b-button v-if="rolUser == 1  && item.perteneceAlGrupo == 0" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
+             <b-button v-if="item.perteneceAlGrupo == 1" variant="link" v-b-popover.hover.top="'Toca el boton para unirte al grupo!'" style="position: absolute; right: 20px;">
                <i class="fas fa-grip-lines"></i>
              </b-button>
              <span v-if="item.perteneceAlGrupo == 1">Unido</span>
