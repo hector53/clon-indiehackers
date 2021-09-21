@@ -32,8 +32,8 @@
            <nuxt-link  
               :to="{
                 name: 'g-slug',
-                params: { slug: item.slugGrupo }
-              }"  class="link-inline grupoPostPopular">Rondas de Inversion</nuxt-link>
+                params: { slug: item.slug }
+              }"  class="link-inline grupoPostPopular">{{item.username}}</nuxt-link>
            ·  <nuxt-link  
               :to="{
                 name: 'c-slug',

@@ -5,21 +5,21 @@
     </div>
         <div class="d-flex" style="text-align: center; justify-content: center;">
         <nuxt-link to="/g/blockchain" target="_blank">
-            <div style="width: 95px; height: 102px; background: #B84CA1 0% 0% no-repeat padding-box; border-radius: 30px;">
+            <div style="width: 95px; height: 102px; border-radius: 30px;" class="fondoImagen">
                 <i class="fab fa-bitcoin" style="margin-top: 20px; color: #fff; font-size: 25px;"></i>
                 <p style="color: #fff;">Blockchain</p>
             </div>
         </nuxt-link>
         <nuxt-link to="/g/fintech" target="_blank">
-            <div style="width: 95px; height: 102px; background: #30C0B2 0% 0% no-repeat padding-box; border-radius: 30px; margin: 0 10px">
+            <div style="width: 95px; height: 102px; border-radius: 30px; margin: 0 10px" class="fondoImagen2">
                 <i class="fas fa-money-check-alt" style="margin-top: 20px; color: #fff; font-size: 25px;"></i>
-                <p style="color: #fff;">Fintech</p>
+                <p style="color: #fff;">Inversiones</p>
             </div>
         </nuxt-link>
         <nuxt-link to="/g/ecommerce" target="_blank">
-            <div style="width: 95px; height: 102px; background: #FF8A65 0% 0% no-repeat padding-box; box-shadow: 0px 10px 60px #B1B1B13D; border-radius: 30px;">
-                <i class="fas fa-cash-register" style="margin-top: 20px; color: #fff; font-size: 25px;"></i>
-                <p style="color: #fff;">eCommerce</p>
+            <div style="width: 95px; height: 102px; box-shadow: 0px 10px 60px #B1B1B13D; border-radius: 30px;" class="fondoImagen3">
+                <i class="fas fa-school" style="margin-top: 20px; color: #fff; font-size: 25px;"></i>
+                <p style="color: #fff;">Educacion</p>
             </div>
         </nuxt-link>
         </div> 

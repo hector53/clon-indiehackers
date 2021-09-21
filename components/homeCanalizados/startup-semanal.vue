@@ -2,7 +2,7 @@
     <div style="margin-bottom: 20px">
         <h1 style="color: #7986CB; font-weight: 700; margin-top: 0;">Startups de la semana</h1>
         <div class="row">
-        <div class="col-6" v-for="(item, index) in arrayStartups.slice(0,1)" :key="index">
+        <div class="col-xl-6 col-md-6 col-sm-12 mb-3" v-for="(item, index) in arrayStartups.slice(0,1)" :key="index">
           <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
             <img :src="item.imagen" style="margin: auto;" />
             <h3 class="fontW500" v-html="item.titulo"></h3>
@@ -11,7 +11,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6" v-for="(item, index) in arrayStartups.slice(2,3)" :key="index">
+        <div class="col-xl-6 col-md-6 col-sm-12" v-for="(item, index) in arrayStartups.slice(2,3)" :key="index">
           <div style="padding: 20px; box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%); background: #FFFFFF 0% 0% no-repeat padding-box; border: 1px solid #7986CB; border-radius: 23px; opacity: 1; text-align: center;">
             <img :src="item.imagen" style="margin: auto; height: 100px; border-radius: 50px;" />
             <h3 class="fontW500" v-html="item.titulo"></h3>

@@ -255,8 +255,6 @@
         </div>
       </div>
 
-      <input type="number" class="form-control col-5" required v-if="mostrarInputInversion" placeholder="¿Cuánto dinero se manejó durante esta inversión?" />
-
       <!---->
     </div>
 

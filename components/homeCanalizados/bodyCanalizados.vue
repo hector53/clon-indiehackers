@@ -13,10 +13,10 @@
             <b-col lg="8">
               <!-- <historias-destacadas ref="historiasDes"></historias-destacadas> -->
               <div>
-                <StartupSemanal />
+                <newsDestacadas />
               </div>
               <div>
-                <newsDestacadas />
+                <StartupSemanal />
               </div>
 
               <LazyHydrate when-visible>

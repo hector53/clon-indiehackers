@@ -1,5 +1,36 @@
 <template>
   <header id="nav" class="sticky-nav" style="padding: 0 !important;">
+    <div>
+      <span onclick="openNav()" class="collapsable"><i class="fas fa-bars icono-hamburguesa"></i></span>
+      <!--Content from sidenav here-->
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div style="display: flex;">
+          <img
+            :src="$store.state.img_perfil"
+            loading="lazy"
+            class="image-12"
+            style="margin-left: 20px; margin-top: 12px; margin-right: 10px;"
+          />
+          <div>
+            <h4 style="color: #fff;">Pepe rodriguez</h4>
+            <p>@peperodriguez</p>
+          </div>
+        </div>
+        <hr style="background-color: #000">
+        <div style="text-align: left;">
+          <nuxt-link to="/comunidad" style="font-size: 20px;"><i class="fas fa-home"></i> Inicio</nuxt-link>
+          <nuxt-link to="/startups" style="font-size: 20px;"><i class="fas fa-rocket"></i> Startups</nuxt-link>
+          <nuxt-link to="/staffpicks" style="font-size: 20px;"><i class="fas fa-star"></i> Staff Picks</nuxt-link>
+          <nuxt-link to="/grupos" style="font-size: 20px;"><i class="fas fa-comments"></i> Grupos</nuxt-link>
+          <nuxt-link to="/ecosistema" style="font-size: 20px;"><i class="fas fa-users"></i> Ecosistema</nuxt-link>
+        </div>
+        <hr style="background-color: #000">
+        <div>
+          <div style="position: absolute; bottom: 0; text-aling: center;">Copyright © 2021 Canalizados. Todos los derechos reservados.</div>
+          </div>
+        </div>
+    </div>
     <nav class="container nav-bar w-container padding" :class="{'menosPadding': this.$store.state.cookieLogin}">
       <div class="div-block-413">
         <div
@@ -204,6 +235,67 @@ export default {
   directives: {
     ClickOutside,
   },
+  head: {
+        title: "Canalizados",
+        meta: [
+          { charset: "utf-8" },
+          { name: "viewport", content: "width=device-width, initial-scale=1" },
+          {
+            hid: "description",
+            name: "description",
+            content:
+              "Mantenete informado del ecosistema de startups, tecnologia y VCs latinoamericano. Argentina, Chile, Colombia, Peru, Mexico"
+          }
+        ],
+        link: [
+          { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+          {
+            rel: "stylesheet",
+            type: "text/css",
+            href: "assets/css/bootstrap.min.css"
+          },
+          {
+            rel: "stylesheet",
+            type: "text/css",
+            href: "assets/css/font-awesome.css"
+          },
+          { 
+            rel: "stylesheet", 
+            href: "assets/css/owl-carousel.css" 
+          },
+          { 
+            rel: "stylesheet", 
+            href: "https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css" 
+          },
+          
+          {
+            rel: "icon",
+            type: "image/x-icon",
+            href: "https://canalizados.com/images/logo/isotipo_1.svg"
+          }
+        ],
+        script: [
+          {
+            src: "assets/js/bootstrap.min.js"
+          },
+          {
+            src: "//cdn.jsdelivr.net/npm/sweetalert2@11"
+          },
+          {
+            src: "assets/js/scrollreveal.min.js"
+          },
+          {
+            src: "assets/js/alerts.js"
+          },
+          {
+            src: "https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"
+          },
+          {
+            src: "https://kit.fontawesome.com/123aef3e32.js",
+            crossorigin: "anonymous"
+          }
+        ]
+      },
   data() {
     return {
       dropDownPerfil: false,
@@ -244,7 +336,7 @@ export default {
       }
     },
     clicLogoInicio() {
-      this.$router.push("/");
+      this.$router.push("/comunidad");
     },
   },
   mounted() {
