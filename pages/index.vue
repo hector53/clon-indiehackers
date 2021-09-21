@@ -157,7 +157,7 @@
                               style="margin-left: 20px; margin-top: 12px; margin-right: 10px;"
                             />
                             <div>
-                              <h4 style="color: #fff;">{{store.state.nombres}}</h4>
+                              <h4 style="color: #fff;">{{$store.state.nombres}}</h4>
                               <p>{{$store.state.username}}</p>
                             </div>
                           </div>

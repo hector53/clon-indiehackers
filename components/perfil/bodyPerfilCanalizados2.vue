@@ -184,11 +184,12 @@ export default {
         await this.$axios
         .$get("/perfil/byslugnotuser?slug=" + this.$route.params.username)
         .then((response) => {
+
              if(response.status == 0){
          this.$router.push("/")
          return false
        }
-     //    console.log(response);
+         console.log(response);
          this.objUser = response
         });
       },
