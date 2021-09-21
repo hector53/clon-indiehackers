@@ -3916,13 +3916,14 @@ iframe {
   margin-left: 10px;
 }
 .cubrePostStaffpicks{
-  padding: 20px; 
-  box-shadow: rgba(152, 163, 179, 0.5) -1px 1px 5px 1px; 
-  background: 0% 0% no-repeat padding-box padding-box rgb(255, 255, 255); 
-  border: 1px solid rgb(121, 134, 203); 
-  border-radius: 23px; 
-  opacity: 1; 
-  text-align: center;
+  box-shadow: -1px 1px 5px 1px rgb(152 163 179 / 50%);
+  padding: 10px;
+  background: white;
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  height: 100%;
 }
 .cubrePostStaffpicks img{
   width: 100%;
@@ -4335,4 +4336,93 @@ text-decoration:underline!important;
   letter-spacing: 1.5px; 
   color: #33558B; 
   font-size: 18px !important;
+}
+
+.fondoImagen {
+  background-image: url("https://eleconomista.com.ar/wp-content/uploads/2021/09/invertir-en-Bitcoin.jpeg");
+background-position: center;
+background-size: 180px;
+background-color: rgba(0, 0, 0, 0.2);
+}
+
+.fondoImagen2 {
+  background-image: url("https://acceso.canalizados.com/wp-content/uploads/2021/06/Money_perspective_matte-150x150.png");
+background-position: center;
+background-size: 180px;
+}
+
+.fondoImagen3 {
+  background-image: url("https://acceso.canalizados.com/wp-content/uploads/2021/06/Captura%20de%20Pantalla%202021-06-17%20a%20la(s)%2021.54.58-150x150.png");
+background-position: center;
+background-size: 180px;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #435282; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 30px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.collapsable {
+  display: none;
+}
+
+.icono-hamburguesa {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 23px;
+  width: 32px;
+  height: 40px;
+  z-index: 99;
+  right: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .div-block-457 {
+    display: none;
+  }
+
+  .div-block-460 {
+    display: none;
+  }
+
+  .list-8 {
+    display: none;
+  }
+
+  .collapsable {
+    display: block;
+  }
 }
