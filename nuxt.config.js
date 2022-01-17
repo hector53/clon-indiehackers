@@ -139,8 +139,8 @@ export default {
  
   robots: {
     UserAgent: '*',
-    Allow: '/'
-   // Disallow: '/' // activar para test
+  //  Allow: '/'
+    Disallow: '/' // activar para test
   },
   axios: {
   //  baseURL: 'https://indiehackersapi.hectoracosta.site/api',
