@@ -6,9 +6,9 @@ export default {
     baseUrl: process.env.BASE_URL || 'https://canalizados.com'
    },
    //activar para test
- /* server: {
+  server: {
     port: 8000 // default: 3000
-  },*/
+  },
   target: 'server',
   loading: {
     color: 'blue',
