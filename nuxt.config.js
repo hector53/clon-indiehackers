@@ -45,8 +45,10 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/static/css/canalizados.css',
-    '~/static/css/csscana.css',
+    '~/static/css/estilosCanalizados.css',
+    '~/static/css/slider.css',
+  //  '~/static/css/csscana.css',
+   // '~/static/css/canalizados.css',
   ],
 
   serverMiddleware: [
@@ -88,6 +90,11 @@ export default {
     'vue-social-sharing/nuxt',
     '@miyaoka/nuxt-twitter-widgets-module',
   ],
+
+  bootstrapVue: {
+    // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)
+    icons: true
+  },
   feed: {
     // Your feeds here
     path: "/rss.xml",
@@ -128,14 +135,7 @@ export default {
   googleAnalytics: {
     id: 'G-JG1LZGHKE2'
   },
-  bootstrapVue: {
-    componentPlugins: [
-      'LayoutPlugin', 'CardPlugin','FormGroupPlugin', 'FormCheckboxPlugin', 'FormRadioPlugin',
-      'FormDatepickerPlugin'
-    ],
-    components: ['BButton', 'BFormInvalidFeedback'],
-    directivePlugins: []
-  },
+ 
  
   robots: {
     UserAgent: '*',

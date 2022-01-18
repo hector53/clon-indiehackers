@@ -1,0 +1,70 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+     Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block
+}
+.sticky-nav {
+    position: static;
+    top: 0;
+    z-index: 1;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #EBEBEB;
+  }
+
+.canalizadosBrandPC{
+    width: 200px;
+}
+
+.btnUneteComunidad {
+    background: #7986CB;
+    color: white !important;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    height: calc(100% - 16px);
+    padding: 15px;
+    outline: none;
+  }
+.btnUneteComunidad:hover{
+    text-decoration: none;
+    background: #8090e0;
+}
+
+.ml-auto{
+    align-items: center;
+}
+.iconsHeader{
+    margin-right: 25px;
+}
+
+.header2{
+    padding: 15px;
+    align-items: center;
+}
+.header2 li a{
+    color: #657399;
+    font-weight: 600;
+    font-family: Space Grotesk,sans-serif
+}
+.header2 li a:hover{
+    color: #7789bb;
+}

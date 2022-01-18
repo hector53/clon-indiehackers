@@ -1,5 +1,5 @@
 <template>
-  <header id="nav" class="sticky-nav">
+  <header id="nav" class="sticky-nav" style="padding:0; margin:0">
     <nav class="container nav-bar w-container">
       <div class="div-block-413">
         <div
@@ -13,34 +13,13 @@
                 class="dropdown-toggle w-dropdown-toggle"
                 role="button"
               >
-              
                 <nuxt-link  to="/">
                 <img src="/images/logo/logo.svg" class="tamaLogoL" />
                 </nuxt-link>
-
                 <nuxt-link  to="/">
                 <img src="/images/logo/isotipo_1.svg" class="tamaLogoP" />
                 </nuxt-link>
-
-
               </div>
-              <!--  <nav
-                class="w-dropdown-list"
-                id="w-dropdown-list-0"
-                aria-labelledby="w-dropdown-toggle-0"
-              >
-                <a href="#" class="w-dropdown-link" tabindex="0">📅 Eventos</a
-                ><a href="#" class="w-dropdown-link" tabindex="0">📱 Startups</a
-                ><a href="#" class="w-dropdown-link" tabindex="0"
-                  >🤖 Ecosistema</a
-                ><a href="#" class="w-dropdown-link" tabindex="0"
-                  >💾 Base de datos</a
-                ><a href="#" class="w-dropdown-link" tabindex="0"
-                  >✉️ Newsletter</a
-                ><a href="#" class="w-dropdown-link" tabindex="0"
-                  >✍️ Colaborá</a
-                >
-              </nav>-->
             </div>
       </div>
       <div class="div-block-414">
