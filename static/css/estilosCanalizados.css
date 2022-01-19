@@ -22,6 +22,9 @@ section,
 summary {
   display: block
 }
+.col-12{
+    padding-left: 0;
+}
 .sticky-nav {
     position: static;
     top: 0;
@@ -155,6 +158,7 @@ summary {
 }
 .colCardCanalizados{
     margin-bottom: 30px;
+    padding-left: 0;
 }
 .cardCanalizados{
     padding-left: 10px;
@@ -242,8 +246,12 @@ summary {
 }
 
 
-
-
+.mainMiraEstaStartup{
+    background: #7986CB;
+}
+.mainMiraEstaStartup .item{
+    width: 100%;
+}
 .mainMiraEstaStartup .card {
     padding-top: 10px;
     padding-left: 10px;
@@ -265,6 +273,7 @@ summary {
 .mainMiraEstaStartup h1{
     font-size: 25px;
     margin-bottom: 20px;
+    color: white;
 }
 
 .titleCardMiraEstaStartup{

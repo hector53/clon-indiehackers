@@ -1,15 +1,19 @@
 <template>
   <div>
-    <slider-home-top
+      <b-container>
+<slider-home-top
       :arrayNoticias="arrayNoticias"
-      class="pl-4 pr-4 mt-4"
+      class="mt-4"
     ></slider-home-top>
-
-    <div class="mainInversiones">
-      <h1>Inversiones</h1>
+      </b-container>
+    
+    <b-container>
+        <div class="mainInversiones">
+      
       <b-row>
-        <b-col lg="9" md="12" sm="12" cols="12" class="mt-4">
-          <b-row>
+        <b-col lg="9" md="12" sm="12" cols="12" >
+            <h1>Inversiones</h1>
+          <b-row class="pt-4">
             <b-col
               class="colCardCanalizados"
               lg="4"
@@ -37,7 +41,7 @@
         </b-col>
         <b-col cols="12" lg="3" md="12" class="sidebarInversiones">
           <h1>Lo más popular</h1>
-          <b-row>
+          <b-row class="pt-4">
             <b-col
               cols="12"
               v-for="(item, index) in arrayPopulares"
@@ -61,9 +65,12 @@
         </b-col>
       </b-row>
     </div>
+    </b-container>
+    
 
-    <div class="mainMiraEstaStartup" v-if="arrayMiraEstaStartup.length>0">
-      <h1>Mira esta Startup 👇</h1>
+    <div class="mainMiraEstaStartup pt-4 pb-4" v-if="arrayMiraEstaStartup.length>0">
+       <b-container>
+            <h1>Mira esta Startup 👇</h1>
       <cat-carousel
         :items="arrayMiraEstaStartup"
         :item-per-page="1"
@@ -92,14 +99,17 @@
           </div>
         </template>
       </cat-carousel>
+       </b-container>
+     
     </div>
+<b-container>
+ <div class="mainEcosistemaCripto mainInversiones mt-4 mb-4" v-if="arrayEcosistemaCripto.length>0">
+     
 
-    <div class="mainEcosistemaCripto mainInversiones mt-4 mb-4" v-if="arrayEcosistemaCripto.length>0">
-      <h1>Ecosistema cripto</h1>
-
-      <b-row>
-        <b-col lg="9" md="12" sm="12" cols="12" class="mt-4">
-          <b-row>
+      <b-row class="mt-4">
+        <b-col lg="9" md="12" sm="12" cols="12" >
+             <h1>Ecosistema cripto</h1>
+          <b-row class="pt-4">
             <b-col
               class="cardGrandeEcosistema"
               lg="12"
@@ -157,12 +167,13 @@
       </b-row>
 
 
-      <h1>Management y Recursos para Startups</h1>
+     
 
 
-      <b-row v-if="arrayRecursosParaStartups.length>0">
-        <b-col lg="9" md="12" sm="12" cols="12" class="mt-4">
-          <b-row>
+      <b-row v-if="arrayRecursosParaStartups.length>0" class="mt-4">
+        <b-col lg="9" md="12" sm="12" cols="12" >
+             <h1>Management y Recursos para Startups</h1>
+          <b-row class="pt-4">
 
             <b-col
               class="colCardCanalizados"
@@ -197,6 +208,8 @@
         </b-col>
       </b-row>
     </div>
+</b-container>
+   
 
   
 

@@ -172,9 +172,7 @@
     </b-sidebar>
 
     <main>
-      <b-container>
         <Nuxt />
-      </b-container>
     </main>
 
     <footer id="footer" class="footer">
