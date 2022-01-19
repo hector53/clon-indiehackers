@@ -62,7 +62,7 @@
       </b-row>
     </div>
 
-    <div class="mainMiraEstaStartup">
+    <div class="mainMiraEstaStartup" v-if="arrayMiraEstaStartup.length>0">
       <h1>Mira esta Startup 👇</h1>
       <cat-carousel
         :items="arrayMiraEstaStartup"

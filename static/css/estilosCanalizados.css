@@ -78,7 +78,7 @@ summary {
 }
 
 .searchMovil{
-    display: none;
+    display: none!important;
 }
 
 .jeg_search_wrapper .jeg_search_form {
@@ -298,7 +298,7 @@ footer{
         display: none;
     }
     .searchMovil{
-        display: block;
+        display: block!important;
     }
 
     .colCardCanalizados{
