@@ -111,18 +111,18 @@
                  <div class="canalizados_postblock_content">
                   <div class="canalizados_post_category">
                    <nuxt-link
-                  :to="{ name: 'g-slug', params: { slug: arrayNoticias[1].slugGrupo } }"
-                    >{{ arrayNoticias[1].tituloGrupo }}</nuxt-link >
+                  :to="{ name: 'g-slug', params: { slug: arrayNoticias[2].slugGrupo } }"
+                    >{{ arrayNoticias[2].tituloGrupo }}</nuxt-link >
                   </div>
                   <div class="canalizados_post_info">
                   <h2 class="canalizados_post_title">
-                    <nuxt-link :to="{ name: 'c-slug', params: { slug: arrayNoticias[1].slug } }">{{arrayNoticias[1].titulo}}</nuxt-link>
+                    <nuxt-link :to="{ name: 'c-slug', params: { slug: arrayNoticias[2].slug } }">{{arrayNoticias[2].titulo}}</nuxt-link>
                   </h2>
                   <div class="canalizados_post_meta">
                     <div class="canalizados_meta_date">
                       <a
                         href="https://revistamyt.com/istore-sigue-creciendo-abren-nueva-sucursal-en-guatemala/"
-                        ><i class="fa fa-clock-o"></i>{{arrayNoticias[1].fecha}}</a
+                        ><i class="fa fa-clock-o"></i>{{arrayNoticias[2].fecha}}</a
                       >
                     </div>
                   </div>

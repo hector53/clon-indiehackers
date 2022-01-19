@@ -5,6 +5,7 @@ html {
 
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-family: 'Space Grotesk', sans-serif;
+    color:#657399
   }
   article,
 aside,
@@ -32,7 +33,10 @@ summary {
 .canalizadosBrandPC{
     width: 200px;
 }
-
+.navTopRight{
+    align-items: center;
+    display: flex;
+}
 .btnUneteComunidad {
     background: #7986CB;
     color: white !important;
@@ -49,9 +53,7 @@ summary {
     background: #8090e0;
 }
 
-.ml-auto{
-    align-items: center;
-}
+
 .iconsHeader{
     margin-right: 25px;
 }
@@ -68,3 +70,273 @@ summary {
 .header2 li a:hover{
     color: #7789bb;
 }
+
+.linksSidebarMovil li a{
+    color: #657399;
+    font-weight: 600;
+    font-family: Space Grotesk,sans-serif
+}
+
+.searchMovil{
+    display: none;
+}
+
+.jeg_search_wrapper .jeg_search_form {
+    display: block;
+    position: relative;
+    line-height: normal;
+    min-width: 60%;
+}
+.jeg_search_input {
+    border-radius: 33px;
+    padding: .5em 15px;
+}
+.jeg_search_input {
+    height: 36px;
+}
+.jeg_search_input {
+    width: 100%;
+    vertical-align: middle;
+    height: 40px;
+    padding: .5em 30px .5em 14px;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    height: 40px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    max-width: 100%;
+    transition: .25s ease;
+    box-shadow: none
+}
+.jeg_search_button {
+    padding-right: 12px;
+}
+.jeg_search_wrapper .jeg_search_button {
+    color: #212121;
+    background: transparent;
+    border: 0;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    height: auto;
+    min-height: unset;
+    line-height: normal;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 10px;
+    transition: none;
+}
+.jeg_search_popup_expand{
+    width: 100%;
+}
+
+.jeg_search_popup_expand .jeg_search_form{
+    width: auto;
+    border-left: 0;
+    border-right: 0;
+    left: -15px!important;
+    right: -15px!important;
+    padding: 20px;
+    transform: none;
+    height: auto;
+    transition: padding .2s,height .1s,opacity .15s;
+    background: #fff;
+    border: 1px solid #eee;
+    z-index: 12;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 9%);
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.colCardCanalizados{
+    margin-bottom: 30px;
+}
+.cardCanalizados{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: 320px;
+    border: none;
+}
+.cardCanalizados .card-body{
+    padding: 0;
+    padding-top: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.mainInversiones h1{
+    font-size: 25px;
+}
+
+
+.colCardCanalizados .card img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.colCardCanalizados a{
+    color: #3d3d3d;
+    text-decoration: none;
+}
+.titleCardMiraEstaStartup a{
+    color: #3d3d3d;
+    text-decoration: none;
+}
+.sidebarInversiones a{
+    color: #3d3d3d;
+    text-decoration: none;
+}
+.sidebarInversiones img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+.sidebarInversiones .card{
+    padding-top: 10px;
+    padding-left: 10px;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border: none;
+    margin-bottom: 0!important;
+}
+.sidebarInversiones .card-body{
+    padding: 0;
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.sidebarInversiones .card-body .card-text{
+    margin-bottom: 5px;
+}
+
+
+.cardGrandeEcosistema .card {
+    padding-top: 10px;
+    padding-left: 10px;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border: none;
+    margin-bottom: 0!important;
+}
+
+.cardGrandeEcosistema .card img {
+    width: 40%;
+    height: 200px;
+    object-fit: cover;
+}
+.cardGrandeEcosistema .card .card-body{
+    padding: 20px;
+    width: 60%;
+}
+.cardGrandeEcosistema h1{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.mainMiraEstaStartup .card {
+    padding-top: 10px;
+    padding-left: 10px;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border: none;
+    margin-bottom: 0!important;
+}
+
+.mainMiraEstaStartup .card img {
+    width: 35%;
+    height: 220px;
+    object-fit: cover;
+}
+.mainMiraEstaStartup .card .card-body{
+    padding: 20px;
+    width: 65%;
+}
+.mainMiraEstaStartup h1{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.titleCardMiraEstaStartup{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+footer{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+/*    movil     */
+
+@media screen and (max-width:950px) {
+    .colCardCanalizados .card img{
+        width: 100%;
+    height: auto;
+    object-fit: initial;
+    }
+    .cardCanalizados
+    {
+        height: 100%;
+    }
+    .navTopRight{
+       display: none;
+    }
+    .header2{
+        display: none;
+    }
+    .searchMovil{
+        display: block;
+    }
+
+    .colCardCanalizados{
+        margin-top: 0!important;
+        margin-bottom: 0;
+    }
+
+
+    .cardGrandeEcosistema .card {
+        flex-wrap: wrap;
+    }
+    .cardGrandeEcosistema .card img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .cardGrandeEcosistema .card .card-body{
+        padding: 20px;
+        width: 100%;
+    }
+
+    .mainMiraEstaStartup .card {
+        flex-wrap: wrap;
+    }
+    .mainMiraEstaStartup .card img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .mainMiraEstaStartup .card .card-body{
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .canalizados_wrapper {
+        padding: 0!important;
+    }
+    .titleCardMiraEstaStartup{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+  }
