@@ -1,5 +1,5 @@
 <template>
-  <header id="nav" class="sticky-nav" style="padding:0; margin:0">
+  <header id="nav" class="sticky-nav" style="padding:10px; margin:0">
     <nav class="container nav-bar w-container">
       <div class="div-block-413">
         <div

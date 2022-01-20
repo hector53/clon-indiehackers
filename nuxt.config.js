@@ -45,10 +45,11 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/static/css/csscana.css',
+    '~/static/css/canalizados.css',
     '~/static/css/estilosCanalizados.css',
     '~/static/css/slider.css',
-  //  '~/static/css/csscana.css',
-   // '~/static/css/canalizados.css',
+   
   ],
 
   serverMiddleware: [
@@ -198,6 +199,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    /*
    extractCSS: true,
    optimization: {
     splitChunks: {
@@ -211,7 +213,7 @@ export default {
       }
     }
   },
-
+*/
  //analyze: true,
    
   }

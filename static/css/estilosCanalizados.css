@@ -22,9 +22,12 @@ section,
 summary {
   display: block
 }
-.col-12{
-    padding-left: 0;
+
+a{
+    font-family: 'Space Grotesk', sans-serif;   
+    font-weight: 500;
 }
+
 .sticky-nav {
     position: static;
     top: 0;
@@ -43,7 +46,7 @@ summary {
 .btnUneteComunidad {
     background: #7986CB;
     color: white !important;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
@@ -59,6 +62,9 @@ summary {
 
 .iconsHeader{
     margin-right: 25px;
+}
+.iconsheaderLink{
+    color: #8090e0!important
 }
 
 .header2{
@@ -77,7 +83,8 @@ summary {
 .linksSidebarMovil li a{
     color: #657399;
     font-weight: 600;
-    font-family: Space Grotesk,sans-serif
+    font-family: Space Grotesk,sans-serif;
+    border: none;
 }
 
 .searchMovil{
@@ -156,6 +163,14 @@ summary {
     align-items: center;
     margin-top: 10px;
 }
+.containerSliderHome{
+    padding: 0
+}
+.cardAutorFecha{
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
 .colCardCanalizados{
     margin-bottom: 30px;
     padding-left: 0;
@@ -164,23 +179,32 @@ summary {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
-    height: 320px;
     border: none;
-}
-.cardCanalizados .card-body{
-    padding: 0;
-    padding-top: 10px;
-    font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    margin-bottom: 20px;
 }
+.cardCanalizados img{
+   height: 160px;
+   object-fit: cover;
+   flex-shrink: 0;
+    width: 100%;
+}
+
+.cardCanalizados .card-text a{
+    color: #3d3d3d;
+    text-decoration: none;
+    margin-top: 10px; }
+
 .mainInversiones h1{
     font-size: 25px;
 }
 
-
+.card-img, .card-img-bottom {
+     border-bottom-right-radius: 0!important; 
+     border-bottom-left-radius: 0!important; 
+}
 .colCardCanalizados .card img{
     width: 100%;
     height: 160px;
@@ -193,6 +217,7 @@ summary {
 .titleCardMiraEstaStartup a{
     color: #3d3d3d;
     text-decoration: none;
+    color: white;
 }
 .sidebarInversiones a{
     color: #3d3d3d;
@@ -202,6 +227,7 @@ summary {
     width: 70px;
     height: 70px;
     object-fit: cover;
+    border-radius: 0;
 }
 .sidebarInversiones .card{
     padding-top: 10px;
@@ -221,14 +247,19 @@ summary {
     margin-bottom: 5px;
 }
 
-
+.cardGrandeEcosistema {
+    padding: 0;
+    margin-bottom: 20px;
+}
 .cardGrandeEcosistema .card {
     padding-top: 10px;
     padding-left: 10px;
-    align-items: flex-start;
     padding-bottom: 10px;
     border: none;
     margin-bottom: 0!important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .cardGrandeEcosistema .card img {
@@ -255,20 +286,25 @@ summary {
 .mainMiraEstaStartup .card {
     padding-top: 10px;
     padding-left: 10px;
-    align-items: flex-start;
     padding-bottom: 10px;
     border: none;
     margin-bottom: 0!important;
+    background: none;
+    display: flex;
 }
 
+.mainMiraEstaStartup .card .text-muted {
+    color: white!important;
+}
 .mainMiraEstaStartup .card img {
     width: 35%;
     height: 220px;
     object-fit: cover;
 }
 .mainMiraEstaStartup .card .card-body{
-    padding: 20px;
     width: 65%;
+    display: flex;
+    flex-direction: column;
 }
 .mainMiraEstaStartup h1{
     font-size: 25px;
@@ -288,9 +324,120 @@ footer{
     background-color: #f1f1f1;
     text-align: center;
 }
+
+
+/*  widget seguidores redes sociales   */
+.cubreCanalziadosRedesSociales{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.canalizados-social-box{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+.canalizados-sp{
+    transition: box-shadow 0.3s ease;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.canalizados-social-box .facebook{
+    background-color: #516eab;
+}
+.canalizados-social-box .instagram{
+    background: #f09433; 
+background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+.canalizados-social-box .twitter{
+    background-color: #29c5f6;
+}
+.canalizados-social-box .linkedin{
+    background-color: #0073b1;
+}
+.canalizados_social_info_counter{
+    font-size: 15px;
+    top: 5px;
+    font-weight: bold;
+}
+.canalizados_social_info_name{
+    font-size: 11px
+}
+
+/* canalizadosNews */
+.canalizadosNews{
+    padding-top: 16px;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.canalizadosNewsBox{
+    background: #ffffff;
+    border: 2px solid #383092;
+    color: #424242;
+    padding: 32px 16px 16px;
+    position: relative;
+}
+.canalizadosNewsBox p{
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.3;
+}
+.canalizadosNewsBox .form-control{
+    border: 1px solid #525455;
+    border-radius: 0;
+}
+.canalizadosNewsBox button{
+    border-radius: 0;
+    padding: 10px
+}
+.canalizadosNewsBox button{
+    outline: none;
+    border: none;
+}
+.canalizadosNewsBoxIcon{
+    display: block;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background: #ffffff;
+    left: calc(50%);
+    position: absolute;
+    top: -1px;
+    padding: 0 10px;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+.canalizadosNewsBoxIcon img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+
+
+
 /*    movil     */
 
 @media screen and (max-width:950px) {
+    .cardGrandeEcosistema {
+        padding: 15px;
+    }
     .colCardCanalizados .card img{
         width: 100%;
     height: auto;
@@ -346,6 +493,9 @@ footer{
     .titleCardMiraEstaStartup{
         font-size: 16px;
         font-weight: bold;
+    }
+    .col-12 {
+        padding-left: 15px;
     }
     
   }

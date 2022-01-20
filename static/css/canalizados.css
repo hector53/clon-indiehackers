@@ -1,21 +1,3 @@
-
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block
-}
-
 audio,
 canvas,
 progress,
@@ -661,11 +643,7 @@ textarea.w-select {
   height: 20px
 }
 
-.w-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 940px
-}
+
 
 .w-container:after,
 .w-container:before {
@@ -2118,80 +2096,9 @@ textarea.w-select {
   grid-column-gap: 16px
 }
 
-h1 {
-  margin: 20px 0 15px;
-  font-size: 44px;
-  line-height: 62px;
-  font-weight: 400
-}
 
-h2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 36px;
-  line-height: 50px;
-  font-weight: 400
-}
 
-h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 30px;
-  line-height: 46px;
-  font-weight: 400
-}
 
-h4 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  line-height: 38px;
-  font-weight: 400
-}
-
-h5 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  line-height: 34px;
-  font-weight: 500
-}
-
-h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 500
-}
-
-a {
-  background-color: transparent;
-  display: block;
-  -webkit-transition: opacity .2s;
-  transition: opacity .2s;
-  color: #1a1b1f;
-  text-decoration: underline
-}
-
-a:hover {
-  color: #32343a
-}
-
-a:active {
-  color: #43464d
-}
-
-ul {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 40px;
-  list-style-type: disc
-}
-
-li {
-  margin-bottom: 10px
-}
 
 label {
   display: block;
@@ -2266,14 +2173,7 @@ figcaption {
   opacity: .6
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 1240px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto
-}
+
 
 .container.nav-bar {
   display: -webkit-box;
@@ -3767,14 +3667,7 @@ figcaption {
   font-size: 24px
 }
 
-.sticky-nav {
-  position: static;
-  top: 0;
-  z-index: 1;
-  padding: 10px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #EBEBEB;
-}
+
 
 .nav-grid {
   display: -ms-grid;
@@ -3823,18 +3716,6 @@ figcaption {
   object-position: 0% 50%
 }
 
-.nav-link {
-  display: block;
-  margin-right: 0;
-  margin-left: 0;
-  padding: 10px 0;
-  color: #444;
-  text-decoration: none
-}
-
-.nav-link:hover {
-  text-decoration: underline
-}
 
 .list-item {
   -webkit-box-align: center;
@@ -6003,9 +5884,7 @@ figcaption {
     text-align: left
   }
 
-  .container {
-    text-align: center
-  }
+
 
   .heading-jumbo {
     font-size: 50px;

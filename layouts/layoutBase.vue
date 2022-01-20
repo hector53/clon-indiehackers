@@ -64,13 +64,16 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto navTopRight" style="margin-top: 0;">
             <div class="h2 mb-0 iconsHeader">
-              <b-icon icon="instagram" font-scale="0.7"></b-icon>
-              <b-icon icon="twitter" font-scale="0.7"></b-icon>
-              <b-icon icon="linkedin" font-scale="0.7"></b-icon>
+              <a href="https://www.instagram.com/canalizados_/"><b-icon icon="instagram" font-scale="0.7" class="iconsheaderLink"></b-icon></a>
+              <a href="https://twitter.com/Canalizados_"><b-icon icon="twitter" font-scale="0.7" class="iconsheaderLink"></b-icon></a>
+              <a href="https://www.linkedin.com/company/canalizados/"><b-icon icon="linkedin" font-scale="0.7" class="iconsheaderLink"></b-icon></a>
             </div>
-            <nuxt-link class="btnUneteComunidad" to="iniciar-sesion"
+            <nuxt-link class="btnUneteComunidad" :to="{ name: 'registro' }"
               >Únete a la Comunidad</nuxt-link
             >
+
+
+            
           </b-navbar-nav>
         </b-container>
       </b-navbar>
