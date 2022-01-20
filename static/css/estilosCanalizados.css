@@ -316,7 +316,15 @@ a{
     font-size: 25px;
     font-weight: bold;
 }
-
+.historiaParaContar{
+    text-align: center;
+    color: white;
+    margin: 20px;
+}
+.historiaParaContar a{
+    color: white;
+    text-decoration: underline;
+}
 footer{
     padding-top: 40px;
     padding-bottom: 40px;

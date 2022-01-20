@@ -46,13 +46,13 @@
 
           <div class="jeg_search_popup_expand" v-if="clickSearch == true">
             <form
-              action="https://revistamyt.com/"
+              action="buscar"
               method="get"
               class="jeg_search_form"
               target="_top"
             >
               <input
-                name="s"
+                name="q"
                 class="jeg_search_input"
                 placeholder="Buscar..."
                 type="text"
@@ -94,13 +94,13 @@
                     ><i class="fa fa-search"></i
                   ></a>
                   <form
-                    action="https://revistamyt.com/"
+                    action="buscar"
                     method="get"
                     class="jeg_search_form"
                     target="_top"
                   >
                     <input
-                      name="s"
+                      name="q"
                       class="jeg_search_input"
                       placeholder="Buscar..."
                       type="text"
