@@ -46,8 +46,11 @@
           </b-col>
           <!-- Columna derecha redes sociales y mas -->
           <b-col cols="12" lg="3" md="12" class="sidebarInversiones">
-            <h1>Nuestras redes</h1>
-            <widget-seguidores-sociales></widget-seguidores-sociales>
+            <div class="stickySidebar">
+                <widget-seguidores-sociales></widget-seguidores-sociales>
+             <main-news-letter></main-news-letter>
+            </div>
+            
           </b-col>
           <!-- Columna derecha redes sociales y mas -->
         </b-row>
@@ -60,15 +63,11 @@
     <b-container>
       <div class="mainEcosistemaCripto mainInversiones mt-4 mb-4">
         <b-row class="mt-4">
-          <b-col lg="9" md="12" sm="12" cols="12">
+          <b-col lg="12" md="12" sm="12" cols="12">
             <h1>Management y Recursos para Startups</h1>
             <main-recursos></main-recursos>
           </b-col>
-          <!-- Newsletter-->
-          <b-col cols="12" lg="3" md="12" class="sidebarInversiones">
-            <main-news-letter></main-news-letter>
-           </b-col>
-          <!-- Newsletter-->
+         
         </b-row>
       </div>
     </b-container>

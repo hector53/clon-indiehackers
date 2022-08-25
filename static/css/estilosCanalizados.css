@@ -48,8 +48,8 @@ a{
     color: white !important;
     border-radius: 7px;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
     height: calc(100% - 16px);
     padding: 15px;
     outline: none;
@@ -199,6 +199,7 @@ a{
 
 .mainInversiones h1{
     font-size: 25px;
+    width: 100%;
 }
 
 .card-img, .card-img-bottom {
@@ -384,11 +385,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
     font-size: 11px
 }
 
+.stickySidebar{
+    position: sticky;
+    top: 20px;
+}
+
 /* canalizadosNews */
 .canalizadosNews{
     padding-top: 16px;
     margin-bottom: 32px;
     text-align: left;
+    margin-top: 30px;
 }
 
 .canalizadosNewsBox{

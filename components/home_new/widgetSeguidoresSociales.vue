@@ -1,7 +1,9 @@
 <template>
-    <div>
- <div class="cubreCanalziadosRedesSociales mt-4">
-            <div class="canalizados_social_type">
+    <div >
+      
+ <div class="cubreCanalziadosRedesSociales ">
+   <h1>Nuestras redes</h1>
+            <div class="canalizados_social_type mt-4">
               <div class="canalizados-social-box">
                 <a href="https://www.instagram.com/canalizados_/">
                   <div class="canalizados-sp instagram">
@@ -17,7 +19,7 @@
                 <span class="canalizados_social_info_name">Seguidores</span>
               </div>
             </div>
-            <div class="canalizados_social_type">
+            <div class="canalizados_social_type mt-4">
               <div class="canalizados-social-box">
                 <a href="https://twitter.com/Canalizados_">
                   <div class="canalizados-sp twitter">
@@ -32,7 +34,7 @@
                 <span class="canalizados_social_info_name">Seguidores</span>
               </div>
             </div>
-            <div class="canalizados_social_type">
+            <div class="canalizados_social_type mt-4">
               <div class="canalizados-social-box">
                 <a href="https://www.linkedin.com/company/canalizados/">
                   <div class="canalizados-sp linkedin">
